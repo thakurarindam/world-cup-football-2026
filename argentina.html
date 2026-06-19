@@ -242,16 +242,17 @@ const positions = [
   {key:'FWD', label:'Forwards'}
 ];
 const squadDiv = document.getElementById('squad-section');
+let squadHTML = '';
 positions.forEach(pos=>{
   const players = arg.squad.filter(p=>p.pos===pos.key).sort((a,b)=>a.no-b.no);
   if (!players.length) return;
-  squadDiv.innerHTML += `<div class="pos-section-title">${pos.label}</div><div class="squad-grid" id="squad-grid-${pos.key}">`;
+  squadHTML += `<div class="pos-section-title">${pos.label}</div><div class="squad-grid" id="squad-grid-${pos.key}">`;
   players.forEach(p=>{
     const initials = p.name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
     const posClss = pos.key==='GK'?'pos-gk':pos.key==='DEF'?'pos-def':pos.key==='MID'?'pos-mid':'pos-fwd';
     const isMessi = p.name.includes('Messi');
     const avatarId = `avatar-${p.no}`;
-    squadDiv.innerHTML += `<div class="player-card" style="${isMessi?'border-color:var(--gold);':''}">
+    squadHTML += `<div class="player-card" style="${isMessi?'border-color:var(--gold);':''}">
       <div id="${avatarId}" class="player-avatar" style="${isMessi?'border-color:var(--gold);background:linear-gradient(135deg,var(--primary),#002060);':''}">${initials}</div>
       <div class="player-info">
         <div class="pname">#${p.no} ${p.name}</div>
@@ -260,8 +261,9 @@ positions.forEach(pos=>{
       <div class="player-pos-badge ${posClss}">${p.pos}</div>
     </div>`;
   });
-  squadDiv.innerHTML += '</div>';
+  squadHTML += '</div>';
 });
+squadDiv.innerHTML = squadHTML;
 
 // Fetch Wikipedia player photos (non-blocking)
 async function loadPlayerPhoto(player) {
