@@ -100,11 +100,11 @@ def git_push():
     today = datetime.now(IST).strftime("%Y-%m-%d %H:%M IST")
     cmds = [
         ["git", "-C", REPO_DIR, "add", "-A"],
-        ["git", "-C", REPO_DIR, "commit", "-m", f"🔄 Daily refresh — {today}"],
+        ["git", "-C", REPO_DIR, "commit", "-m", f"Daily refresh - {today}"],
         ["git", "-C", REPO_DIR, "push", "origin", "main"],
     ]
     for cmd in cmds:
-        result = subprocess.run(cmd, capture_output=True, text=True)
+        result = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace')
         if result.returncode == 0:
             log(f"✅ {' '.join(cmd[2:])}")
         elif "nothing to commit" in result.stdout + result.stderr:

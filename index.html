@@ -3,18 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World Cup Football 2026 | Official Fan Portal</title>
+<title>WC Football 2026 — Argentina Fan Portal</title>
 <link rel="stylesheet" href="css/style.css">
-<meta name="description" content="Your one-stop portal for FIFA World Cup 2026 — live standings, fixtures, team info, Argentina tracker and facts.">
 </head>
 <body>
 
 <nav class="navbar">
-  <a class="navbar-brand" href="index.html"><span class="trophy">🏆</span> WC Football 2026</a>
+  <a class="navbar-brand" href="index.html">🏆 WC Football 2026</a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">🏠 Home</a></li>
-    <li><a href="groups.html">📊 Groups</a></li>
-    <li><a href="schedule.html">📅 Schedule <span class="live-badge">LIVE</span></a></li>
+    <li><a href="groups.html">📊 Groups &amp; Schedules</a></li>
     <li><a href="teams.html">🌍 Teams</a></li>
     <li><a href="argentina.html">🇦🇷 Argentina</a></li>
     <li><a href="facts.html">⭐ Facts</a></li>
@@ -23,218 +21,198 @@
 
 <div class="page-hero">
   <div class="container">
-    <h1>⚽ FIFA World Cup 2026</h1>
-    <p>USA · Canada · Mexico &nbsp;|&nbsp; June 11 – July 19, 2026 &nbsp;|&nbsp; 48 Teams · 104 Matches</p>
-    <p id="hero-date" style="color:var(--gold);margin-top:.5rem;font-weight:600;"></p>
+    <h1>🌍 FIFA World Cup 2026</h1>
+    <p>USA · Canada · Mexico &nbsp;|&nbsp; June 11 – July 19, 2026 &nbsp;|&nbsp; 48 Teams · 12 Groups · 104 Matches</p>
+    <div style="margin-top:1rem;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.3rem;font-size:.8rem;color:var(--text-muted);">
+        <span>Tournament Progress</span><span id="progress-pct"></span>
+      </div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-bar"></div></div>
+    </div>
   </div>
 </div>
 
 <div class="container">
 
-  <!-- TOURNAMENT PROGRESS BAR -->
-  <div class="card">
-    <div class="card-title">🏁 Tournament Progress</div>
-    <div style="display:flex;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap;">
-      <div style="flex:1;min-width:140px;text-align:center;">
-        <div style="font-size:1.8rem;font-weight:800;color:var(--gold);" id="matches-played">—</div>
-        <div style="color:var(--text-muted);font-size:.8rem;">Matches Played</div>
-      </div>
-      <div style="flex:1;min-width:140px;text-align:center;">
-        <div style="font-size:1.8rem;font-weight:800;color:var(--gold);" id="goals-scored">—</div>
-        <div style="color:var(--text-muted);font-size:.8rem;">Total Goals</div>
-      </div>
-      <div style="flex:1;min-width:140px;text-align:center;">
-        <div style="font-size:1.8rem;font-weight:800;color:var(--gold);">48</div>
-        <div style="color:var(--text-muted);font-size:.8rem;">Teams</div>
-      </div>
-      <div style="flex:1;min-width:140px;text-align:center;">
-        <div style="font-size:1.8rem;font-weight:800;color:var(--gold);">104</div>
-        <div style="color:var(--text-muted);font-size:.8rem;">Total Matches</div>
-      </div>
-      <div style="flex:1;min-width:140px;text-align:center;">
-        <div style="font-size:1.8rem;font-weight:800;color:var(--gold);">16</div>
-        <div style="color:var(--text-muted);font-size:.8rem;">Venues</div>
-      </div>
-      <div style="flex:1;min-width:140px;text-align:center;">
-        <div style="font-size:1.8rem;font-weight:800;color:var(--gold);" id="days-left">—</div>
-        <div style="color:var(--text-muted);font-size:.8rem;">Days to Final</div>
-      </div>
-    </div>
-    <div style="background:var(--green-dark);border-radius:4px;height:8px;margin-top:.5rem;">
-      <div id="progress-bar" style="background:linear-gradient(90deg,var(--gold),var(--green-light));height:8px;border-radius:4px;transition:width 1s;"></div>
-    </div>
-    <div style="display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-muted);margin-top:.3rem;">
-      <span>June 11</span><span>Group Stage</span><span>Knockouts</span><span>Final — July 19</span>
-    </div>
-  </div>
-
   <!-- TODAY'S MATCHES -->
   <div class="card">
-    <div class="card-title">📅 Today's Matches (IST)</div>
+    <div class="card-title">📅 Today's Matches <span id="today-date" style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;"></span></div>
     <div id="today-matches"></div>
   </div>
 
   <!-- UPCOMING MATCHES -->
   <div class="card">
-    <div class="card-title">🔜 Upcoming Matches</div>
+    <div class="card-title">⏰ Upcoming Matches <span style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">(All times IST · Click any card to see group standings)</span></div>
+    <div class="tabs" id="date-tabs"></div>
     <div id="upcoming-matches"></div>
   </div>
 
-  <!-- GROUP LEADERS -->
+  <!-- STAR MATCHES -->
   <div class="card">
-    <div class="card-title">🥇 Group Leaders</div>
-    <div id="group-leaders" class="grid-4"></div>
+    <div class="card-title">⭐ Star Matches to Watch</div>
+    <div class="grid-3" id="star-matches"></div>
   </div>
 
-  <!-- STAR MATCHUPS -->
+  <!-- TOP SCORERS LIST -->
   <div class="card">
-    <div class="card-title">⚡ Star Matches to Watch</div>
-    <div class="grid-3" id="star-matches">
-      <div class="match-card" style="flex-direction:column;text-align:center;">
-        <div style="color:var(--gold);font-weight:700;font-size:.8rem;margin-bottom:.5rem;">GROUP J · JUNE 22</div>
-        <div style="display:flex;align-items:center;justify-content:center;gap:1rem;font-size:1.1rem;font-weight:700;">
-          <span>🇦🇷 Argentina</span>
-          <span style="color:var(--text-muted);">vs</span>
-          <span>🇦🇹 Austria</span>
-        </div>
-        <div style="color:var(--text-muted);font-size:.78rem;margin-top:.5rem;">MetLife Stadium, NJ · 3:30 AM IST</div>
-      </div>
-      <div class="match-card" style="flex-direction:column;text-align:center;">
-        <div style="color:var(--gold);font-weight:700;font-size:.8rem;margin-bottom:.5rem;">GROUP I · JUNE 23</div>
-        <div style="display:flex;align-items:center;justify-content:center;gap:1rem;font-size:1.1rem;font-weight:700;">
-          <span>🇫🇷 France</span>
-          <span style="color:var(--text-muted);">vs</span>
-          <span>🇳🇴 Norway</span>
-        </div>
-        <div style="color:var(--text-muted);font-size:.78rem;margin-top:.5rem;">Rose Bowl, LA · 3:30 AM IST</div>
-      </div>
-      <div class="match-card" style="flex-direction:column;text-align:center;">
-        <div style="color:var(--gold);font-weight:700;font-size:.8rem;margin-bottom:.5rem;">GROUP C · JUNE 21</div>
-        <div style="display:flex;align-items:center;justify-content:center;gap:1rem;font-size:1.1rem;font-weight:700;">
-          <span>🇧🇷 Brazil</span>
-          <span style="color:var(--text-muted);">vs</span>
-          <span>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</span>
-        </div>
-        <div style="color:var(--text-muted);font-size:.78rem;margin-top:.5rem;">Philadelphia · 3:30 AM IST</div>
-      </div>
+    <div class="card-title">👟 Golden Boot Race
+      <span style="font-size:.72rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">Source: FIFA / ESPN — refreshed daily at end of match day</span>
     </div>
-  </div>
-
-  <!-- TOP SCORER TICKER -->
-  <div class="card">
-    <div class="card-title">🥅 Top Scorers</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;" id="scorers-grid">
-      <div class="stat-card">
-        <div class="stat-number">3</div>
-        <div class="stat-player">🇦🇷 Lionel Messi</div>
-        <div class="stat-label">Hat-trick vs Algeria · 16 WC goals total (ties Klose record)</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">2</div>
-        <div class="stat-player">🇫🇷 Kylian Mbappé</div>
-        <div class="stat-label">vs Senegal · 14 WC goals total (France record)</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">2</div>
-        <div class="stat-player">🇬🇧 Jude Bellingham</div>
-        <div class="stat-label">vs Croatia · Joined Pelé & Owen in select group</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">2</div>
-        <div class="stat-player">🇳🇴 Erling Haaland</div>
-        <div class="stat-label">vs Iraq · Norway's first-ever WC goals</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">2</div>
-        <div class="stat-player">🇸🇪 Viktor Gyökeres</div>
-        <div class="stat-label">vs Tunisia · Sweden's 5-1 demolition</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">4</div>
-        <div class="stat-player">🇳🇴 Norway (top team)</div>
-        <div class="stat-label">vs Iraq · Highest scoring match Day 6</div>
-      </div>
-    </div>
+    <ul class="scorer-list" id="top-scorers"></ul>
   </div>
 
 </div>
 
 <footer>
-  <strong>World Cup Football 2026</strong> — Fan Portal &nbsp;|&nbsp;
-  Data updated: <span id="update-time"></span> &nbsp;|&nbsp;
-  <a href="https://www.fifa.com" target="_blank" style="color:var(--gold);">Official FIFA Site</a>
+  <strong>World Cup Football 2026</strong> — Argentina Fan Portal &nbsp;|&nbsp;
+  <a href="https://www.fifa.com" target="_blank">Official FIFA Site</a> &nbsp;|&nbsp;
+  Last updated: <span id="last-updated"></span>
 </footer>
 
 <script src="js/data.js"></script>
 <script>
-// ── DATE DISPLAY ──
-const now = new Date();
-document.getElementById('hero-date').textContent =
-  now.toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric',timeZone:'Asia/Kolkata'}) + ' (IST)';
-document.getElementById('update-time').textContent =
-  now.toLocaleString('en-IN',{timeZone:'Asia/Kolkata',dateStyle:'medium',timeStyle:'short'}) + ' IST';
+const IST_OFFSET = 330;
+function toIST(utcStr) {
+  const d = new Date(utcStr + 'Z');
+  d.setMinutes(d.getMinutes() + IST_OFFSET);
+  return d;
+}
+function fmtIST(utcStr) {
+  const d = toIST(utcStr);
+  return d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true}).toUpperCase() + ' IST';
+}
+function fmtDate(utcStr) {
+  const d = toIST(utcStr);
+  return d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
+}
+function istDateStr(utcStr) {
+  const d = toIST(utcStr);
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+function gc(id) { return WC2026.countries[id] || {name:id, flag:'🏳️'}; }
+function sortTeams(teams) { return [...teams].sort((a,b)=>b.Pts-a.Pts||b.GD-a.GD||b.GF-a.GF); }
 
-// ── TOURNAMENT STATS ──
-const allMatches = WC2026.matches;
-const played = allMatches.filter(m=>m.status==='FT');
-let goals = 0;
-played.forEach(m=>{ goals += (m.homeScore||0) + (m.awayScore||0); });
-document.getElementById('matches-played').textContent = played.length;
-document.getElementById('goals-scored').textContent = goals;
-const finalDate = new Date('2026-07-19T20:00:00Z');
-const daysLeft = Math.max(0, Math.ceil((finalDate - now) / 86400000));
-document.getElementById('days-left').textContent = daysLeft;
-const progressPct = Math.min(100, Math.round((played.length / 104) * 100));
-document.getElementById('progress-bar').style.width = progressPct + '%';
+// Progress
+const played = WC2026.fixtures.filter(f=>f.status==='FT').length;
+const pct = Math.round(played/104*100);
+document.getElementById('progress-bar').style.width = pct+'%';
+document.getElementById('progress-pct').textContent = pct+'% ('+played+'/104 played)';
+document.getElementById('last-updated').textContent = WC2026.lastUpdated;
 
-// ── TODAY'S MATCHES ──
-const todayIST = now.toLocaleDateString('en-CA',{timeZone:'Asia/Kolkata'}); // YYYY-MM-DD
-const todayMatches = allMatches.filter(m => m.kickoffUTC.startsWith(todayIST));
+// TODAY
+const nowIST = new Date(Date.now() + IST_OFFSET*60000);
+const todayStr = nowIST.getFullYear() + '-' + String(nowIST.getMonth()+1).padStart(2,'0') + '-' + String(nowIST.getDate()).padStart(2,'0');
+document.getElementById('today-date').textContent = nowIST.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long'});
+
+const todayFix = WC2026.fixtures.filter(f=>istDateStr(f.utc)===todayStr)
+  .sort((a,b)=>a.group.localeCompare(b.group)||new Date(a.utc)-new Date(b.utc));
 const todayDiv = document.getElementById('today-matches');
-if(todayMatches.length === 0) {
-  todayDiv.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:1rem;">No matches scheduled today. Check the <a href="schedule.html" style="color:var(--gold);">full schedule</a>.</p>';
+if (!todayFix.length) {
+  const next = WC2026.fixtures.filter(f=>f.status==='UP').sort((a,b)=>new Date(a.utc)-new Date(b.utc))[0];
+  todayDiv.innerHTML = `<p style="color:var(--text-muted);font-size:.85rem;">No matches today. Next match: <strong style="color:var(--accent);">${next?gc(next.home).flag+' '+gc(next.home).name+' vs '+gc(next.away).name+' '+gc(next.away).flag:'-'}</strong>${next?' on '+fmtDate(next.utc)+' at '+fmtIST(next.utc):''}</p>`;
 } else {
-  todayMatches.forEach(m=>{
-    const ht = getTeamById(m.home), at = getTeamById(m.away);
-    const score = m.status==='FT' ? `${m.homeScore} – ${m.awayScore}` : toIST(m.kickoffUTC);
-    const badge = m.status==='FT'?'<span class="match-status status-ft">FT</span>':'<span class="match-status status-sched">'+toIST(m.kickoffUTC)+'</span>';
-    todayDiv.innerHTML += `
-    <div class="match-card">
-      <div class="match-team">${ht?ht.flag:''} ${ht?ht.name:m.home}</div>
-      <div class="match-score"><span>${m.status==='FT'?m.homeScore+' – '+m.awayScore:'vs'}</span>${badge}<div class="match-meta">Group ${m.group} · ${m.venue}</div></div>
-      <div class="match-team right">${at?at.name:m.away} ${at?at.flag:''}</div>
-    </div>`;
-  });
+  todayDiv.innerHTML = todayFix.map(f=>matchCard(f)).join('');
 }
 
-// ── UPCOMING MATCHES ──
-const upcoming = allMatches.filter(m=>m.status==='scheduled').slice(0,4);
-const upDiv = document.getElementById('upcoming-matches');
-upcoming.forEach(m=>{
-  const ht = getTeamById(m.home), at = getTeamById(m.away);
-  upDiv.innerHTML += `
-  <div class="match-card">
-    <div class="match-team">${ht?ht.flag:''} ${ht?ht.name:m.home}</div>
-    <div class="match-score"><span style="font-size:.9rem;font-weight:400;">vs</span>
-      <span class="match-status status-sched">${toIST(m.kickoffUTC)}</span>
-      <div class="match-meta">${toISTDate(m.kickoffUTC)} · Group ${m.group}</div>
+// UPCOMING
+const upcoming = WC2026.fixtures.filter(f=>f.status==='UP').sort((a,b)=>new Date(a.utc)-new Date(b.utc));
+const upDates = [...new Set(upcoming.map(f=>istDateStr(f.utc)))].slice(0,5);
+const tabsEl = document.getElementById('date-tabs');
+upDates.forEach((dk,i)=>{
+  const d = new Date(dk+'T12:00:00');
+  const lbl = d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
+  const btn = document.createElement('button');
+  btn.className = 'tab-btn'+(i===0?' active':'');
+  btn.textContent = lbl;
+  btn.onclick = ()=>showDate(dk,btn);
+  tabsEl.appendChild(btn);
+});
+if (upDates.length) showDate(upDates[0], tabsEl.querySelector('.tab-btn'));
+
+function showDate(dk, btn) {
+  document.querySelectorAll('#date-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const fx = upcoming.filter(f=>istDateStr(f.utc)===dk)
+    .sort((a,b)=>a.group.localeCompare(b.group)||new Date(a.utc)-new Date(b.utc));
+  document.getElementById('upcoming-matches').innerHTML = fx.map(f=>matchCard(f)).join('');
+}
+
+// MATCH CARD
+function matchCard(f) {
+  const hc=gc(f.home), ac=gc(f.away);
+  const scorePart = f.status==='FT'
+    ? `<div class="match-score">${f.score.h}–${f.score.a}</div>`
+    : `<div class="match-score upcoming">${fmtIST(f.utc)}</div>`;
+  const badge = f.status==='FT' ? `<span class="badge badge-done">FT</span>` : `<span class="badge badge-upcoming">Up</span>`;
+  return `<div class="match-card" onclick="toggleDetail(${f.id},'${f.group}')">
+    <div class="match-header">
+      <span class="group-indicator">Grp ${f.group}</span>${badge}
+      <span>${fmtDate(f.utc)} · ${fmtIST(f.utc)}</span>
+      <span class="click-hint">👆 tap for group table</span>
     </div>
-    <div class="match-team right">${at?at.name:m.away} ${at?at.flag:''}</div>
+    <div class="match-teams">
+      <div class="match-team">${hc.flag} <span class="team-label">${hc.name}</span></div>
+      ${scorePart}
+      <div class="match-team right"><span class="team-label">${ac.name}</span> ${ac.flag}</div>
+    </div>
+    <div class="match-venue">📍 ${f.venue}</div>
+    <div class="match-detail-panel" id="dp-${f.id}">${buildDetail(f)}</div>
+  </div>`;
+}
+
+function buildDetail(f) {
+  let ev = '';
+  if (f.status==='FT' && f.events && f.events.length) {
+    ev = '<div style="margin-bottom:.6rem;"><div style="font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:.4rem;">⚽ GOAL EVENTS</div>';
+    f.events.forEach(e=>{
+      ev += `<div class="goal-event"><span class="goal-minute">${e.min}'</span><span>${gc(e.team).flag}</span><span>${e.player}</span></div>`;
+    });
+    ev += '</div>';
+  }
+  const grp = WC2026.groups[f.group];
+  const sorted = sortTeams(grp.teams);
+  let tbl = `<div class="standings-mini"><div class="standings-mini-title">📊 Group ${f.group} Standings</div>
+    <table><thead><tr><th style="text-align:left;">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>`;
+  sorted.forEach((t,i)=>{
+    const c=gc(t.id);
+    tbl+=`<tr class="${i<2?'q-row':''}"><td>${c.flag} ${c.name}</td><td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td><td>${t.GD>=0?'+':''}${t.GD}</td><td style="font-weight:700;color:var(--gold);">${t.Pts}</td></tr>`;
+  });
+  tbl += `</tbody></table><div style="font-size:.66rem;color:var(--text-muted);margin-top:.3rem;">🟦 Top 2 qualify for Round of 32</div></div>`;
+  return ev + tbl;
+}
+
+function toggleDetail(id) {
+  const el = document.getElementById('dp-'+id);
+  if (el) el.classList.toggle('open');
+}
+
+// STAR MATCHES
+const smDiv = document.getElementById('star-matches');
+WC2026.starMatches.forEach(m=>{
+  const hc=gc(m.home), ac=gc(m.away);
+  smDiv.innerHTML += `<div class="star-match-card">
+    <div class="star-match-label">⭐ GROUP ${m.group} · MUST WATCH</div>
+    <div style="font-size:1.4rem;margin:.3rem 0;">${hc.flag} vs ${ac.flag}</div>
+    <div class="star-match-teams">${hc.name} vs ${ac.name}</div>
+    <div class="star-match-ist">${fmtDate(m.utc)} · ${fmtIST(m.utc)}</div>
+    <div class="star-match-meta">📍 ${m.venue}</div>
+    <div style="font-size:.73rem;color:var(--text-muted);margin-top:.5rem;border-top:1px solid var(--border);padding-top:.4rem;">${m.storyline}</div>
   </div>`;
 });
 
-// ── GROUP LEADERS ──
-const leadersDiv = document.getElementById('group-leaders');
-Object.entries(WC2026.groups).forEach(([k,g])=>{
-  const sorted = sortStandings(g.teams);
-  const leader = sorted[0];
-  leadersDiv.innerHTML += `
-  <div class="stat-card" style="cursor:pointer;" onclick="location.href='groups.html#group-${k}'">
-    <div style="font-size:.72rem;color:var(--text-muted);font-weight:700;letter-spacing:.05em;margin-bottom:.3rem;">GROUP ${k}</div>
-    <div style="font-size:1.5rem;">${leader.flag}</div>
-    <div style="font-weight:700;margin:.25rem 0;">${leader.name}</div>
-    <div style="color:var(--gold);font-size:.85rem;">${leader.pts} pts &nbsp;|&nbsp; ${leader.gf}:${leader.ga} GD</div>
-  </div>`;
+// TOP SCORERS LIST
+const ul = document.getElementById('top-scorers');
+WC2026.topScorers.forEach((s,i)=>{
+  const icon = i===0?'🥇':i===1?'🥈':i===2?'🥉':(i+1);
+  ul.innerHTML += `<li class="scorer-item">
+    <div class="scorer-rank${i<3?' top3':''}">${icon}</div>
+    <div class="scorer-flag">${s.flag}</div>
+    <div class="scorer-info">
+      <div class="scorer-name">${s.name}</div>
+      <div class="scorer-team">${s.country} · ${s.note}</div>
+    </div>
+    <div class="scorer-goals">${s.goals} ⚽</div>
+  </li>`;
 });
 </script>
 </body>
