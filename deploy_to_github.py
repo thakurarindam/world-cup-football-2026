@@ -98,7 +98,7 @@ else:
 step(3, "Initialising local git repository")
 
 def run(cmd, cwd=REPO_DIR, check=True):
-    result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
+    result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, encoding='utf-8', errors='replace')
     if check and result.returncode != 0:
         # Ignore "already a git repo" type errors
         if "already exists" in result.stderr or "already initialized" in result.stderr:
@@ -123,7 +123,7 @@ with open(os.path.join(REPO_DIR, ".gitignore"), "w") as f:
     f.write(gitignore)
 
 run(["git", "add", "-A"])
-result = run(["git", "commit", "-m", "🏆 Initial commit — World Cup Football 2026 Portal"], check=False)
+result = run(["git", "commit", "-m", "Initial commit - World Cup Football 2026 Portal"], check=False)
 if "nothing to commit" in result.stdout + result.stderr:
     ok("Nothing new to commit (files already staged)")
 else:
