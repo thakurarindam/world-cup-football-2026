@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facts & Figures | WC Football 2026</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="navbar-brand" href="index.html"><span class="trophy">🏆</span> WC Football 2026</a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="groups.html">📊 Groups</a></li>
+    <li><a href="schedule.html">📅 Schedule <span class="live-badge">LIVE</span></a></li>
+    <li><a href="teams.html">🌍 Teams</a></li>
+    <li><a href="argentina.html">🇦🇷 Argentina</a></li>
+    <li><a href="facts.html" class="active">⭐ Facts</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>⭐ Facts, Records & Figures</h1>
+    <p>Updated daily · Breaking records from the biggest World Cup in history · Last updated: <span id="facts-update"></span></p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- BREAKING TODAY -->
+  <div class="card" style="border-color:var(--gold);">
+    <div class="card-title">🔥 Breaking Records — 2026 Edition</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;" id="top-records"></div>
+  </div>
+
+  <!-- TOURNAMENT MILESTONES -->
+  <div class="card">
+    <div class="card-title">📊 Tournament Milestones</div>
+    <div class="grid-4" id="milestone-stats"></div>
+  </div>
+
+  <!-- ALL FACTS -->
+  <div class="card">
+    <div class="card-title">📖 All Facts & Records</div>
+    <div class="tabs" id="fact-tabs">
+      <button class="tab-btn active" onclick="filterFacts('All',this)">🌐 All</button>
+      <button class="tab-btn" onclick="filterFacts('Goals',this)">⚽ Goals</button>
+      <button class="tab-btn" onclick="filterFacts('Records',this)">👑 Records</button>
+      <button class="tab-btn" onclick="filterFacts('History',this)">📜 History</button>
+      <button class="tab-btn" onclick="filterFacts('Tournament',this)">🏆 Tournament</button>
+      <button class="tab-btn" onclick="filterFacts('Argentina',this)">🇦🇷 Argentina</button>
+    </div>
+    <div id="facts-list"></div>
+  </div>
+
+  <!-- WORLD CUP HISTORY TABLE -->
+  <div class="card">
+    <div class="card-title">🏆 World Cup Winners — All Time</div>
+    <table class="standings-table" style="font-size:.88rem;">
+      <thead><tr>
+        <th style="text-align:left;">Country</th>
+        <th>Titles</th>
+        <th>Years</th>
+        <th>Finals</th>
+        <th>Best Players</th>
+      </tr></thead>
+      <tbody>
+        <tr class="qualified"><td>🇧🇷 Brazil</td><td style="font-weight:700;color:var(--gold);">5</td><td>1958,62,70,94,2002</td><td>7</td><td>Pelé, Ronaldo, Romário</td></tr>
+        <tr class="qualified"><td>🇩🇪 Germany</td><td style="font-weight:700;color:var(--gold);">4</td><td>1954,74,90,2014</td><td>8</td><td>Müller, Beckenbauer, Klose</td></tr>
+        <tr class="qualified"><td>🇮🇹 Italy</td><td style="font-weight:700;color:var(--gold);">4</td><td>1934,38,82,2006</td><td>6</td><td>Maldini, Baggio, Pirlo</td></tr>
+        <tr class="qualified"><td>🇦🇷 Argentina</td><td style="font-weight:700;color:var(--gold);">3</td><td>1978,86,2022</td><td>5</td><td>Maradona, Messi, Kempes</td></tr>
+        <tr><td>🇫🇷 France</td><td style="font-weight:700;color:var(--gold);">2</td><td>1998, 2018</td><td>3</td><td>Zidane, Platini, Mbappé</td></tr>
+        <tr><td>🇺🇾 Uruguay</td><td style="font-weight:700;color:var(--gold);">2</td><td>1930, 1950</td><td>2</td><td>Ghiggia, Schiaffino</td></tr>
+        <tr><td>🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</td><td style="font-weight:700;color:var(--gold);">1</td><td>1966</td><td>1</td><td>Bobby Moore, Charlton</td></tr>
+        <tr><td>🇪🇸 Spain</td><td style="font-weight:700;color:var(--gold);">1</td><td>2010</td><td>1</td><td>Xavi, Iniesta, Villa</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- HOST NATION INFO -->
+  <div class="card">
+    <div class="card-title">🏟️ 2026 Host Venues & Cities</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;">
+      <div class="stat-card">
+        <div style="font-size:1.5rem;">🇺🇸</div>
+        <div style="font-weight:700;margin:.3rem 0;">USA — 11 Venues</div>
+        <div style="font-size:.8rem;color:var(--text-muted);">New York/NJ, LA, Dallas, San Francisco, Seattle, Boston, Miami, Kansas City, Houston, Atlanta, Philadelphia</div>
+        <div style="color:var(--gold);font-size:.82rem;margin-top:.3rem;">🏆 Hosts the Final (MetLife, NJ)</div>
+      </div>
+      <div class="stat-card">
+        <div style="font-size:1.5rem;">🇲🇽</div>
+        <div style="font-weight:700;margin:.3rem 0;">Mexico — 3 Venues</div>
+        <div style="font-size:.8rem;color:var(--text-muted);">Mexico City (Estadio Azteca), Guadalajara (Estadio Akron), Monterrey (Estadio BBVA)</div>
+        <div style="color:var(--gold);font-size:.82rem;margin-top:.3rem;">🏟️ Azteca hosts 3rd WC game</div>
+      </div>
+      <div class="stat-card">
+        <div style="font-size:1.5rem;">🇨🇦</div>
+        <div style="font-weight:700;margin:.3rem 0;">Canada — 2 Venues</div>
+        <div style="font-size:.8rem;color:var(--text-muted);">Toronto (BMO Field), Vancouver (BC Place)</div>
+        <div style="color:var(--gold);font-size:.82rem;margin-top:.3rem;">🇨🇦 Canada's first WC as host</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGE RECORDS -->
+  <div class="card">
+    <div class="card-title">⏳ Age Records at WC 2026</div>
+    <div class="grid-3" style="margin-bottom:1rem;">
+      <div class="stat-card">
+        <div class="stat-number">38</div>
+        <div class="stat-player">🇦🇷 Lionel Messi</div>
+        <div class="stat-label">Oldest hat-trick scorer in WC history (38y 357d vs Algeria)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">43</div>
+        <div class="stat-player">🇵🇹 Pepe (Portugal)</div>
+        <div class="stat-label">Oldest outfield player at 2026 WC (43 years old)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">18</div>
+        <div class="stat-player">🇸🇳 Ibrahim Mbaye</div>
+        <div class="stat-label">Youngest African scorer in WC history (18y 143d vs France)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">18</div>
+        <div class="stat-player">🇪🇸 Lamine Yamal</div>
+        <div class="stat-label">Spain's teenage sensation — started vs Cabo Verde</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">41</div>
+        <div class="stat-player">🇵🇹 Cristiano Ronaldo</div>
+        <div class="stat-label">Appearing in his 6th World Cup — most by any player</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">38</div>
+        <div class="stat-player">🇩🇪 Julian Nagelsmann</div>
+        <div class="stat-label">Youngest head coach at 2026 WC (Germany)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAILY UPDATE NOTICE -->
+  <div class="card" style="border-color:var(--green-light);background:rgba(26,122,26,.08);">
+    <div style="display:flex;gap:1rem;align-items:flex-start;">
+      <div style="font-size:2rem;">🔄</div>
+      <div>
+        <div style="font-weight:700;color:var(--green-light);margin-bottom:.3rem;">Daily Refresh Active</div>
+        <div style="font-size:.85rem;color:var(--text-muted);">This page is automatically refreshed every day at <strong style="color:var(--gold);">12:30 PM IST</strong> to include the latest records, scores and emerging facts from the previous day's matches. New records will appear at the top as they are broken.</div>
+        <div style="font-size:.78rem;color:var(--text-muted);margin-top:.3rem;">Last refreshed: <span id="refresh-time"></span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>World Cup Football 2026</strong> — Fan Portal &nbsp;|&nbsp;
+  <a href="https://www.fifa.com" target="_blank" style="color:var(--gold);">Official FIFA Site</a>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+const now = new Date();
+document.getElementById('facts-update').textContent = WC2026.lastUpdated;
+document.getElementById('refresh-time').textContent =
+  now.toLocaleString('en-IN',{timeZone:'Asia/Kolkata',dateStyle:'medium',timeStyle:'short'}) + ' IST';
+
+// TOP RECORDS
+const topFacts = WC2026.facts.slice(0,4);
+const topDiv = document.getElementById('top-records');
+topFacts.forEach(f=>{
+  topDiv.innerHTML += `
+  <div class="stat-card" style="text-align:left;">
+    <div style="font-size:2rem;margin-bottom:.5rem;">${f.icon}</div>
+    <div style="font-weight:700;color:var(--gold);margin-bottom:.35rem;font-size:.9rem;">${f.title}</div>
+    <div style="font-size:.8rem;color:var(--text-muted);line-height:1.5;">${f.detail}</div>
+    <div class="badge badge-group" style="margin-top:.5rem;">${f.category}</div>
+  </div>`;
+});
+
+// MILESTONE STATS
+const milestones = [
+  {num:'104',label:'Total Matches'},
+  {num:'48', label:'Nations Competing'},
+  {num:'12', label:'Groups (A–L)'},
+  {num:'3',  label:'Host Countries'},
+  {num:'16', label:'Stadiums'},
+  {num:'39', label:'Days of Football'},
+  {num:'80K',label:'MetLife Stadium Capacity'},
+  {num:'5.5B',label:'Expected Global Viewers'}
+];
+const milDiv = document.getElementById('milestone-stats');
+milestones.forEach(m=>{
+  milDiv.innerHTML += `<div class="stat-card"><div class="stat-number" style="font-size:1.8rem;">${m.num}</div><div class="stat-label">${m.label}</div></div>`;
+});
+
+// FACTS LIST
+let activeCat = 'All';
+function filterFacts(cat, btn) {
+  activeCat = cat;
+  document.querySelectorAll('#fact-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const list = document.getElementById('facts-list');
+  const filtered = cat==='All' ? WC2026.facts : WC2026.facts.filter(f=>f.category===cat);
+  list.innerHTML = '';
+  filtered.forEach(f=>{
+    list.innerHTML += `
+    <div class="record-item">
+      <div class="record-icon">${f.icon}</div>
+      <div>
+        <div style="margin-bottom:.25rem;">
+          <strong>${f.title}</strong>
+          <span class="badge badge-group" style="margin-left:.5rem;">${f.category}</span>
+        </div>
+        <div style="font-size:.85rem;color:var(--text-muted);">${f.detail}</div>
+      </div>
+    </div>`;
+  });
+  if(!filtered.length) list.innerHTML = '<p style="color:var(--text-muted);padding:1rem;">No facts in this category yet.</p>';
+}
+filterFacts('All');
+</script>
+</body>
+</html>

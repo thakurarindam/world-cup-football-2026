@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Groups & Standings | WC Football 2026</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="navbar-brand" href="index.html"><span class="trophy">🏆</span> WC Football 2026</a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="groups.html" class="active">📊 Groups</a></li>
+    <li><a href="schedule.html">📅 Schedule <span class="live-badge">LIVE</span></a></li>
+    <li><a href="teams.html">🌍 Teams</a></li>
+    <li><a href="argentina.html">🇦🇷 Argentina</a></li>
+    <li><a href="facts.html">⭐ Facts</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>📊 Group Stage Standings</h1>
+    <p>Top 2 from each group + 8 best 3rd-place teams advance to Round of 32 &nbsp;|&nbsp; Last updated: <span id="last-update"></span></p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- QUALIFICATION KEY -->
+  <div class="card" style="padding:.75rem 1.25rem;margin-bottom:1rem;">
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;font-size:.82rem;">
+      <div style="display:flex;align-items:center;gap:.5rem;"><div style="width:14px;height:14px;background:rgba(26,122,26,.5);border-radius:2px;"></div> Qualified / Auto advance</div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><div style="width:14px;height:14px;background:rgba(245,197,24,.2);border-radius:2px;"></div> Possible best 3rd</div>
+    </div>
+  </div>
+
+  <!-- FILTER TABS -->
+  <div class="tabs" id="group-tabs"></div>
+
+  <!-- ALL GROUPS GRID -->
+  <div id="groups-container" class="grid-2"></div>
+
+  <!-- RESULTS SECTION -->
+  <h2 style="color:var(--gold);margin:2rem 0 1rem;">📋 All Fixtures & Results</h2>
+  <div id="all-fixtures"></div>
+
+</div>
+
+<footer>
+  <strong>World Cup Football 2026</strong> — Fan Portal &nbsp;|&nbsp;
+  <a href="https://www.fifa.com" target="_blank" style="color:var(--gold);">Official FIFA Site</a>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+document.getElementById('last-update').textContent = WC2026.lastUpdated;
+
+// ── GROUP TABS ──
+const tabsDiv = document.getElementById('group-tabs');
+const container = document.getElementById('groups-container');
+let activeGroup = 'ALL';
+
+function renderGroups(filter) {
+  container.innerHTML = '';
+  const groups = filter === 'ALL' ? Object.entries(WC2026.groups) : [[filter, WC2026.groups[filter]]];
+  groups.forEach(([key, g]) => {
+    const sorted = sortStandings(g.teams);
+    let rows = '';
+    sorted.forEach((t,i)=>{
+      const gd = t.gf - t.ga;
+      const cls = i<2 ? 'qualified' : (i===2 ? 'third-best' : '');
+      rows += `<tr class="${cls}">
+        <td><span class="pos-badge pos-${i+1}">${i+1}</span>${t.flag} <a href="teams.html#${t.id}" style="color:var(--text-main);text-decoration:none;">${t.name}</a>${t.host?'<span class="badge badge-host" style="margin-left:.4rem">HOST</span>':''}</td>
+        <td>${t.played}</td><td>${t.won}</td><td>${t.drawn}</td><td>${t.lost}</td>
+        <td>${t.gf}</td><td>${t.ga}</td><td>${gd>0?'+'+gd:gd}</td>
+        <td style="font-weight:700;color:var(--gold);">${t.pts}</td>
+      </tr>`;
+    });
+    container.innerHTML += `
+    <div class="card" id="group-${key}">
+      <div class="card-title">Group ${key}
+        <span style="margin-left:auto;font-size:.75rem;color:var(--text-muted);">P W D L GF GA GD PTS</span>
+      </div>
+      <table class="standings-table">
+        <thead><tr>
+          <th style="text-align:left;">Team</th>
+          <th>P</th><th>W</th><th>D</th><th>L</th>
+          <th>GF</th><th>GA</th><th>GD</th><th>PTS</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+  });
+}
+
+// Tabs
+['ALL','A','B','C','D','E','F','G','H','I','J','K','L'].forEach(k=>{
+  const btn = document.createElement('button');
+  btn.className = 'tab-btn' + (k==='ALL'?' active':'');
+  btn.textContent = k==='ALL'?'All Groups':'Group '+k;
+  btn.onclick = ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderGroups(k);
+    renderFixtures(k);
+  };
+  tabsDiv.appendChild(btn);
+});
+renderGroups('ALL');
+
+// ── FIXTURES ──
+function renderFixtures(groupFilter) {
+  const fixtDiv = document.getElementById('all-fixtures');
+  fixtDiv.innerHTML = '';
+  const matches = groupFilter==='ALL' ? WC2026.matches : WC2026.matches.filter(m=>m.group===groupFilter);
+  const grouped = {};
+  matches.forEach(m=>{
+    const dateKey = m.kickoffUTC.split('T')[0];
+    if(!grouped[dateKey]) grouped[dateKey] = [];
+    grouped[dateKey].push(m);
+  });
+  Object.entries(grouped).sort(([a],[b])=>a.localeCompare(b)).forEach(([date, ms])=>{
+    const d = new Date(date + 'T12:00:00Z');
+    const label = d.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long'});
+    fixtDiv.innerHTML += `<div class="day-header">${label}</div>`;
+    ms.forEach(m=>{
+      const ht = getTeamById(m.home), at = getTeamById(m.away);
+      const scoreStr = m.status==='FT' ? `${m.homeScore} – ${m.awayScore}` : toIST(m.kickoffUTC);
+      const badge = m.status==='FT'
+        ? '<span class="match-status status-ft">FT</span>'
+        : '<span class="match-status status-sched">'+toIST(m.kickoffUTC)+'</span>';
+      fixtDiv.innerHTML += `
+      <div class="match-card">
+        <div class="match-team">${ht?ht.flag:''} <strong>${ht?ht.name:m.home}</strong></div>
+        <div class="match-score">
+          <span>${m.status==='FT'?scoreStr:'vs'}</span>
+          ${badge}
+          <div class="match-meta">Group ${m.group} &nbsp;·&nbsp; ${m.venue}</div>
+        </div>
+        <div class="match-team right"><strong>${at?at.name:m.away}</strong> ${at?at.flag:''}</div>
+      </div>`;
+    });
+  });
+}
+renderFixtures('ALL');
+
+// Scroll to group if hash present
+if(location.hash) {
+  setTimeout(()=>{ const el = document.querySelector(location.hash); if(el) el.scrollIntoView({behavior:'smooth'}); }, 300);
+}
+</script>
+</body>
+</html>

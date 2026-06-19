@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argentina | WC Football 2026</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.arg-banner {
+  background: linear-gradient(135deg, #74acdf 0%, #ffffff 50%, #74acdf 100%);
+  color: #003087; padding: 2rem 1.5rem; border-radius: 12px;
+  margin-bottom: 1.5rem; position: relative; overflow: hidden;
+}
+.arg-banner::after {
+  content: '★★★';
+  position: absolute; top: 10px; right: 20px;
+  font-size: 2rem; color: #f5c518; letter-spacing: .5rem;
+}
+.arg-banner h1 { font-size: 2.2rem; font-weight: 900; }
+.arg-banner .subtitle { font-size: 1rem; color: #1a3a6a; margin-top: .3rem; }
+.injury-ok    { color: #2e7d32; font-weight: 700; }
+.injury-doubt { color: #f57c00; font-weight: 700; }
+.injury-out   { color: #c62828; font-weight: 700; }
+.path-row { display:flex; gap:.75rem; overflow-x:auto; padding-bottom:.5rem; }
+.path-step {
+  flex: 0 0 auto; min-width: 130px;
+  background: var(--bg-card2); border: 1px solid var(--border);
+  border-radius: 10px; padding: .85rem; text-align: center;
+}
+.path-step.current { border-color: var(--gold); background: rgba(245,197,24,.08); }
+.path-step .round  { font-size: .68rem; color: var(--gold); font-weight: 700; letter-spacing:.04em; margin-bottom:.4rem; }
+.path-step .opp    { font-size: .88rem; font-weight: 700; margin-bottom:.3rem; }
+.path-step .chance { font-size: .72rem; color: var(--text-muted); }
+.news-item {
+  display: flex; gap: 1rem; padding: .85rem 0;
+  border-bottom: 1px solid var(--border); align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.news-icon { font-size: 1.6rem; flex-shrink: 0; }
+.news-content strong { color: var(--gold); display: block; margin-bottom: .2rem; }
+.news-content p { font-size: .85rem; color: var(--text-muted); margin: 0; }
+.stats-bar { background: var(--bg-dark); border-radius: 4px; height: 8px; margin-top:.3rem; }
+.stats-fill { background: linear-gradient(90deg, #74acdf, #003087); height: 8px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="navbar-brand" href="index.html"><span class="trophy">🏆</span> WC Football 2026</a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="groups.html">📊 Groups</a></li>
+    <li><a href="schedule.html">📅 Schedule <span class="live-badge">LIVE</span></a></li>
+    <li><a href="teams.html">🌍 Teams</a></li>
+    <li><a href="argentina.html" class="active">🇦🇷 Argentina</a></li>
+    <li><a href="facts.html">⭐ Facts</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <!-- ARGENTINA BANNER -->
+  <div class="arg-banner">
+    <div style="font-size:3rem;margin-bottom:.5rem;">🇦🇷</div>
+    <h1>Argentina</h1>
+    <div class="subtitle">Defending World Cup Champions · Qatar 2022 🏆 · Group J · Coach: Lionel Scaloni</div>
+    <div style="margin-top:.75rem;display:flex;gap:1rem;flex-wrap:wrap;">
+      <div style="background:rgba(0,48,135,.15);border-radius:6px;padding:.4rem .75rem;font-weight:700;font-size:.85rem;">
+        🏆 3× World Champions (1978, 1986, 2022)
+      </div>
+      <div style="background:rgba(0,48,135,.15);border-radius:6px;padding:.4rem .75rem;font-weight:700;font-size:.85rem;">
+        ⭐ Copa América Record: 16 titles
+      </div>
+      <div style="background:rgba(0,48,135,.15);border-radius:6px;padding:.4rem .75rem;font-weight:700;font-size:.85rem;">
+        📅 Last updated: <span id="arg-update"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK STATS -->
+  <div class="grid-4" style="margin-bottom:1.5rem;">
+    <div class="stat-card">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Goals scored · MD1 vs Algeria</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">0</div>
+      <div class="stat-label">Goals conceded · Clean sheet</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Points · Group J leader</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">16</div>
+      <div class="stat-label">Messi WC goals (ties Klose all-time record)</div>
+    </div>
+  </div>
+
+  <!-- TWO-COLUMN LAYOUT -->
+  <div class="grid-2">
+
+    <!-- LEFT: GROUP J STANDINGS -->
+    <div>
+      <div class="card">
+        <div class="card-title">📊 Group J Standings (as of <span id="gj-date"></span>)</div>
+        <table class="standings-table" id="groupj-table">
+          <thead><tr>
+            <th style="text-align:left;">Team</th>
+            <th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th>
+          </tr></thead>
+          <tbody id="groupj-body"></tbody>
+        </table>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:.75rem;">
+          🟢 Top 2 qualify automatically · Next: MD2 on June 22
+        </div>
+      </div>
+
+      <!-- GROUP J FIXTURES -->
+      <div class="card">
+        <div class="card-title">📋 Group J Fixtures</div>
+        <div id="groupj-fixtures"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: INJURY & NEWS -->
+    <div>
+      <div class="card">
+        <div class="card-title">🏥 Player Fitness Tracker</div>
+        <div id="injury-tracker"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📰 Latest Argentina News</div>
+        <div class="news-item">
+          <div class="news-icon">⚽</div>
+          <div class="news-content">
+            <strong>Messi Hat-Trick Breaks Records (June 16)</strong>
+            <p>Lionel Messi became the oldest World Cup hat-trick scorer (38y 357d) vs Algeria, tying Miroslav Klose's all-time record of 16 WC goals. He is fit and available for the remaining group stage matches.</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-icon">💪</div>
+          <div class="news-content">
+            <strong>Scaloni Confirms Full Squad Available</strong>
+            <p>Coach Scaloni confirmed all 26 players are fit after training. Messi's mild hamstring scare ahead of the tournament was resolved. Emiliano Martínez kept a clean sheet on debut.</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-icon">🎯</div>
+          <div class="news-content">
+            <strong>Julián Álvarez Stars in Opener</strong>
+            <p>Atlético Madrid forward Julián Álvarez was lively throughout, contributing to the 3-0 victory. His ankle concern pre-tournament is now fully resolved.</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-icon">🏆</div>
+          <div class="news-content">
+            <strong>Title Defence on Track</strong>
+            <p>Argentina aim to become the first back-to-back world champions since Brazil in 1958–1962. This would be Messi's 6th World Cup appearance, a personal record.</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-icon">📅</div>
+          <div class="news-content">
+            <strong>Argentina vs Austria — June 22</strong>
+            <p>The crucial MD2 clash against Austria at MetLife Stadium kicks off at 3:30 AM IST on June 23. A win would virtually seal qualification for Argentina.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PATH TO THE FINAL -->
+  <div class="card">
+    <div class="card-title">🗺️ Argentina's Projected Path to the Final</div>
+    <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:1rem;">
+      Based on current Group J standings. Path updates as results come in. 🟡 = Current stage.
+    </p>
+    <div class="path-row" id="arg-path"></div>
+    <div style="margin-top:1rem;font-size:.8rem;color:var(--text-muted);">
+      ⚠️ Projected opponents change daily as standings update. Argentina currently lead Group J and are likely to face a Group K/L opponent in the Round of 32 if they finish 1st.
+    </div>
+  </div>
+
+  <!-- KEY PLAYERS -->
+  <div class="card">
+    <div class="card-title">⭐ Key Players to Watch</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;">
+      <div class="player-card" style="border:1px solid var(--gold);">
+        <div style="font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:.04em;margin-bottom:.3rem;">CAPTAIN · RECORD-BREAKER</div>
+        <div class="player-name">🐐 Lionel Messi</div>
+        <span class="player-pos pos-FWD">FWD</span>
+        <div class="player-club">Inter Miami · Age 38 · 195 caps</div>
+        <div style="margin-top:.5rem;font-size:.8rem;">16 World Cup goals (=Klose record). Hat-trick vs Algeria MD1. Final World Cup. Seeking 3rd title.</div>
+        <div class="stats-bar" style="margin-top:.5rem;"><div class="stats-fill" style="width:98%;"></div></div>
+        <div style="font-size:.7rem;color:var(--text-muted);margin-top:.2rem;">Overall ability: 98/100</div>
+      </div>
+      <div class="player-card">
+        <div style="font-size:.7rem;color:var(--text-muted);font-weight:700;letter-spacing:.04em;margin-bottom:.3rem;">STRIKER</div>
+        <div class="player-name">Julián Álvarez</div>
+        <span class="player-pos pos-FWD">FWD</span>
+        <div class="player-club">Atlético Madrid · Age 24 · 52 caps</div>
+        <div style="margin-top:.5rem;font-size:.8rem;">The natural successor. Lethal in and around the box. Scored the 2022 WC semifinal goals vs Croatia.</div>
+        <div class="stats-bar" style="margin-top:.5rem;"><div class="stats-fill" style="width:88%;background:linear-gradient(90deg,#74acdf,#003087);"></div></div>
+        <div style="font-size:.7rem;color:var(--text-muted);margin-top:.2rem;">Form: 88/100</div>
+      </div>
+      <div class="player-card">
+        <div style="font-size:.7rem;color:var(--text-muted);font-weight:700;letter-spacing:.04em;margin-bottom:.3rem;">STRIKER</div>
+        <div class="player-name">Lautaro Martínez</div>
+        <span class="player-pos pos-FWD">FWD</span>
+        <div class="player-club">Inter Milan · Age 26 · 78 caps</div>
+        <div style="margin-top:.5rem;font-size:.8rem;">Inter Milan's prolific striker who scored the 2022 WC Final penalty. Clinical finisher and tireless presser.</div>
+        <div class="stats-bar" style="margin-top:.5rem;"><div class="stats-fill" style="width:86%;background:linear-gradient(90deg,#74acdf,#003087);"></div></div>
+        <div style="font-size:.7rem;color:var(--text-muted);margin-top:.2rem;">Form: 86/100</div>
+      </div>
+      <div class="player-card">
+        <div style="font-size:.7rem;color:var(--text-muted);font-weight:700;letter-spacing:.04em;margin-bottom:.3rem;">MIDFIELDER</div>
+        <div class="player-name">Alexis Mac Allister</div>
+        <span class="player-pos pos-MID">MID</span>
+        <div class="player-club">Liverpool · Age 25 · 45 caps</div>
+        <div style="margin-top:.5rem;font-size:.8rem;">Premier League winner with Liverpool. Box-to-box maestro who controls tempo and breaks lines.</div>
+        <div class="stats-bar" style="margin-top:.5rem;"><div class="stats-fill" style="width:85%;background:linear-gradient(90deg,#74acdf,#003087);"></div></div>
+        <div style="font-size:.7rem;color:var(--text-muted);margin-top:.2rem;">Form: 85/100</div>
+      </div>
+      <div class="player-card">
+        <div style="font-size:.7rem;color:var(--text-muted);font-weight:700;letter-spacing:.04em;margin-bottom:.3rem;">GOALKEEPER</div>
+        <div class="player-name">Emiliano Martínez</div>
+        <span class="player-pos pos-GK">GK</span>
+        <div class="player-club">Aston Villa · Age 34 · 50 caps</div>
+        <div style="margin-top:.5rem;font-size:.8rem;">"Dibu" is world's best GK. Penalty savant who was pivotal in 2022 WC Final shootout win.</div>
+        <div class="stats-bar" style="margin-top:.5rem;"><div class="stats-fill" style="width:92%;background:linear-gradient(90deg,#74acdf,#003087);"></div></div>
+        <div style="font-size:.7rem;color:var(--text-muted);margin-top:.2rem;">Form: 92/100</div>
+      </div>
+      <div class="player-card">
+        <div style="font-size:.7rem;color:var(--text-muted);font-weight:700;letter-spacing:.04em;margin-bottom:.3rem;">MIDFIELDER</div>
+        <div class="player-name">Enzo Fernández</div>
+        <span class="player-pos pos-MID">MID</span>
+        <div class="player-club">Chelsea · Age 23 · 38 caps</div>
+        <div style="margin-top:.5rem;font-size:.8rem;">2022 Young Player of the Tournament. Dynamic central midfielder with vision and tenacity.</div>
+        <div class="stats-bar" style="margin-top:.5rem;"><div class="stats-fill" style="width:83%;background:linear-gradient(90deg,#74acdf,#003087);"></div></div>
+        <div style="font-size:.7rem;color:var(--text-muted);margin-top:.2rem;">Form: 83/100</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL SQUAD -->
+  <div class="card">
+    <div class="card-title">📋 Full 26-Man Squad</div>
+    <div id="arg-squad"></div>
+  </div>
+
+  <!-- TRIVIA -->
+  <div class="card">
+    <div class="card-title">💡 Argentina Trivia & History</div>
+    <div id="arg-trivia"></div>
+    <div class="record-item">
+      <div class="record-icon">🤝</div>
+      <div>Argentina won the 2022 World Cup defeating France 3-3 (4-2 on penalties) — widely considered the greatest World Cup Final ever played, with Messi and Mbappé both scoring hat-tricks in extra time.</div>
+    </div>
+    <div class="record-item">
+      <div class="record-icon">🎽</div>
+      <div>The iconic light blue and white 'Albiceleste' strip is directly tied to Argentina's national colours, derived from the national flag — first worn at an international in 1902.</div>
+    </div>
+    <div class="record-item">
+      <div class="record-icon">📍</div>
+      <div>Argentina's Group J games are played in Kansas City, Miami, and once more in Kansas City — all in the USA, where Argentina have a large diaspora and fan base.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>World Cup Football 2026</strong> — Fan Portal &nbsp;|&nbsp;
+  <a href="https://www.fifa.com" target="_blank" style="color:var(--gold);">Official FIFA Site</a>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+const arg = WC2026.teams.ARG;
+const argPath = WC2026.argentinaPath;
+document.getElementById('arg-update').textContent = WC2026.lastUpdated;
+document.getElementById('gj-date').textContent = WC2026.lastUpdated;
+
+// GROUP J TABLE
+const gjBody = document.getElementById('groupj-body');
+const sorted = sortStandings(WC2026.groups.J.teams);
+sorted.forEach((t,i)=>{
+  const gd = t.gf - t.ga;
+  const cls = i<2 ? 'qualified' : (i===2?'third-best':'');
+  gjBody.innerHTML += `<tr class="${cls}">
+    <td><span class="pos-badge pos-${i+1}">${i+1}</span>${t.flag} ${t.name}${t.id==='ARG'?'<strong style="color:var(--gold);margin-left:.3rem;">★</strong>':''}</td>
+    <td>${t.played}</td><td>${t.won}</td><td>${t.drawn}</td><td>${t.lost}</td>
+    <td>${t.gf}</td><td>${t.ga}</td><td>${gd>0?'+'+gd:gd}</td>
+    <td style="font-weight:700;color:var(--gold);">${t.pts}</td>
+  </tr>`;
+});
+
+// GROUP J FIXTURES
+const fixtDiv = document.getElementById('groupj-fixtures');
+const gjMatches = WC2026.matches.filter(m=>m.group==='J').sort((a,b)=>a.kickoffUTC.localeCompare(b.kickoffUTC));
+gjMatches.forEach(m=>{
+  const ht = getTeamById(m.home), at = getTeamById(m.away);
+  const isArg = m.home==='ARG'||m.away==='ARG';
+  const badge = m.status==='FT'
+    ? '<span class="match-status status-ft">FT</span>'
+    : `<span class="match-status status-sched">${toIST(m.kickoffUTC)}</span>`;
+  fixtDiv.innerHTML += `
+  <div class="match-card" style="${isArg?'border-color:var(--gold);':''}" >
+    <div class="match-team">${ht?ht.flag:''} ${ht?ht.name:m.home}</div>
+    <div class="match-score">
+      <span>${m.status==='FT'?m.homeScore+' – '+m.awayScore:'vs'}</span>
+      ${badge}
+      <div class="match-meta">${toISTDate(m.kickoffUTC)} · ${m.venue.split(',')[0]}</div>
+    </div>
+    <div class="match-team right">${at?at.name:m.away} ${at?at.flag:''}</div>
+  </div>`;
+});
+
+// INJURY TRACKER
+const injDiv = document.getElementById('injury-tracker');
+argPath.injuryUpdates.forEach(p=>{
+  const cls = p.status==='Available' ? 'injury-ok' : (p.status==='Doubt'?'injury-doubt':'injury-out');
+  const icon = p.status==='Available' ? '✅' : (p.status==='Doubt'?'⚠️':'❌');
+  injDiv.innerHTML += `
+  <div class="record-item">
+    <div class="record-icon">${icon}</div>
+    <div>
+      <strong>${p.player}</strong> — <span class="${cls}">${p.status}</span>
+      <div style="font-size:.82rem;color:var(--text-muted);margin-top:.15rem;">${p.detail}</div>
+    </div>
+  </div>`;
+});
+
+// PATH TO FINAL
+const pathDiv = document.getElementById('arg-path');
+// Add completed
+pathDiv.innerHTML += `
+<div class="path-step current">
+  <div class="round">GROUP J · MD1 ✅</div>
+  <div class="opp">🇦🇱 Algeria</div>
+  <div style="color:#2e7d32;font-weight:700;font-size:.9rem;">WON 3–0</div>
+</div>
+<div style="color:var(--gold);font-size:1.5rem;align-self:center;">→</div>
+<div class="path-step">
+  <div class="round">GROUP J · MD2 📅</div>
+  <div class="opp">🇦🇹 Austria</div>
+  <div class="chance">June 22 · 3:30 AM IST</div>
+</div>
+<div style="color:var(--gold);font-size:1.5rem;align-self:center;">→</div>
+<div class="path-step">
+  <div class="round">GROUP J · MD3 📅</div>
+  <div class="opp">🇯🇴 Jordan</div>
+  <div class="chance">June 27 · 3:30 AM IST</div>
+</div>`;
+
+argPath.projectedPath.forEach((step,i)=>{
+  const icons = ['🎯','⚔️','🏅','🥈','🏆'];
+  pathDiv.innerHTML += `
+  <div style="color:var(--gold);font-size:1.5rem;align-self:center;">→</div>
+  <div class="path-step">
+    <div class="round">${step.round}</div>
+    <div class="opp">${icons[i]||'⚽'} ${step.projectedOpponent}</div>
+    <div class="chance">${step.likelihood}</div>
+  </div>`;
+});
+
+// FULL SQUAD
+const squadDiv = document.getElementById('arg-squad');
+['GK','DEF','MID','FWD'].forEach(pos=>{
+  const players = arg.squad.filter(p=>p.pos===pos);
+  const posNames={GK:'Goalkeepers',DEF:'Defenders',MID:'Midfielders',FWD:'Forwards'};
+  squadDiv.innerHTML += `<div style="margin-bottom:1rem;"><div style="font-size:.78rem;font-weight:700;color:var(--text-muted);letter-spacing:.05em;margin-bottom:.5rem;">${posNames[pos]}</div><div class="player-grid">`;
+  players.forEach(p=>{
+    squadDiv.innerHTML += `<div class="player-card">
+      <div class="player-name">${p.name}</div>
+      <span class="player-pos pos-${p.pos}">${p.pos}</span>
+      <div class="player-club">🏟️ ${p.club} · Age ${p.age}</div>
+      <div class="player-club">Caps: ${p.caps}</div>
+    </div>`;
+  });
+  squadDiv.innerHTML += '</div></div>';
+});
+
+// TRIVIA
+const trivDiv = document.getElementById('arg-trivia');
+arg.trivia.forEach(tr=>{
+  trivDiv.innerHTML += `<div class="record-item"><div class="record-icon">🇦🇷</div><div>${tr}</div></div>`;
+});
+</script>
+</body>
+</html>
