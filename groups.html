@@ -45,10 +45,9 @@
 
 <script src="js/data.js"></script>
 <script>
-const IST_OFFSET = 330;
-function toIST(u){ const d=new Date(u+'Z'); d.setMinutes(d.getMinutes()+IST_OFFSET); return d; }
-function fmtIST(u){ const d=toIST(u); return d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true}).toUpperCase()+' IST'; }
-function fmtDateTime(u){ const d=toIST(u); return d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric'})+' · '+d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true}).toUpperCase()+' IST'; }
+const IST_TZ = 'Asia/Kolkata';
+function fmtIST(u){ return new Date(u+'Z').toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true,timeZone:IST_TZ}).toUpperCase()+' IST'; }
+function fmtDateTime(u){ const d=new Date(u+'Z'); return d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric',timeZone:IST_TZ})+' · '+d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true,timeZone:IST_TZ}).toUpperCase()+' IST'; }
 function gc(id){ return WC2026.countries[id]||{name:id,flag:'🏳️'}; }
 function sortTeams(ts){ return [...ts].sort((a,b)=>b.Pts-a.Pts||b.GD-a.GD||b.GF-a.GF); }
 
