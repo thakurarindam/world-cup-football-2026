@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-06-19) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-06-20) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-06-19",
+  lastUpdated: "2026-06-20",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -61,12 +61,13 @@ const WC2026 = {
   },
 
   // ── GROUPS & STANDINGS ─────────────────────────────────────────
-  // Updated after MD1 (Jun 11–17) and MD2 Jun 18 (Groups A & B only)
+  // Updated after MD2 (all Jun 18–20 matches complete)
   // MD1 scores: A: MEX2-0RSA, KOR2-1CZE | B: CAN1-1BIH, QAT1-1SUI | C: BRA1-1MAR, HAI0-1SCO
   //             D: USA4-1PAR, AUS2-0TUR | E: GER7-1CUW, CIV1-0ECU | F: NED2-2JPN, SWE5-1TUN
   //             G: BEL1-1EGY, IRN2-2NZL | H: ESP0-0CPV, KSA1-1URU | I: FRA3-1SEN, IRQ1-4NOR
   //             J: ARG3-0ALG, AUT3-1JOR | K: POR1-1COD, UZB1-3COL | L: ENG4-2CRO, GHA1-0PAN
   // MD2 Jun 18: A: CZE1-1RSA, MEX1-0KOR | B: SUI4-1BIH, CAN6-0QAT
+  // MD2 Jun 19-20: C: SCO0-1MAR, BRA3-0HAI | D: USA2-0AUS, TUR0-1PAR
   groups: {
     A: { name:"Group A", teams:[
       { id:"MEX", P:2, W:2, D:0, L:0, GF:3, GA:0, GD:3,  Pts:6, form:["W","W"] },
@@ -81,16 +82,16 @@ const WC2026 = {
       { id:"QAT", P:2, W:0, D:1, L:1, GF:1, GA:7, GD:-6, Pts:1, form:["D","L"] }
     ]},
     C: { name:"Group C", teams:[
-      { id:"SCO", P:1, W:1, D:0, L:0, GF:1, GA:0, GD:1,  Pts:3, form:["W"] },
-      { id:"BRA", P:1, W:0, D:1, L:0, GF:1, GA:1, GD:0,  Pts:1, form:["D"] },
-      { id:"MAR", P:1, W:0, D:1, L:0, GF:1, GA:1, GD:0,  Pts:1, form:["D"] },
-      { id:"HAI", P:1, W:0, D:0, L:1, GF:0, GA:1, GD:-1, Pts:0, form:["L"] }
+      { id:"BRA", P:2, W:1, D:1, L:0, GF:4, GA:1, GD:3,  Pts:4, form:["D","W"] },
+      { id:"MAR", P:2, W:1, D:1, L:0, GF:2, GA:1, GD:1,  Pts:4, form:["D","W"] },
+      { id:"SCO", P:2, W:1, D:0, L:1, GF:1, GA:1, GD:0,  Pts:3, form:["W","L"] },
+      { id:"HAI", P:2, W:0, D:0, L:2, GF:0, GA:4, GD:-4, Pts:0, form:["L","L"] }
     ]},
     D: { name:"Group D", teams:[
-      { id:"USA", P:1, W:1, D:0, L:0, GF:4, GA:1, GD:3,  Pts:3, form:["W"] },
-      { id:"AUS", P:1, W:1, D:0, L:0, GF:2, GA:0, GD:2,  Pts:3, form:["W"] },
-      { id:"TUR", P:1, W:0, D:0, L:1, GF:0, GA:2, GD:-2, Pts:0, form:["L"] },
-      { id:"PAR", P:1, W:0, D:0, L:1, GF:1, GA:4, GD:-3, Pts:0, form:["L"] }
+      { id:"USA", P:2, W:2, D:0, L:0, GF:6, GA:1, GD:5,  Pts:6, form:["W","W"] },
+      { id:"AUS", P:2, W:1, D:0, L:1, GF:2, GA:2, GD:0,  Pts:3, form:["W","L"] },
+      { id:"PAR", P:2, W:1, D:0, L:1, GF:2, GA:4, GD:-2, Pts:3, form:["L","W"] },
+      { id:"TUR", P:2, W:0, D:0, L:2, GF:0, GA:3, GD:-3, Pts:0, form:["L","L"] }
     ]},
     E: { name:"Group E", teams:[
       { id:"GER", P:1, W:1, D:0, L:0, GF:7, GA:1, GD:6,  Pts:3, form:["W"] },
@@ -181,8 +182,10 @@ const WC2026 = {
     { id:13, group:"C", home:"BRA", away:"MAR", utc:"2026-06-13T22:00", venue:"MetLife Stadium, East Rutherford NJ", status:"FT", score:{h:1,a:1}, events:[] },
     { id:14, group:"C", home:"HAI", away:"SCO", utc:"2026-06-14T01:00", venue:"AT&T Stadium, Dallas TX", status:"FT", score:{h:0,a:1}, events:[] },
     // MD2
-    { id:15, group:"C", home:"SCO", away:"MAR", utc:"2026-06-19T22:00", venue:"Levi's Stadium, Santa Clara CA", status:"UP", score:null, events:[] },
-    { id:16, group:"C", home:"BRA", away:"HAI", utc:"2026-06-20T00:30", venue:"Hard Rock Stadium, Miami FL", status:"UP", score:null, events:[] },
+    { id:15, group:"C", home:"SCO", away:"MAR", utc:"2026-06-19T22:00", venue:"Gillette Stadium, Foxborough MA", status:"FT", score:{h:0,a:1},
+      events:[{type:"goal",team:"MAR",player:"Ismael Saibari",min:2}] },
+    { id:16, group:"C", home:"BRA", away:"HAI", utc:"2026-06-20T00:30", venue:"Lincoln Financial Field, Philadelphia PA", status:"FT", score:{h:3,a:0},
+      events:[{type:"goal",team:"BRA",player:"Matheus Cunha",min:22},{type:"goal",team:"BRA",player:"Matheus Cunha",min:36},{type:"goal",team:"BRA",player:"Vinícius Jr.",min:45}] },
     // MD3
     { id:17, group:"C", home:"SCO", away:"BRA", utc:"2026-06-24T22:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", score:null, events:[] },
     { id:18, group:"C", home:"MAR", away:"HAI", utc:"2026-06-24T22:00", venue:"Hard Rock Stadium, Miami FL", status:"UP", score:null, events:[] },
@@ -194,8 +197,10 @@ const WC2026 = {
     { id:20, group:"D", home:"AUS", away:"TUR", utc:"2026-06-14T16:00", venue:"SoFi Stadium, Inglewood CA", status:"FT", score:{h:2,a:0},
       events:[] },
     // MD2
-    { id:21, group:"D", home:"USA", away:"AUS", utc:"2026-06-19T19:00", venue:"Rose Bowl, Pasadena CA", status:"UP", score:null, events:[] },
-    { id:22, group:"D", home:"TUR", away:"PAR", utc:"2026-06-20T03:00", venue:"AT&T Stadium, Dallas TX", status:"UP", score:null, events:[] },
+    { id:21, group:"D", home:"USA", away:"AUS", utc:"2026-06-19T19:00", venue:"Lumen Field, Seattle WA", status:"FT", score:{h:2,a:0},
+      events:[{type:"goal",team:"AUS",player:"Cameron Burgess (OG)",min:11},{type:"goal",team:"USA",player:"Alex Freeman",min:43}] },
+    { id:22, group:"D", home:"TUR", away:"PAR", utc:"2026-06-20T03:00", venue:"Levi's Stadium, Santa Clara CA", status:"FT", score:{h:0,a:1},
+      events:[{type:"goal",team:"PAR",player:"Miguel Almirón",min:45}] },
     // MD3
     { id:23, group:"D", home:"TUR", away:"USA", utc:"2026-06-26T02:00", venue:"Gillette Stadium, Foxborough MA", status:"UP", score:null, events:[] },
     { id:24, group:"D", home:"PAR", away:"AUS", utc:"2026-06-26T02:00", venue:"BC Place, Vancouver", status:"UP", score:null, events:[] },
@@ -298,10 +303,11 @@ const WC2026 = {
   ],
 
   // ── TOP SCORERS ─────────────────────────────────────────────────
-  // Source: FIFA official / verified from tournament data (updated Jun 19 after MD2 Jun 18)
+  // Source: FIFA official / verified from tournament data (updated Jun 20 after MD2 Groups C & D)
   topScorers: [
     { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:3, assists:1, note:"Hat-trick vs Algeria, Jun 17 (Arrowhead Stadium)" },
     { name:"Jonathan David",   country:"CAN", flag:"🇨🇦", goals:3, assists:0, note:"Hat-trick vs Qatar, Jun 18 (BMO Field, Toronto)" },
+    { name:"Matheus Cunha",    country:"BRA", flag:"🇧🇷", goals:2, assists:0, note:"Brace vs Haiti, Jun 19 (Lincoln Financial Field, Philadelphia)" },
     { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:2, assists:1, note:"Brace vs Iraq, Jun 17 (Rose Bowl)" },
     { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:2, assists:0, note:"Brace vs Senegal, Jun 17 (SoFi Stadium)" },
     { name:"Jude Bellingham",  country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:2, assists:0, note:"Brace vs Croatia, Jun 18 (MetLife Stadium)" },
@@ -569,6 +575,9 @@ const WC2026 = {
 
   // ── FACTS & RECORDS ──────────────────────────────────────────────
   facts: [
+    { icon:"🇺🇸", title:"USA clinch knockouts — second team through", category:"History", detail:"USA beat Australia 2-0 in Seattle to become only the second team to clinch a knockout-round spot at the 2026 World Cup, after Mexico. Alex Freeman scored and Cameron Burgess netted an own goal to seal Group D top spot." },
+    { icon:"⚡", title:"Fastest goal of the tournament: Saibari, 2'", category:"Records", detail:"Morocco's Ismael Saibari hammered home a Brahim Díaz through ball after just 72 seconds against Scotland — the fastest goal of the 2026 World Cup. Morocco won 1-0 to move to 4 points in Group C." },
+    { icon:"🇭🇹", title:"Haiti first team eliminated from WC 2026", category:"History", detail:"Haiti's 3-0 defeat to Brazil made them the first team to be mathematically eliminated from the 2026 World Cup knockout stage. Matheus Cunha (2) and Vinícius Jr. scored as Brazil moved to 4 points alongside Morocco in Group C." },
     { icon:"⚽", title:"Messi's World Cup hat-trick at 38", category:"Records", detail:"Lionel Messi scored his third career World Cup hat-trick against Algeria in Kansas City. At 38, he is the oldest player in history to score a hat-trick at a World Cup." },
     { icon:"🇨🇦", title:"Canada's first-ever World Cup win", category:"History", detail:"Canada beat Qatar 6-0 for their first ever World Cup victory, a record score at the 2026 tournament. Jonathan David scored a hat-trick. Canada had never won a group stage match before 2026." },
     { icon:"🏟️", title:"Biggest World Cup in history", category:"Tournament", detail:"48 teams, 12 groups, 104 matches across 16 stadiums in the USA, Canada and Mexico — the largest World Cup ever staged by every measure." },
