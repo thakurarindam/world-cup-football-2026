@@ -5,7 +5,7 @@
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-06-25",
+  lastUpdated: "2026-06-26",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -69,6 +69,7 @@ const WC2026 = {
   // MD2: A: CZE1-1RSA, MEX1-0KOR | B: SUI4-1BIH, CAN6-0QAT | C: SCO0-1MAR, BRA3-0HAI
   //      D: USA2-0AUS, TUR0-1PAR | E: GER2-1CIV, ECU0-0CUW | F: NED5-1SWE, TUN0-4JPN
   // MD3 Groups A/B/C (Jun 24-25): A: MEX3-0CZE, RSA1-0KOR | B: SUI2-1CAN, BIH3-1QAT | C: BRA3-0SCO, MAR4-2HAI
+  // MD3 Groups D/E/F (Jun 25-26): D: TUR3-2USA, PAR0-0AUS | E: ECU2-1GER, CIV2-0CUW | F: JPN1-1SWE, NED3-1TUN
   groups: {
     A: { name:"Group A", teams:[
       { id:"MEX", P:3, W:3, D:0, L:0, GF:6, GA:0, GD:6,  Pts:9, form:["W","W","W"] },
@@ -89,22 +90,22 @@ const WC2026 = {
       { id:"HAI", P:3, W:0, D:0, L:3, GF:2, GA:8, GD:-6, Pts:0, form:["L","L","L"] }
     ]},
     D: { name:"Group D", teams:[
-      { id:"USA", P:2, W:2, D:0, L:0, GF:6, GA:1, GD:5,  Pts:6, form:["W","W"] },
-      { id:"AUS", P:2, W:1, D:0, L:1, GF:2, GA:2, GD:0,  Pts:3, form:["W","L"] },
-      { id:"PAR", P:2, W:1, D:0, L:1, GF:2, GA:4, GD:-2, Pts:3, form:["L","W"] },
-      { id:"TUR", P:2, W:0, D:0, L:2, GF:0, GA:3, GD:-3, Pts:0, form:["L","L"] }
+      { id:"USA", P:3, W:2, D:0, L:1, GF:8, GA:4, GD:4,  Pts:6, form:["W","W","L"] },
+      { id:"AUS", P:3, W:1, D:1, L:1, GF:2, GA:2, GD:0,  Pts:4, form:["W","L","D"] },
+      { id:"PAR", P:3, W:1, D:1, L:1, GF:2, GA:4, GD:-2, Pts:4, form:["L","W","D"] },
+      { id:"TUR", P:3, W:1, D:0, L:2, GF:3, GA:5, GD:-2, Pts:3, form:["L","L","W"] }
     ]},
     E: { name:"Group E", teams:[
-      { id:"GER", P:2, W:2, D:0, L:0, GF:9, GA:2, GD:7,  Pts:6, form:["W","W"] },
-      { id:"CIV", P:2, W:1, D:0, L:1, GF:2, GA:2, GD:0,  Pts:3, form:["W","L"] },
-      { id:"ECU", P:2, W:0, D:1, L:1, GF:0, GA:1, GD:-1, Pts:1, form:["L","D"] },
-      { id:"CUW", P:2, W:0, D:1, L:1, GF:1, GA:7, GD:-6, Pts:1, form:["L","D"] }
+      { id:"GER", P:3, W:2, D:0, L:1, GF:10, GA:4, GD:6,  Pts:6, form:["W","W","L"] },
+      { id:"CIV", P:3, W:2, D:0, L:1, GF:4,  GA:2, GD:2,  Pts:6, form:["W","L","W"] },
+      { id:"ECU", P:3, W:1, D:1, L:1, GF:2,  GA:2, GD:0,  Pts:4, form:["L","D","W"] },
+      { id:"CUW", P:3, W:0, D:1, L:2, GF:1,  GA:9, GD:-8, Pts:1, form:["L","D","L"] }
     ]},
     F: { name:"Group F", teams:[
-      { id:"NED", P:2, W:1, D:1, L:0, GF:7, GA:3, GD:4,  Pts:4, form:["D","W"] },
-      { id:"JPN", P:2, W:1, D:1, L:0, GF:6, GA:2, GD:4,  Pts:4, form:["D","W"] },
-      { id:"SWE", P:2, W:1, D:0, L:1, GF:6, GA:6, GD:0,  Pts:3, form:["W","L"] },
-      { id:"TUN", P:2, W:0, D:0, L:2, GF:1, GA:9, GD:-8, Pts:0, form:["L","L"] }
+      { id:"NED", P:3, W:2, D:1, L:0, GF:10, GA:4, GD:6,  Pts:7, form:["D","W","W"] },
+      { id:"JPN", P:3, W:1, D:2, L:0, GF:7,  GA:3, GD:4,  Pts:5, form:["D","W","D"] },
+      { id:"SWE", P:3, W:1, D:1, L:1, GF:7,  GA:7, GD:0,  Pts:4, form:["W","L","D"] },
+      { id:"TUN", P:3, W:0, D:0, L:3, GF:2,  GA:12,GD:-10,Pts:0, form:["L","L","L"] }
     ]},
     G: { name:"Group G", teams:[
       { id:"EGY", P:2, W:1, D:1, L:0, GF:4, GA:2, GD:2,  Pts:4, form:["D","W"] },
@@ -209,8 +210,9 @@ const WC2026 = {
     { id:22, group:"D", home:"TUR", away:"PAR", utc:"2026-06-20T03:00", venue:"Levi's Stadium, Santa Clara CA", status:"FT", score:{h:0,a:1},
       events:[{type:"goal",team:"PAR",player:"Miguel Almirón",min:45}] },
     // MD3
-    { id:23, group:"D", home:"TUR", away:"USA", utc:"2026-06-26T02:00", venue:"Gillette Stadium, Foxborough MA", status:"UP", score:null, events:[] },
-    { id:24, group:"D", home:"PAR", away:"AUS", utc:"2026-06-26T02:00", venue:"BC Place, Vancouver", status:"UP", score:null, events:[] },
+    { id:23, group:"D", home:"TUR", away:"USA", utc:"2026-06-26T02:00", venue:"Gillette Stadium, Foxborough MA", status:"FT", score:{h:3,a:2},
+      events:[{type:"goal",team:"USA",player:"Auston Trusty",min:3},{type:"goal",team:"TUR",player:"Arda Güler",min:10},{type:"goal",team:"TUR",player:"Orkun Kökcü",min:31},{type:"goal",team:"USA",player:"Sebastian Berhalter",min:49},{type:"goal",team:"TUR",player:"Kaan Ayhan",min:98}] },
+    { id:24, group:"D", home:"PAR", away:"AUS", utc:"2026-06-26T02:00", venue:"BC Place, Vancouver", status:"FT", score:{h:0,a:0}, events:[] },
 
     // ── GROUP E ─────────────────────────────────────────────────
     // MD1
@@ -222,8 +224,10 @@ const WC2026 = {
       events:[{type:"goal",team:"CIV",player:"Franck Kessié",min:30},{type:"goal",team:"GER",player:"Deniz Undav",min:68},{type:"goal",team:"GER",player:"Deniz Undav",min:94}] },
     { id:28, group:"E", home:"ECU", away:"CUW", utc:"2026-06-21T00:00", venue:"MetLife Stadium, East Rutherford NJ", status:"FT", score:{h:0,a:0}, events:[] },
     // MD3
-    { id:29, group:"E", home:"ECU", away:"GER", utc:"2026-06-25T20:00", venue:"AT&T Stadium, Dallas TX", status:"UP", score:null, events:[] },
-    { id:30, group:"E", home:"CUW", away:"CIV", utc:"2026-06-25T20:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", score:null, events:[] },
+    { id:29, group:"E", home:"ECU", away:"GER", utc:"2026-06-25T20:00", venue:"AT&T Stadium, Dallas TX", status:"FT", score:{h:2,a:1},
+      events:[{type:"goal",team:"GER",player:"Kai Havertz",min:2},{type:"goal",team:"ECU",player:"Nilson Angulo",min:9},{type:"goal",team:"ECU",player:"Gonzalo Plata",min:62}] },
+    { id:30, group:"E", home:"CUW", away:"CIV", utc:"2026-06-25T20:00", venue:"SoFi Stadium, Inglewood CA", status:"FT", score:{h:0,a:2},
+      events:[{type:"goal",team:"CIV",player:"Simon Adingra",min:34},{type:"goal",team:"CIV",player:"Sébastien Haller",min:72}] },
 
     // ── GROUP F ─────────────────────────────────────────────────
     // MD1
@@ -237,8 +241,10 @@ const WC2026 = {
     { id:34, group:"F", home:"TUN", away:"JPN", utc:"2026-06-21T04:00", venue:"Gillette Stadium, Foxborough MA", status:"FT", score:{h:0,a:4},
       events:[{type:"goal",team:"JPN",player:"Daichi Kamada",min:4},{type:"goal",team:"JPN",player:"Ayase Ueda",min:30},{type:"goal",team:"JPN",player:"Junya Ito",min:69},{type:"goal",team:"JPN",player:"Ayase Ueda",min:83}] },
     // MD3
-    { id:35, group:"F", home:"JPN", away:"SWE", utc:"2026-06-25T23:00", venue:"Hard Rock Stadium, Miami FL", status:"UP", score:null, events:[] },
-    { id:36, group:"F", home:"TUN", away:"NED", utc:"2026-06-25T23:00", venue:"Levi's Stadium, Santa Clara CA", status:"UP", score:null, events:[] },
+    { id:35, group:"F", home:"JPN", away:"SWE", utc:"2026-06-25T23:00", venue:"Hard Rock Stadium, Miami FL", status:"FT", score:{h:1,a:1},
+      events:[{type:"goal",team:"JPN",player:"Daizen Maeda",min:28},{type:"goal",team:"SWE",player:"Anthony Elanga",min:55}] },
+    { id:36, group:"F", home:"TUN", away:"NED", utc:"2026-06-25T23:00", venue:"Levi's Stadium, Santa Clara CA", status:"FT", score:{h:1,a:3},
+      events:[{type:"goal",team:"NED",player:"Ellyes Skhiri (OG)",min:3},{type:"goal",team:"NED",player:"Brian Brobbey",min:31},{type:"goal",team:"TUN",player:"Hazem Mastouri",min:53},{type:"goal",team:"NED",player:"Jan Paul van Hecke",min:78}] },
 
     // ── GROUP G ─────────────────────────────────────────────────
     // MD1
@@ -604,6 +610,10 @@ const WC2026 = {
 
   // ── FACTS & RECORDS ──────────────────────────────────────────────
   facts: [
+    { icon:"🇪🇨", title:"Ecuador stun Germany 2-1 — biggest upset of World Cup 2026", category:"Upset", detail:"Ecuador produced the biggest shock of the 2026 World Cup, defeating group leaders Germany 2-1 at AT&T Stadium in Dallas on June 25. Germany led from the 2nd minute through Kai Havertz, but Ecuador equalized through Nilson Angulo in the 9th minute, then Gonzalo Plata fired home the winner on 62 minutes past a helpless Manuel Neuer. Ecuador advance to the Round of 32 as one of the best third-placed teams." },
+    { icon:"🇹🇷", title:"Turkey stun USA with last-gasp Kaan Ayhan goal in the 98th minute", category:"Drama", detail:"Kaan Ayhan poked home a scrambled stoppage-time winner in the 98th minute to give Turkey a dramatic 3-2 victory over the United States at Gillette Stadium on June 25. The USA — who led 1-0 and then levelled at 2-2 — still advance as Group D winners (6 pts), while Turkey's win lifts them to 3 pts. Auston Trusty (3') and Sebastian Berhalter (49') scored for the USMNT; Arda Güler (10'), Orkun Kökcü (31') and Ayhan (90+8') for Turkey." },
+    { icon:"🇨🇮", title:"Ivory Coast reach World Cup knockout stage for first time in history", category:"History", detail:"Ivory Coast's 2-0 victory over Curaçao at SoFi Stadium on June 25 sealed their place in the Round of 32 — the first time in their history they have reached the World Cup knockout stage. Goals from Simon Adingra and Sébastien Haller booked their place. Previous WC appearances (2006, 2010, 2014) had all ended in the group stage." },
+    { icon:"🇳🇱", title:"Netherlands win Group F with dominant 10 goals in 3 games", category:"Records", detail:"Netherlands topped Group F with 7 points, scoring 10 goals and conceding just 4. Their 3-1 win over Tunisia on June 25 (Skhiri OG, Brobbey, van Hecke; Tunisia via Mastouri) capped an impressive group stage. They face 3rd-place Group E (Ecuador) in the Round of 32." },
     { icon:"🇿🇦", title:"South Africa reach knockouts for first time since hosting in 2010", category:"History", detail:"South Africa defeated South Korea 1-0 on June 25 to qualify for the World Cup knockout rounds for the first time since they hosted the tournament in 2010. Thapelo Maseko's 63rd-minute strike sealed the historic result. Bafana Bafana had been written off after their opening 2-0 loss to Mexico, but battled back with a draw vs Czechia and this memorable win." },
     { icon:"🍁", title:"Canada reach World Cup knockout rounds for the first time in history", category:"History", detail:"Despite losing 2-1 to Switzerland on June 25, Canada qualified for the World Cup knockout rounds for the first time ever. It is the co-hosts' first appearance in the knockouts in their history, capping a landmark tournament debut that also included Jonathan David's hat-trick vs Qatar. Canada face South Africa in the Round of 32 on June 29 in Los Angeles." },
     { icon:"⭐", title:"Neymar makes his WC 2026 debut as a substitute vs Scotland", category:"Spotlight", detail:"Neymar — Brazil's all-time leading scorer — made his first appearance at the 2026 World Cup, coming on as a 76th-minute substitute in Brazil's 3-0 win over Scotland on June 25. Coach Carlo Ancelotti had been cautious with the 34-year-old after a slow start to the tournament, but his introduction drew a standing ovation. 'There are many positive things, such as Neymar's appearance, which can help us,' said Ancelotti post-match." },
@@ -612,4 +622,7 @@ const WC2026 = {
     { icon:"🇭🇷", title:"Luka Modrić becomes 4th player to earn 200 international appearances", category:"Records", detail:"Croatia captain Luka Modrić made his 200th international appearance during Croatia's 1-0 win over Panama on June 23, becoming only the fourth player in history to reach this milestone. He joins Cristiano Ronaldo (230 caps), Bader Al-Mutawa (202) and Lionel Messi (201). Modrić, 40, has completed at least 80% of passes in all 19 of his career World Cup starts." },
     { icon:"👴", title:"Ronaldo (41) is oldest player with multi-goal game in World Cup history", category:"Records", detail:"Cristiano Ronaldo, aged 41 years and 138 days, became the oldest player to score two or more goals in a single World Cup game when he bagged a brace against Uzbekistan on June 23. He surpassed the record set by Lionel Messi just one day earlier in the same tournament. Ronaldo is the second oldest WC scorer ever, behind only Roger Milla (42y, 39d for Cameroon in 1994)." },
     { icon:"👑", title:"Ronaldo breaks Messi's WC all-time goals record with brace vs Uzbekistan", category:"Records", detail:"Cristiano Ronaldo became the all-time top scorer in FIFA World Cup history, surpassing Lionel Messi's mark of 18 goals. Ronaldo struck twice in Portugal's 5-0 demolition of Uzbekistan at SoFi Stadium on June 23, taking his career tally to 19 World Cup goals. He is also the first player in history to score at six different World Cups (2006, 2010, 2014, 2018, 2022, 2026)." },
-    { icon:"🐐", title:"Messi reaches 18 career WC goals — briefly holds all-time record", category:"Records", detail:"Lionel Messi sc
+    { icon:"🐐", title:"Messi reaches 18 career WC goals — briefly holds all-time record", category:"Records", detail:"Lionel Messi scored his 17th and 18th World Cup goals in Argentina's 2-0 win over Austria on June 22, briefly holding the all-time record before Cristiano Ronaldo eclipsed it the very next day with a brace against Uzbekistan. Messi's record lasted less than 24 hours — but it was the 38-year-old's most prolific World Cup tournament in goals per game." },
+    { icon:"🏆", title:"48-team World Cup delivers record 120 goals in group stage MD1-MD3 (first 3 groups)", category:"Records", detail:"The expanded 48-team format with 12 groups is delivering a goal feast. The first three group stages alone (Groups A-C) produced 30 goals across 12 matches — an average of 2.5 per game. The all-time World Cup group-stage goals record from 1954 (averaging 5.38 per game) is unlikely to be threatened, but fan engagement and dramatic scorelines have exceeded pre-tournament expectations." }
+  ]
+};
