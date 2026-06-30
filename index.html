@@ -34,17 +34,17 @@
 
 <div class="container">
 
-  <!-- TODAY'S MATCHES -->
+  <!-- UPCOMING MATCHES v2 -->
   <div class="card">
-    <div class="card-title">📅 Today's Matches <span id="today-date" style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;"></span></div>
-    <div id="today-matches"></div>
-  </div>
-
-  <!-- UPCOMING MATCHES -->
-  <div class="card">
-    <div class="card-title">⏰ Upcoming Matches <span style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">(All times IST · Click any card to see group standings)</span></div>
+    <div class="card-title">⏰ Upcoming Matches <span style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">All times IST · Click any card to see group standings</span></div>
     <div class="tabs" id="date-tabs"></div>
     <div id="upcoming-matches"></div>
+  </div>
+
+  <!-- MATCH RESULTS -->
+  <div class="card">
+    <div class="card-title">✅ Match Results <span style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">Click any card to see goal events &amp; group table</span></div>
+    <div id="results-matches"></div>
   </div>
 
   <!-- STAR MATCHES -->
@@ -94,44 +94,39 @@ document.getElementById('progress-bar').style.width = pct+'%';
 document.getElementById('progress-pct').textContent = pct+'% ('+played+'/104 played)';
 document.getElementById('last-updated').textContent = WC2026.lastUpdated;
 
-// TODAY
-const nowMs = Date.now() + 330*60000;
-const nowIST = new Date(nowMs);
-const todayStr = nowIST.getUTCFullYear()+'-'+String(nowIST.getUTCMonth()+1).padStart(2,'0')+'-'+String(nowIST.getUTCDate()).padStart(2,'0');
-document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',timeZone:IST_TZ});
-
-const todayFix = WC2026.fixtures.filter(f=>istDateStr(f.utc)===todayStr)
-  .sort((a,b)=>a.group.localeCompare(b.group)||new Date(a.utc)-new Date(b.utc));
-const todayDiv = document.getElementById('today-matches');
-if (!todayFix.length) {
-  const next = WC2026.fixtures.filter(f=>f.status==='UP').sort((a,b)=>new Date(a.utc)-new Date(b.utc))[0];
-  todayDiv.innerHTML = `<p style="color:var(--text-muted);font-size:.85rem;">No matches today. Next match: <strong style="color:var(--accent);">${next?gc(next.home).flag+' '+gc(next.home).name+' vs '+gc(next.away).name+' '+gc(next.away).flag:'-'}</strong>${next?' on '+fmtDate(next.utc)+' at '+fmtIST(next.utc):''}</p>`;
-} else {
-  todayDiv.innerHTML = todayFix.map(f=>matchCard(f)).join('');
-}
-
-// UPCOMING
+// UPCOMING — sorted by kick-off time only (no group sort)
 const upcoming = WC2026.fixtures.filter(f=>f.status==='UP').sort((a,b)=>new Date(a.utc)-new Date(b.utc));
 const upDates = [...new Set(upcoming.map(f=>istDateStr(f.utc)))].slice(0,5);
 const tabsEl = document.getElementById('date-tabs');
-upDates.forEach((dk,i)=>{
-  const d = new Date(dk+'T12:00:00');
-  const lbl = d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
-  const btn = document.createElement('button');
-  btn.className = 'tab-btn'+(i===0?' active':'');
-  btn.textContent = lbl;
-  btn.onclick = ()=>showDate(dk,btn);
-  tabsEl.appendChild(btn);
-});
-if (upDates.length) showDate(upDates[0], tabsEl.querySelector('.tab-btn'));
+if (upcoming.length) {
+  upDates.forEach((dk,i)=>{
+    const lbl = new Date(dk+'T12:00:00Z').toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',timeZone:IST_TZ});
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn'+(i===0?' active':'');
+    btn.textContent = lbl;
+    btn.onclick = ()=>showDate(dk,btn);
+    tabsEl.appendChild(btn);
+  });
+  showDate(upDates[0], tabsEl.querySelector('.tab-btn'));
+} else {
+  document.getElementById('upcoming-matches').innerHTML = '<p style="color:var(--text-muted);font-size:.85rem;">No upcoming matches scheduled.</p>';
+}
 
 function showDate(dk, btn) {
   document.querySelectorAll('#date-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  const fx = upcoming.filter(f=>istDateStr(f.utc)===dk)
-    .sort((a,b)=>a.group.localeCompare(b.group)||new Date(a.utc)-new Date(b.utc));
+  // Sort by kick-off time only within the selected date
+  const fx = upcoming.filter(f=>istDateStr(f.utc)===dk).sort((a,b)=>new Date(a.utc)-new Date(b.utc));
   document.getElementById('upcoming-matches').innerHTML = fx.map(f=>matchCard(f)).join('');
 }
+
+// RESULTS — last 2 days only, sorted by kick-off time ascending
+const twoDaysAgoMs = Date.now() + 330*60000 - 2*24*60*60*1000;
+const twoDaysAgoStr = (()=>{const d=new Date(twoDaysAgoMs);return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');})();
+const results = WC2026.fixtures.filter(f=>f.status==='FT' && istDateStr(f.utc)>=twoDaysAgoStr).sort((a,b)=>new Date(a.utc)-new Date(b.utc));
+document.getElementById('results-matches').innerHTML = results.length
+  ? results.map(f=>matchCard(f)).join('')
+  : '<p style="color:var(--text-muted);font-size:.85rem;">No results in the last 2 days.</p>';
 
 // MATCH CARD
 function matchCard(f) {

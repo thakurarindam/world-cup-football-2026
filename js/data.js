@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-06-25) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-06-30) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-06-26",
+  lastUpdated: "2026-06-30",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -61,7 +61,7 @@ const WC2026 = {
   },
 
   // ── GROUPS & STANDINGS ─────────────────────────────────────────
-  // Updated after MD3 Groups A/B/C (Jun 24–25) and MD2 Groups D–L (Jun 18–24)
+  // Updated after all MD3 complete (Jun 24–28). Knockout Round of 32 underway (Jun 28 – Jul 3).
   // MD1: A: MEX2-0RSA, KOR2-1CZE | B: CAN1-1BIH, QAT1-1SUI | C: BRA1-1MAR, HAI0-1SCO
   //      D: USA4-1PAR, AUS2-0TUR | E: GER7-1CUW, CIV1-0ECU | F: NED2-2JPN, SWE5-1TUN
   //      G: BEL1-1EGY, IRN2-2NZL | H: ESP0-0CPV, KSA1-1URU | I: FRA3-1SEN, IRQ1-4NOR
@@ -70,6 +70,7 @@ const WC2026 = {
   //      D: USA2-0AUS, TUR0-1PAR | E: GER2-1CIV, ECU0-0CUW | F: NED5-1SWE, TUN0-4JPN
   // MD3 Groups A/B/C (Jun 24-25): A: MEX3-0CZE, RSA1-0KOR | B: SUI2-1CAN, BIH3-1QAT | C: BRA3-0SCO, MAR4-2HAI
   // MD3 Groups D/E/F (Jun 25-26): D: TUR3-2USA, PAR0-0AUS | E: ECU2-1GER, CIV2-0CUW | F: JPN1-1SWE, NED3-1TUN
+  // MD3 Groups G-L (Jun 26-28): G: EGY1-1IRN, NZL1-5BEL | H: URU0-1ESP, CPV0-0KSA | I: NOR1-4FRA, SEN5-0IRQ | J: ALG3-3AUT, JOR1-3ARG | K: COL0-0POR, COD3-1UZB | L: PAN0-2ENG, CRO2-1GHA
   groups: {
     A: { name:"Group A", teams:[
       { id:"MEX", P:3, W:3, D:0, L:0, GF:6, GA:0, GD:6,  Pts:9, form:["W","W","W"] },
@@ -108,40 +109,40 @@ const WC2026 = {
       { id:"TUN", P:3, W:0, D:0, L:3, GF:2,  GA:12,GD:-10,Pts:0, form:["L","L","L"] }
     ]},
     G: { name:"Group G", teams:[
-      { id:"EGY", P:2, W:1, D:1, L:0, GF:4, GA:2, GD:2,  Pts:4, form:["D","W"] },
-      { id:"BEL", P:2, W:0, D:2, L:0, GF:1, GA:1, GD:0,  Pts:2, form:["D","D"] },
-      { id:"IRN", P:2, W:0, D:2, L:0, GF:2, GA:2, GD:0,  Pts:2, form:["D","D"] },
-      { id:"NZL", P:2, W:0, D:1, L:1, GF:3, GA:5, GD:-2, Pts:1, form:["D","L"] }
+      { id:"BEL", P:3, W:1, D:2, L:0, GF:6, GA:2, GD:4,  Pts:5, form:["D","D","W"] },
+      { id:"EGY", P:3, W:1, D:2, L:0, GF:5, GA:3, GD:2,  Pts:5, form:["D","W","D"] },
+      { id:"IRN", P:3, W:0, D:3, L:0, GF:3, GA:3, GD:0,  Pts:3, form:["D","D","D"] },
+      { id:"NZL", P:3, W:0, D:1, L:2, GF:4, GA:10,GD:-6, Pts:1, form:["D","L","L"] }
     ]},
     H: { name:"Group H", teams:[
-      { id:"ESP", P:2, W:1, D:1, L:0, GF:4, GA:0, GD:4,  Pts:4, form:["D","W"] },
-      { id:"URU", P:2, W:0, D:2, L:0, GF:3, GA:3, GD:0,  Pts:2, form:["D","D"] },
-      { id:"CPV", P:2, W:0, D:2, L:0, GF:2, GA:2, GD:0,  Pts:2, form:["D","D"] },
-      { id:"KSA", P:2, W:0, D:1, L:1, GF:1, GA:5, GD:-4, Pts:1, form:["D","L"] }
+      { id:"ESP", P:3, W:2, D:1, L:0, GF:5, GA:0, GD:5,  Pts:7, form:["D","W","W"] },
+      { id:"CPV", P:3, W:0, D:3, L:0, GF:2, GA:2, GD:0,  Pts:3, form:["D","D","D"] },
+      { id:"URU", P:3, W:0, D:2, L:1, GF:3, GA:4, GD:-1, Pts:2, form:["D","D","L"] },
+      { id:"KSA", P:3, W:0, D:2, L:1, GF:1, GA:5, GD:-4, Pts:2, form:["D","L","D"] }
     ]},
     I: { name:"Group I", teams:[
-      { id:"NOR", P:2, W:2, D:0, L:0, GF:7, GA:3, GD:4,  Pts:6, form:["W","W"] },
-      { id:"FRA", P:2, W:2, D:0, L:0, GF:6, GA:1, GD:5,  Pts:6, form:["W","W"] },
-      { id:"SEN", P:2, W:0, D:0, L:2, GF:3, GA:7, GD:-4, Pts:0, form:["L","L"] },
-      { id:"IRQ", P:2, W:0, D:0, L:2, GF:1, GA:7, GD:-6, Pts:0, form:["L","L"] }
+      { id:"FRA", P:3, W:3, D:0, L:0, GF:10,GA:2, GD:8,  Pts:9, form:["W","W","W"] },
+      { id:"NOR", P:3, W:2, D:0, L:1, GF:8, GA:7, GD:1,  Pts:6, form:["W","W","L"] },
+      { id:"SEN", P:3, W:1, D:0, L:2, GF:8, GA:7, GD:1,  Pts:3, form:["L","L","W"] },
+      { id:"IRQ", P:3, W:0, D:0, L:3, GF:1, GA:12,GD:-11,Pts:0, form:["L","L","L"] }
     ]},
     J: { name:"Group J", teams:[
-      { id:"ARG", P:2, W:2, D:0, L:0, GF:5, GA:0, GD:5,  Pts:6, form:["W","W"] },
-      { id:"AUT", P:2, W:1, D:0, L:1, GF:3, GA:3, GD:0,  Pts:3, form:["W","L"] },
-      { id:"ALG", P:2, W:1, D:0, L:1, GF:2, GA:4, GD:-2, Pts:3, form:["L","W"] },
-      { id:"JOR", P:2, W:0, D:0, L:2, GF:2, GA:5, GD:-3, Pts:0, form:["L","L"] }
+      { id:"ARG", P:3, W:3, D:0, L:0, GF:8, GA:1, GD:7,  Pts:9, form:["W","W","W"] },
+      { id:"AUT", P:3, W:1, D:1, L:1, GF:6, GA:6, GD:0,  Pts:4, form:["W","L","D"] },
+      { id:"ALG", P:3, W:1, D:1, L:1, GF:5, GA:7, GD:-2, Pts:4, form:["L","W","D"] },
+      { id:"JOR", P:3, W:0, D:0, L:3, GF:3, GA:8, GD:-5, Pts:0, form:["L","L","L"] }
     ]},
     K: { name:"Group K", teams:[
-      { id:"COL", P:2, W:2, D:0, L:0, GF:6, GA:2, GD:4,  Pts:6, form:["W","W"] },
-      { id:"POR", P:2, W:1, D:1, L:0, GF:6, GA:1, GD:5,  Pts:4, form:["D","W"] },
-      { id:"COD", P:2, W:0, D:1, L:1, GF:2, GA:4, GD:-2, Pts:1, form:["D","L"] },
-      { id:"UZB", P:2, W:0, D:0, L:2, GF:1, GA:8, GD:-7, Pts:0, form:["L","L"] }
+      { id:"COL", P:3, W:2, D:1, L:0, GF:6, GA:2, GD:4,  Pts:7, form:["W","W","D"] },
+      { id:"POR", P:3, W:1, D:2, L:0, GF:6, GA:1, GD:5,  Pts:5, form:["D","W","D"] },
+      { id:"COD", P:3, W:1, D:1, L:1, GF:5, GA:5, GD:0,  Pts:4, form:["D","L","W"] },
+      { id:"UZB", P:3, W:0, D:0, L:3, GF:2, GA:11,GD:-9, Pts:0, form:["L","L","L"] }
     ]},
     L: { name:"Group L", teams:[
-      { id:"ENG", P:2, W:1, D:1, L:0, GF:4, GA:2, GD:2,  Pts:4, form:["W","D"] },
-      { id:"GHA", P:2, W:1, D:1, L:0, GF:1, GA:0, GD:1,  Pts:4, form:["W","D"] },
-      { id:"CRO", P:2, W:1, D:0, L:1, GF:3, GA:4, GD:-1, Pts:3, form:["L","W"] },
-      { id:"PAN", P:2, W:0, D:0, L:2, GF:0, GA:2, GD:-2, Pts:0, form:["L","L"] }
+      { id:"ENG", P:3, W:2, D:1, L:0, GF:6, GA:2, GD:4,  Pts:7, form:["W","D","W"] },
+      { id:"CRO", P:3, W:2, D:0, L:1, GF:5, GA:5, GD:0,  Pts:6, form:["L","W","W"] },
+      { id:"GHA", P:3, W:1, D:1, L:1, GF:2, GA:2, GD:0,  Pts:4, form:["W","D","L"] },
+      { id:"PAN", P:3, W:0, D:0, L:3, GF:0, GA:4, GD:-4, Pts:0, form:["L","L","L"] }
     ]}
   },
 
@@ -255,8 +256,8 @@ const WC2026 = {
     { id:40, group:"G", home:"NZL", away:"EGY", utc:"2026-06-22T01:00", venue:"AT&T Stadium, Dallas TX", status:"FT", score:{h:1,a:3},
       events:[{type:"goal",team:"EGY",player:"Omar Marmoush",min:25},{type:"goal",team:"NZL",player:"Chris Wood",min:44},{type:"goal",team:"EGY",player:"Mostafa Mohamed",min:58},{type:"goal",team:"EGY",player:"Trézéguet",min:82}] },
     // MD3
-    { id:41, group:"G", home:"EGY", away:"IRN", utc:"2026-06-27T03:00", venue:"BC Place, Vancouver", status:"UP", score:null, events:[] },
-    { id:42, group:"G", home:"NZL", away:"BEL", utc:"2026-06-27T03:00", venue:"BMO Field, Toronto", status:"UP", score:null, events:[] },
+    { id:41, group:"G", home:"EGY", away:"IRN", utc:"2026-06-27T03:00", venue:"BC Place, Vancouver", status:"FT", score:{h:1,a:1}, events:[] },
+    { id:42, group:"G", home:"NZL", away:"BEL", utc:"2026-06-27T03:00", venue:"BMO Field, Toronto", status:"FT", score:{h:1,a:5}, events:[] },
 
     // ── GROUP H ─────────────────────────────────────────────────
     // MD1
@@ -268,8 +269,8 @@ const WC2026 = {
     { id:46, group:"H", home:"URU", away:"CPV", utc:"2026-06-21T22:00", venue:"Levi's Stadium, Santa Clara CA", status:"FT", score:{h:2,a:2},
       events:[{type:"goal",team:"URU",player:"Darwin Núñez",min:22},{type:"goal",team:"CPV",player:"Garry Rodrigues",min:40},{type:"goal",team:"CPV",player:"Ryan Mendes",min:65},{type:"goal",team:"URU",player:"Facundo Torres",min:88}] },
     // MD3
-    { id:47, group:"H", home:"URU", away:"ESP", utc:"2026-06-27T00:00", venue:"Rose Bowl, Pasadena CA", status:"UP", score:null, events:[] },
-    { id:48, group:"H", home:"CPV", away:"KSA", utc:"2026-06-27T00:00", venue:"AT&T Stadium, Dallas TX", status:"UP", score:null, events:[] },
+    { id:47, group:"H", home:"URU", away:"ESP", utc:"2026-06-27T00:00", venue:"Rose Bowl, Pasadena CA", status:"FT", score:{h:0,a:1}, events:[{type:"goal",team:"ESP",player:"Álex Baena",min:42}] },
+    { id:48, group:"H", home:"CPV", away:"KSA", utc:"2026-06-27T00:00", venue:"AT&T Stadium, Dallas TX", status:"FT", score:{h:0,a:0}, events:[] },
 
     // ── GROUP I ─────────────────────────────────────────────────
     // MD1
@@ -283,8 +284,8 @@ const WC2026 = {
     { id:52, group:"I", home:"NOR", away:"SEN", utc:"2026-06-23T00:00", venue:"Gillette Stadium, Foxborough MA", status:"FT", score:{h:3,a:2},
       events:[{type:"goal",team:"NOR",player:"Erling Haaland",min:9},{type:"goal",team:"SEN",player:"Sadio Mané",min:34},{type:"goal",team:"NOR",player:"Martin Ødegaard",min:57},{type:"goal",team:"SEN",player:"Ismaila Sarr",min:72},{type:"goal",team:"NOR",player:"Alexander Sørloth",min:85}] },
     // MD3
-    { id:53, group:"I", home:"NOR", away:"FRA", utc:"2026-06-26T19:00", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", score:null, events:[] },
-    { id:54, group:"I", home:"SEN", away:"IRQ", utc:"2026-06-26T19:00", venue:"Hard Rock Stadium, Miami FL", status:"UP", score:null, events:[] },
+    { id:53, group:"I", home:"NOR", away:"FRA", utc:"2026-06-26T19:00", venue:"MetLife Stadium, East Rutherford NJ", status:"FT", score:{h:1,a:4}, events:[] },
+    { id:54, group:"I", home:"SEN", away:"IRQ", utc:"2026-06-26T19:00", venue:"Hard Rock Stadium, Miami FL", status:"FT", score:{h:5,a:0}, events:[] },
 
     // ── GROUP J ─────────────────────────────────────────────────
     // MD1
@@ -297,8 +298,10 @@ const WC2026 = {
     { id:58, group:"J", home:"JOR", away:"ALG", utc:"2026-06-23T03:00", venue:"BC Place, Vancouver", status:"FT", score:{h:1,a:2},
       events:[{type:"goal",team:"ALG",player:"Riyad Mahrez",min:12},{type:"goal",team:"JOR",player:"Yazan Al-Naimat",min:55},{type:"goal",team:"ALG",player:"Islam Slimani",min:78}] },
     // MD3
-    { id:59, group:"J", home:"ALG", away:"AUT", utc:"2026-06-28T02:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", score:null, events:[] },
-    { id:60, group:"J", home:"JOR", away:"ARG", utc:"2026-06-28T02:00", venue:"Rose Bowl, Pasadena CA", status:"UP", score:null, events:[] },
+    { id:59, group:"J", home:"ALG", away:"AUT", utc:"2026-06-28T02:00", venue:"SoFi Stadium, Inglewood CA", status:"FT", score:{h:3,a:3},
+      events:[{type:"goal",team:"AUT",player:"Marko Arnautović",min:28},{type:"goal",team:"ALG",player:"Mehdi Belghali",min:41},{type:"goal",team:"AUT",player:"Marcel Sabitzer",min:55},{type:"goal",team:"ALG",player:"Riyad Mahrez",min:60},{type:"goal",team:"ALG",player:"Riyad Mahrez",min:93},{type:"goal",team:"AUT",player:"Saša Kalajdžić",min:95}] },
+    { id:60, group:"J", home:"JOR", away:"ARG", utc:"2026-06-28T02:00", venue:"Rose Bowl, Pasadena CA", status:"FT", score:{h:1,a:3},
+      events:[{type:"goal",team:"ARG",player:"Giovani Lo Celso",min:19},{type:"goal",team:"ARG",player:"Lautaro Martínez (pen)",min:31},{type:"goal",team:"JOR",player:"Mousa Al-Taamari",min:55},{type:"goal",team:"ARG",player:"Lionel Messi",min:80}] },
 
     // ── GROUP K ─────────────────────────────────────────────────
     // MD1
@@ -310,8 +313,8 @@ const WC2026 = {
     { id:64, group:"K", home:"COL", away:"COD", utc:"2026-06-24T02:00", venue:"Hard Rock Stadium, Miami FL", status:"FT", score:{h:3,a:1},
       events:[{type:"goal",team:"COL",player:"Luis Díaz",min:17},{type:"goal",team:"COD",player:"Cédric Bakambu",min:45},{type:"goal",team:"COL",player:"James Rodríguez",min:60},{type:"goal",team:"COL",player:"Luis Díaz",min:79}] },
     // MD3
-    { id:65, group:"K", home:"COL", away:"POR", utc:"2026-06-27T23:30", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", score:null, events:[] },
-    { id:66, group:"K", home:"COD", away:"UZB", utc:"2026-06-27T23:30", venue:"Levi's Stadium, Santa Clara CA", status:"UP", score:null, events:[] },
+    { id:65, group:"K", home:"COL", away:"POR", utc:"2026-06-27T23:30", venue:"MetLife Stadium, East Rutherford NJ", status:"FT", score:{h:0,a:0}, events:[] },
+    { id:66, group:"K", home:"COD", away:"UZB", utc:"2026-06-27T23:30", venue:"Levi's Stadium, Santa Clara CA", status:"FT", score:{h:3,a:1}, events:[] },
 
     // ── GROUP L ─────────────────────────────────────────────────
     // MD1
@@ -324,14 +327,14 @@ const WC2026 = {
     { id:70, group:"L", home:"PAN", away:"CRO", utc:"2026-06-23T23:00", venue:"BMO Field, Toronto", status:"FT", score:{h:0,a:1},
       events:[{type:"goal",team:"CRO",player:"Andrej Kramarić",min:58}] },
     // MD3
-    { id:71, group:"L", home:"PAN", away:"ENG", utc:"2026-06-27T21:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", score:null, events:[] },
-    { id:72, group:"L", home:"CRO", away:"GHA", utc:"2026-06-27T21:00", venue:"BC Place, Vancouver", status:"UP", score:null, events:[] }
+    { id:71, group:"L", home:"PAN", away:"ENG", utc:"2026-06-27T21:00", venue:"SoFi Stadium, Inglewood CA", status:"FT", score:{h:0,a:2}, events:[{type:"goal",team:"ENG",player:"Jude Bellingham",min:62},{type:"goal",team:"ENG",player:"Harry Kane",min:67}] },
+    { id:72, group:"L", home:"CRO", away:"GHA", utc:"2026-06-27T21:00", venue:"BC Place, Vancouver", status:"FT", score:{h:2,a:1}, events:[{type:"goal",team:"CRO",player:"Nikola Vlašić",min:83}] }
   ],
 
   // ── TOP SCORERS ─────────────────────────────────────────────────
-  // Source: FIFA official / verified from tournament data (updated Jun 24 after MD2 Groups G–L)
+  // Source: FIFA official / verified from tournament data (updated Jun 30 after group stage complete)
   topScorers: [
-    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:5, assists:1, note:"Hat-trick vs Algeria (Jun 17) + brace vs Austria (Jun 22) — 18 career WC goals, briefly all-time record" },
+    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:6, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28) — tournament's leading scorer; first player to score in 7 consecutive WC matches" },
     { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:4, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) — equals Miroslav Klose's all-time record of 16 career WC goals" },
     { name:"Jonathan David",   country:"CAN", flag:"🇨🇦", goals:3, assists:0, note:"Hat-trick vs Qatar, Jun 18 (BMO Field, Toronto)" },
     { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:3, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) — breaks Messi's record, new all-time WC goals leader with 19 career goals" },
@@ -351,19 +354,20 @@ const WC2026 = {
 
   // ── STAR MATCHES TO WATCH ────────────────────────────────────────
   starMatches: [
-    { home:"NOR", away:"FRA", utc:"2026-06-26T19:00", group:"I", venue:"MetLife Stadium, East Rutherford NJ",
-      storyline:"The Group I decider — two unbeaten juggernauts collide. Haaland (3 goals) vs Mbappé (4 goals). Norway have 6pts, France have 6pts — both qualified, but first place means a far easier R32 draw. An early preview of what could be a World Cup final." },
-    { home:"COL", away:"POR", utc:"2026-06-27T23:30", group:"K", venue:"MetLife Stadium, East Rutherford NJ",
-      storyline:"The Group K final — Colombia (6pts) vs Portugal (4pts) with Ronaldo carrying the all-time WC goals record into this clash. Colombia's James Rodríguez and Luis Díaz vs Ronaldo and Leão." },
-    { home:"JOR", away:"ARG", utc:"2026-06-28T02:00", group:"J", venue:"Rose Bowl, Pasadena CA",
-      storyline:"Argentina's final group game — a chance for Scaloni to rotate and give fringe players minutes. Jordan are eliminated (0 pts). Messi may rest but this is a last chance for squad players to stake a knockout claim." }
+    { home:"ARG", away:"CPV", utc:"2026-07-03T20:00", group:"R32", venue:"Hard Rock Stadium, Miami FL",
+      storyline:"Round of 32 — holders Argentina (a perfect 9 points in Group J) face World Cup debutants Cape Verde, who stunned Uruguay to reach the knockouts. Messi, fresh off scoring in a record 7th straight WC match, leads the title defence against the tournament's smallest nation." },
+    { home:"FRA", away:"SWE", utc:"2026-06-30T21:00", group:"R32", venue:"MetLife Stadium, East Rutherford NJ",
+      storyline:"Round of 32 — Group I winners France (unbeaten, 9 points, +8 GD) meet Sweden at the stadium that will host the final. Mbappé and Dembélé against Viktor Gyökeres and Anthony Elanga." },
+    { home:"MEX", away:"ECU", utc:"2026-07-01T01:00", group:"R32", venue:"Estadio Azteca, Mexico City",
+      storyline:"Round of 32 — co-hosts Mexico, who won Group A without conceding (315 minutes of clean sheets), face an Ecuador side that shocked Germany in the group stage. A blockbuster knockout tie at the iconic Estadio Azteca." }
   ],
 
   // ── ARGENTINA SPECIAL DATA ──────────────────────────────────────
   argentina: {
-    groupStanding: "1st in Group J — QUALIFIED for knockout round",
+    groupStanding: "1st in Group J — WON GROUP (3 wins from 3). Face Cape Verde in Round of 32",
     md1Result: "Argentina 3–0 Algeria (Jun 17, Messi hat-trick)",
     md2Result: "Argentina 2–0 Austria (Jun 22, Messi brace — 18 career WC goals, all-time record at the time)",
+    md3Result: "Argentina 3–1 Jordan (Jun 28, Rose Bowl — Messi off the bench scored to become first player to net in 7 consecutive World Cup matches)",
 
     // Official 26-man squad — FIFA submission June 3, 2026 (source: worldcupranking.com)
     // NOTE: Di María retired from international football and is NOT in this squad.
@@ -403,7 +407,7 @@ const WC2026 = {
 
     // Player fitness tracker (key players — updated Jun 25)
     fitness: [
-      { name:"Lionel Messi",        status:"fit",   note:"Brace vs Austria (Jun 22). 5 goals in tournament, 18 career WC goals. Unstoppable form heading into MD3.", updated:"Jun 24" },
+      { name:"Lionel Messi",        status:"fit",   note:"Rested to the bench vs Jordan (Scaloni: no injury), came on and scored — now first player ever to score in 7 consecutive World Cup matches. Fresh and firing for the Round of 32.", updated:"Jun 28" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
       { name:"Cristian Romero",     status:"fit",   note:"Dominant again vs Austria. Full training for MD3 vs Jordan.",                                                updated:"Jun 24" },
       { name:"Lautaro Martínez",    status:"fit",   note:"Started vs Austria. Fully fit and sharp for MD3.",                                                           updated:"Jun 24" },
@@ -413,10 +417,24 @@ const WC2026 = {
       { name:"Julián Álvarez",      status:"fit",   note:"Strong showing vs Austria. Ready for MD3 start.",                                                            updated:"Jun 24" },
       { name:"Nicolás Otamendi",    status:"fit",   note:"Second clean sheet. Leader at the back. Fit for Jordan.",                                                    updated:"Jun 24" },
       { name:"Lisandro Martínez",   status:"fit",   note:"Returned to full fitness, started vs Austria. No issues reported after the match.",                          updated:"Jun 24" },
-      { name:"Gonzalo Montiel",      status:"doubt", note:"Muscle tear continues — did not play vs Austria. Scaloni will manage minutes vs Jordan.", updated:"Jun 24" }
+      { name:"Gonzalo Montiel",      status:"doubt", note:"Eased back in for minutes vs Jordan as Scaloni rotated. Being managed carefully ahead of the Round of 32.", updated:"Jun 28" }
     ],
 
     news: [
+      {
+        title: "Messi makes history off the bench: Argentina 3-1 Jordan, win Group J",
+        date: "June 28, 2026",
+        source: "ESPN",
+        url: "https://www.espn.com/soccer/",
+        snippet: "Lionel Messi started on the bench as Scaloni rotated for the dead-rubber finale, but came on in the second half and scored to seal a 3-1 win over Jordan at the Rose Bowl. The goal made Messi the first player ever to score in seven consecutive World Cup matches. Argentina finish top of Group J with a perfect nine points and advance to the Round of 32."
+      },
+      {
+        title: "Round of 32 confirmed: Argentina to face debutants Cape Verde in Miami",
+        date: "June 28, 2026",
+        source: "FOX Sports",
+        url: "https://www.foxsports.com/soccer/",
+        snippet: "Argentina's Round of 32 opponent is confirmed as Cape Verde, the tournament's smallest nation and a first-time World Cup participant, after the islanders qualified as Group H runners-up. The reigning champions meet Cape Verde on July 3 in Miami."
+      },
       {
         title: "Messi brace clinches knockouts: Argentina 2-0 Austria",
         date: "June 22, 2026",
@@ -466,19 +484,19 @@ const WC2026 = {
       },
       {
         round: "Group Stage MD3",
-        status: "next",
-        match: "JOR vs ARG",
-        date: "June 28, 2026 — 7:30 AM IST",
-        result: null,
-        note: "Rose Bowl, Pasadena CA. Jordan eliminated (0 pts, 2 losses). Scaloni expected to rotate. Group J: ARG 6pts, AUT/ALG 3pts each."
+        status: "done",
+        match: "ARG 3–1 JOR",
+        date: "June 28, 2026 · 7:30 AM IST",
+        result: "WON — Messi off the bench (7 straight WC matches scored)",
+        note: "Rose Bowl, Pasadena CA. Scaloni rotated; Messi rested then scored. Argentina win Group J with a perfect 9 points."
       },
       {
         round: "Round of 32",
-        status: "upcoming",
-        match: "ARG (1st J) vs 2nd Group H",
-        date: "~July 3, 2026",
+        status: "next",
+        match: "ARG vs CPV (Cape Verde)",
+        date: "July 3, 2026",
         result: null,
-        note: "Group H: ESP lead with 4pts after 4-0 vs KSA. URU and CPV level on 2pts after 2-2 draw. Spain likely 1st; ARG opponent likely URU or CPV."
+        note: "Hard Rock Stadium, Miami FL. Cape Verde — World Cup debutants — qualified as Group H runners-up. Argentina heavy favourites against the tournament's smallest nation."
       },
       {
         round: "Round of 16",
@@ -610,6 +628,11 @@ const WC2026 = {
 
   // ── FACTS & RECORDS ──────────────────────────────────────────────
   facts: [
+    { icon:"🐐", title:"Messi becomes first player ever to score in 7 consecutive World Cup matches", category:"Records", detail:"Lionel Messi started Argentina's Group J finale against Jordan on the bench (Scaloni rested him; no injury), came on in the second half and scored in the 3-1 win at the Rose Bowl on June 28. The goal extended his career World Cup tally and made him the first player in history to score in seven consecutive World Cup matches. Argentina finished top of Group J with a perfect nine points and advanced to the Round of 32." },
+    { icon:"🇨🇻", title:"Cape Verde's fairytale debut: smallest nation at the World Cup reaches the knockouts", category:"History", detail:"Cape Verde — an Atlantic island nation of roughly 560,000 people making its first-ever World Cup appearance — sealed a place in the Round of 32 by finishing runners-up in Group H, capped by a battling draw with Saudi Arabia. Their reward is a blockbuster meeting with reigning champions Lionel Messi and Argentina on July 3 in Miami. It is one of the great underdog stories of the 2026 tournament." },
+    { icon:"🇲🇦", title:"Morocco knock out the Netherlands on penalties to reach the Round of 16", category:"Drama", detail:"Morocco continued their run as Africa's standard-bearers, beating the Netherlands in a penalty shootout in Monterrey on June 29 after the Round of 32 tie finished 1-1 following extra time. It was another statement result for the 2022 semi-finalists, who progress to the last 16. Cody Gakpo had scored his sixth World Cup goal for the Dutch before Morocco's shootout heroics ended Oranje's campaign." },
+    { icon:"🇧🇷", title:"Brazil reach the Round of 16 for an 11th straight World Cup via Martinelli's 95th-minute winner", category:"Records", detail:"Gabriel Martinelli struck in the 95th minute to give Brazil a 1-0 Round of 32 win over Japan on June 29 — the latest regulation game-winning goal in Brazil's World Cup history. The result sent the five-time champions through to the Round of 16 for the 11th consecutive tournament. Bruno Guimarães provided the assist, his fourth of the tournament, the most by a Brazilian at a single World Cup since Pelé in 1970." },
+    { icon:"⚽", title:"Goal feast continues: 216 goals in the first 73 matches of World Cup 2026", category:"Records", detail:"As of June 28, the expanded 48-team World Cup had produced 216 goals across 73 matches — an average of 2.96 goals per game — as the tournament moved into the Round of 32 (June 28–July 3). The drama has been relentless, with debutants reaching the knockouts and multiple stoppage-time and penalty-shootout deciders in the opening knockout round." },
     { icon:"🇪🇨", title:"Ecuador stun Germany 2-1 — biggest upset of World Cup 2026", category:"Upset", detail:"Ecuador produced the biggest shock of the 2026 World Cup, defeating group leaders Germany 2-1 at AT&T Stadium in Dallas on June 25. Germany led from the 2nd minute through Kai Havertz, but Ecuador equalized through Nilson Angulo in the 9th minute, then Gonzalo Plata fired home the winner on 62 minutes past a helpless Manuel Neuer. Ecuador advance to the Round of 32 as one of the best third-placed teams." },
     { icon:"🇹🇷", title:"Turkey stun USA with last-gasp Kaan Ayhan goal in the 98th minute", category:"Drama", detail:"Kaan Ayhan poked home a scrambled stoppage-time winner in the 98th minute to give Turkey a dramatic 3-2 victory over the United States at Gillette Stadium on June 25. The USA — who led 1-0 and then levelled at 2-2 — still advance as Group D winners (6 pts), while Turkey's win lifts them to 3 pts. Auston Trusty (3') and Sebastian Berhalter (49') scored for the USMNT; Arda Güler (10'), Orkun Kökcü (31') and Ayhan (90+8') for Turkey." },
     { icon:"🇨🇮", title:"Ivory Coast reach World Cup knockout stage for first time in history", category:"History", detail:"Ivory Coast's 2-0 victory over Curaçao at SoFi Stadium on June 25 sealed their place in the Round of 32 — the first time in their history they have reached the World Cup knockout stage. Goals from Simon Adingra and Sébastien Haller booked their place. Previous WC appearances (2006, 2010, 2014) had all ended in the group stage." },
