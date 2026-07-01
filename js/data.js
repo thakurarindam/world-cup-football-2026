@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-06-30) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-01) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-06-30",
+  lastUpdated: "2026-07-01",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -335,11 +335,11 @@ const WC2026 = {
   // Source: FIFA official / verified from tournament data (updated Jun 30 after group stage complete)
   topScorers: [
     { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:6, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28) — tournament's leading scorer; first player to score in 7 consecutive WC matches" },
-    { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:4, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) — equals Miroslav Klose's all-time record of 16 career WC goals" },
+    { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:6, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the R32 (Jun 30, min:45+53' Barcola/74') — draws level with Messi atop the Golden Boot race with 18 career WC goals, one shy of Ronaldo's all-time record; a record 7th career multi-goal WC game" },
     { name:"Jonathan David",   country:"CAN", flag:"🇨🇦", goals:3, assists:0, note:"Hat-trick vs Qatar, Jun 18 (BMO Field, Toronto)" },
     { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:3, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) — breaks Messi's record, new all-time WC goals leader with 19 career goals" },
     { name:"Luis Díaz",        country:"COL", flag:"🇨🇴", goals:2, assists:0, note:"Brace vs DR Congo, Jun 24 (Hard Rock Stadium)" },
-    { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:3, assists:1, note:"Brace vs Iraq (Jun 17) + goal vs Senegal (Jun 23, Rose Bowl)" },
+    { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:5, assists:1, note:"Brace vs Iraq (Jun 17) + goal vs Senegal (Jun 23) + R32 stoppage-run winner vs Ivory Coast (Jun 30, 86') — now just one goal behind Messi in the Golden Boot race; sets up R16 clash with Brazil" },
     { name:"Matheus Cunha",    country:"BRA", flag:"🇧🇷", goals:3, assists:0, note:"Brace vs Haiti (Jun 19) + goal vs Scotland (Jun 25, SoFi Stadium) — joint leading Brazilian scorer" },
     { name:"Vinícius Jr.",     country:"BRA", flag:"🇧🇷", goals:2, assists:0, note:"Brace vs Scotland, Jun 25 (SoFi Stadium, Inglewood) — 7' and 45+1', Brazil top Group C on goal difference" },
     { name:"Jude Bellingham",  country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:2, assists:0, note:"Brace vs Croatia, Jun 18 (MetLife Stadium)" },
@@ -354,12 +354,12 @@ const WC2026 = {
 
   // ── STAR MATCHES TO WATCH ────────────────────────────────────────
   starMatches: [
-    { home:"ARG", away:"CPV", utc:"2026-07-03T20:00", group:"R32", venue:"Hard Rock Stadium, Miami FL",
-      storyline:"Round of 32 — holders Argentina (a perfect 9 points in Group J) face World Cup debutants Cape Verde, who stunned Uruguay to reach the knockouts. Messi, fresh off scoring in a record 7th straight WC match, leads the title defence against the tournament's smallest nation." },
-    { home:"FRA", away:"SWE", utc:"2026-06-30T21:00", group:"R32", venue:"MetLife Stadium, East Rutherford NJ",
-      storyline:"Round of 32 — Group I winners France (unbeaten, 9 points, +8 GD) meet Sweden at the stadium that will host the final. Mbappé and Dembélé against Viktor Gyökeres and Anthony Elanga." },
-    { home:"MEX", away:"ECU", utc:"2026-07-01T01:00", group:"R32", venue:"Estadio Azteca, Mexico City",
-      storyline:"Round of 32 — co-hosts Mexico, who won Group A without conceding (315 minutes of clean sheets), face an Ecuador side that shocked Germany in the group stage. A blockbuster knockout tie at the iconic Estadio Azteca." }
+    { home:"ARG", away:"CPV", utc:"2026-07-03T22:00", group:"R32", venue:"Hard Rock Stadium, Miami Gardens FL",
+      storyline:"Round of 32 — holders Argentina (a perfect 9 points in Group J) face World Cup debutants Cape Verde, who reached the knockouts as Group H runners-up on the back of three straight draws. Messi, fresh off scoring in a record 7th straight WC match, leads the title defence against the tournament's smallest-ever nation, with Scaloni still weighing three lineup calls (Otamendi/Romero, Tagliafico/Medina, Álvarez/Lautaro)." },
+    { home:"ENG", away:"COD", utc:"2026-07-01T16:00", group:"R32", venue:"Mercedes-Benz Stadium, Atlanta GA",
+      storyline:"Round of 32 — Group L winners England (Bellingham, Kane, Saka) face DR Congo, who advanced as one of the tournament's best third-placed teams. England have won 5 of their last 6 World Cup knockout matches." },
+    { home:"USA", away:"BIH", utc:"2026-07-02T00:00", group:"R32", venue:"Levi's Stadium, Santa Clara CA",
+      storyline:"Round of 32 — co-hosts USA, Group D winners, face a dangerous Bosnia & Herzegovina side (Edin Džeko) that qualified as one of the best third-placed teams. A home knockout tie in front of a partisan Bay Area crowd." }
   ],
 
   // ── ARGENTINA SPECIAL DATA ──────────────────────────────────────
@@ -409,18 +409,26 @@ const WC2026 = {
     fitness: [
       { name:"Lionel Messi",        status:"fit",   note:"Rested to the bench vs Jordan (Scaloni: no injury), came on and scored — now first player ever to score in 7 consecutive World Cup matches. Fresh and firing for the Round of 32.", updated:"Jun 28" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
-      { name:"Cristian Romero",     status:"fit",   note:"Dominant again vs Austria. Full training for MD3 vs Jordan.",                                                updated:"Jun 24" },
-      { name:"Lautaro Martínez",    status:"fit",   note:"Started vs Austria. Fully fit and sharp for MD3.",                                                           updated:"Jun 24" },
-      { name:"Alexis Mac Allister", status:"fit",   note:"Engine of the midfield across both group games. Full 90 vs Austria.",                                        updated:"Jun 24" },
-      { name:"Rodrigo De Paul",     status:"fit",   note:"Tireless pressing vs Austria. Full training.",                                                               updated:"Jun 24" },
+      { name:"Cristian Romero",     status:"fit",   note:"Picked up a knee knock vs Austria and was subbed off as a precaution vs Jordan, but has since trained fully with the squad. Available and in contention to start at centre-back vs Cape Verde, alongside/instead of Otamendi.", updated:"Jun 29" },
+      { name:"Lautaro Martínez",    status:"fit",   note:"Started vs Austria and vs Jordan. Reportedly in better physical condition than Álvarez and favoured to start up top vs Cape Verde.", updated:"Jun 29" },
+      { name:"Alexis Mac Allister", status:"fit",   note:"Engine of the midfield across all three group games. Expected to keep his starting spot for the Round of 32.",                        updated:"Jun 24" },
+      { name:"Rodrigo De Paul",     status:"fit",   note:"Tireless pressing vs Austria. Expected to keep his starting spot for the Round of 32.",                                                updated:"Jun 24" },
       { name:"Nahuel Molina",       status:"fit",   note:"Excellent right-sided outlet. Assist set-up for Messi's first goal vs Austria.",                             updated:"Jun 24" },
-      { name:"Julián Álvarez",      status:"fit",   note:"Strong showing vs Austria. Ready for MD3 start.",                                                            updated:"Jun 24" },
-      { name:"Nicolás Otamendi",    status:"fit",   note:"Second clean sheet. Leader at the back. Fit for Jordan.",                                                    updated:"Jun 24" },
+      { name:"Julián Álvarez",      status:"doubt", note:"Carrying a left ankle issue picked up before the tournament; logged minutes in all three group games but struggled to make an impact vs Jordan. Lautaro Martínez is currently favoured to start ahead of him vs Cape Verde.", updated:"Jun 29" },
+      { name:"Nicolás Otamendi",    status:"fit",   note:"Started vs Jordan as Romero was managed. In contention to keep his place at centre-back for the Round of 32.",  updated:"Jun 29" },
       { name:"Lisandro Martínez",   status:"fit",   note:"Returned to full fitness, started vs Austria. No issues reported after the match.",                          updated:"Jun 24" },
+      { name:"Nicolás Tagliafico",  status:"fit",   note:"Played the full 90 vs Jordan after missing the first two group games with a muscle strain. Has a strong chance of keeping his place at left-back over Facundo Medina vs Cape Verde.", updated:"Jun 29" },
       { name:"Gonzalo Montiel",      status:"doubt", note:"Eased back in for minutes vs Jordan as Scaloni rotated. Being managed carefully ahead of the Round of 32.", updated:"Jun 28" }
     ],
 
     news: [
+      {
+        title: "Scaloni weighing three lineup calls as Messi returns to the XI for Cape Verde",
+        date: "June 29, 2026",
+        source: "World Soccer Talk",
+        url: "https://worldsoccertalk.com/world-cup/",
+        snippet: "With Messi set to return to the starting lineup for the Round of 32, Lionel Scaloni is reportedly weighing three selection battles: Nicolás Otamendi or Cristian Romero at centre-back, Nicolás Tagliafico or Facundo Medina at left-back, and Julián Álvarez or Lautaro Martínez up front. Romero's knee knock from the Austria match has since cleared in training, while Álvarez continues to carry a left ankle issue that has Martínez favoured to start."
+      },
       {
         title: "Messi makes history off the bench: Argentina 3-1 Jordan, win Group J",
         date: "June 28, 2026",
@@ -501,10 +509,10 @@ const WC2026 = {
       {
         round: "Round of 16",
         status: "upcoming",
-        match: "ARG vs Winner of R32",
-        date: "~July 7, 2026",
+        match: "ARG vs Winner of AUS/EGY",
+        date: "July 7, 2026 · Mercedes-Benz Stadium, Atlanta",
         result: null,
-        note: "France and Norway both top Group I on 6pts (both qualified). Potential blockbuster fixture against France/Mbappé."
+        note: "Confirmed bracket: the winner of Argentina vs Cape Verde meets the winner of Australia vs Egypt (played July 3 in Arlington) in the Round of 16."
       },
       {
         round: "Quarter-Final",
@@ -512,7 +520,7 @@ const WC2026 = {
         match: "ARG vs Winner of QF Bracket",
         date: "~July 10, 2026",
         result: null,
-        note: "Germany (7-1 vs Curaçao) or England (4-2 vs Croatia) currently top their groups."
+        note: "Germany were eliminated on penalties by Paraguay in the Round of 32 (Jun 29). England (Group L winners) face DR Congo in the Round of 32 on Jul 1 and remain firmly in the mix on the other side of the bracket."
       },
       {
         round: "Semi-Final",
@@ -628,10 +636,16 @@ const WC2026 = {
 
   // ── FACTS & RECORDS ──────────────────────────────────────────────
   facts: [
+    { icon:"🇵🇾", title:"Paraguay stun four-time champions Germany on penalties — biggest upset of World Cup 2026", category:"Upset", detail:"Paraguay knocked out Germany 4-3 on penalties after a 1-1 draw through extra time at Gillette Stadium, Foxborough on June 29 — Germany's first-ever World Cup exit via shootout, and their first loss to a South American side at a World Cup since Brazil beat them in the 2002 final. Julio Enciso's first-half header was cancelled out by Kai Havertz, and Germany also had a Jonathan Tah extra-time header controversially ruled out by VAR. José Canale scored the decisive sudden-death penalty as Germany's Havertz, Woltemade and Tah all missed from the spot." },
+    { icon:"🍁", title:"Canada win first-ever World Cup knockout match with Eustáquio's 92nd-minute winner", category:"History", detail:"Stephen Eustáquio struck in the second minute of stoppage time to give co-hosts Canada a 1-0 Round of 32 win over South Africa at SoFi Stadium on June 28 — the country's first-ever victory at a men's World Cup knockout match. Canada advance to face Morocco in the Round of 16 in Houston on July 4." },
+    { icon:"🇲🇦", title:"Morocco stun the Netherlands on penalties (3-2) to reach the Round of 16", category:"Drama", detail:"Cody Gakpo put the Netherlands ahead (72') before Issa Diop's 91st-minute header forced extra time at Estadio BBVA, Monterrey on June 29. Neither side scored in extra time, and Morocco held their nerve in the shootout — misses from Kluivert and Timber, plus a Bounou save, handed Ismael Saibari the winning kick. Morocco advance to face Canada in the Round of 16." },
+    { icon:"⚡", title:"Haaland closes in on Messi in the Golden Boot race with dramatic 86th-minute winner", category:"Records", detail:"Erling Haaland struck in the 86th minute to send Norway past Ivory Coast 2-1 in the Round of 32 (AT&T Stadium, Arlington, June 30) after Antonio Nusa's opener (39') was cancelled out by a stunning Amad Diallo solo goal (74') — Ivory Coast's first-ever World Cup knockout goal. Haaland's tournament tally moves to five, one behind Messi, and sets up a mouth-watering Round of 16 clash with Brazil." },
+    { icon:"🐓", title:"Mbappé draws level with Messi atop the Golden Boot race with a brace in France's 3-0 win over Sweden", category:"Records", detail:"Kylian Mbappé scored either side of a Bradley Barcola strike (53') as France cruised past Sweden 3-0 in the Round of 32 at MetLife Stadium on June 30, reaching the Round of 16. Mbappé's brace — his record seventh career multi-goal World Cup game — brings him level with Lionel Messi on six tournament goals and 18 career World Cup goals, one behind Cristiano Ronaldo's all-time record of 19." },
+    { icon:"🇲🇽", title:"Co-hosts Mexico beat Ecuador 2-0 to reach the Round of 16", category:"Records", detail:"Julián Quiñones (22') and Raúl Jiménez (31') scored either side of a lightning delay to send Mexico past Ecuador 2-0 in the Round of 32 at Estadio Azteca on June 30. Mexico extend their tournament clean-sheet run and advance to face the England/DR Congo winner in the Round of 16 back at the Azteca on July 5." },
     { icon:"🐐", title:"Messi becomes first player ever to score in 7 consecutive World Cup matches", category:"Records", detail:"Lionel Messi started Argentina's Group J finale against Jordan on the bench (Scaloni rested him; no injury), came on in the second half and scored in the 3-1 win at the Rose Bowl on June 28. The goal extended his career World Cup tally and made him the first player in history to score in seven consecutive World Cup matches. Argentina finished top of Group J with a perfect nine points and advanced to the Round of 32." },
     { icon:"🇨🇻", title:"Cape Verde's fairytale debut: smallest nation at the World Cup reaches the knockouts", category:"History", detail:"Cape Verde — an Atlantic island nation of roughly 560,000 people making its first-ever World Cup appearance — sealed a place in the Round of 32 by finishing runners-up in Group H, capped by a battling draw with Saudi Arabia. Their reward is a blockbuster meeting with reigning champions Lionel Messi and Argentina on July 3 in Miami. It is one of the great underdog stories of the 2026 tournament." },
     { icon:"🇲🇦", title:"Morocco knock out the Netherlands on penalties to reach the Round of 16", category:"Drama", detail:"Morocco continued their run as Africa's standard-bearers, beating the Netherlands in a penalty shootout in Monterrey on June 29 after the Round of 32 tie finished 1-1 following extra time. It was another statement result for the 2022 semi-finalists, who progress to the last 16. Cody Gakpo had scored his sixth World Cup goal for the Dutch before Morocco's shootout heroics ended Oranje's campaign." },
-    { icon:"🇧🇷", title:"Brazil reach the Round of 16 for an 11th straight World Cup via Martinelli's 95th-minute winner", category:"Records", detail:"Gabriel Martinelli struck in the 95th minute to give Brazil a 1-0 Round of 32 win over Japan on June 29 — the latest regulation game-winning goal in Brazil's World Cup history. The result sent the five-time champions through to the Round of 16 for the 11th consecutive tournament. Bruno Guimarães provided the assist, his fourth of the tournament, the most by a Brazilian at a single World Cup since Pelé in 1970." },
+    { icon:"🇧🇷", title:"Brazil come from behind to beat Japan 2-1, reach the Round of 16 for an 11th straight World Cup", category:"Records", detail:"Japan led through Kaishu Sano (29') before Casemiro headed Brazil level (56'), and substitute Gabriel Martinelli struck a dramatic stoppage-time winner (90+6') to complete the comeback at NRG Stadium, Houston on June 29. The 2-1 win sent the five-time champions through to the Round of 16 for the 11th consecutive tournament, and marked Neymar's continued return from the bench as Brazil's title bid rolls on." },
     { icon:"⚽", title:"Goal feast continues: 216 goals in the first 73 matches of World Cup 2026", category:"Records", detail:"As of June 28, the expanded 48-team World Cup had produced 216 goals across 73 matches — an average of 2.96 goals per game — as the tournament moved into the Round of 32 (June 28–July 3). The drama has been relentless, with debutants reaching the knockouts and multiple stoppage-time and penalty-shootout deciders in the opening knockout round." },
     { icon:"🇪🇨", title:"Ecuador stun Germany 2-1 — biggest upset of World Cup 2026", category:"Upset", detail:"Ecuador produced the biggest shock of the 2026 World Cup, defeating group leaders Germany 2-1 at AT&T Stadium in Dallas on June 25. Germany led from the 2nd minute through Kai Havertz, but Ecuador equalized through Nilson Angulo in the 9th minute, then Gonzalo Plata fired home the winner on 62 minutes past a helpless Manuel Neuer. Ecuador advance to the Round of 32 as one of the best third-placed teams." },
     { icon:"🇹🇷", title:"Turkey stun USA with last-gasp Kaan Ayhan goal in the 98th minute", category:"Drama", detail:"Kaan Ayhan poked home a scrambled stoppage-time winner in the 98th minute to give Turkey a dramatic 3-2 victory over the United States at Gillette Stadium on June 25. The USA — who led 1-0 and then levelled at 2-2 — still advance as Group D winners (6 pts), while Turkey's win lifts them to 3 pts. Auston Trusty (3') and Sebastian Berhalter (49') scored for the USMNT; Arda Güler (10'), Orkun Kökcü (31') and Ayhan (90+8') for Turkey." },

@@ -3,3 +3,6 @@ __pycache__/
 .env
 *.log
 .DS_Store
+js/data.js.bak_corrupted
+js/synctest.js
+_t1
