@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-01) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-02) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-01",
+  lastUpdated: "2026-07-02",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -349,17 +349,18 @@ const WC2026 = {
     { name:"Deniz Undav",      country:"GER", flag:"🇩🇪", goals:2, assists:0, note:"Super-sub brace vs Ivory Coast, Jun 20 — sealed Germany's R32 qualification" },
     { name:"Ayase Ueda",       country:"JPN", flag:"🇯🇵", goals:2, assists:0, note:"Brace vs Tunisia, Jun 21 (Gillette Stadium) — Japan's biggest WC win" },
     { name:"Brian Brobbey",    country:"NED", flag:"🇳🇱", goals:2, assists:0, note:"Brace vs Sweden, Jun 20 (AT&T Stadium, Dallas) — fourth-fastest WC brace in history" },
-    { name:"Cody Gakpo",       country:"NED", flag:"🇳🇱", goals:2, assists:0, note:"Brace vs Sweden, Jun 20 (AT&T Stadium, Dallas)" }
+    { name:"Cody Gakpo",       country:"NED", flag:"🇳🇱", goals:2, assists:0, note:"Brace vs Sweden, Jun 20 (AT&T Stadium, Dallas)" },
+    { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:2, assists:0, note:"Brace vs DR Congo in the Round of 32, Jul 1 (Mercedes-Benz Stadium, Atlanta) — headed equalizer (75') then a stunning winner (86') completed England's comeback from a goal down; sets up R16 clash with Mexico" }
   ],
 
   // ── STAR MATCHES TO WATCH ────────────────────────────────────────
   starMatches: [
     { home:"ARG", away:"CPV", utc:"2026-07-03T22:00", group:"R32", venue:"Hard Rock Stadium, Miami Gardens FL",
       storyline:"Round of 32 — holders Argentina (a perfect 9 points in Group J) face World Cup debutants Cape Verde, who reached the knockouts as Group H runners-up on the back of three straight draws. Messi, fresh off scoring in a record 7th straight WC match, leads the title defence against the tournament's smallest-ever nation, with Scaloni still weighing three lineup calls (Otamendi/Romero, Tagliafico/Medina, Álvarez/Lautaro)." },
-    { home:"ENG", away:"COD", utc:"2026-07-01T16:00", group:"R32", venue:"Mercedes-Benz Stadium, Atlanta GA",
-      storyline:"Round of 32 — Group L winners England (Bellingham, Kane, Saka) face DR Congo, who advanced as one of the tournament's best third-placed teams. England have won 5 of their last 6 World Cup knockout matches." },
-    { home:"USA", away:"BIH", utc:"2026-07-02T00:00", group:"R32", venue:"Levi's Stadium, Santa Clara CA",
-      storyline:"Round of 32 — co-hosts USA, Group D winners, face a dangerous Bosnia & Herzegovina side (Edin Džeko) that qualified as one of the best third-placed teams. A home knockout tie in front of a partisan Bay Area crowd." }
+    { home:"ENG", away:"MEX", utc:"2026-07-05T00:00", group:"R16", venue:"Estadio Azteca, Mexico City",
+      storyline:"Round of 16 — England, who came from behind to beat DR Congo 2-1 (Harry Kane brace, 75' & 86'), face co-hosts Mexico, who beat Ecuador 2-0 in the Round of 32 and remain unbeaten and yet to concede a goal from open play at this World Cup." },
+    { home:"USA", away:"BEL", utc:"2026-07-06T00:00", group:"R16", venue:"TBC",
+      storyline:"Round of 16 — co-hosts USA, who beat Bosnia & Herzegovina 2-0 (Balogun, Tillman) despite playing over an hour with ten men after Balogun's red card, take on Belgium, who scored twice in the final four minutes through Lukaku and Tielemans to force extra time before Tielemans' 124th-minute penalty — the latest goal in World Cup history — beat Senegal 3-2." }
   ],
 
   // ── ARGENTINA SPECIAL DATA ──────────────────────────────────────
@@ -520,7 +521,7 @@ const WC2026 = {
         match: "ARG vs Winner of QF Bracket",
         date: "~July 10, 2026",
         result: null,
-        note: "Germany were eliminated on penalties by Paraguay in the Round of 32 (Jun 29). England (Group L winners) face DR Congo in the Round of 32 on Jul 1 and remain firmly in the mix on the other side of the bracket."
+        note: "Germany were eliminated on penalties by Paraguay in the Round of 32 (Jun 29). England beat DR Congo 2-1 (Kane brace) in the Round of 32 on Jul 1 and now face co-hosts Mexico in the Round of 16 — the USA (past Bosnia) and Belgium (past Senegal in extra time) also remain in the mix on the other side of the bracket."
       },
       {
         round: "Semi-Final",
@@ -636,6 +637,9 @@ const WC2026 = {
 
   // ── FACTS & RECORDS ──────────────────────────────────────────────
   facts: [
+    { icon:"🇺🇸", title:"USMNT win first World Cup knockout match since 2002, despite playing over an hour with ten men", category:"History", detail:"The United States beat Bosnia and Herzegovina 2-0 in the Round of 32 on July 1 (Levi's Stadium, Santa Clara) to record their first men's World Cup knockout-round win since 2002. Folarin Balogun opened the scoring before being controversially sent off — a VAR review later found the red card was wrongly applied — but Malik Tillman doubled the lead with a free-kick as ten-man USA held on. The co-hosts advance to face Belgium in the Round of 16." },
+    { icon:"🦁", title:"Harry Kane brace sends England past DR Congo in Round of 32 comeback", category:"Drama", detail:"DR Congo stunned England with a 7th-minute opener from Brian Cipenga on their World Cup knockout debut at Mercedes-Benz Stadium, Atlanta on July 1, but Harry Kane headed England level in the 75th minute and struck a stunning winner in the 86th to complete a 2-1 comeback. England advance to face co-hosts Mexico in the Round of 16 in Mexico City." },
+    { icon:"⏱️", title:"Tielemans scores latest goal in World Cup history as Belgium edge Senegal 3-2 after extra time", category:"Records", detail:"Senegal led 2-0 through Habib Diarra (25') and Ismaïla Sarr (51') before Belgium scored twice in the final four minutes — Romelu Lukaku (86') and Youri Tielemans (89') — to force extra time at the Round of 32 in Seattle on July 1. Tielemans then converted a controversial penalty at 124 minutes and 44 seconds, the latest goal ever scored at a World Cup, to complete the comeback. Belgium advance to face the USA in the Round of 16." },
     { icon:"🇵🇾", title:"Paraguay stun four-time champions Germany on penalties — biggest upset of World Cup 2026", category:"Upset", detail:"Paraguay knocked out Germany 4-3 on penalties after a 1-1 draw through extra time at Gillette Stadium, Foxborough on June 29 — Germany's first-ever World Cup exit via shootout, and their first loss to a South American side at a World Cup since Brazil beat them in the 2002 final. Julio Enciso's first-half header was cancelled out by Kai Havertz, and Germany also had a Jonathan Tah extra-time header controversially ruled out by VAR. José Canale scored the decisive sudden-death penalty as Germany's Havertz, Woltemade and Tah all missed from the spot." },
     { icon:"🍁", title:"Canada win first-ever World Cup knockout match with Eustáquio's 92nd-minute winner", category:"History", detail:"Stephen Eustáquio struck in the second minute of stoppage time to give co-hosts Canada a 1-0 Round of 32 win over South Africa at SoFi Stadium on June 28 — the country's first-ever victory at a men's World Cup knockout match. Canada advance to face Morocco in the Round of 16 in Houston on July 4." },
     { icon:"🇲🇦", title:"Morocco stun the Netherlands on penalties (3-2) to reach the Round of 16", category:"Drama", detail:"Cody Gakpo put the Netherlands ahead (72') before Issa Diop's 91st-minute header forced extra time at Estadio BBVA, Monterrey on June 29. Neither side scored in extra time, and Morocco held their nerve in the shootout — misses from Kluivert and Timber, plus a Bounou save, handed Ismael Saibari the winning kick. Morocco advance to face Canada in the Round of 16." },
