@@ -14,7 +14,7 @@
     <li><a href="index.html" class="active">🏠 Home</a></li>
     <li><a href="groups.html">📊 Groups &amp; Schedules</a></li>
     <li><a href="teams.html">🌍 Teams</a></li>
-    <li><a href="argentina.html">🇦🇷 Argentina</a></li>
+    <li><a href="argentina.html">Argentina</a></li>
     <li><a href="facts.html">⭐ Facts</a></li>
   </ul>
 </nav>
@@ -143,8 +143,8 @@ document.getElementById('results-matches').innerHTML = results.length
 function matchCard(f) {
   const hc = f.home ? gc(f.home) : null;
   const ac = f.away ? gc(f.away) : null;
-  const homeLabel = hc ? `${hc.flag} <span class="team-label">${hc.name}</span> <span class="team-code">${f.home}</span>` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.homeSrc||'TBD'}</span>`;
-  const awayLabel = ac ? `<span class="team-code">${f.away}</span> <span class="team-label">${ac.name}</span> ${ac.flag}` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.awaySrc||'TBD'}</span>`;
+  const homeLabel = hc ? `<span class="team-label">${hc.name}</span> <span class="team-code">${f.home}</span>` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.homeSrc||'TBD'}</span>`;
+  const awayLabel = ac ? `<span class="team-code">${f.away}</span> <span class="team-label">${ac.name}</span>` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.awaySrc||'TBD'}</span>`;
   const scorePart = f.status==='FT'
     ? `<div class="match-score">${f.score.h}–${f.score.a}</div>`
     : `<div class="match-score upcoming">${fmtIST(f.utc)}</div>`;
@@ -173,7 +173,7 @@ function buildDetail(f) {
   if (f.status==='FT' && f.events && f.events.length) {
     ev = '<div style="margin-bottom:.6rem;"><div style="font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:.4rem;">⚽ GOAL EVENTS</div>';
     f.events.forEach(e=>{
-      ev += `<div class="goal-event"><span class="goal-minute">${e.min}'</span><span>${gc(e.team).flag}</span><span>${e.player}</span></div>`;
+      ev += `<div class="goal-event"><span class="goal-minute">${e.min}'</span><span class="team-code">${e.team}</span><span>${e.player}</span></div>`;
     });
     ev += '</div>';
   } else if (f.status==='FT') {
@@ -191,7 +191,7 @@ function buildDetail(f) {
     <table><thead><tr><th style="text-align:left;">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>`;
   sorted.forEach((t,i)=>{
     const c=gc(t.id);
-    tbl+=`<tr class="${i<2?'q-row':''}"><td>${c.flag} ${c.name}</td><td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td><td>${t.GD>=0?'+':''}${t.GD}</td><td style="font-weight:700;color:var(--gold);">${t.Pts}</td></tr>`;
+    tbl+=`<tr class="${i<2?'q-row':''}"><td>${c.name} <span class="team-code">${t.id}</span></td><td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td><td>${t.GD>=0?'+':''}${t.GD}</td><td style="font-weight:700;color:var(--gold);">${t.Pts}</td></tr>`;
   });
   tbl += `</tbody></table><div style="font-size:.66rem;color:var(--text-muted);margin-top:.3rem;">🟦 Top 2 qualify for Round of 32</div></div>`;
   return ev + tbl;
@@ -208,7 +208,6 @@ WC2026.starMatches.forEach(m=>{
   const hc=gc(m.home), ac=gc(m.away);
   smDiv.innerHTML += `<div class="star-match-card">
     <div class="star-match-label">⭐ GROUP ${m.group} · MUST WATCH</div>
-    <div style="font-size:1.4rem;margin:.3rem 0;">${hc.flag} vs ${ac.flag}</div>
     <div class="star-match-teams">${hc.name} <span class="team-code">${m.home}</span> vs <span class="team-code">${m.away}</span> ${ac.name}</div>
     <div class="star-match-ist">${fmtDate(m.utc)} · ${fmtIST(m.utc)}</div>
     <div class="star-match-meta">📍 ${m.venue}</div>
@@ -222,7 +221,6 @@ WC2026.topScorers.forEach((s,i)=>{
   const icon = i===0?'🥇':i===1?'🥈':i===2?'🥉':(i+1);
   ul.innerHTML += `<li class="scorer-item">
     <div class="scorer-rank${i<3?' top3':''}">${icon}</div>
-    <div class="scorer-flag">${s.flag}</div>
     <div class="scorer-info">
       <div class="scorer-name">${s.name}</div>
       <div class="scorer-team">${s.country} · ${s.note}</div>

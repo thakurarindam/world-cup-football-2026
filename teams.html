@@ -21,7 +21,7 @@
     <li><a href="index.html">🏠 Home</a></li>
     <li><a href="groups.html">📊 Groups &amp; Schedules</a></li>
     <li><a href="teams.html" class="active">🌍 Teams</a></li>
-    <li><a href="argentina.html">🇦🇷 Argentina</a></li>
+    <li><a href="argentina.html">Argentina</a></li>
     <li><a href="facts.html">⭐ Facts</a></li>
   </ul>
 </nav>
@@ -99,8 +99,7 @@ function buildGroupSection(g) {
   sorted.forEach(t=>{
     const c = gc(t.id);
     cards += `<div class="team-card" id="card-${g}-${t.id}" onclick="toggleCountry('${g}','${t.id}')">
-      <div class="team-flag">${c.flag}</div>
-      <div class="team-code" style="font-weight:800;font-size:1rem;letter-spacing:.04em;">${t.id}</div>
+      <div class="team-code" style="font-weight:800;font-size:1.6rem;letter-spacing:.06em;margin-bottom:.3rem;">${t.id}</div>
       <div class="team-name">${c.name}</div>
       <div style="font-size:.68rem;color:var(--text-muted);margin:.15rem 0 .1rem;">FIFA Rank: <strong>${c.fifaRank||'—'}</strong></div>
       <div class="team-pts">${t.Pts} pts · ${t.W}W ${t.D}D ${t.L}L</div>
@@ -117,7 +116,7 @@ function buildGroupSection(g) {
   return `<div class="card group-section">
     <div class="card-title">Group ${g}
       <span style="font-size:.75rem;font-weight:400;color:var(--text-muted);margin-left:.5rem;">
-        ${sorted.map(t=>gc(t.id).flag+' '+t.id).join('  ·  ')}
+        ${sorted.map(t=>t.id).join('  ·  ')}
       </span>
     </div>
     <div class="group-teams-grid" id="grid-${g}">
@@ -158,7 +157,7 @@ function buildCountryDetail(id, g, standing) {
     <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap;">
       <!-- Country info -->
       <div style="flex:1;min-width:220px;">
-        <div style="font-size:1.1rem;font-weight:700;margin-bottom:.75rem;">${c.flag} ${c.name} <span style="font-size:.8rem;font-weight:800;color:var(--accent);border:1px solid var(--accent);padding:.1rem .4rem;border-radius:4px;margin-left:.3rem;">${id}</span>${c.fifaRank?` <span style="font-size:.72rem;font-weight:400;color:var(--text-muted);margin-left:.4rem;">FIFA Rank #${c.fifaRank}</span>`:''}</div>
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:.75rem;">${c.name} <span style="font-size:.8rem;font-weight:800;color:var(--accent);border:1px solid var(--accent);padding:.1rem .4rem;border-radius:4px;margin-left:.3rem;">${id}</span>${c.fifaRank?` <span style="font-size:.72rem;font-weight:400;color:var(--text-muted);margin-left:.4rem;">FIFA Rank #${c.fifaRank}</span>`:''}</div>
         <dl class="country-info-grid">
           <dt>Continent</dt><dd>${c.continent||'—'}</dd>
           <dt>FIFA Confederation</dt><dd>${c.confederation||'—'}</dd>

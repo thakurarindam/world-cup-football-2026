@@ -14,7 +14,7 @@
     <li><a href="index.html">🏠 Home</a></li>
     <li><a href="groups.html">📊 Groups &amp; Schedules</a></li>
     <li><a href="teams.html">🌍 Teams</a></li>
-    <li><a href="argentina.html">🇦🇷 Argentina</a></li>
+    <li><a href="argentina.html">Argentina</a></li>
     <li><a href="facts.html" class="active">⭐ Facts</a></li>
   </ul>
 </nav>
@@ -49,7 +49,7 @@
       <button class="tab-btn" onclick="filterFacts('Records',this)">👑 Records</button>
       <button class="tab-btn" onclick="filterFacts('History',this)">📜 History</button>
       <button class="tab-btn" onclick="filterFacts('Tournament',this)">🏆 Tournament</button>
-      <button class="tab-btn" onclick="filterFacts('Argentina',this)">🇦🇷 Argentina</button>
+      <button class="tab-btn" onclick="filterFacts('Argentina',this)">Argentina</button>
     </div>
     <div id="facts-list"></div>
   </div>
@@ -66,14 +66,14 @@
         <th>Best Players</th>
       </tr></thead>
       <tbody>
-        <tr class="qualified"><td>🇧🇷 Brazil</td><td style="font-weight:700;color:var(--gold);">5</td><td>1958,62,70,94,2002</td><td>7</td><td>Pelé, Ronaldo, Romário</td></tr>
-        <tr class="qualified"><td>🇩🇪 Germany</td><td style="font-weight:700;color:var(--gold);">4</td><td>1954,74,90,2014</td><td>8</td><td>Müller, Beckenbauer, Klose</td></tr>
-        <tr class="qualified"><td>🇮🇹 Italy</td><td style="font-weight:700;color:var(--gold);">4</td><td>1934,38,82,2006</td><td>6</td><td>Maldini, Baggio, Pirlo</td></tr>
-        <tr class="qualified"><td>🇦🇷 Argentina</td><td style="font-weight:700;color:var(--gold);">3</td><td>1978,86,2022</td><td>5</td><td>Maradona, Messi, Kempes</td></tr>
-        <tr><td>🇫🇷 France</td><td style="font-weight:700;color:var(--gold);">2</td><td>1998, 2018</td><td>3</td><td>Zidane, Platini, Mbappé</td></tr>
-        <tr><td>🇺🇾 Uruguay</td><td style="font-weight:700;color:var(--gold);">2</td><td>1930, 1950</td><td>2</td><td>Ghiggia, Schiaffino</td></tr>
-        <tr><td>🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</td><td style="font-weight:700;color:var(--gold);">1</td><td>1966</td><td>1</td><td>Bobby Moore, Charlton</td></tr>
-        <tr><td>🇪🇸 Spain</td><td style="font-weight:700;color:var(--gold);">1</td><td>2010</td><td>1</td><td>Xavi, Iniesta, Villa</td></tr>
+        <tr class="qualified"><td>Brazil <span class="team-code">BRA</span></td><td style="font-weight:700;color:var(--gold);">5</td><td>1958,62,70,94,2002</td><td>7</td><td>Pelé, Ronaldo, Romário</td></tr>
+        <tr class="qualified"><td>Germany <span class="team-code">GER</span></td><td style="font-weight:700;color:var(--gold);">4</td><td>1954,74,90,2014</td><td>8</td><td>Müller, Beckenbauer, Klose</td></tr>
+        <tr class="qualified"><td>Italy <span class="team-code">ITA</span></td><td style="font-weight:700;color:var(--gold);">4</td><td>1934,38,82,2006</td><td>6</td><td>Maldini, Baggio, Pirlo</td></tr>
+        <tr class="qualified"><td>Argentina <span class="team-code">ARG</span></td><td style="font-weight:700;color:var(--gold);">3</td><td>1978,86,2022</td><td>5</td><td>Maradona, Messi, Kempes</td></tr>
+        <tr><td>France <span class="team-code">FRA</span></td><td style="font-weight:700;color:var(--gold);">2</td><td>1998, 2018</td><td>3</td><td>Zidane, Platini, Mbappé</td></tr>
+        <tr><td>Uruguay <span class="team-code">URU</span></td><td style="font-weight:700;color:var(--gold);">2</td><td>1930, 1950</td><td>2</td><td>Ghiggia, Schiaffino</td></tr>
+        <tr><td>England <span class="team-code">ENG</span></td><td style="font-weight:700;color:var(--gold);">1</td><td>1966</td><td>1</td><td>Bobby Moore, Charlton</td></tr>
+        <tr><td>Spain <span class="team-code">ESP</span></td><td style="font-weight:700;color:var(--gold);">1</td><td>2010</td><td>1</td><td>Xavi, Iniesta, Villa</td></tr>
       </tbody>
     </table>
   </div>
@@ -83,22 +83,22 @@
     <div class="card-title">🏟️ 2026 Host Venues & Cities</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;">
       <div class="stat-card">
-        <div style="font-size:1.5rem;">🇺🇸</div>
+        <div class="team-code" style="font-size:1.2rem;">USA</div>
         <div style="font-weight:700;margin:.3rem 0;">USA — 11 Venues</div>
         <div style="font-size:.8rem;color:var(--text-muted);">New York/NJ, LA, Dallas, San Francisco, Seattle, Boston, Miami, Kansas City, Houston, Atlanta, Philadelphia</div>
         <div style="color:var(--gold);font-size:.82rem;margin-top:.3rem;">🏆 Hosts the Final (MetLife, NJ)</div>
       </div>
       <div class="stat-card">
-        <div style="font-size:1.5rem;">🇲🇽</div>
+        <div class="team-code" style="font-size:1.2rem;">MEX</div>
         <div style="font-weight:700;margin:.3rem 0;">Mexico — 3 Venues</div>
         <div style="font-size:.8rem;color:var(--text-muted);">Mexico City (Estadio Azteca), Guadalajara (Estadio Akron), Monterrey (Estadio BBVA)</div>
         <div style="color:var(--gold);font-size:.82rem;margin-top:.3rem;">🏟️ Azteca hosts 3rd WC game</div>
       </div>
       <div class="stat-card">
-        <div style="font-size:1.5rem;">🇨🇦</div>
+        <div class="team-code" style="font-size:1.2rem;">CAN</div>
         <div style="font-weight:700;margin:.3rem 0;">Canada — 2 Venues</div>
         <div style="font-size:.8rem;color:var(--text-muted);">Toronto (BMO Field), Vancouver (BC Place)</div>
-        <div style="color:var(--gold);font-size:.82rem;margin-top:.3rem;">🇨🇦 Canada's first WC as host</div>
+        <div style="color:var(--gold);font-size:.82rem;margin-top:.3rem;">Canada's first WC as host</div>
       </div>
     </div>
   </div>
@@ -109,32 +109,32 @@
     <div class="grid-3" style="margin-bottom:1rem;">
       <div class="stat-card">
         <div class="stat-number">38</div>
-        <div class="stat-player">🇦🇷 Lionel Messi</div>
+        <div class="stat-player">Lionel Messi <span class="team-code">ARG</span></div>
         <div class="stat-label">Oldest hat-trick scorer in WC history (38y 357d vs Algeria)</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">43</div>
-        <div class="stat-player">🇵🇹 Pepe (Portugal)</div>
+        <div class="stat-player">Pepe (Portugal) <span class="team-code">POR</span></div>
         <div class="stat-label">Oldest outfield player at 2026 WC (43 years old)</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">18</div>
-        <div class="stat-player">🇸🇳 Ibrahim Mbaye</div>
+        <div class="stat-player">Ibrahim Mbaye <span class="team-code">SEN</span></div>
         <div class="stat-label">Youngest African scorer in WC history (18y 143d vs France)</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">18</div>
-        <div class="stat-player">🇪🇸 Lamine Yamal</div>
+        <div class="stat-player">Lamine Yamal <span class="team-code">ESP</span></div>
         <div class="stat-label">Spain's teenage sensation — started vs Cabo Verde</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">41</div>
-        <div class="stat-player">🇵🇹 Cristiano Ronaldo</div>
+        <div class="stat-player">Cristiano Ronaldo <span class="team-code">POR</span></div>
         <div class="stat-label">Appearing in his 6th World Cup — most by any player</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">38</div>
-        <div class="stat-player">🇩🇪 Julian Nagelsmann</div>
+        <div class="stat-player">Julian Nagelsmann <span class="team-code">GER</span></div>
         <div class="stat-label">Youngest head coach at 2026 WC (Germany)</div>
       </div>
     </div>

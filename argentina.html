@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argentina 🇦🇷 | WC Football 2026</title>
+<title>Argentina | WC Football 2026</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
 .squad-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: .75rem; }
@@ -31,7 +31,7 @@
     <li><a href="index.html">🏠 Home</a></li>
     <li><a href="groups.html">📊 Groups &amp; Schedules</a></li>
     <li><a href="teams.html">🌍 Teams</a></li>
-    <li><a href="argentina.html" class="active">🇦🇷 Argentina</a></li>
+    <li><a href="argentina.html" class="active">Argentina</a></li>
     <li><a href="facts.html">⭐ Facts</a></li>
   </ul>
 </nav>
@@ -39,7 +39,7 @@
 <!-- ARGENTINA HERO -->
 <div class="arg-hero">
   <div class="arg-stars">★ ★ ★</div>
-  <h1>🇦🇷 Argentina</h1>
+  <h1>Argentina <span class="team-code" style="font-size:1.1rem;vertical-align:middle;">ARG</span></h1>
   <p>Defending Champions · World Cup 2022 Winners · La Albiceleste</p>
   <div style="margin-top:.75rem;font-size:.9rem;">
     <strong style="color:#fff;">Group J</strong> &nbsp;·&nbsp;
@@ -146,7 +146,7 @@ const tbody = document.getElementById('groupj-body');
 sortedJ.forEach((t,i)=>{
   const c=gc(t.id);
   tbody.innerHTML += `<tr class="${i<2?'qualified':''}">
-    <td>${c.flag} ${c.name} <span class="team-code">${t.id}</span>${t.id==='ARG'?' <span class="badge badge-arg">★ ARG</span>':''}</td>
+    <td>${c.name} <span class="team-code">${t.id}</span>${t.id==='ARG'?' <span class="badge badge-arg">★ ARG</span>':''}</td>
     <td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td>
     <td>${t.GF}</td><td>${t.GA}</td>
     <td class="${t.GD>0?'gd-pos':t.GD<0?'gd-neg':''}">${t.GD>=0?'+':''}${t.GD}</td>
@@ -169,7 +169,7 @@ jFix.forEach(f=>{
   if (f.status==='FT' && f.events && f.events.length) {
     evHtml = '<div style="margin-top:.5rem;"><div style="font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:.3rem;">⚽ Goals</div>';
     f.events.forEach(e=>{
-      evHtml+=`<div class="goal-event"><span class="goal-minute">${e.min}'</span><span>${gc(e.team).flag}</span><span>${e.player}</span></div>`;
+      evHtml+=`<div class="goal-event"><span class="goal-minute">${e.min}'</span><span class="team-code">${e.team}</span><span>${e.player}</span></div>`;
     });
     evHtml += '</div>';
   } else if (f.status!=='FT') {
@@ -180,13 +180,13 @@ jFix.forEach(f=>{
     <div class="match-header">
       ${badge}
       <span>${fmtDT(f.utc)}</span>
-      ${isArg?'<span style="color:var(--accent);font-size:.7rem;">🇦🇷 Argentina match</span>':''}
+      ${isArg?'<span style="color:var(--accent);font-size:.7rem;">Argentina match</span>':''}
       <span class="click-hint">👆 click for details</span>
     </div>
     <div class="match-teams">
-      <div class="match-team">${hc.flag} ${hc.name} <span class="team-code">${f.home}</span></div>
+      <div class="match-team">${hc.name} <span class="team-code">${f.home}</span></div>
       ${scorePart}
-      <div class="match-team right"><span class="team-code">${f.away}</span> ${ac.name} ${ac.flag}</div>
+      <div class="match-team right"><span class="team-code">${f.away}</span> ${ac.name}</div>
     </div>
     <div class="match-venue">📍 ${f.venue}</div>
     <div class="match-detail-panel">${evHtml}</div>
