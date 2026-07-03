@@ -332,27 +332,82 @@ const WC2026 = {
   ],
 
   // ── TOP SCORERS ─────────────────────────────────────────────────
-  // Source: FIFA official / verified from tournament data (updated Jun 30 after group stage complete)
+  // Source: goal-by-goal tally from WC2026.fixtures event data (group stage) cross-checked against
+  // match reports (ESPN/Al Jazeera/Olympics.com) for Round of 32 goals. Updated Jul 3 after 13 of 16
+  // R32 matches played (Argentina vs Cape Verde, Australia vs Egypt, Colombia vs Ghana still to come).
   topScorers: [
-    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:6, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28) — tournament's leading scorer; first player to score in 7 consecutive WC matches" },
-    { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:6, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the R32 (Jun 30, min:45+53' Barcola/74') — draws level with Messi atop the Golden Boot race with 18 career WC goals, one shy of Ronaldo's all-time record; a record 7th career multi-goal WC game" },
-    { name:"Jonathan David",   country:"CAN", flag:"🇨🇦", goals:3, assists:0, note:"Hat-trick vs Qatar, Jun 18 (BMO Field, Toronto)" },
-    { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:4, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) + penalty equalizer vs Croatia in the R32 (Jul 2, Toronto — Portugal won 2-1 via a Gonçalo Ramos stoppage-time winner) — extends his own all-time record to 20 career WC goals. Portugal face Spain in the Round of 16 (Jul 6)" },
-    { name:"Mikel Oyarzabal",  country:"ESP", flag:"🇪🇸", goals:4, assists:0, note:"Brace vs Austria in the R32 (36' & 89'), Pedro Porro also scored, as Spain won 3-0 (Jul 2, Los Angeles). Now tied for the tournament scoring lead; Spain face Portugal in the Round of 16" },
-    { name:"Luis Díaz",        country:"COL", flag:"🇨🇴", goals:2, assists:0, note:"Brace vs DR Congo, Jun 24 (Hard Rock Stadium)" },
-    { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:5, assists:1, note:"Brace vs Iraq (Jun 17) + goal vs Senegal (Jun 23) + R32 stoppage-run winner vs Ivory Coast (Jun 30, 86') — now just one goal behind Messi in the Golden Boot race; sets up R16 clash with Brazil" },
-    { name:"Matheus Cunha",    country:"BRA", flag:"🇧🇷", goals:3, assists:0, note:"Brace vs Haiti (Jun 19) + goal vs Scotland (Jun 25, SoFi Stadium) — joint leading Brazilian scorer" },
-    { name:"Vinícius Jr.",     country:"BRA", flag:"🇧🇷", goals:2, assists:0, note:"Brace vs Scotland, Jun 25 (SoFi Stadium, Inglewood) — 7' and 45+1', Brazil top Group C on goal difference" },
-    { name:"Jude Bellingham",  country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:2, assists:0, note:"Brace vs Croatia, Jun 18 (MetLife Stadium)" },
-    { name:"Viktor Gyökeres",  country:"SWE", flag:"🇸🇪", goals:2, assists:0, note:"Brace vs Tunisia, Jun 15 (BMO Field)" },
-    { name:"Folarin Balogun",  country:"USA", flag:"🇺🇸", goals:2, assists:0, note:"Brace vs Paraguay, Jun 13 (MetLife Stadium)" },
-    { name:"Kai Havertz",      country:"GER", flag:"🇩🇪", goals:2, assists:0, note:"Brace vs Curaçao, Jun 14 (Levi's Stadium)" },
-    { name:"Deniz Undav",      country:"GER", flag:"🇩🇪", goals:2, assists:0, note:"Super-sub brace vs Ivory Coast, Jun 20 — sealed Germany's R32 qualification" },
-    { name:"Ayase Ueda",       country:"JPN", flag:"🇯🇵", goals:2, assists:0, note:"Brace vs Tunisia, Jun 21 (Gillette Stadium) — Japan's biggest WC win" },
-    { name:"Brian Brobbey",    country:"NED", flag:"🇳🇱", goals:2, assists:0, note:"Brace vs Sweden, Jun 20 (AT&T Stadium, Dallas) — fourth-fastest WC brace in history" },
-    { name:"Cody Gakpo",       country:"NED", flag:"🇳🇱", goals:2, assists:0, note:"Brace vs Sweden, Jun 20 (AT&T Stadium, Dallas)" },
-    { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:2, assists:0, note:"Brace vs DR Congo in the Round of 32, Jul 1 (Mercedes-Benz Stadium, Atlanta) — headed equalizer (75') then a stunning winner (86') completed England's comeback from a goal down; sets up R16 clash with Mexico" }
+    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:6, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28) — tournament's leading scorer; first player to score in 7 consecutive WC matches. Argentina's Round of 32 vs Cape Verde is still to be played (Jul 3, Miami)." },
+    { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:6, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30, 45+'/74') — level with Messi atop the race. France face the Paraguay/Canada-Morocco bracket winner in the quarter-finals." },
+    { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:4, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) + penalty equalizer vs Croatia in the Round of 32 (Jul 2, Toronto — Portugal won 2-1 via a Gonçalo Ramos stoppage-time winner). Portugal face Spain in the Round of 16 (Jul 6)." },
+    { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:4, assists:1, note:"Brace vs Iraq (Jun 17) + goal vs Senegal (Jun 23) + Round of 32 winner vs Ivory Coast (Jun 30, 86'). Norway face Brazil in the Round of 16 (Jul 5)." },
+    { name:"Jonathan David",   country:"CAN", flag:"🇨🇦", goals:4, assists:0, note:"Goal vs Bosnia (Jun 12) + hat-trick vs Qatar (Jun 18, BMO Field). Canada won their Round of 32 tie 1-0 via a Stephen Eustáquio stoppage-time goal; face Morocco in the Round of 16 (Jul 4)." },
+    { name:"Kai Havertz",      country:"GER", flag:"🇩🇪", goals:4, assists:0, note:"Brace vs Curaçao (Jun 14) + goal vs Ecuador (Jun 25) + Round of 32 equalizer vs Paraguay (Jul 2) — Germany were eliminated on penalties (4-3) despite Havertz's goal." },
+    { name:"Matheus Cunha",    country:"BRA", flag:"🇧🇷", goals:3, assists:0, note:"Brace vs Haiti (Jun 19) + goal vs Scotland (Jun 25). Brazil's Round of 32 winner over Japan (2-1) was scored by Casemiro and Gabriel Martinelli; Brazil face Norway in the Round of 16 (Jul 5)." },
+    { name:"Vinícius Jr.",     country:"BRA", flag:"🇧🇷", goals:3, assists:0, note:"Brace vs Scotland (Jun 25, 7' and 45+1')." },
+    { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:3, assists:0, note:"Goal vs Panama (Jun 27) + Round of 32 brace vs DR Congo (Jul 1, 75' & 86') completing England's comeback from a goal down. England face Mexico in the Round of 16 (Jul 5)." },
+    { name:"Jude Bellingham",  country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:3, assists:0, note:"Brace vs Croatia (Jun 18) + goal vs Panama (Jun 27)." },
+    { name:"Riyad Mahrez",     country:"ALG", flag:"🇩🇿", goals:3, assists:0, note:"Goal vs Jordan (Jun 23) + brace vs Austria (Jun 28, 60' & 93'). Algeria were eliminated in the Round of 32, beaten 2-0 by Switzerland (Jul 2)." },
+    { name:"Johan Manzambi",   country:"SUI", flag:"🇨🇭", goals:3, assists:2, note:"Goal vs Canada (Jun 24, 57') plus further tournament goals/assists per ESPN's official stats recap — 3 goals and 2 assists overall, the youngest player in 60 years to reach 5 goal contributions at a single World Cup. Set up Breel Embolo's opener in the Round of 32 win over Algeria (Jul 2)." },
+    { name:"Luis Díaz",        country:"COL", flag:"🇨🇴", goals:2, assists:0, note:"Brace vs DR Congo, Jun 24 (Hard Rock Stadium). Colombia's Round of 32 tie vs Ghana is still to be played (Jul 3, Kansas City)." },
+    { name:"Viktor Gyökeres",  country:"SWE", flag:"🇸🇪", goals:2, assists:0, note:"Brace vs Tunisia, Jun 15 (BMO Field). Sweden were eliminated in the Round of 32, beaten 3-0 by France (Jun 30)." },
+    { name:"Folarin Balogun",  country:"USA", flag:"🇺🇸", goals:2, assists:0, note:"Brace vs Paraguay, Jun 13 (MetLife Stadium). Sent off in the Round of 32 win over Bosnia (Jul 1) — VAR later found the red card was wrongly given." },
+    { name:"Deniz Undav",      country:"GER", flag:"🇩🇪", goals:2, assists:0, note:"Super-sub brace vs Ivory Coast, Jun 20 — sealed Germany's Round of 32 qualification." },
+    { name:"Ayase Ueda",       country:"JPN", flag:"🇯🇵", goals:2, assists:0, note:"Brace vs Tunisia, Jun 21 (Gillette Stadium) — Japan's biggest WC win. Eliminated in the Round of 32 by Brazil (1-2)." },
+    { name:"Brian Brobbey",    country:"NED", flag:"🇳🇱", goals:2, assists:0, note:"Brace vs Sweden, Jun 20 (AT&T Stadium, Dallas). Netherlands were eliminated in the Round of 32 on penalties by Morocco (Jun 29)." },
+    { name:"Cody Gakpo",       country:"NED", flag:"🇳🇱", goals:2, assists:0, note:"Brace vs Sweden, Jun 20, plus the opener in the Round of 32 penalty loss to Morocco (Jun 29)." }
   ],
+
+  // ── KNOCKOUT STAGE ────────────────────────────────────────────────
+  // Source: FIFA regulations Annex C bracket (via Wikipedia "2026 FIFA World Cup knockout stage"),
+  // cross-checked against ESPN's official match-schedule article (venues/dates/times) and match
+  // reports for completed games. All utc fields are stored as UTC (no trailing Z); pages convert to IST.
+  // Placeholder matches (teams not yet determined) use home/away:null with homeSrc/awaySrc description text.
+  knockout: {
+    r32: [
+      { id:"K73", matchNo:73, home:"RSA", away:"CAN", utc:"2026-06-28T19:00", venue:"SoFi Stadium, Inglewood CA", status:"FT", score:{h:0,a:1}, note:"", events:[{type:"goal",team:"CAN",player:"Stephen Eustáquio",min:92}] },
+      { id:"K76", matchNo:76, home:"BRA", away:"JPN", utc:"2026-06-29T17:00", venue:"NRG Stadium, Houston", status:"FT", score:{h:2,a:1}, note:"", events:[{type:"goal",team:"JPN",player:"Kaishu Sano",min:29},{type:"goal",team:"BRA",player:"Casemiro",min:56},{type:"goal",team:"BRA",player:"Gabriel Martinelli",min:96}] },
+      { id:"K74", matchNo:74, home:"GER", away:"PAR", utc:"2026-06-29T20:30", venue:"Gillette Stadium, Foxborough MA", status:"FT", score:{h:1,a:1}, note:"AET — Paraguay won 4-3 on penalties", events:[{type:"goal",team:"PAR",player:"Julio Enciso",min:38},{type:"goal",team:"GER",player:"Kai Havertz",min:71}] },
+      { id:"K75", matchNo:75, home:"NED", away:"MAR", utc:"2026-06-30T01:00", venue:"Estadio BBVA, Monterrey", status:"FT", score:{h:1,a:1}, note:"AET — Morocco won 3-2 on penalties", events:[{type:"goal",team:"NED",player:"Cody Gakpo",min:72},{type:"goal",team:"MAR",player:"Issa Diop",min:91}] },
+      { id:"K78", matchNo:78, home:"CIV", away:"NOR", utc:"2026-06-30T17:00", venue:"AT&T Stadium, Arlington TX", status:"FT", score:{h:1,a:2}, note:"", events:[{type:"goal",team:"NOR",player:"Antonio Nusa",min:39},{type:"goal",team:"CIV",player:"Amad Diallo",min:74},{type:"goal",team:"NOR",player:"Erling Haaland",min:86}] },
+      { id:"K77", matchNo:77, home:"FRA", away:"SWE", utc:"2026-06-30T21:00", venue:"MetLife Stadium, East Rutherford NJ", status:"FT", score:{h:3,a:0}, note:"", events:[{type:"goal",team:"FRA",player:"Kylian Mbappé",min:45},{type:"goal",team:"FRA",player:"Bradley Barcola",min:53},{type:"goal",team:"FRA",player:"Kylian Mbappé",min:74}] },
+      { id:"K79", matchNo:79, home:"MEX", away:"ECU", utc:"2026-07-01T01:00", venue:"Estadio Azteca, Mexico City", status:"FT", score:{h:2,a:0}, note:"", events:[{type:"goal",team:"MEX",player:"Julián Quiñones",min:22},{type:"goal",team:"MEX",player:"Raúl Jiménez",min:31}] },
+      { id:"K80", matchNo:80, home:"ENG", away:"COD", utc:"2026-07-01T16:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"FT", score:{h:2,a:1}, note:"", events:[{type:"goal",team:"COD",player:"Brian Cipenga",min:7},{type:"goal",team:"ENG",player:"Harry Kane",min:75},{type:"goal",team:"ENG",player:"Harry Kane",min:86}] },
+      { id:"K82", matchNo:82, home:"BEL", away:"SEN", utc:"2026-07-01T20:00", venue:"Lumen Field, Seattle", status:"FT", score:{h:3,a:2}, note:"AET", events:[{type:"goal",team:"SEN",player:"Habib Diarra",min:25},{type:"goal",team:"SEN",player:"Ismaïla Sarr",min:51},{type:"goal",team:"BEL",player:"Romelu Lukaku",min:86},{type:"goal",team:"BEL",player:"Youri Tielemans",min:89},{type:"goal",team:"BEL",player:"Youri Tielemans (pen)",min:124}] },
+      { id:"K81", matchNo:81, home:"USA", away:"BIH", utc:"2026-07-02T00:00", venue:"Levi's Stadium, Santa Clara CA", status:"FT", score:{h:2,a:0}, note:"USA played over an hour with 10 men after a red card (later found to be wrongly given)", events:[{type:"goal",team:"USA",player:"Folarin Balogun",min:38},{type:"goal",team:"USA",player:"Malik Tillman",min:63}] },
+      { id:"K84", matchNo:84, home:"ESP", away:"AUT", utc:"2026-07-02T19:00", venue:"SoFi Stadium, Inglewood CA", status:"FT", score:{h:3,a:0}, note:"", events:[{type:"goal",team:"ESP",player:"Mikel Oyarzabal",min:36},{type:"goal",team:"ESP",player:"Pedro Porro",min:66},{type:"goal",team:"ESP",player:"Mikel Oyarzabal",min:89}] },
+      { id:"K83", matchNo:83, home:"POR", away:"CRO", utc:"2026-07-02T23:00", venue:"BMO Field, Toronto", status:"FT", score:{h:2,a:1}, note:"", events:[{type:"goal",team:"CRO",player:"Ivan Perišić",min:53},{type:"goal",team:"POR",player:"Cristiano Ronaldo (pen)",min:68},{type:"goal",team:"POR",player:"Gonçalo Ramos",min:94}] },
+      { id:"K85", matchNo:85, home:"SUI", away:"ALG", utc:"2026-07-03T03:00", venue:"BC Place, Vancouver", status:"FT", score:{h:2,a:0}, note:"", events:[{type:"goal",team:"SUI",player:"Breel Embolo",min:10},{type:"goal",team:"SUI",player:"Dan Ndoye",min:46}] },
+      { id:"K88", matchNo:88, home:"AUS", away:"EGY", utc:"2026-07-03T18:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"" },
+      { id:"K86", matchNo:86, home:"ARG", away:"CPV", utc:"2026-07-03T22:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"" },
+      { id:"K87", matchNo:87, home:"COL", away:"GHA", utc:"2026-07-04T01:30", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"" }
+    ],
+    r16: [
+      { id:"K90", matchNo:90, home:"CAN", away:"MAR", utc:"2026-07-04T17:00", venue:"NRG Stadium, Houston", status:"UP", note:"" },
+      { id:"K89", matchNo:89, home:"PAR", away:"FRA", utc:"2026-07-04T21:00", venue:"Lincoln Financial Field, Philadelphia PA", status:"UP", note:"" },
+      { id:"K91", matchNo:91, home:"BRA", away:"NOR", utc:"2026-07-05T20:00", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", note:"" },
+      { id:"K92", matchNo:92, home:"MEX", away:"ENG", utc:"2026-07-06T00:00", venue:"Estadio Azteca, Mexico City", status:"UP", note:"" },
+      { id:"K93", matchNo:93, home:"POR", away:"ESP", utc:"2026-07-06T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"" },
+      { id:"K94", matchNo:94, home:"USA", away:"BEL", utc:"2026-07-06T21:00", venue:"Lumen Field, Seattle", status:"UP", note:"" },
+      { id:"K95", matchNo:95, home:null, away:null, homeSrc:"Winner: Argentina vs Cape Verde (M86)", awaySrc:"Winner: Australia vs Egypt (M88)", utc:"2026-07-07T16:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"" },
+      { id:"K96", matchNo:96, home:"SUI", away:null, awaySrc:"Winner: Colombia vs Ghana (M87)", utc:"2026-07-07T20:00", venue:"BC Place, Vancouver", status:"UP", note:"" }
+    ],
+    qf: [
+      { id:"K97",  matchNo:97,  home:null, away:null, homeSrc:"Winner: Paraguay vs France (M89)", awaySrc:"Winner: Canada vs Morocco (M90)", utc:"2026-07-09T20:00", venue:"Gillette Stadium, Foxborough MA", status:"UP", note:"" },
+      { id:"K98",  matchNo:98,  home:null, away:null, homeSrc:"Winner: Portugal vs Spain (M93)", awaySrc:"Winner: USA vs Belgium (M94)", utc:"2026-07-10T19:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", note:"" },
+      { id:"K99",  matchNo:99,  home:null, away:null, homeSrc:"Winner: Brazil vs Norway (M91)", awaySrc:"Winner: Mexico vs England (M92)", utc:"2026-07-11T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"" },
+      { id:"K100", matchNo:100, home:null, away:null, homeSrc:"Winner: Match 95 (ARG/CPV vs AUS/EGY)", awaySrc:"Winner: Match 96 (Switzerland vs COL/GHA)", utc:"2026-07-12T01:00", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"" }
+    ],
+    sf: [
+      { id:"K101", matchNo:101, home:null, away:null, homeSrc:"Winner: Quarter-final 1 (M97)", awaySrc:"Winner: Quarter-final 2 (M98)", utc:"2026-07-14T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"" },
+      { id:"K102", matchNo:102, home:null, away:null, homeSrc:"Winner: Quarter-final 3 (M99)", awaySrc:"Winner: Quarter-final 4 (M100)", utc:"2026-07-15T19:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"" }
+    ],
+    thirdPlace: [
+      { id:"K103", matchNo:103, home:null, away:null, homeSrc:"Loser: Semi-final 1 (M101)", awaySrc:"Loser: Semi-final 2 (M102)", utc:"2026-07-18T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"" }
+    ],
+    final: [
+      { id:"K104", matchNo:104, home:null, away:null, homeSrc:"Winner: Semi-final 1 (M101)", awaySrc:"Winner: Semi-final 2 (M102)", utc:"2026-07-19T19:00", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", note:"" }
+    ]
+  },
 
   // ── STAR MATCHES TO WATCH ────────────────────────────────────────
   starMatches: [

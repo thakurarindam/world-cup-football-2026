@@ -36,14 +36,13 @@
 
   <!-- UPCOMING MATCHES v2 -->
   <div class="card">
-    <div class="card-title">⏰ Upcoming Matches <span style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">All times IST · Click any card to see group standings</span></div>
-    <div class="tabs" id="date-tabs"></div>
+    <div class="card-title">⏰ Upcoming Matches <span style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">Next 2 days · All times IST · Click any card for details</span></div>
     <div id="upcoming-matches"></div>
   </div>
 
   <!-- MATCH RESULTS -->
   <div class="card">
-    <div class="card-title">✅ Match Results <span style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">Click any card to see goal events &amp; group table</span></div>
+    <div class="card-title">✅ Match Results <span style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">Last 2 days · Latest first · Click any card for details</span></div>
     <div id="results-matches"></div>
   </div>
 
@@ -84,68 +83,86 @@ function istDateStr(utcStr) {
   const d = new Date(ms);
   return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
 }
+function todayIstStr() {
+  const ms = Date.now() + 330*60000;
+  const d = new Date(ms);
+  return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+}
+function addDaysStr(dateStr, n) {
+  const d = new Date(dateStr+'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate()+n);
+  return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+}
 function gc(id) { return WC2026.countries[id] || {name:id, flag:'🏳️'}; }
 function sortTeams(teams) { return [...teams].sort((a,b)=>b.Pts-a.Pts||b.GD-a.GD||b.GF-a.GF); }
 
-// Progress
-const played = WC2026.fixtures.filter(f=>f.status==='FT').length;
+// Combine group-stage fixtures with knockout-stage matches into one pool, tagged with a round label
+function tagRound(arr, roundLabel) {
+  return (arr||[]).map(f => Object.assign({}, f, { roundLabel, isKnockout: true }));
+}
+const KO = WC2026.knockout || {};
+const allKnockoutMatches = []
+  .concat(tagRound(KO.r32, 'R32'))
+  .concat(tagRound(KO.r16, 'R16'))
+  .concat(tagRound(KO.qf, 'QF'))
+  .concat(tagRound(KO.sf, 'SF'))
+  .concat(tagRound(KO.thirdPlace, '3rd Place'))
+  .concat(tagRound(KO.final, 'Final'));
+const allGroupMatches = WC2026.fixtures.map(f => Object.assign({}, f, { isKnockout: false }));
+const allMatches = allGroupMatches.concat(allKnockoutMatches);
+
+// Progress — group stage (72) + knockout stage (32) = 104 matches total
+const groupPlayed = WC2026.fixtures.filter(f=>f.status==='FT').length;
+const knockoutPlayed = allKnockoutMatches.filter(f=>f.status==='FT').length;
+const played = groupPlayed + knockoutPlayed;
 const pct = Math.round(played/104*100);
 document.getElementById('progress-bar').style.width = pct+'%';
 document.getElementById('progress-pct').textContent = pct+'% ('+played+'/104 played)';
 document.getElementById('last-updated').textContent = WC2026.lastUpdated;
 
-// UPCOMING — sorted by kick-off time only (no group sort)
-const upcoming = WC2026.fixtures.filter(f=>f.status==='UP').sort((a,b)=>new Date(a.utc)-new Date(b.utc));
-const upDates = [...new Set(upcoming.map(f=>istDateStr(f.utc)))].slice(0,5);
-const tabsEl = document.getElementById('date-tabs');
-if (upcoming.length) {
-  upDates.forEach((dk,i)=>{
-    const lbl = new Date(dk+'T12:00:00Z').toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',timeZone:IST_TZ});
-    const btn = document.createElement('button');
-    btn.className = 'tab-btn'+(i===0?' active':'');
-    btn.textContent = lbl;
-    btn.onclick = ()=>showDate(dk,btn);
-    tabsEl.appendChild(btn);
-  });
-  showDate(upDates[0], tabsEl.querySelector('.tab-btn'));
-} else {
-  document.getElementById('upcoming-matches').innerHTML = '<p style="color:var(--text-muted);font-size:.85rem;">No upcoming matches scheduled.</p>';
-}
+// UPCOMING — matches kicking off today, tomorrow, or the day after (IST), chronological order
+const todayStr = todayIstStr();
+const upcomingWindow = [todayStr, addDaysStr(todayStr,1), addDaysStr(todayStr,2)];
+const upcoming = allMatches
+  .filter(f => f.status==='UP' && f.home && f.away && upcomingWindow.includes(istDateStr(f.utc)))
+  .sort((a,b)=>new Date(a.utc)-new Date(b.utc));
+document.getElementById('upcoming-matches').innerHTML = upcoming.length
+  ? upcoming.map(f=>matchCard(f)).join('')
+  : '<p style="color:var(--text-muted);font-size:.85rem;">No matches scheduled in the next 2 days.</p>';
 
-function showDate(dk, btn) {
-  document.querySelectorAll('#date-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  // Sort by kick-off time only within the selected date
-  const fx = upcoming.filter(f=>istDateStr(f.utc)===dk).sort((a,b)=>new Date(a.utc)-new Date(b.utc));
-  document.getElementById('upcoming-matches').innerHTML = fx.map(f=>matchCard(f)).join('');
-}
-
-// RESULTS — last 2 days only, sorted by kick-off time ascending
-const twoDaysAgoMs = Date.now() + 330*60000 - 2*24*60*60*1000;
-const twoDaysAgoStr = (()=>{const d=new Date(twoDaysAgoMs);return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');})();
-const results = WC2026.fixtures.filter(f=>f.status==='FT' && istDateStr(f.utc)>=twoDaysAgoStr).sort((a,b)=>new Date(a.utc)-new Date(b.utc));
+// RESULTS — matches completed today or in the previous 2 days (IST), latest first
+const resultsWindow = [addDaysStr(todayStr,-2), addDaysStr(todayStr,-1), todayStr];
+const results = allMatches
+  .filter(f => f.status==='FT' && resultsWindow.includes(istDateStr(f.utc)))
+  .sort((a,b)=>new Date(b.utc)-new Date(a.utc));
 document.getElementById('results-matches').innerHTML = results.length
   ? results.map(f=>matchCard(f)).join('')
   : '<p style="color:var(--text-muted);font-size:.85rem;">No results in the last 2 days.</p>';
 
-// MATCH CARD
+// MATCH CARD — works for both group-stage and knockout-stage matches
 function matchCard(f) {
-  const hc=gc(f.home), ac=gc(f.away);
+  const hc = f.home ? gc(f.home) : null;
+  const ac = f.away ? gc(f.away) : null;
+  const homeLabel = hc ? `${hc.flag} <span class="team-label">${hc.name}</span>` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.homeSrc||'TBD'}</span>`;
+  const awayLabel = ac ? `<span class="team-label">${ac.name}</span> ${ac.flag}` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.awaySrc||'TBD'}</span>`;
   const scorePart = f.status==='FT'
     ? `<div class="match-score">${f.score.h}–${f.score.a}</div>`
     : `<div class="match-score upcoming">${fmtIST(f.utc)}</div>`;
   const badge = f.status==='FT' ? `<span class="badge badge-done">FT</span>` : `<span class="badge badge-upcoming">Up</span>`;
-  return `<div class="match-card" onclick="toggleDetail(${f.id},'${f.group}')">
+  const roundIndicator = f.isKnockout ? f.roundLabel : ('Grp '+f.group);
+  const hintText = f.isKnockout ? '👆 tap for details' : '👆 tap for group table';
+  return `<div class="match-card" onclick="toggleDetail('${f.id}')">
     <div class="match-header">
-      <span class="group-indicator">Grp ${f.group}</span>${badge}
+      <span class="group-indicator">${roundIndicator}</span>${badge}
       <span>${fmtDate(f.utc)} · ${fmtIST(f.utc)}</span>
-      <span class="click-hint">👆 tap for group table</span>
+      <span class="click-hint">${hintText}</span>
     </div>
     <div class="match-teams">
-      <div class="match-team">${hc.flag} <span class="team-label">${hc.name}</span></div>
+      <div class="match-team">${homeLabel}</div>
       ${scorePart}
-      <div class="match-team right"><span class="team-label">${ac.name}</span> ${ac.flag}</div>
+      <div class="match-team right">${awayLabel}</div>
     </div>
+    ${f.note ? `<div style="font-size:.72rem;color:var(--accent);margin-top:.2rem;">${f.note}</div>` : ''}
     <div class="match-venue">📍 ${f.venue}</div>
     <div class="match-detail-panel" id="dp-${f.id}">${buildDetail(f)}</div>
   </div>`;
@@ -159,7 +176,15 @@ function buildDetail(f) {
       ev += `<div class="goal-event"><span class="goal-minute">${e.min}'</span><span>${gc(e.team).flag}</span><span>${e.player}</span></div>`;
     });
     ev += '</div>';
+  } else if (f.status==='FT') {
+    ev = '<p style="font-size:.8rem;color:var(--text-muted);">No goal events recorded.</p>';
   }
+
+  if (f.isKnockout) {
+    // Knockout matches: goal events (if any) only — no single group table applies
+    return ev || '<p style="font-size:.8rem;color:var(--text-muted);">Match not yet played.</p>';
+  }
+
   const grp = WC2026.groups[f.group];
   const sorted = sortTeams(grp.teams);
   let tbl = `<div class="standings-mini"><div class="standings-mini-title">📊 Group ${f.group} Standings</div>

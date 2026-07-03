@@ -51,7 +51,7 @@ function fmtDateTime(u){ const d=new Date(u+'Z'); return d.toLocaleDateString('e
 function gc(id){ return WC2026.countries[id]||{name:id,flag:'🏳️'}; }
 function sortTeams(ts){ return [...ts].sort((a,b)=>b.Pts-a.Pts||b.GD-a.GD||b.GF-a.GF); }
 
-// Build group tabs
+// Build group tabs, followed by a Knockout Stage tab
 const tabs = document.getElementById('group-tabs');
 const groups = Object.keys(WC2026.groups);
 groups.forEach((g,i)=>{
@@ -61,7 +61,109 @@ groups.forEach((g,i)=>{
   btn.onclick=()=>showGroup(g,btn);
   tabs.appendChild(btn);
 });
+const koBtn = document.createElement('button');
+koBtn.className = 'tab-btn';
+koBtn.textContent = '🏆 Knockout Stage';
+koBtn.onclick = ()=>showKnockoutStage(koBtn);
+tabs.appendChild(koBtn);
+
 showGroup('A', tabs.querySelector('.tab-btn'));
+
+// ── KNOCKOUT STAGE ──────────────────────────────────────────────────
+const IST_TZ2 = IST_TZ;
+function fmtDateTimeKO(u){ return fmtDateTime(u); }
+
+const KO_ROUNDS = [
+  { key:'r32',        label:'Round of 32' },
+  { key:'r16',        label:'Round of 16' },
+  { key:'qf',         label:'Quarter-Finals' },
+  { key:'sf',         label:'Semi-Finals' },
+  { key:'thirdPlace', label:'Match for Third Place' },
+  { key:'final',      label:'Final' }
+];
+
+function showKnockoutStage(btn) {
+  document.querySelectorAll('#group-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+
+  let html = `<div class="card" style="padding:.75rem;">
+    <div class="tabs" id="knockout-subtabs" style="margin-bottom:0;"></div>
+  </div>
+  <div id="knockout-content"></div>`;
+  document.getElementById('group-content').innerHTML = html;
+
+  const subtabs = document.getElementById('knockout-subtabs');
+  KO_ROUNDS.forEach((r,i)=>{
+    const b = document.createElement('button');
+    b.className = 'tab-btn'+(i===0?' active':'');
+    b.textContent = r.label;
+    b.onclick = ()=>showKnockoutRound(r.key, r.label, b);
+    subtabs.appendChild(b);
+  });
+  showKnockoutRound(KO_ROUNDS[0].key, KO_ROUNDS[0].label, subtabs.querySelector('.tab-btn'));
+}
+
+function showKnockoutRound(roundKey, roundLabel, btn) {
+  document.querySelectorAll('#knockout-subtabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const matches = ((WC2026.knockout||{})[roundKey] || []).slice().sort((a,b)=>new Date(a.utc)-new Date(b.utc));
+  let html = `<div class="card"><div class="card-title">🏆 ${roundLabel}
+    <span style="font-size:.72rem;font-weight:400;color:var(--text-muted);">(click a match to see goal events)</span></div>`;
+
+  if (!matches.length) {
+    html += `<p style="color:var(--text-muted);font-size:.85rem;">No fixtures available for this round yet.</p>`;
+  } else {
+    matches.forEach(f=>{ html += buildKnockoutCard(f); });
+  }
+  html += '</div>';
+  document.getElementById('knockout-content').innerHTML = html;
+}
+
+function buildKnockoutCard(f) {
+  const hc = f.home ? gc(f.home) : null;
+  const ac = f.away ? gc(f.away) : null;
+  const homeLabel = hc ? `${hc.flag} ${hc.name}` : `<span style="color:var(--text-muted);font-style:italic;">${f.homeSrc||'TBD'}</span>`;
+  const awayLabel = ac ? `${ac.name} ${ac.flag}` : `<span style="color:var(--text-muted);font-style:italic;">${f.awaySrc||'TBD'}</span>`;
+
+  const scorePart = f.status==='FT'
+    ? `<div class="match-score">${f.score.h}–${f.score.a}</div>`
+    : `<div class="match-score upcoming">${fmtIST(f.utc)}</div>`;
+  const badge = f.status==='FT'
+    ? `<span class="badge badge-done">FT</span>`
+    : `<span class="badge badge-upcoming">Upcoming</span>`;
+
+  let detail = '<div style="padding-top:.6rem;">';
+  if (f.status==='FT') {
+    if (f.events && f.events.length > 0) {
+      detail += '<div style="font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:.35rem;">⚽ Goal Events</div>';
+      f.events.forEach(e=>{
+        detail += `<div class="goal-event"><span class="goal-minute">${e.min}'</span><span>${gc(e.team).flag}</span><span>${e.player}</span></div>`;
+      });
+    } else {
+      detail += '<p style="font-size:.8rem;color:var(--text-muted);">No goal events recorded.</p>';
+    }
+  } else {
+    detail += `<p style="font-size:.82rem;color:var(--text-muted);">Match not yet played · ${fmtDateTimeKO(f.utc)}</p>`;
+  }
+  detail += '</div>';
+
+  return `<div class="match-card" onclick="this.querySelector('.match-detail-panel').classList.toggle('open')">
+    <div class="match-header">
+      ${badge}
+      <span>${fmtDateTimeKO(f.utc)}</span>
+      <span class="click-hint">👆 click for events</span>
+    </div>
+    <div class="match-teams">
+      <div class="match-team">${homeLabel}</div>
+      ${scorePart}
+      <div class="match-team right">${awayLabel}</div>
+    </div>
+    ${f.note ? `<div style="font-size:.72rem;color:var(--accent);margin-top:.2rem;">${f.note}</div>` : ''}
+    <div class="match-venue">📍 ${f.venue}</div>
+    <div class="match-detail-panel">${detail}</div>
+  </div>`;
+}
 
 function showGroup(gKey, btn) {
   document.querySelectorAll('#group-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
