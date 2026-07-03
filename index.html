@@ -143,8 +143,8 @@ document.getElementById('results-matches').innerHTML = results.length
 function matchCard(f) {
   const hc = f.home ? gc(f.home) : null;
   const ac = f.away ? gc(f.away) : null;
-  const homeLabel = hc ? `${hc.flag} <span class="team-label">${hc.name}</span>` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.homeSrc||'TBD'}</span>`;
-  const awayLabel = ac ? `<span class="team-label">${ac.name}</span> ${ac.flag}` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.awaySrc||'TBD'}</span>`;
+  const homeLabel = hc ? `${hc.flag} <span class="team-label">${hc.name}</span> <span class="team-code">${f.home}</span>` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.homeSrc||'TBD'}</span>`;
+  const awayLabel = ac ? `<span class="team-code">${f.away}</span> <span class="team-label">${ac.name}</span> ${ac.flag}` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.awaySrc||'TBD'}</span>`;
   const scorePart = f.status==='FT'
     ? `<div class="match-score">${f.score.h}–${f.score.a}</div>`
     : `<div class="match-score upcoming">${fmtIST(f.utc)}</div>`;
@@ -209,7 +209,7 @@ WC2026.starMatches.forEach(m=>{
   smDiv.innerHTML += `<div class="star-match-card">
     <div class="star-match-label">⭐ GROUP ${m.group} · MUST WATCH</div>
     <div style="font-size:1.4rem;margin:.3rem 0;">${hc.flag} vs ${ac.flag}</div>
-    <div class="star-match-teams">${hc.name} vs ${ac.name}</div>
+    <div class="star-match-teams">${hc.name} <span class="team-code">${m.home}</span> vs <span class="team-code">${m.away}</span> ${ac.name}</div>
     <div class="star-match-ist">${fmtDate(m.utc)} · ${fmtIST(m.utc)}</div>
     <div class="star-match-meta">📍 ${m.venue}</div>
     <div style="font-size:.73rem;color:var(--text-muted);margin-top:.5rem;border-top:1px solid var(--border);padding-top:.4rem;">${m.storyline}</div>

@@ -146,7 +146,7 @@ const tbody = document.getElementById('groupj-body');
 sortedJ.forEach((t,i)=>{
   const c=gc(t.id);
   tbody.innerHTML += `<tr class="${i<2?'qualified':''}">
-    <td>${c.flag} ${c.name}${t.id==='ARG'?' <span class="badge badge-arg">★ ARG</span>':''}</td>
+    <td>${c.flag} ${c.name} <span class="team-code">${t.id}</span>${t.id==='ARG'?' <span class="badge badge-arg">★ ARG</span>':''}</td>
     <td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td>
     <td>${t.GF}</td><td>${t.GA}</td>
     <td class="${t.GD>0?'gd-pos':t.GD<0?'gd-neg':''}">${t.GD>=0?'+':''}${t.GD}</td>
@@ -184,9 +184,9 @@ jFix.forEach(f=>{
       <span class="click-hint">👆 click for details</span>
     </div>
     <div class="match-teams">
-      <div class="match-team">${hc.flag} ${hc.name}</div>
+      <div class="match-team">${hc.flag} ${hc.name} <span class="team-code">${f.home}</span></div>
       ${scorePart}
-      <div class="match-team right">${ac.name} ${ac.flag}</div>
+      <div class="match-team right"><span class="team-code">${f.away}</span> ${ac.name} ${ac.flag}</div>
     </div>
     <div class="match-venue">📍 ${f.venue}</div>
     <div class="match-detail-panel">${evHtml}</div>

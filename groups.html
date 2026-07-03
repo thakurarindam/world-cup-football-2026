@@ -123,8 +123,8 @@ function showKnockoutRound(roundKey, roundLabel, btn) {
 function buildKnockoutCard(f) {
   const hc = f.home ? gc(f.home) : null;
   const ac = f.away ? gc(f.away) : null;
-  const homeLabel = hc ? `${hc.flag} ${hc.name}` : `<span style="color:var(--text-muted);font-style:italic;">${f.homeSrc||'TBD'}</span>`;
-  const awayLabel = ac ? `${ac.name} ${ac.flag}` : `<span style="color:var(--text-muted);font-style:italic;">${f.awaySrc||'TBD'}</span>`;
+  const homeLabel = hc ? `${hc.flag} ${hc.name} <span class="team-code">${f.home}</span>` : `<span style="color:var(--text-muted);font-style:italic;">${f.homeSrc||'TBD'}</span>`;
+  const awayLabel = ac ? `<span class="team-code">${f.away}</span> ${ac.name} ${ac.flag}` : `<span style="color:var(--text-muted);font-style:italic;">${f.awaySrc||'TBD'}</span>`;
 
   const scorePart = f.status==='FT'
     ? `<div class="match-score">${f.score.h}–${f.score.a}</div>`
@@ -185,7 +185,7 @@ function showGroup(gKey, btn) {
     const c=gc(t.id);
     const gdCls = t.GD>0?'gd-pos':t.GD<0?'gd-neg':'';
     standings += `<tr class="${i<2?'qualified':''}">
-      <td>${c.flag} ${c.name}</td>
+      <td>${c.flag} ${c.name} <span class="team-code">${t.id}</span></td>
       <td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td>
       <td>${t.GF}</td><td>${t.GA}</td>
       <td class="${gdCls}">${t.GD>=0?'+':''}${t.GD}</td>
@@ -265,7 +265,7 @@ function buildFixtureCard(f, gKey) {
     <table><thead><tr><th style="text-align:left;">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>`;
   sorted.forEach((t,i)=>{
     const c=gc(t.id);
-    detail+=`<tr class="${i<2?'q-row':''}"><td>${c.flag} ${c.name}</td><td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td><td>${t.GD>=0?'+':''}${t.GD}</td><td style="font-weight:700;color:var(--gold);">${t.Pts}</td></tr>`;
+    detail+=`<tr class="${i<2?'q-row':''}"><td>${c.flag} ${c.name} <span class="team-code">${t.id}</span></td><td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td><td>${t.GD>=0?'+':''}${t.GD}</td><td style="font-weight:700;color:var(--gold);">${t.Pts}</td></tr>`;
   });
   detail += `</tbody></table></div>`;
 
@@ -276,9 +276,9 @@ function buildFixtureCard(f, gKey) {
       <span class="click-hint">👆 click for events &amp; table</span>
     </div>
     <div class="match-teams">
-      <div class="match-team">${hc.flag} ${hc.name}</div>
+      <div class="match-team">${hc.flag} ${hc.name} <span class="team-code">${f.home}</span></div>
       ${scorePart}
-      <div class="match-team right">${ac.name} ${ac.flag}</div>
+      <div class="match-team right"><span class="team-code">${f.away}</span> ${ac.name} ${ac.flag}</div>
     </div>
     <div class="match-venue">📍 ${f.venue}</div>
     <div class="match-detail-panel">${detail}</div>
