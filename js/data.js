@@ -282,7 +282,7 @@ const WC2026 = {
     { id:51, group:"I", home:"FRA", away:"IRQ", utc:"2026-06-22T21:00", venue:"AT&T Stadium, Dallas TX", status:"FT", score:{h:3,a:0},
       events:[{type:"goal",team:"FRA",player:"Kylian Mbappé",min:18},{type:"goal",team:"FRA",player:"Kylian Mbappé",min:52},{type:"goal",team:"FRA",player:"Antoine Griezmann",min:74}] },
     { id:52, group:"I", home:"NOR", away:"SEN", utc:"2026-06-23T00:00", venue:"Gillette Stadium, Foxborough MA", status:"FT", score:{h:3,a:2},
-      events:[{type:"goal",team:"NOR",player:"Erling Haaland",min:9},{type:"goal",team:"SEN",player:"Sadio Mané",min:34},{type:"goal",team:"NOR",player:"Martin Ødegaard",min:57},{type:"goal",team:"SEN",player:"Ismaila Sarr",min:72},{type:"goal",team:"NOR",player:"Alexander Sørloth",min:85}] },
+      events:[{type:"goal",team:"NOR",player:"Marcus Ø. Pedersen",min:43},{type:"goal",team:"NOR",player:"Erling Haaland",min:48},{type:"goal",team:"SEN",player:"Ismaïla Sarr",min:53},{type:"goal",team:"NOR",player:"Erling Haaland",min:58},{type:"goal",team:"SEN",player:"Ismaïla Sarr",min:92}] },
     // MD3
     { id:53, group:"I", home:"NOR", away:"FRA", utc:"2026-06-26T19:00", venue:"MetLife Stadium, East Rutherford NJ", status:"FT", score:{h:1,a:4}, events:[] },
     { id:54, group:"I", home:"SEN", away:"IRQ", utc:"2026-06-26T19:00", venue:"Hard Rock Stadium, Miami FL", status:"FT", score:{h:5,a:0}, events:[] },
@@ -319,7 +319,7 @@ const WC2026 = {
     // ── GROUP L ─────────────────────────────────────────────────
     // MD1
     { id:67, group:"L", home:"ENG", away:"CRO", utc:"2026-06-17T20:00", venue:"MetLife Stadium, East Rutherford NJ", status:"FT", score:{h:4,a:2},
-      events:[{type:"goal",team:"ENG",player:"Jude Bellingham",min:22},{type:"goal",team:"CRO",player:"Luka Modrić",min:39},{type:"goal",team:"ENG",player:"Jude Bellingham",min:57},{type:"goal",team:"CRO",player:"Joško Gvardiol",min:70},{type:"goal",team:"ENG",player:"Bukayo Saka",min:77},{type:"goal",team:"ENG",player:"Phil Foden",min:89}] },
+      events:[{type:"goal",team:"ENG",player:"Harry Kane (pen)",min:12},{type:"goal",team:"CRO",player:"Martin Baturina",min:36},{type:"goal",team:"ENG",player:"Harry Kane",min:42},{type:"goal",team:"CRO",player:"Petar Musa",min:45},{type:"goal",team:"ENG",player:"Jude Bellingham",min:47},{type:"goal",team:"ENG",player:"Marcus Rashford",min:85}] },
     { id:68, group:"L", home:"GHA", away:"PAN", utc:"2026-06-17T23:00", venue:"AT&T Stadium, Dallas TX", status:"FT", score:{h:1,a:0},
       events:[{type:"goal",team:"GHA",player:"Jordan Ayew",min:62}] },
     // MD2
@@ -338,16 +338,16 @@ const WC2026 = {
   topScorers: [
     { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:6, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28) — tournament's leading scorer; first player to score in 7 consecutive WC matches. Argentina's Round of 32 vs Cape Verde is still to be played (Jul 3, Miami)." },
     { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:6, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30, 45+'/74') — level with Messi atop the race. France face the Paraguay/Canada-Morocco bracket winner in the quarter-finals." },
+    { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:5, assists:0, note:"Brace vs Iraq (Jun 17 IST, 23' & 56') + brace vs Senegal (Jun 23 IST, 48' & 58') + Round of 32 winner vs Ivory Coast (Jun 30 IST, 86') — level with Kane, one behind Messi and Mbappé. Norway face Brazil in the Round of 16 (Jul 6 IST)." },
+    { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:5, assists:0, note:"Penalty + header vs Croatia (Jun 18 IST, 12' pen & 42') + goal vs Panama (Jun 28 IST, 67') + Round of 32 brace vs DR Congo (Jul 1 IST, 75' & 86') — passed Gary Lineker as England's all-time leading World Cup scorer. England face Mexico in the Round of 16 (Jul 6 IST)." },
     { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:4, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) + penalty equalizer vs Croatia in the Round of 32 (Jul 2, Toronto — Portugal won 2-1 via a Gonçalo Ramos stoppage-time winner). Portugal face Spain in the Round of 16 (Jul 6)." },
-    { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:4, assists:1, note:"Brace vs Iraq (Jun 17) + goal vs Senegal (Jun 23) + Round of 32 winner vs Ivory Coast (Jun 30, 86'). Norway face Brazil in the Round of 16 (Jul 5)." },
     { name:"Jonathan David",   country:"CAN", flag:"🇨🇦", goals:4, assists:0, note:"Goal vs Bosnia (Jun 12) + hat-trick vs Qatar (Jun 18, BMO Field). Canada won their Round of 32 tie 1-0 via a Stephen Eustáquio stoppage-time goal; face Morocco in the Round of 16 (Jul 4)." },
     { name:"Kai Havertz",      country:"GER", flag:"🇩🇪", goals:4, assists:0, note:"Brace vs Curaçao (Jun 14) + goal vs Ecuador (Jun 25) + Round of 32 equalizer vs Paraguay (Jul 2) — Germany were eliminated on penalties (4-3) despite Havertz's goal." },
     { name:"Matheus Cunha",    country:"BRA", flag:"🇧🇷", goals:3, assists:0, note:"Brace vs Haiti (Jun 19) + goal vs Scotland (Jun 25). Brazil's Round of 32 winner over Japan (2-1) was scored by Casemiro and Gabriel Martinelli; Brazil face Norway in the Round of 16 (Jul 5)." },
     { name:"Vinícius Jr.",     country:"BRA", flag:"🇧🇷", goals:3, assists:0, note:"Brace vs Scotland (Jun 25, 7' and 45+1')." },
-    { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:3, assists:0, note:"Goal vs Panama (Jun 27) + Round of 32 brace vs DR Congo (Jul 1, 75' & 86') completing England's comeback from a goal down. England face Mexico in the Round of 16 (Jul 5)." },
-    { name:"Jude Bellingham",  country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:3, assists:0, note:"Brace vs Croatia (Jun 18) + goal vs Panama (Jun 27)." },
     { name:"Riyad Mahrez",     country:"ALG", flag:"🇩🇿", goals:3, assists:0, note:"Goal vs Jordan (Jun 23) + brace vs Austria (Jun 28, 60' & 93'). Algeria were eliminated in the Round of 32, beaten 2-0 by Switzerland (Jul 2)." },
     { name:"Johan Manzambi",   country:"SUI", flag:"🇨🇭", goals:3, assists:2, note:"Goal vs Canada (Jun 24, 57') plus further tournament goals/assists per ESPN's official stats recap — 3 goals and 2 assists overall, the youngest player in 60 years to reach 5 goal contributions at a single World Cup. Set up Breel Embolo's opener in the Round of 32 win over Algeria (Jul 2)." },
+    { name:"Jude Bellingham",  country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:2, assists:1, note:"Goal vs Croatia (Jun 18 IST, 47') + goal vs Panama (Jun 28 IST, 62') — also set up Kane's winner minutes later in the same match." },
     { name:"Luis Díaz",        country:"COL", flag:"🇨🇴", goals:2, assists:0, note:"Brace vs DR Congo, Jun 24 (Hard Rock Stadium). Colombia's Round of 32 tie vs Ghana is still to be played (Jul 3, Kansas City)." },
     { name:"Viktor Gyökeres",  country:"SWE", flag:"🇸🇪", goals:2, assists:0, note:"Brace vs Tunisia, Jun 15 (BMO Field). Sweden were eliminated in the Round of 32, beaten 3-0 by France (Jun 30)." },
     { name:"Folarin Balogun",  country:"USA", flag:"🇺🇸", goals:2, assists:0, note:"Brace vs Paraguay, Jun 13 (MetLife Stadium). Sent off in the Round of 32 win over Bosnia (Jul 1) — VAR later found the red card was wrongly given." },
