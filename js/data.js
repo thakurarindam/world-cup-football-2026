@@ -207,7 +207,7 @@ const WC2026 = {
       events:[] },
     // MD2
     { id:21, group:"D", home:"USA", away:"AUS", utc:"2026-06-19T19:00", venue:"Lumen Field, Seattle WA", status:"FT", score:{h:2,a:0},
-      events:[{type:"goal",team:"AUS",player:"Cameron Burgess (OG)",min:11},{type:"goal",team:"USA",player:"Alex Freeman",min:43}] },
+      events:[{type:"goal",team:"USA",player:"Cameron Burgess (OG)",min:11},{type:"goal",team:"USA",player:"Alex Freeman",min:43}] },
     { id:22, group:"D", home:"TUR", away:"PAR", utc:"2026-06-20T03:00", venue:"Levi's Stadium, Santa Clara CA", status:"FT", score:{h:0,a:1},
       events:[{type:"goal",team:"PAR",player:"Miguel Almirón",min:45}] },
     // MD3
@@ -328,13 +328,13 @@ const WC2026 = {
       events:[{type:"goal",team:"CRO",player:"Andrej Kramarić",min:58}] },
     // MD3
     { id:71, group:"L", home:"PAN", away:"ENG", utc:"2026-06-27T21:00", venue:"SoFi Stadium, Inglewood CA", status:"FT", score:{h:0,a:2}, events:[{type:"goal",team:"ENG",player:"Jude Bellingham",min:62},{type:"goal",team:"ENG",player:"Harry Kane",min:67}] },
-    { id:72, group:"L", home:"CRO", away:"GHA", utc:"2026-06-27T21:00", venue:"BC Place, Vancouver", status:"FT", score:{h:2,a:1}, events:[{type:"goal",team:"CRO",player:"Nikola Vlašić",min:83}] }
+    { id:72, group:"L", home:"CRO", away:"GHA", utc:"2026-06-27T21:00", venue:"BC Place, Vancouver", status:"FT", score:{h:2,a:1}, events:[{type:"goal",team:"CRO",player:"Petar Sučić",min:31},{type:"goal",team:"GHA",player:"Derrick Luckassen",min:73},{type:"goal",team:"CRO",player:"Nikola Vlašić",min:83}] }
   ],
 
   // ── TOP SCORERS ─────────────────────────────────────────────────
   // Source: goal-by-goal tally from WC2026.fixtures event data (group stage) cross-checked against
   // match reports (ESPN/Al Jazeera/Olympics.com) for Round of 32 goals. Updated Jul 3 after 13 of 16
-  // R32 matches played (Argentina vs Cape Verde, Australia vs Egypt, Colombia vs Ghana still to come).
+  // Round of 32 complete (all 16 ties played; Colombia beat Ghana 1-0 on Jul 4 to complete the line-up).
   topScorers: [
     { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:7, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28), goal vs Cape Verde in the Round of 32 (Jul 3, 29') — sole Golden Boot leader on 7. First player to score in 8 consecutive WC matches; his 20th career WC goal retakes the all-time record from Ronaldo (19). Argentina face Egypt in the Round of 16 (Jul 7, Atlanta)." },
     { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:6, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30, 45+'/74') — one behind Messi in the race. France face Paraguay in the Round of 16 (Jul 4)." },
@@ -348,7 +348,7 @@ const WC2026 = {
     { name:"Riyad Mahrez",     country:"ALG", flag:"🇩🇿", goals:3, assists:0, note:"Goal vs Jordan (Jun 23) + brace vs Austria (Jun 28, 60' & 93'). Algeria were eliminated in the Round of 32, beaten 2-0 by Switzerland (Jul 2)." },
     { name:"Johan Manzambi",   country:"SUI", flag:"🇨🇭", goals:3, assists:2, note:"Goal vs Canada (Jun 24, 57') plus further tournament goals/assists per ESPN's official stats recap — 3 goals and 2 assists overall, the youngest player in 60 years to reach 5 goal contributions at a single World Cup. Set up Breel Embolo's opener in the Round of 32 win over Algeria (Jul 2)." },
     { name:"Jude Bellingham",  country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:2, assists:1, note:"Goal vs Croatia (Jun 18 IST, 47') + goal vs Panama (Jun 28 IST, 62') — also set up Kane's winner minutes later in the same match." },
-    { name:"Luis Díaz",        country:"COL", flag:"🇨🇴", goals:2, assists:0, note:"Brace vs DR Congo, Jun 24 (Hard Rock Stadium). Colombia's Round of 32 tie vs Ghana was still in progress at the Jul 4 morning refresh (Colombia led 1-0, Jhon Arias 14')." },
+    { name:"Luis Díaz",        country:"COL", flag:"🇨🇴", goals:2, assists:0, note:"Brace vs DR Congo, Jun 24 (Hard Rock Stadium). Colombia beat Ghana 1-0 in the Round of 32 (Jul 4, Jhon Arias 14') and face Switzerland in the Round of 16 (Jul 7, Vancouver)." },
     { name:"Viktor Gyökeres",  country:"SWE", flag:"🇸🇪", goals:2, assists:0, note:"Brace vs Tunisia, Jun 15 (BMO Field). Sweden were eliminated in the Round of 32, beaten 3-0 by France (Jun 30)." },
     { name:"Folarin Balogun",  country:"USA", flag:"🇺🇸", goals:2, assists:0, note:"Brace vs Paraguay, Jun 13 (MetLife Stadium). Sent off in the Round of 32 win over Bosnia (Jul 1) — VAR later found the red card was wrongly given." },
     { name:"Deniz Undav",      country:"GER", flag:"🇩🇪", goals:2, assists:0, note:"Super-sub brace vs Ivory Coast, Jun 20 — sealed Germany's Round of 32 qualification." },
@@ -379,7 +379,7 @@ const WC2026 = {
       { id:"K85", matchNo:85, home:"SUI", away:"ALG", utc:"2026-07-03T03:00", venue:"BC Place, Vancouver", status:"FT", score:{h:2,a:0}, note:"", events:[{type:"goal",team:"SUI",player:"Breel Embolo",min:10},{type:"goal",team:"SUI",player:"Dan Ndoye",min:46}] },
       { id:"K88", matchNo:88, home:"AUS", away:"EGY", utc:"2026-07-03T18:00", venue:"AT&T Stadium, Arlington TX", status:"FT", score:{h:1,a:1}, note:"AET — Egypt won 4-2 on penalties (Salah converted a Panenka; Egypt's first-ever World Cup knockout win)", events:[] },
       { id:"K86", matchNo:86, home:"ARG", away:"CPV", utc:"2026-07-03T22:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"FT", score:{h:3,a:2}, note:"AET — Cape Verde twice pulled level; Vozinha made 10 saves before a 111th-minute own goal settled it", events:[{type:"goal",team:"ARG",player:"Lionel Messi",min:29},{type:"goal",team:"CPV",player:"Deroy Duarte",min:59},{type:"goal",team:"ARG",player:"Lisandro Martínez",min:92},{type:"goal",team:"CPV",player:"Sidny Lopes Cabral",min:103},{type:"goal",team:"ARG",player:"Diney Borges (OG)",min:111}] },
-      { id:"K87", matchNo:87, home:"COL", away:"GHA", utc:"2026-07-04T01:30", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"IN PROGRESS at Jul 4 morning refresh — Colombia led 1-0 (Jhon Arias 14')" }
+      { id:"K87", matchNo:87, home:"COL", away:"GHA", utc:"2026-07-04T01:30", venue:"Arrowhead Stadium, Kansas City MO", status:"FT", score:{h:1,a:0}, note:"Colombia dominated on a sweltering Kansas City night — 61% possession, 7 shots on target to Ghana's 0", events:[{type:"goal",team:"COL",player:"Jhon Arias",min:14}] }
     ],
     r16: [
       { id:"K90", matchNo:90, home:"CAN", away:"MAR", utc:"2026-07-04T17:00", venue:"NRG Stadium, Houston", status:"UP", note:"" },
@@ -389,13 +389,13 @@ const WC2026 = {
       { id:"K93", matchNo:93, home:"POR", away:"ESP", utc:"2026-07-06T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"" },
       { id:"K94", matchNo:94, home:"USA", away:"BEL", utc:"2026-07-06T21:00", venue:"Lumen Field, Seattle", status:"UP", note:"" },
       { id:"K95", matchNo:95, home:"ARG", away:"EGY", utc:"2026-07-07T16:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"" },
-      { id:"K96", matchNo:96, home:"SUI", away:null, awaySrc:"Winner: Colombia vs Ghana (M87)", utc:"2026-07-07T20:00", venue:"BC Place, Vancouver", status:"UP", note:"" }
+      { id:"K96", matchNo:96, home:"SUI", away:"COL", utc:"2026-07-07T20:00", venue:"BC Place, Vancouver", status:"UP", note:"" }
     ],
     qf: [
       { id:"K97",  matchNo:97,  home:null, away:null, homeSrc:"Winner: Paraguay vs France (M89)", awaySrc:"Winner: Canada vs Morocco (M90)", utc:"2026-07-09T20:00", venue:"Gillette Stadium, Foxborough MA", status:"UP", note:"" },
       { id:"K98",  matchNo:98,  home:null, away:null, homeSrc:"Winner: Portugal vs Spain (M93)", awaySrc:"Winner: USA vs Belgium (M94)", utc:"2026-07-10T19:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", note:"" },
       { id:"K99",  matchNo:99,  home:null, away:null, homeSrc:"Winner: Brazil vs Norway (M91)", awaySrc:"Winner: Mexico vs England (M92)", utc:"2026-07-11T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"" },
-      { id:"K100", matchNo:100, home:null, away:null, homeSrc:"Winner: Match 95 (ARG/CPV vs AUS/EGY)", awaySrc:"Winner: Match 96 (Switzerland vs COL/GHA)", utc:"2026-07-12T01:00", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"" }
+      { id:"K100", matchNo:100, home:null, away:null, homeSrc:"Winner: Match 95 (ARG/CPV vs AUS/EGY)", awaySrc:"Winner: Match 96 (Switzerland vs Colombia)", utc:"2026-07-12T01:00", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"" }
     ],
     sf: [
       { id:"K101", matchNo:101, home:null, away:null, homeSrc:"Winner: Quarter-final 1 (M97)", awaySrc:"Winner: Quarter-final 2 (M98)", utc:"2026-07-14T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"" },
@@ -711,9 +711,10 @@ const WC2026 = {
 
   // ── FACTS & RECORDS ──────────────────────────────────────────────
   facts: [
+    { icon:"🇨🇴", title:"Colombia shut out Ghana 1-0 to complete the Round of 16 line-up", category:"Drama", detail:"Jhon Arias' 14th-minute strike was all Colombia needed to beat Ghana 1-0 at Arrowhead Stadium, Kansas City (early Jul 4 IST) — the last of the 16 Round of 32 ties. Los Cafeteros dominated with 61% possession and put 7 of 18 shots on target while holding Ghana to zero shots on target. Colombia face Switzerland in the Round of 16 at BC Place, Vancouver on July 7." },
     { icon:"🐐", title:"Messi retakes the all-time World Cup goals record with his 20th, scoring in a record 8th straight WC match", category:"Records", detail:"Lionel Messi's 29th-minute finish against Cape Verde in the Round of 32 (Jul 3, Miami) was his 20th career World Cup goal, moving him past Cristiano Ronaldo's 19 to retake the all-time record — and made him the first player ever to score in eight consecutive World Cup matches (12 goals in that streak). Argentina survived a huge scare, needing a 111th-minute own goal to beat the debutants 3-2 after extra time." },
     { icon:"🇪🇬", title:"Egypt win their first-ever World Cup knockout tie — Salah Panenka in 4-2 shootout win over Australia", category:"History", detail:"Africa's most successful footballing nation finally won a World Cup knockout match, beating Australia 4-2 on penalties after a 1-1 draw in Arlington on July 3. Mohamed Salah converted an impudent Panenka in the shootout; Australia's gamble of sending on keeper Mat Ryan specifically for the penalties failed to pay off. Egypt's reward: Messi and Argentina in the Round of 16 in Atlanta on July 7." },
-    { icon:"🇨🇭", title:"Switzerland end 88-year wait for a World Cup knockout win, beating Algeria 2-0", category:"History", detail:"Breel Embolo (10') finished off a driving Johan Manzambi run and Dan Ndoye struck 48 seconds into the second half as Switzerland beat Algeria 2-0 in the Round of 32 at BC Place, Vancouver on July 2 — their first World Cup knockout-stage win in 88 years. Manzambi, 20, became the youngest player in 60 years to be directly involved in 5 goals (3 goals, 2 assists) at a single World Cup. Switzerland advance to face the winner of the last unresolved Round of 32 bracket in the Round of 16." },
+    { icon:"🇨🇭", title:"Switzerland end 88-year wait for a World Cup knockout win, beating Algeria 2-0", category:"History", detail:"Breel Embolo (10') finished off a driving Johan Manzambi run and Dan Ndoye struck 48 seconds into the second half as Switzerland beat Algeria 2-0 in the Round of 32 at BC Place, Vancouver on July 2 — their first World Cup knockout-stage win in 88 years. Manzambi, 20, became the youngest player in 60 years to be directly involved in 5 goals (3 goals, 2 assists) at a single World Cup. Switzerland advance to face Colombia in the Round of 16 in Vancouver on July 7." },
     { icon:"🇵🇹", title:"Ronaldo scores first-ever World Cup knockout goal as Portugal edge Croatia 2-1, ending Modrić's tournament", category:"Records", detail:"Ivan Perišić fired Croatia ahead (53') before Cristiano Ronaldo converted a 68th-minute penalty — his first goal at a men's World Cup knockout match in six tournament appearances — and Gonçalo Ramos headed a stoppage-time (94') winner from a Rafael Leão cross to send Portugal through 2-1 at BMO Field, Toronto on July 2. The result ends Luka Modrić's World Cup career; Portugal advance to face Spain in the Round of 16." },
     { icon:"🇪🇸", title:"Oyarzabal brace fires Spain past Austria 3-0 into the last 16", category:"Records", detail:"Mikel Oyarzabal scored either side of a Pedro Porro strike (36', 66', 89') as reigning European champions Spain cruised past Austria 3-0 in the Round of 32 at SoFi Stadium, Los Angeles on July 2. Lamine Yamal, still just 19, is averaging 12 completed dribbles per 90 minutes — the most by any player with 200+ tournament minutes since Jay-Jay Okocha in 1998. Spain advance to face Portugal in the Round of 16." },
     { icon:"🇺🇸", title:"USMNT win first World Cup knockout match since 2002, despite playing over an hour with ten men", category:"History", detail:"The United States beat Bosnia and Herzegovina 2-0 in the Round of 32 on July 1 (Levi's Stadium, Santa Clara) to record their first men's World Cup knockout-round win since 2002. Folarin Balogun opened the scoring before being controversially sent off — a VAR review later found the red card was wrongly applied — but Malik Tillman doubled the lead with a free-kick as ten-man USA held on. The co-hosts advance to face Belgium in the Round of 16." },
