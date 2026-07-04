@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-03) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-04) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-03",
+  lastUpdated: "2026-07-04",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -336,11 +336,11 @@ const WC2026 = {
   // match reports (ESPN/Al Jazeera/Olympics.com) for Round of 32 goals. Updated Jul 3 after 13 of 16
   // R32 matches played (Argentina vs Cape Verde, Australia vs Egypt, Colombia vs Ghana still to come).
   topScorers: [
-    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:6, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28) — tournament's leading scorer; first player to score in 7 consecutive WC matches. Argentina's Round of 32 vs Cape Verde is still to be played (Jul 3, Miami)." },
-    { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:6, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30, 45+'/74') — level with Messi atop the race. France face the Paraguay/Canada-Morocco bracket winner in the quarter-finals." },
+    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:7, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28), goal vs Cape Verde in the Round of 32 (Jul 3, 29') — sole Golden Boot leader on 7. First player to score in 8 consecutive WC matches; his 20th career WC goal retakes the all-time record from Ronaldo (19). Argentina face Egypt in the Round of 16 (Jul 7, Atlanta)." },
+    { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:6, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30, 45+'/74') — one behind Messi in the race. France face Paraguay in the Round of 16 (Jul 4)." },
     { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:5, assists:0, note:"Brace vs Iraq (Jun 17 IST, 23' & 56') + brace vs Senegal (Jun 23 IST, 48' & 58') + Round of 32 winner vs Ivory Coast (Jun 30 IST, 86') — level with Kane, one behind Messi and Mbappé. Norway face Brazil in the Round of 16 (Jul 6 IST)." },
     { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:5, assists:0, note:"Penalty + header vs Croatia (Jun 18 IST, 12' pen & 42') + goal vs Panama (Jun 28 IST, 67') + Round of 32 brace vs DR Congo (Jul 1 IST, 75' & 86') — passed Gary Lineker as England's all-time leading World Cup scorer. England face Mexico in the Round of 16 (Jul 6 IST)." },
-    { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:4, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) + penalty equalizer vs Croatia in the Round of 32 (Jul 2, Toronto — Portugal won 2-1 via a Gonçalo Ramos stoppage-time winner). Portugal face Spain in the Round of 16 (Jul 6)." },
+    { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:4, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) + penalty equalizer vs Croatia in the Round of 32 (Jul 2, Toronto — Portugal won 2-1 via a Gonçalo Ramos stoppage-time winner). His career WC tally of 19 was overtaken by Messi's 20th on Jul 3. Portugal face Spain in the Round of 16 (Jul 6)." },
     { name:"Jonathan David",   country:"CAN", flag:"🇨🇦", goals:4, assists:0, note:"Goal vs Bosnia (Jun 12) + hat-trick vs Qatar (Jun 18, BMO Field). Canada won their Round of 32 tie 1-0 via a Stephen Eustáquio stoppage-time goal; face Morocco in the Round of 16 (Jul 4)." },
     { name:"Kai Havertz",      country:"GER", flag:"🇩🇪", goals:4, assists:0, note:"Brace vs Curaçao (Jun 14) + goal vs Ecuador (Jun 25) + Round of 32 equalizer vs Paraguay (Jul 2) — Germany were eliminated on penalties (4-3) despite Havertz's goal." },
     { name:"Matheus Cunha",    country:"BRA", flag:"🇧🇷", goals:3, assists:0, note:"Brace vs Haiti (Jun 19) + goal vs Scotland (Jun 25). Brazil's Round of 32 winner over Japan (2-1) was scored by Casemiro and Gabriel Martinelli; Brazil face Norway in the Round of 16 (Jul 5)." },
@@ -348,7 +348,7 @@ const WC2026 = {
     { name:"Riyad Mahrez",     country:"ALG", flag:"🇩🇿", goals:3, assists:0, note:"Goal vs Jordan (Jun 23) + brace vs Austria (Jun 28, 60' & 93'). Algeria were eliminated in the Round of 32, beaten 2-0 by Switzerland (Jul 2)." },
     { name:"Johan Manzambi",   country:"SUI", flag:"🇨🇭", goals:3, assists:2, note:"Goal vs Canada (Jun 24, 57') plus further tournament goals/assists per ESPN's official stats recap — 3 goals and 2 assists overall, the youngest player in 60 years to reach 5 goal contributions at a single World Cup. Set up Breel Embolo's opener in the Round of 32 win over Algeria (Jul 2)." },
     { name:"Jude Bellingham",  country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:2, assists:1, note:"Goal vs Croatia (Jun 18 IST, 47') + goal vs Panama (Jun 28 IST, 62') — also set up Kane's winner minutes later in the same match." },
-    { name:"Luis Díaz",        country:"COL", flag:"🇨🇴", goals:2, assists:0, note:"Brace vs DR Congo, Jun 24 (Hard Rock Stadium). Colombia's Round of 32 tie vs Ghana is still to be played (Jul 3, Kansas City)." },
+    { name:"Luis Díaz",        country:"COL", flag:"🇨🇴", goals:2, assists:0, note:"Brace vs DR Congo, Jun 24 (Hard Rock Stadium). Colombia's Round of 32 tie vs Ghana was still in progress at the Jul 4 morning refresh (Colombia led 1-0, Jhon Arias 14')." },
     { name:"Viktor Gyökeres",  country:"SWE", flag:"🇸🇪", goals:2, assists:0, note:"Brace vs Tunisia, Jun 15 (BMO Field). Sweden were eliminated in the Round of 32, beaten 3-0 by France (Jun 30)." },
     { name:"Folarin Balogun",  country:"USA", flag:"🇺🇸", goals:2, assists:0, note:"Brace vs Paraguay, Jun 13 (MetLife Stadium). Sent off in the Round of 32 win over Bosnia (Jul 1) — VAR later found the red card was wrongly given." },
     { name:"Deniz Undav",      country:"GER", flag:"🇩🇪", goals:2, assists:0, note:"Super-sub brace vs Ivory Coast, Jun 20 — sealed Germany's Round of 32 qualification." },
@@ -377,9 +377,9 @@ const WC2026 = {
       { id:"K84", matchNo:84, home:"ESP", away:"AUT", utc:"2026-07-02T19:00", venue:"SoFi Stadium, Inglewood CA", status:"FT", score:{h:3,a:0}, note:"", events:[{type:"goal",team:"ESP",player:"Mikel Oyarzabal",min:36},{type:"goal",team:"ESP",player:"Pedro Porro",min:66},{type:"goal",team:"ESP",player:"Mikel Oyarzabal",min:89}] },
       { id:"K83", matchNo:83, home:"POR", away:"CRO", utc:"2026-07-02T23:00", venue:"BMO Field, Toronto", status:"FT", score:{h:2,a:1}, note:"", events:[{type:"goal",team:"CRO",player:"Ivan Perišić",min:53},{type:"goal",team:"POR",player:"Cristiano Ronaldo (pen)",min:68},{type:"goal",team:"POR",player:"Gonçalo Ramos",min:94}] },
       { id:"K85", matchNo:85, home:"SUI", away:"ALG", utc:"2026-07-03T03:00", venue:"BC Place, Vancouver", status:"FT", score:{h:2,a:0}, note:"", events:[{type:"goal",team:"SUI",player:"Breel Embolo",min:10},{type:"goal",team:"SUI",player:"Dan Ndoye",min:46}] },
-      { id:"K88", matchNo:88, home:"AUS", away:"EGY", utc:"2026-07-03T18:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"" },
-      { id:"K86", matchNo:86, home:"ARG", away:"CPV", utc:"2026-07-03T22:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"" },
-      { id:"K87", matchNo:87, home:"COL", away:"GHA", utc:"2026-07-04T01:30", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"" }
+      { id:"K88", matchNo:88, home:"AUS", away:"EGY", utc:"2026-07-03T18:00", venue:"AT&T Stadium, Arlington TX", status:"FT", score:{h:1,a:1}, note:"AET — Egypt won 4-2 on penalties (Salah converted a Panenka; Egypt's first-ever World Cup knockout win)", events:[] },
+      { id:"K86", matchNo:86, home:"ARG", away:"CPV", utc:"2026-07-03T22:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"FT", score:{h:3,a:2}, note:"AET — Cape Verde twice pulled level; Vozinha made 10 saves before a 111th-minute own goal settled it", events:[{type:"goal",team:"ARG",player:"Lionel Messi",min:29},{type:"goal",team:"CPV",player:"Deroy Duarte",min:59},{type:"goal",team:"ARG",player:"Lisandro Martínez",min:92},{type:"goal",team:"CPV",player:"Sidny Lopes Cabral",min:103},{type:"goal",team:"ARG",player:"Diney Borges (OG)",min:111}] },
+      { id:"K87", matchNo:87, home:"COL", away:"GHA", utc:"2026-07-04T01:30", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"IN PROGRESS at Jul 4 morning refresh — Colombia led 1-0 (Jhon Arias 14')" }
     ],
     r16: [
       { id:"K90", matchNo:90, home:"CAN", away:"MAR", utc:"2026-07-04T17:00", venue:"NRG Stadium, Houston", status:"UP", note:"" },
@@ -388,7 +388,7 @@ const WC2026 = {
       { id:"K92", matchNo:92, home:"MEX", away:"ENG", utc:"2026-07-06T00:00", venue:"Estadio Azteca, Mexico City", status:"UP", note:"" },
       { id:"K93", matchNo:93, home:"POR", away:"ESP", utc:"2026-07-06T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"" },
       { id:"K94", matchNo:94, home:"USA", away:"BEL", utc:"2026-07-06T21:00", venue:"Lumen Field, Seattle", status:"UP", note:"" },
-      { id:"K95", matchNo:95, home:null, away:null, homeSrc:"Winner: Argentina vs Cape Verde (M86)", awaySrc:"Winner: Australia vs Egypt (M88)", utc:"2026-07-07T16:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"" },
+      { id:"K95", matchNo:95, home:"ARG", away:"EGY", utc:"2026-07-07T16:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"" },
       { id:"K96", matchNo:96, home:"SUI", away:null, awaySrc:"Winner: Colombia vs Ghana (M87)", utc:"2026-07-07T20:00", venue:"BC Place, Vancouver", status:"UP", note:"" }
     ],
     qf: [
@@ -411,8 +411,8 @@ const WC2026 = {
 
   // ── STAR MATCHES TO WATCH ────────────────────────────────────────
   starMatches: [
-    { home:"ARG", away:"CPV", utc:"2026-07-03T22:00", group:"R32", venue:"Hard Rock Stadium, Miami Gardens FL",
-      storyline:"Round of 32 — holders Argentina (a perfect 9 points in Group J) face World Cup debutants Cape Verde, who reached the knockouts as Group H runners-up on the back of three straight draws. Messi, fresh off scoring in a record 7th straight WC match, leads the title defence against the tournament's smallest-ever nation, with Scaloni still weighing three lineup calls (Otamendi/Romero, Tagliafico/Medina, Álvarez/Lautaro)." },
+    { home:"ARG", away:"EGY", utc:"2026-07-07T16:00", group:"R16", venue:"Mercedes-Benz Stadium, Atlanta",
+      storyline:"Round of 16 — holders Argentina survived an almighty scare against Cape Verde, needing extra time and a 111th-minute own goal to win 3-2 after the debutants twice pulled level. Next up: Mohamed Salah's Egypt, who beat Australia 4-2 on penalties (Salah with a Panenka) for their first-ever World Cup knockout win. Messi (7 goals, 8 straight WC games scored, 20 career WC goals) vs Salah headlines the tie." },
     { home:"ENG", away:"MEX", utc:"2026-07-05T00:00", group:"R16", venue:"Estadio Azteca, Mexico City",
       storyline:"Round of 16 — England, who came from behind to beat DR Congo 2-1 (Harry Kane brace, 75' & 86'), face co-hosts Mexico, who beat Ecuador 2-0 in the Round of 32 and remain unbeaten and yet to concede a goal from open play at this World Cup." },
     { home:"USA", away:"BEL", utc:"2026-07-06T00:00", group:"R16", venue:"TBC",
@@ -423,7 +423,8 @@ const WC2026 = {
 
   // ── ARGENTINA SPECIAL DATA ──────────────────────────────────────
   argentina: {
-    groupStanding: "1st in Group J — WON GROUP (3 wins from 3). Face Cape Verde in Round of 32",
+    groupStanding: "Won Group J (9/9 pts) → beat Cape Verde 3–2 AET in Round of 32. Face Egypt in Round of 16 (Jul 7, Atlanta)",
+    r32Result: "Argentina 3–2 Cape Verde AET (Jul 3, Miami — Messi 29', L. Martínez 92', Borges OG 111')",
     md1Result: "Argentina 3–0 Algeria (Jun 17, Messi hat-trick)",
     md2Result: "Argentina 2–0 Austria (Jun 22, Messi brace — 18 career WC goals, all-time record at the time)",
     md3Result: "Argentina 3–1 Jordan (Jun 28, Rose Bowl — Messi off the bench scored to become first player to net in 7 consecutive World Cup matches)",
@@ -466,7 +467,8 @@ const WC2026 = {
 
     // Player fitness tracker (key players — updated Jun 25)
     fitness: [
-      { name:"Lionel Messi",        status:"fit",   note:"Rested to the bench vs Jordan (Scaloni: no injury), came on and scored — now first player ever to score in 7 consecutive World Cup matches. Fresh and firing for the Round of 32.", updated:"Jun 28" },
+      { name:"Facundo Medina",      status:"doubt", note:"Forced off injured during the Round of 32 win over Cape Verde and replaced by Tagliafico. Being assessed ahead of the Egypt tie (Jul 7); no official diagnosis yet.", updated:"Jul 4" },
+      { name:"Lionel Messi",        status:"fit",   note:"Scored vs Cape Verde (29') — first player ever to score in 8 consecutive World Cup matches, and his 20th career WC goal retakes the all-time record. Played 120 minutes; recovery focus before Egypt.", updated:"Jul 4" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
       { name:"Cristian Romero",     status:"fit",   note:"Knee knock from the Austria match has fully cleared. Team-news reports ahead of kickoff have him poised to start at centre-back alongside Lisandro Martínez, with Otamendi dropping to the bench.", updated:"Jul 3" },
       { name:"Lautaro Martínez",    status:"fit",   note:"Started vs Austria and vs Jordan. Reportedly in better physical condition than Álvarez and favoured to start up top vs Cape Verde.", updated:"Jun 29" },
@@ -481,6 +483,13 @@ const WC2026 = {
     ],
 
     news: [
+      {
+        title: "Argentina survive Cape Verde scare 3-2 in extra time — Messi makes history again",
+        date: "July 4, 2026",
+        source: "ESPN",
+        url: "https://www.espn.com/soccer/report/_/gameId/760500",
+        snippet: "Argentina needed extra time and a 111th-minute Diney Borges own goal (from a Cristian Romero header) to see off World Cup debutants Cape Verde 3-2 in Miami. Messi opened the scoring (29') — his 20th career World Cup goal, retaking the all-time record from Ronaldo, and a record 8th consecutive WC match scored in. Deroy Duarte (59') and a stunning Sidny Lopes Cabral strike (103') twice levelled for the Blue Sharks either side of Lisandro Martínez's header (92'), with 40-year-old keeper Vozinha making 10 saves. Facundo Medina went off injured. Argentina face Egypt — 4-2 shootout winners over Australia — in the Round of 16 on July 7 in Atlanta."
+      },
       {
         title: "Team news: Romero and Medina set to start as Argentina finalize XI for Cape Verde clash",
         date: "July 3, 2026",
@@ -566,19 +575,19 @@ const WC2026 = {
       },
       {
         round: "Round of 32",
-        status: "next",
-        match: "ARG vs CPV (Cape Verde)",
-        date: "July 3, 2026",
-        result: null,
-        note: "Hard Rock Stadium, Miami FL. Cape Verde — World Cup debutants — qualified as Group H runners-up. Argentina heavy favourites against the tournament's smallest nation."
+        status: "done",
+        match: "ARG 3–2 CPV (AET)",
+        date: "July 3, 2026 · Hard Rock Stadium, Miami FL",
+        result: "WON (AET) — Messi 29', L. Martínez 92', Borges OG 111'",
+        note: "Almighty scare: debutants Cape Verde twice pulled level (Duarte 59', Lopes Cabral 103') and Vozinha made 10 saves before a 111th-minute own goal settled it. Messi's 20th career WC goal — record 8 straight WC matches scored in."
       },
       {
         round: "Round of 16",
-        status: "upcoming",
-        match: "ARG vs Winner of AUS/EGY",
+        status: "next",
+        match: "ARG vs EGY (Egypt)",
         date: "July 7, 2026 · Mercedes-Benz Stadium, Atlanta",
         result: null,
-        note: "Confirmed bracket: the winner of Argentina vs Cape Verde meets the winner of Australia vs Egypt (played July 3 in Arlington) in the Round of 16."
+        note: "Egypt beat Australia 4-2 on penalties after a 1-1 draw (Salah with a Panenka in the shootout) — their first-ever World Cup knockout win. Messi vs Salah headlines the tie."
       },
       {
         round: "Quarter-Final",
@@ -702,6 +711,8 @@ const WC2026 = {
 
   // ── FACTS & RECORDS ──────────────────────────────────────────────
   facts: [
+    { icon:"🐐", title:"Messi retakes the all-time World Cup goals record with his 20th, scoring in a record 8th straight WC match", category:"Records", detail:"Lionel Messi's 29th-minute finish against Cape Verde in the Round of 32 (Jul 3, Miami) was his 20th career World Cup goal, moving him past Cristiano Ronaldo's 19 to retake the all-time record — and made him the first player ever to score in eight consecutive World Cup matches (12 goals in that streak). Argentina survived a huge scare, needing a 111th-minute own goal to beat the debutants 3-2 after extra time." },
+    { icon:"🇪🇬", title:"Egypt win their first-ever World Cup knockout tie — Salah Panenka in 4-2 shootout win over Australia", category:"History", detail:"Africa's most successful footballing nation finally won a World Cup knockout match, beating Australia 4-2 on penalties after a 1-1 draw in Arlington on July 3. Mohamed Salah converted an impudent Panenka in the shootout; Australia's gamble of sending on keeper Mat Ryan specifically for the penalties failed to pay off. Egypt's reward: Messi and Argentina in the Round of 16 in Atlanta on July 7." },
     { icon:"🇨🇭", title:"Switzerland end 88-year wait for a World Cup knockout win, beating Algeria 2-0", category:"History", detail:"Breel Embolo (10') finished off a driving Johan Manzambi run and Dan Ndoye struck 48 seconds into the second half as Switzerland beat Algeria 2-0 in the Round of 32 at BC Place, Vancouver on July 2 — their first World Cup knockout-stage win in 88 years. Manzambi, 20, became the youngest player in 60 years to be directly involved in 5 goals (3 goals, 2 assists) at a single World Cup. Switzerland advance to face the winner of the last unresolved Round of 32 bracket in the Round of 16." },
     { icon:"🇵🇹", title:"Ronaldo scores first-ever World Cup knockout goal as Portugal edge Croatia 2-1, ending Modrić's tournament", category:"Records", detail:"Ivan Perišić fired Croatia ahead (53') before Cristiano Ronaldo converted a 68th-minute penalty — his first goal at a men's World Cup knockout match in six tournament appearances — and Gonçalo Ramos headed a stoppage-time (94') winner from a Rafael Leão cross to send Portugal through 2-1 at BMO Field, Toronto on July 2. The result ends Luka Modrić's World Cup career; Portugal advance to face Spain in the Round of 16." },
     { icon:"🇪🇸", title:"Oyarzabal brace fires Spain past Austria 3-0 into the last 16", category:"Records", detail:"Mikel Oyarzabal scored either side of a Pedro Porro strike (36', 66', 89') as reigning European champions Spain cruised past Austria 3-0 in the Round of 32 at SoFi Stadium, Los Angeles on July 2. Lamine Yamal, still just 19, is averaging 12 completed dribbles per 90 minutes — the most by any player with 200+ tournament minutes since Jay-Jay Okocha in 1998. Spain advance to face Portugal in the Round of 16." },
