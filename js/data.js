@@ -1,4 +1,4 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-05, morning refresh) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-05, midday refresh — verified vs ESPN/Al Jazeera/FIFA; no new results since morning: BRA-NOR & MEX-ENG kick off later today) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
@@ -413,9 +413,9 @@ const WC2026 = {
   starMatches: [
     { home:"ARG", away:"EGY", utc:"2026-07-07T16:00", group:"R16", venue:"Mercedes-Benz Stadium, Atlanta",
       storyline:"Round of 16 — holders Argentina survived an almighty scare against Cape Verde, needing extra time and a 111th-minute own goal to win 3-2 after the debutants twice pulled level. Next up: Mohamed Salah's Egypt, who beat Australia 4-2 on penalties (Salah with a Panenka) for their first-ever World Cup knockout win. Messi (7 goals, 8 straight WC games scored, 20 career WC goals) vs Salah headlines the tie." },
-    { home:"ENG", away:"MEX", utc:"2026-07-05T00:00", group:"R16", venue:"Estadio Azteca, Mexico City",
+    { home:"MEX", away:"ENG", utc:"2026-07-06T00:00", group:"R16", venue:"Estadio Azteca, Mexico City",
       storyline:"Round of 16 — England, who came from behind to beat DR Congo 2-1 (Harry Kane brace, 75' & 86'), face co-hosts Mexico, who beat Ecuador 2-0 in the Round of 32 and remain unbeaten and yet to concede a goal from open play at this World Cup." },
-    { home:"USA", away:"BEL", utc:"2026-07-06T00:00", group:"R16", venue:"TBC",
+    { home:"USA", away:"BEL", utc:"2026-07-06T21:00", group:"R16", venue:"Lumen Field, Seattle",
       storyline:"Round of 16 — co-hosts USA, who beat Bosnia & Herzegovina 2-0 (Balogun, Tillman) despite playing over an hour with ten men after Balogun's red card, take on Belgium, who scored twice in the final four minutes through Lukaku and Tielemans to force extra time before Tielemans' 124th-minute penalty — the latest goal in World Cup history — beat Senegal 3-2." },
     { home:"POR", away:"ESP", utc:"2026-07-06T19:00", group:"R16", venue:"AT&T Stadium, Arlington TX",
       storyline:"Round of 16 — the Iberian derby. Portugal survived late VAR drama to beat Croatia 2-1 in the R32 (Ronaldo's penalty equalizer, Gonçalo Ramos' stoppage-time winner), while Spain cruised past Austria 3-0 behind a Mikel Oyarzabal brace. Cristiano Ronaldo (20 career WC goals) vs Lamine Yamal headline the tie." }
@@ -756,3 +756,4 @@ const WC2026 = {
     { icon:"🏆", title:"48-team World Cup delivers record 120 goals in group stage MD1-MD3 (first 3 groups)", category:"Records", detail:"The expanded 48-team format with 12 groups is delivering a goal feast. The first three group stages alone (Groups A-C) produced 30 goals across 12 matches — an average of 2.5 per game. The all-time World Cup group-stage goals record from 1954 (averaging 5.38 per game) is unlikely to be threatened, but fan engagement and dramatic scorelines have exceeded pre-tournament expectations." }
   ]
 };
+// EOF
