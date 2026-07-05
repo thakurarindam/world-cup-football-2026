@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-04) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-05, morning refresh) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-04",
+  lastUpdated: "2026-07-05",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -336,8 +336,8 @@ const WC2026 = {
   // match reports (ESPN/Al Jazeera/Olympics.com) for Round of 32 goals. Updated Jul 3 after 13 of 16
   // Round of 32 complete (all 16 ties played; Colombia beat Ghana 1-0 on Jul 4 to complete the line-up).
   topScorers: [
-    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:7, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28), goal vs Cape Verde in the Round of 32 (Jul 3, 29') — sole Golden Boot leader on 7. First player to score in 8 consecutive WC matches; his 20th career WC goal retakes the all-time record from Ronaldo (19). Argentina face Egypt in the Round of 16 (Jul 7, Atlanta)." },
-    { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:6, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30, 45+'/74') — one behind Messi in the race. France face Paraguay in the Round of 16 (Jul 4)." },
+    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:7, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28), goal vs Cape Verde in the Round of 32 (Jul 3, 29') — now joint Golden Boot leader on 7 with Mbappé. First player to score in 8 consecutive WC matches; his 20th career WC goal retakes the all-time record from Ronaldo (19). Argentina face Egypt in the Round of 16 (Jul 7, Atlanta)." },
+    { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:7, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30) + the winning penalty vs Paraguay in the Round of 16 (Jul 4, 70') — level with Messi on 7 atop the Golden Boot race. His 19th career WC goal is one behind Messi's all-time record of 20. France face Morocco in the quarter-final (Jul 9, Boston)." },
     { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:5, assists:0, note:"Brace vs Iraq (Jun 17 IST, 23' & 56') + brace vs Senegal (Jun 23 IST, 48' & 58') + Round of 32 winner vs Ivory Coast (Jun 30 IST, 86') — level with Kane, one behind Messi and Mbappé. Norway face Brazil in the Round of 16 (Jul 6 IST)." },
     { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:5, assists:0, note:"Penalty + header vs Croatia (Jun 18 IST, 12' pen & 42') + goal vs Panama (Jun 28 IST, 67') + Round of 32 brace vs DR Congo (Jul 1 IST, 75' & 86') — passed Gary Lineker as England's all-time leading World Cup scorer. England face Mexico in the Round of 16 (Jul 6 IST)." },
     { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:4, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) + penalty equalizer vs Croatia in the Round of 32 (Jul 2, Toronto — Portugal won 2-1 via a Gonçalo Ramos stoppage-time winner). His career WC tally of 19 was overtaken by Messi's 20th on Jul 3. Portugal face Spain in the Round of 16 (Jul 6)." },
@@ -382,8 +382,8 @@ const WC2026 = {
       { id:"K87", matchNo:87, home:"COL", away:"GHA", utc:"2026-07-04T01:30", venue:"Arrowhead Stadium, Kansas City MO", status:"FT", score:{h:1,a:0}, note:"Colombia dominated on a sweltering Kansas City night — 61% possession, 7 shots on target to Ghana's 0", events:[{type:"goal",team:"COL",player:"Jhon Arias",min:14}] }
     ],
     r16: [
-      { id:"K90", matchNo:90, home:"CAN", away:"MAR", utc:"2026-07-04T17:00", venue:"NRG Stadium, Houston", status:"UP", note:"" },
-      { id:"K89", matchNo:89, home:"PAR", away:"FRA", utc:"2026-07-04T21:00", venue:"Lincoln Financial Field, Philadelphia PA", status:"UP", note:"" },
+      { id:"K90", matchNo:90, home:"CAN", away:"MAR", utc:"2026-07-04T17:00", venue:"NRG Stadium, Houston", status:"FT", score:{h:0,a:3}, note:"Ounahi second-half brace ends co-hosts Canada's run; Morocco into their second straight WC quarter-final", events:[{type:"goal",team:"MAR",player:"Azzedine Ounahi",min:50},{type:"goal",team:"MAR",player:"Azzedine Ounahi",min:82},{type:"goal",team:"MAR",player:"Soufiane Rahimi",min:98}] },
+      { id:"K89", matchNo:89, home:"PAR", away:"FRA", utc:"2026-07-04T21:00", venue:"Lincoln Financial Field, Philadelphia PA", status:"FT", score:{h:0,a:1}, note:"Mbappé's 70th-minute penalty — his 7th of the tournament and 19th career WC goal — settled it; Gill twice denied him a second in stoppage time", events:[{type:"goal",team:"FRA",player:"Kylian Mbappé (pen)",min:70}] },
       { id:"K91", matchNo:91, home:"BRA", away:"NOR", utc:"2026-07-05T20:00", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", note:"" },
       { id:"K92", matchNo:92, home:"MEX", away:"ENG", utc:"2026-07-06T00:00", venue:"Estadio Azteca, Mexico City", status:"UP", note:"" },
       { id:"K93", matchNo:93, home:"POR", away:"ESP", utc:"2026-07-06T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"" },
@@ -392,7 +392,7 @@ const WC2026 = {
       { id:"K96", matchNo:96, home:"SUI", away:"COL", utc:"2026-07-07T20:00", venue:"BC Place, Vancouver", status:"UP", note:"" }
     ],
     qf: [
-      { id:"K97",  matchNo:97,  home:null, away:null, homeSrc:"Winner: Paraguay vs France (M89)", awaySrc:"Winner: Canada vs Morocco (M90)", utc:"2026-07-09T20:00", venue:"Gillette Stadium, Foxborough MA", status:"UP", note:"" },
+      { id:"K97",  matchNo:97,  home:"FRA", away:"MAR", homeSrc:"Winner: Paraguay vs France (M89)", awaySrc:"Winner: Canada vs Morocco (M90)", utc:"2026-07-09T20:00", venue:"Gillette Stadium, Foxborough MA", status:"UP", note:"Rematch of the 2022 semi-final — France beat Paraguay 1-0, Morocco routed Canada 3-0" },
       { id:"K98",  matchNo:98,  home:null, away:null, homeSrc:"Winner: Portugal vs Spain (M93)", awaySrc:"Winner: USA vs Belgium (M94)", utc:"2026-07-10T19:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", note:"" },
       { id:"K99",  matchNo:99,  home:null, away:null, homeSrc:"Winner: Brazil vs Norway (M91)", awaySrc:"Winner: Mexico vs England (M92)", utc:"2026-07-11T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"" },
       { id:"K100", matchNo:100, home:null, away:null, homeSrc:"Winner: Match 95 (ARG/CPV vs AUS/EGY)", awaySrc:"Winner: Match 96 (Switzerland vs Colombia)", utc:"2026-07-12T01:00", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"" }
@@ -467,7 +467,7 @@ const WC2026 = {
 
     // Player fitness tracker (key players — updated Jun 25)
     fitness: [
-      { name:"Facundo Medina",      status:"doubt", note:"Forced off injured during the Round of 32 win over Cape Verde and replaced by Tagliafico. Being assessed ahead of the Egypt tie (Jul 7); no official diagnosis yet.", updated:"Jul 4" },
+      { name:"Facundo Medina",      status:"fit",   note:"Big relief: Scaloni confirmed the issue that forced him off vs Cape Verde was only cramp from overexertion, not an injury. Expected to be available for the Egypt tie (Jul 7).", updated:"Jul 5" },
       { name:"Lionel Messi",        status:"fit",   note:"Scored vs Cape Verde (29') — first player ever to score in 8 consecutive World Cup matches, and his 20th career WC goal retakes the all-time record. Played 120 minutes; recovery focus before Egypt.", updated:"Jul 4" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
       { name:"Cristian Romero",     status:"fit",   note:"Knee knock from the Austria match has fully cleared. Team-news reports ahead of kickoff have him poised to start at centre-back alongside Lisandro Martínez, with Otamendi dropping to the bench.", updated:"Jul 3" },
@@ -483,6 +483,13 @@ const WC2026 = {
     ],
 
     news: [
+      {
+        title: "Medina injury scare over: Scaloni confirms it was only cramp ahead of Egypt clash",
+        date: "July 5, 2026",
+        source: "Khel Now",
+        url: "https://khelnow.com/football/major-update-facundo-medina-injury-fitness-argentina-fifa-world-cup-2026",
+        snippet: "Good news for Argentina: what looked like a calf injury when Facundo Medina hobbled off in the 86th minute against Cape Verde has been confirmed by Lionel Scaloni as nothing more than cramp from overexertion. The Marseille defender is expected to be available for Tuesday's Round of 16 tie against Egypt in Atlanta (Jul 7). Elsewhere in Argentina's half of the draw, Mbappé's France and Morocco set up a 2022 semi-final rematch in the quarter-finals."
+      },
       {
         title: "Argentina survive Cape Verde scare 3-2 in extra time — Messi makes history again",
         date: "July 4, 2026",
@@ -711,6 +718,8 @@ const WC2026 = {
 
   // ── FACTS & RECORDS ──────────────────────────────────────────────
   facts: [
+    { icon:"🇲🇦", title:"Ounahi brace sends Morocco into the quarter-finals — co-hosts Canada eliminated 3-0", category:"History", detail:"Azzedine Ounahi scored twice in the second half (50', 82') and Brahim Díaz set up Soufiane Rahimi for a stoppage-time third as Morocco beat co-hosts Canada 3-0 in the Round of 16 at NRG Stadium, Houston on July 4 — ending Canada's landmark first-ever knockout run. The 2022 semi-finalists reach a second consecutive World Cup quarter-final, where a rematch of that 2022 semi awaits: France, in Boston on July 9." },
+    { icon:"🐓", title:"Mbappé penalty pulls him level with Messi on 7 as France edge Paraguay 1-0", category:"Records", detail:"Kylian Mbappé's 70th-minute penalty beat Paraguay 1-0 in Philadelphia on July 4 and put France into the quarter-finals. It was his 7th goal of the tournament — drawing level with Lionel Messi atop the Golden Boot race — and his 19th career World Cup goal, one behind Messi's all-time record of 20. Paraguay keeper Orlando Gill twice denied Mbappé a second in stoppage time. France meet Morocco in a 2022 semi-final rematch on July 9." },
     { icon:"🇨🇴", title:"Colombia shut out Ghana 1-0 to complete the Round of 16 line-up", category:"Drama", detail:"Jhon Arias' 14th-minute strike was all Colombia needed to beat Ghana 1-0 at Arrowhead Stadium, Kansas City (early Jul 4 IST) — the last of the 16 Round of 32 ties. Los Cafeteros dominated with 61% possession and put 7 of 18 shots on target while holding Ghana to zero shots on target. Colombia face Switzerland in the Round of 16 at BC Place, Vancouver on July 7." },
     { icon:"🐐", title:"Messi retakes the all-time World Cup goals record with his 20th, scoring in a record 8th straight WC match", category:"Records", detail:"Lionel Messi's 29th-minute finish against Cape Verde in the Round of 32 (Jul 3, Miami) was his 20th career World Cup goal, moving him past Cristiano Ronaldo's 19 to retake the all-time record — and made him the first player ever to score in eight consecutive World Cup matches (12 goals in that streak). Argentina survived a huge scare, needing a 111th-minute own goal to beat the debutants 3-2 after extra time." },
     { icon:"🇪🇬", title:"Egypt win their first-ever World Cup knockout tie — Salah Panenka in 4-2 shootout win over Australia", category:"History", detail:"Africa's most successful footballing nation finally won a World Cup knockout match, beating Australia 4-2 on penalties after a 1-1 draw in Arlington on July 3. Mohamed Salah converted an impudent Panenka in the shootout; Australia's gamble of sending on keeper Mat Ryan specifically for the penalties failed to pay off. Egypt's reward: Messi and Argentina in the Round of 16 in Atlanta on July 7." },
