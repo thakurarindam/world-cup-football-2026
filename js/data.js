@@ -467,7 +467,8 @@ const WC2026 = {
 
     // Player fitness tracker (key players — updated Jun 25)
     fitness: [
-      { name:"Facundo Medina",      status:"fit",   note:"Big relief: Scaloni confirmed the issue that forced him off vs Cape Verde was only cramp from overexertion, not an injury. Expected to be available for the Egypt tie (Jul 7).", updated:"Jul 5" },
+      { name:"Facundo Medina",      status:"doubt", note:"Matchday reports list him as carrying a minor knock ahead of the Egypt tie, though he is still projected to start at left-back in most predicted XIs after Scaloni confirmed the Cape Verde issue was only cramp.", updated:"Jul 7" },
+      { name:"Nicolás González",    status:"doubt", note:"Carrying a minor knock ahead of the Round of 16 vs Egypt (Jul 7) per matchday team-news reports — a game-time decision.", updated:"Jul 7" },
       { name:"Lionel Messi",        status:"fit",   note:"Scored vs Cape Verde (29') — first player ever to score in 8 consecutive World Cup matches, and his 20th career WC goal retakes the all-time record. Played 120 minutes; recovery focus before Egypt.", updated:"Jul 4" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
       { name:"Cristian Romero",     status:"fit",   note:"Knee knock from the Austria match has fully cleared. Team-news reports ahead of kickoff have him poised to start at centre-back alongside Lisandro Martínez, with Otamendi dropping to the bench.", updated:"Jul 3" },
@@ -475,7 +476,7 @@ const WC2026 = {
       { name:"Alexis Mac Allister", status:"fit",   note:"Engine of the midfield across all three group games. Expected to keep his starting spot for the Round of 32.",                        updated:"Jun 24" },
       { name:"Rodrigo De Paul",     status:"fit",   note:"Tireless pressing vs Austria. Expected to keep his starting spot for the Round of 32.",                                                updated:"Jun 24" },
       { name:"Nahuel Molina",       status:"fit",   note:"Excellent right-sided outlet. Assist set-up for Messi's first goal vs Austria.",                             updated:"Jun 24" },
-      { name:"Julián Álvarez",      status:"doubt", note:"Carrying a left ankle issue picked up before the tournament; logged minutes in all three group games but struggled to make an impact vs Jordan. Lautaro Martínez is currently favoured to start ahead of him vs Cape Verde.", updated:"Jun 29" },
+      { name:"Julián Álvarez",      status:"fit",   note:"Expected to be recalled to the XI vs Egypt as Scaloni freshens the side — predicted lineups have him partnering Messi up top, with Paredes and Tagliafico also tipped to come in.", updated:"Jul 7" },
       { name:"Nicolás Otamendi",    status:"fit",   note:"Started vs Jordan as Romero was managed. In contention to keep his place at centre-back for the Round of 32.",  updated:"Jun 29" },
       { name:"Lisandro Martínez",   status:"fit",   note:"Returned to full fitness, started vs Austria. No issues reported after the match.",                          updated:"Jun 24" },
       { name:"Nicolás Tagliafico",  status:"fit",   note:"Played the full 90 vs Jordan after missing the first two group games with a muscle strain. Pre-match reports now tip Facundo Medina to start at left-back instead, pairing with Thiago Almada down that flank.", updated:"Jul 3" },
@@ -483,6 +484,13 @@ const WC2026 = {
     ],
 
     news: [
+      {
+        title: "Argentina vs Egypt today: Álvarez, Paredes and Tagliafico tipped to come in; Nico González and Medina carrying knocks",
+        date: "July 7, 2026",
+        source: "RotoWire / World Soccer Talk",
+        url: "https://www.rotowire.com/soccer/article/argentina-vs-egypt-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-round-of-16-121312",
+        snippet: "Matchday team news ahead of tonight's Round of 16 tie in Atlanta (Jul 7, 12 pm ET / 9:30 PM IST): Scaloni is expected to freshen his XI, with Leandro Paredes, Nicolás Tagliafico and Julián Álvarez tipped to come in. Nico González and Facundo Medina are carrying minor knocks, though Medina still features in most predicted lineups. Messi — level with Mbappé and Haaland on 7 goals in the Golden Boot race — starts against Salah's Egypt, who will be without Ahmed Fatouh and Mohamed Abdelmoniem. The winner faces Switzerland or Colombia in Saturday's quarter-final in Kansas City."
+      },
       {
         title: "Medina injury scare over: Scaloni confirms it was only cramp ahead of Egypt clash",
         date: "July 5, 2026",
