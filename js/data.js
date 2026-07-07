@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-05, midday refresh — verified vs ESPN/Al Jazeera/FIFA; no new results since morning: BRA-NOR & MEX-ENG kick off later today) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-07, midday refresh) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-05",
+  lastUpdated: "2026-07-07",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -338,16 +338,16 @@ const WC2026 = {
   topScorers: [
     { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:7, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28), goal vs Cape Verde in the Round of 32 (Jul 3, 29') — now joint Golden Boot leader on 7 with Mbappé. First player to score in 8 consecutive WC matches; his 20th career WC goal retakes the all-time record from Ronaldo (19). Argentina face Egypt in the Round of 16 (Jul 7, Atlanta)." },
     { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:7, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30) + the winning penalty vs Paraguay in the Round of 16 (Jul 4, 70') — level with Messi on 7 atop the Golden Boot race. His 19th career WC goal is one behind Messi's all-time record of 20. France face Morocco in the quarter-final (Jul 9, Boston)." },
-    { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:5, assists:0, note:"Brace vs Iraq (Jun 17 IST, 23' & 56') + brace vs Senegal (Jun 23 IST, 48' & 58') + Round of 32 winner vs Ivory Coast (Jun 30 IST, 86') — level with Kane, one behind Messi and Mbappé. Norway face Brazil in the Round of 16 (Jul 6 IST)." },
-    { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:5, assists:0, note:"Penalty + header vs Croatia (Jun 18 IST, 12' pen & 42') + goal vs Panama (Jun 28 IST, 67') + Round of 32 brace vs DR Congo (Jul 1 IST, 75' & 86') — passed Gary Lineker as England's all-time leading World Cup scorer. England face Mexico in the Round of 16 (Jul 6 IST)." },
-    { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:4, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) + penalty equalizer vs Croatia in the Round of 32 (Jul 2, Toronto — Portugal won 2-1 via a Gonçalo Ramos stoppage-time winner). His career WC tally of 19 was overtaken by Messi's 20th on Jul 3. Portugal face Spain in the Round of 16 (Jul 6)." },
+    { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:7, assists:0, note:"Brace vs Iraq (Jun 17 IST) + brace vs Senegal (Jun 23 IST) + Round of 32 winner vs Ivory Coast (Jun 30 IST) + late brace vs Brazil in the Round of 16 (Jul 5, 79' & 87') that dumped out the five-time champions — joins Messi and Mbappé atop the Golden Boot race on 7. Norway face England in their first-ever WC quarter-final (Jul 11, Miami)." },
+    { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:6, assists:0, note:"Penalty + header vs Croatia (Jun 18 IST) + goal vs Panama (Jun 28 IST) + Round of 32 brace vs DR Congo (Jul 1 IST) + the 60th-minute penalty in the 3-2 Round of 16 win over Mexico at the Azteca (Jul 6 IST) — England's all-time leading World Cup scorer is one behind the Golden Boot leaders. England face Norway in the quarter-final (Jul 11, Miami)." },
+    { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:4, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) + penalty equalizer vs Croatia in the Round of 32 (Jul 2). His career WC tally of 19 was overtaken by Messi's 20th on Jul 3. Portugal's 1-0 Round of 16 loss to Spain (Jul 6, Merino 91') ends Ronaldo's World Cup career at 41." },
     { name:"Jonathan David",   country:"CAN", flag:"🇨🇦", goals:4, assists:0, note:"Goal vs Bosnia (Jun 12) + hat-trick vs Qatar (Jun 18, BMO Field). Canada won their Round of 32 tie 1-0 via a Stephen Eustáquio stoppage-time goal; face Morocco in the Round of 16 (Jul 4)." },
     { name:"Kai Havertz",      country:"GER", flag:"🇩🇪", goals:4, assists:0, note:"Brace vs Curaçao (Jun 14) + goal vs Ecuador (Jun 25) + Round of 32 equalizer vs Paraguay (Jul 2) — Germany were eliminated on penalties (4-3) despite Havertz's goal." },
-    { name:"Matheus Cunha",    country:"BRA", flag:"🇧🇷", goals:3, assists:0, note:"Brace vs Haiti (Jun 19) + goal vs Scotland (Jun 25). Brazil's Round of 32 winner over Japan (2-1) was scored by Casemiro and Gabriel Martinelli; Brazil face Norway in the Round of 16 (Jul 5)." },
+    { name:"Matheus Cunha",    country:"BRA", flag:"🇧🇷", goals:3, assists:0, note:"Brace vs Haiti (Jun 19) + goal vs Scotland (Jun 25). Won the 12th-minute penalty vs Norway in the Round of 16 that Nyland saved — Brazil were eliminated 2-1 (Jul 5)." },
     { name:"Vinícius Jr.",     country:"BRA", flag:"🇧🇷", goals:3, assists:0, note:"Brace vs Scotland (Jun 25, 7' and 45+1')." },
     { name:"Riyad Mahrez",     country:"ALG", flag:"🇩🇿", goals:3, assists:0, note:"Goal vs Jordan (Jun 23) + brace vs Austria (Jun 28, 60' & 93'). Algeria were eliminated in the Round of 32, beaten 2-0 by Switzerland (Jul 2)." },
     { name:"Johan Manzambi",   country:"SUI", flag:"🇨🇭", goals:3, assists:2, note:"Goal vs Canada (Jun 24, 57') plus further tournament goals/assists per ESPN's official stats recap — 3 goals and 2 assists overall, the youngest player in 60 years to reach 5 goal contributions at a single World Cup. Set up Breel Embolo's opener in the Round of 32 win over Algeria (Jul 2)." },
-    { name:"Jude Bellingham",  country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:2, assists:1, note:"Goal vs Croatia (Jun 18 IST, 47') + goal vs Panama (Jun 28 IST, 62') — also set up Kane's winner minutes later in the same match." },
+    { name:"Jude Bellingham",  country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:4, assists:1, note:"Goal vs Croatia (Jun 18 IST) + goal vs Panama (Jun 28 IST) + a quickfire Round of 16 brace vs Mexico at the Azteca (Jul 6 IST, 36' & 38' — the second just 98 seconds after the first, straight from kick-off)." },
     { name:"Luis Díaz",        country:"COL", flag:"🇨🇴", goals:2, assists:0, note:"Brace vs DR Congo, Jun 24 (Hard Rock Stadium). Colombia beat Ghana 1-0 in the Round of 32 (Jul 4, Jhon Arias 14') and face Switzerland in the Round of 16 (Jul 7, Vancouver)." },
     { name:"Viktor Gyökeres",  country:"SWE", flag:"🇸🇪", goals:2, assists:0, note:"Brace vs Tunisia, Jun 15 (BMO Field). Sweden were eliminated in the Round of 32, beaten 3-0 by France (Jun 30)." },
     { name:"Folarin Balogun",  country:"USA", flag:"🇺🇸", goals:2, assists:0, note:"Brace vs Paraguay, Jun 13 (MetLife Stadium). Sent off in the Round of 32 win over Bosnia (Jul 1) — VAR later found the red card was wrongly given." },
@@ -384,17 +384,17 @@ const WC2026 = {
     r16: [
       { id:"K90", matchNo:90, home:"CAN", away:"MAR", utc:"2026-07-04T17:00", venue:"NRG Stadium, Houston", status:"FT", score:{h:0,a:3}, note:"Ounahi second-half brace ends co-hosts Canada's run; Morocco into their second straight WC quarter-final", events:[{type:"goal",team:"MAR",player:"Azzedine Ounahi",min:50},{type:"goal",team:"MAR",player:"Azzedine Ounahi",min:82},{type:"goal",team:"MAR",player:"Soufiane Rahimi",min:98}] },
       { id:"K89", matchNo:89, home:"PAR", away:"FRA", utc:"2026-07-04T21:00", venue:"Lincoln Financial Field, Philadelphia PA", status:"FT", score:{h:0,a:1}, note:"Mbappé's 70th-minute penalty — his 7th of the tournament and 19th career WC goal — settled it; Gill twice denied him a second in stoppage time", events:[{type:"goal",team:"FRA",player:"Kylian Mbappé (pen)",min:70}] },
-      { id:"K91", matchNo:91, home:"BRA", away:"NOR", utc:"2026-07-05T20:00", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", note:"" },
-      { id:"K92", matchNo:92, home:"MEX", away:"ENG", utc:"2026-07-06T00:00", venue:"Estadio Azteca, Mexico City", status:"UP", note:"" },
-      { id:"K93", matchNo:93, home:"POR", away:"ESP", utc:"2026-07-06T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"" },
-      { id:"K94", matchNo:94, home:"USA", away:"BEL", utc:"2026-07-06T21:00", venue:"Lumen Field, Seattle", status:"UP", note:"" },
+      { id:"K91", matchNo:91, home:"BRA", away:"NOR", utc:"2026-07-05T20:00", venue:"MetLife Stadium, East Rutherford NJ", status:"FT", score:{h:1,a:2}, note:"Nyland saved a 12th-minute Bruno Guimarães penalty; Haaland's late brace (79' header, 87' low drive) sent Norway to their first-ever WC quarter-final. Neymar's stoppage-time penalty was mere consolation as five-time champions Brazil crashed out", events:[{type:"goal",team:"NOR",player:"Erling Haaland",min:79},{type:"goal",team:"NOR",player:"Erling Haaland",min:87},{type:"goal",team:"BRA",player:"Neymar Jr (pen)",min:96}] },
+      { id:"K92", matchNo:92, home:"MEX", away:"ENG", utc:"2026-07-06T00:00", venue:"Estadio Azteca, Mexico City", status:"FT", score:{h:2,a:3}, note:"Storm-delayed five-goal epic at the Azteca — Bellingham's quickfire brace (36', 38'), Quansah sent off early in the second half, 10-man England held on to eliminate the co-hosts", events:[{type:"goal",team:"ENG",player:"Jude Bellingham",min:36},{type:"goal",team:"ENG",player:"Jude Bellingham",min:38},{type:"goal",team:"MEX",player:"Julián Quiñones",min:42},{type:"goal",team:"ENG",player:"Harry Kane (pen)",min:60},{type:"goal",team:"MEX",player:"Raúl Jiménez (pen)",min:69}] },
+      { id:"K93", matchNo:93, home:"POR", away:"ESP", utc:"2026-07-06T19:00", venue:"AT&T Stadium, Arlington TX", status:"FT", score:{h:0,a:1}, note:"Mikel Merino's 91st-minute winner settled the Iberian derby — and ended Cristiano Ronaldo's World Cup career", events:[{type:"goal",team:"ESP",player:"Mikel Merino",min:91}] },
+      { id:"K94", matchNo:94, home:"USA", away:"BEL", utc:"2026-07-06T21:00", venue:"Lumen Field, Seattle", status:"FT", score:{h:1,a:4}, note:"Charles De Ketelaere's first-half double punished defensive errors as Belgium ended the co-hosts' run", events:[{type:"goal",team:"BEL",player:"Charles De Ketelaere",min:9},{type:"goal",team:"USA",player:"Malik Tillman",min:31},{type:"goal",team:"BEL",player:"Charles De Ketelaere",min:33},{type:"goal",team:"BEL",player:"Hans Vanaken",min:57},{type:"goal",team:"BEL",player:"Romelu Lukaku",min:93}] },
       { id:"K95", matchNo:95, home:"ARG", away:"EGY", utc:"2026-07-07T16:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"" },
       { id:"K96", matchNo:96, home:"SUI", away:"COL", utc:"2026-07-07T20:00", venue:"BC Place, Vancouver", status:"UP", note:"" }
     ],
     qf: [
       { id:"K97",  matchNo:97,  home:"FRA", away:"MAR", homeSrc:"Winner: Paraguay vs France (M89)", awaySrc:"Winner: Canada vs Morocco (M90)", utc:"2026-07-09T20:00", venue:"Gillette Stadium, Foxborough MA", status:"UP", note:"Rematch of the 2022 semi-final — France beat Paraguay 1-0, Morocco routed Canada 3-0" },
-      { id:"K98",  matchNo:98,  home:null, away:null, homeSrc:"Winner: Portugal vs Spain (M93)", awaySrc:"Winner: USA vs Belgium (M94)", utc:"2026-07-10T19:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", note:"" },
-      { id:"K99",  matchNo:99,  home:null, away:null, homeSrc:"Winner: Brazil vs Norway (M91)", awaySrc:"Winner: Mexico vs England (M92)", utc:"2026-07-11T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"" },
+      { id:"K98",  matchNo:98,  home:"ESP", away:"BEL", homeSrc:"Winner: Portugal vs Spain (M93)", awaySrc:"Winner: USA vs Belgium (M94)", utc:"2026-07-10T19:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", note:"Reigning European champions Spain (Merino 91' vs Portugal) meet Belgium, 4-1 winners over the USA" },
+      { id:"K99",  matchNo:99,  home:"NOR", away:"ENG", homeSrc:"Winner: Brazil vs Norway (M91)", awaySrc:"Winner: Mexico vs England (M92)", utc:"2026-07-11T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"Haaland (7 goals) vs Kane (6 goals) — Norway's first-ever WC quarter-final after stunning Brazil; England survived the Azteca with 10 men" },
       { id:"K100", matchNo:100, home:null, away:null, homeSrc:"Winner: Match 95 (ARG/CPV vs AUS/EGY)", awaySrc:"Winner: Match 96 (Switzerland vs Colombia)", utc:"2026-07-12T01:00", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"" }
     ],
     sf: [
@@ -413,12 +413,12 @@ const WC2026 = {
   starMatches: [
     { home:"ARG", away:"EGY", utc:"2026-07-07T16:00", group:"R16", venue:"Mercedes-Benz Stadium, Atlanta",
       storyline:"Round of 16 — holders Argentina survived an almighty scare against Cape Verde, needing extra time and a 111th-minute own goal to win 3-2 after the debutants twice pulled level. Next up: Mohamed Salah's Egypt, who beat Australia 4-2 on penalties (Salah with a Panenka) for their first-ever World Cup knockout win. Messi (7 goals, 8 straight WC games scored, 20 career WC goals) vs Salah headlines the tie." },
-    { home:"MEX", away:"ENG", utc:"2026-07-06T00:00", group:"R16", venue:"Estadio Azteca, Mexico City",
-      storyline:"Round of 16 — England, who came from behind to beat DR Congo 2-1 (Harry Kane brace, 75' & 86'), face co-hosts Mexico, who beat Ecuador 2-0 in the Round of 32 and remain unbeaten and yet to concede a goal from open play at this World Cup." },
-    { home:"USA", away:"BEL", utc:"2026-07-06T21:00", group:"R16", venue:"Lumen Field, Seattle",
-      storyline:"Round of 16 — co-hosts USA, who beat Bosnia & Herzegovina 2-0 (Balogun, Tillman) despite playing over an hour with ten men after Balogun's red card, take on Belgium, who scored twice in the final four minutes through Lukaku and Tielemans to force extra time before Tielemans' 124th-minute penalty — the latest goal in World Cup history — beat Senegal 3-2." },
-    { home:"POR", away:"ESP", utc:"2026-07-06T19:00", group:"R16", venue:"AT&T Stadium, Arlington TX",
-      storyline:"Round of 16 — the Iberian derby. Portugal survived late VAR drama to beat Croatia 2-1 in the R32 (Ronaldo's penalty equalizer, Gonçalo Ramos' stoppage-time winner), while Spain cruised past Austria 3-0 behind a Mikel Oyarzabal brace. Cristiano Ronaldo (20 career WC goals) vs Lamine Yamal headline the tie." }
+    { home:"SUI", away:"COL", utc:"2026-07-07T20:00", group:"R16", venue:"BC Place, Vancouver",
+      storyline:"Round of 16 — Switzerland, fresh off their first WC knockout win in 88 years (2-0 vs Algeria, with 20-year-old sensation Johan Manzambi pulling the strings), meet a Colombia side yet to lose, who shut out Ghana 1-0. The winner faces the Argentina/Egypt victor in the quarter-final in Kansas City (Jul 11)." },
+    { home:"NOR", away:"ENG", utc:"2026-07-11T21:00", group:"QF", venue:"Hard Rock Stadium, Miami Gardens FL",
+      storyline:"Quarter-final — Golden Boot heavyweights collide: Erling Haaland (7 goals, brace that knocked out Brazil) vs Harry Kane (6 goals, all-time England WC record). Norway are in their first-ever quarter-final; England survived the Azteca with 10 men." },
+    { home:"FRA", away:"MAR", utc:"2026-07-09T20:00", group:"QF", venue:"Gillette Stadium, Foxborough MA",
+      storyline:"Quarter-final — a rematch of the 2022 semi-final. Mbappé (7 goals, one behind Messi's all-time WC record of 20) leads France against Morocco, who routed co-hosts Canada 3-0 behind an Ounahi brace to reach back-to-back quarter-finals." }
   ],
 
   // ── ARGENTINA SPECIAL DATA ──────────────────────────────────────
@@ -599,18 +599,18 @@ const WC2026 = {
       {
         round: "Quarter-Final",
         status: "upcoming",
-        match: "ARG vs Winner of QF Bracket",
-        date: "~July 10, 2026",
+        match: "ARG vs SUI/COL winner",
+        date: "July 11, 2026 · Arrowhead Stadium, Kansas City MO",
         result: null,
-        note: "Germany were eliminated on penalties by Paraguay in the Round of 32 (Jun 29). England beat DR Congo 2-1 (Kane brace) in the Round of 32 on Jul 1 and now face co-hosts Mexico in the Round of 16 — the USA (past Bosnia) and Belgium (past Senegal in extra time) also remain in the mix on the other side of the bracket."
+        note: "If Argentina beat Egypt, their quarter-final opponent is the winner of tonight's Switzerland vs Colombia tie in Vancouver (Jul 7). Switzerland just won their first WC knockout match in 88 years; Colombia are unbeaten and have conceded twice all tournament."
       },
       {
         round: "Semi-Final",
         status: "upcoming",
-        match: "ARG vs Winner of SF Bracket",
-        date: "~July 15, 2026",
+        match: "ARG vs NOR/ENG winner (potential)",
+        date: "July 15, 2026 · Mercedes-Benz Stadium, Atlanta",
         result: null,
-        note: "Brazil and Portugal both drew their MD1 openers. Spain, Belgium among potential semifinal opponents."
+        note: "Argentina's half of the draw has opened up dramatically: Brazil were stunned 2-1 by Haaland's Norway (Jul 5) and Portugal fell 1-0 to Spain (Jul 6). The potential semi-final opponent is now the Norway vs England quarter-final winner (Jul 11, Miami)."
       },
       {
         round: "FINAL",
@@ -718,6 +718,10 @@ const WC2026 = {
 
   // ── FACTS & RECORDS ──────────────────────────────────────────────
   facts: [
+    { icon:"🇳🇴", title:"Haaland double dumps out Brazil — Norway reach their first-ever World Cup quarter-final", category:"Upset", detail:"Erling Haaland struck twice in the final 11 minutes (a 79' header and an 87' low drive into the corner) as Norway stunned five-time champions Brazil 2-1 in the Round of 16 at MetLife Stadium on July 5. Ørjan Nyland had saved a 12th-minute Bruno Guimarães penalty to keep it level; Neymar's stoppage-time penalty came too late. Haaland joins Messi and Mbappé atop the Golden Boot race on 7 goals, and Norway — at their first World Cup since 1998 — face England in a first-ever quarter-final on July 11 in Miami." },
+    { icon:"🦁", title:"10-man England survive five-goal Azteca thriller to knock out co-hosts Mexico 3-2", category:"Drama", detail:"After a one-hour storm delay at Estadio Azteca, Jude Bellingham scored twice in 98 seconds (36', 38' — the second straight from kick-off) before Julián Quiñones pulled one back. Jarell Quansah was sent off early in the second half, but Harry Kane converted a penalty almost immediately (60') for his 6th goal of the tournament. Raúl Jiménez's penalty (69') set up a frantic finish, but Tuchel's 10 men held on at altitude to win 3-2 on July 5 and reach a quarter-final against Norway." },
+    { icon:"🇪🇸", title:"Merino's 91st-minute winner sends Spain past Portugal — and ends Ronaldo's World Cup career", category:"Drama", detail:"The Iberian derby in the Round of 16 at AT&T Stadium, Arlington on July 6 was settled by Mikel Merino's injury-time strike as Spain beat Portugal 1-0. The defeat closes the World Cup chapter of Cristiano Ronaldo's career at 41 — six tournaments, 19 goals — with the all-time record back in Messi's hands on 20. Reigning European champions Spain face Belgium in the quarter-final at SoFi Stadium on July 10." },
+    { icon:"🇧🇪", title:"De Ketelaere double ends USA's fairytale — Belgium rout co-hosts 4-1 in Seattle", category:"Drama", detail:"Charles De Ketelaere punished defensive mistakes with a first-half brace (9', 33') either side of Malik Tillman's equalizer, then Hans Vanaken (57') and Romelu Lukaku (90+3') completed a 4-1 Belgium win over the USA in the Round of 16 on July 6. The USMNT's best run since 2002 ends in the last 16; Belgium meet Spain in the quarter-finals." },
     { icon:"🇲🇦", title:"Ounahi brace sends Morocco into the quarter-finals — co-hosts Canada eliminated 3-0", category:"History", detail:"Azzedine Ounahi scored twice in the second half (50', 82') and Brahim Díaz set up Soufiane Rahimi for a stoppage-time third as Morocco beat co-hosts Canada 3-0 in the Round of 16 at NRG Stadium, Houston on July 4 — ending Canada's landmark first-ever knockout run. The 2022 semi-finalists reach a second consecutive World Cup quarter-final, where a rematch of that 2022 semi awaits: France, in Boston on July 9." },
     { icon:"🐓", title:"Mbappé penalty pulls him level with Messi on 7 as France edge Paraguay 1-0", category:"Records", detail:"Kylian Mbappé's 70th-minute penalty beat Paraguay 1-0 in Philadelphia on July 4 and put France into the quarter-finals. It was his 7th goal of the tournament — drawing level with Lionel Messi atop the Golden Boot race — and his 19th career World Cup goal, one behind Messi's all-time record of 20. Paraguay keeper Orlando Gill twice denied Mbappé a second in stoppage time. France meet Morocco in a 2022 semi-final rematch on July 9." },
     { icon:"🇨🇴", title:"Colombia shut out Ghana 1-0 to complete the Round of 16 line-up", category:"Drama", detail:"Jhon Arias' 14th-minute strike was all Colombia needed to beat Ghana 1-0 at Arrowhead Stadium, Kansas City (early Jul 4 IST) — the last of the 16 Round of 32 ties. Los Cafeteros dominated with 61% possession and put 7 of 18 shots on target while holding Ghana to zero shots on target. Colombia face Switzerland in the Round of 16 at BC Place, Vancouver on July 7." },
