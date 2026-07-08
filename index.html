@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WC Football 2026 — Argentina Fan Portal</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="navbar-brand" href="index.html">🏆 WC Football 2026</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">🏠 Home</a></li>
+    <li><a href="groups.html">📊 Groups &amp; Schedules</a></li>
+    <li><a href="teams.html">🌍 Teams</a></li>
+    <li><a href="argentina.html">Argentina</a></li>
+    <li><a href="facts.html">⭐ Facts</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>🌍 FIFA World Cup 2026</h1>
+    <p>USA · Canada · Mexico &nbsp;|&nbsp; June 11 – July 19, 2026 &nbsp;|&nbsp; 48 Teams · 12 Groups · 104 Matches</p>
+    <div style="margin-top:1rem;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.3rem;font-size:.8rem;color:var(--text-muted);">
+        <span>Tournament Progress</span><span id="progress-pct"></span>
+      </div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-bar"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- UPCOMING MATCHES v2 -->
+  <div class="card">
+    <div class="card-title">⏰ Upcoming Matches <span style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">Next 2 days · All times IST · Click any card for details</span></div>
+    <div id="upcoming-matches"></div>
+  </div>
+
+  <!-- MATCH RESULTS -->
+  <div class="card">
+    <div class="card-title">✅ Match Results <span style="font-size:.78rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">Last 2 days · Latest first · Click any card for details</span></div>
+    <div id="results-matches"></div>
+  </div>
+
+  <!-- STAR MATCHES -->
+  <div class="card">
+    <div class="card-title">⭐ Star Matches to Watch</div>
+    <div class="grid-3" id="star-matches"></div>
+  </div>
+
+  <!-- TOP SCORERS LIST -->
+  <div class="card">
+    <div class="card-title">👟 Golden Boot Race
+      <span style="font-size:.72rem;color:var(--text-muted);font-weight:400;margin-left:.5rem;">Source: FIFA / ESPN — refreshed daily at end of match day</span>
+    </div>
+    <ul class="scorer-list" id="top-scorers"></ul>
+  </div>
+
+</div>
+
+<footer>
+  <strong>World Cup Football 2026</strong> — Argentina Fan Portal &nbsp;|&nbsp;
+  <a href="https://www.fifa.com" target="_blank">Official FIFA Site</a> &nbsp;|&nbsp;
+  Last updated: <span id="last-updated"></span>
+</footer>
+
+<script src="js/data.js?v=202607080800"></script>
+<script>
+const IST_TZ = 'Asia/Kolkata';
+function fmtIST(utcStr) {
+  return new Date(utcStr+'Z').toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true,timeZone:IST_TZ}).toUpperCase()+' IST';
+}
+function fmtDate(utcStr) {
+  return new Date(utcStr+'Z').toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',timeZone:IST_TZ});
+}
+function istDateStr(utcStr) {
+  // Add IST offset to get IST timestamp, then use UTC getters (avoids local-TZ double conversion)
+  const ms = new Date(utcStr+'Z').getTime() + 330*60000;
+  const d = new Date(ms);
+  return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+}
+function todayIstStr() {
+  const ms = Date.now() + 330*60000;
+  const d = new Date(ms);
+  return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+}
+function addDaysStr(dateStr, n) {
+  const d = new Date(dateStr+'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate()+n);
+  return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+}
+function gc(id) { return WC2026.countries[id] || {name:id, flag:'🏳️'}; }
+function sortTeams(teams) { return [...teams].sort((a,b)=>b.Pts-a.Pts||b.GD-a.GD||b.GF-a.GF); }
+
+// Combine group-stage fixtures with knockout-stage matches into one pool, tagged with a round label
+function tagRound(arr, roundLabel) {
+  return (arr||[]).map(f => Object.assign({}, f, { roundLabel, isKnockout: true }));
+}
+const KO = WC2026.knockout || {};
+const allKnockoutMatches = []
+  .concat(tagRound(KO.r32, 'R32'))
+  .concat(tagRound(KO.r16, 'R16'))
+  .concat(tagRound(KO.qf, 'QF'))
+  .concat(tagRound(KO.sf, 'SF'))
+  .concat(tagRound(KO.thirdPlace, '3rd Place'))
+  .concat(tagRound(KO.final, 'Final'));
+const allGroupMatches = WC2026.fixtures.map(f => Object.assign({}, f, { isKnockout: false }));
+const allMatches = allGroupMatches.concat(allKnockoutMatches);
+
+// Progress — group stage (72) + knockout stage (32) = 104 matches total
+const groupPlayed = WC2026.fixtures.filter(f=>f.status==='FT').length;
+const knockoutPlayed = allKnockoutMatches.filter(f=>f.status==='FT').length;
+const played = groupPlayed + knockoutPlayed;
+const pct = Math.round(played/104*100);
+document.getElementById('progress-bar').style.width = pct+'%';
+document.getElementById('progress-pct').textContent = pct+'% ('+played+'/104 played)';
+document.getElementById('last-updated').textContent = WC2026.lastUpdated;
+
+// UPCOMING — matches kicking off today, tomorrow, or the day after (IST), chronological order
+const todayStr = todayIstStr();
+const upcomingWindow = [todayStr, addDaysStr(todayStr,1), addDaysStr(todayStr,2)];
+const upcoming = allMatches
+  .filter(f => f.status==='UP' && f.home && f.away && upcomingWindow.includes(istDateStr(f.utc)))
+  .sort((a,b)=>new Date(a.utc)-new Date(b.utc));
+document.getElementById('upcoming-matches').innerHTML = upcoming.length
+  ? upcoming.map(f=>matchCard(f)).join('')
+  : '<p style="color:var(--text-muted);font-size:.85rem;">No matches scheduled in the next 2 days.</p>';
+
+// RESULTS — matches completed today or in the previous 2 days (IST), latest first
+const resultsWindow = [addDaysStr(todayStr,-2), addDaysStr(todayStr,-1), todayStr];
+const results = allMatches
+  .filter(f => f.status==='FT' && resultsWindow.includes(istDateStr(f.utc)))
+  .sort((a,b)=>new Date(b.utc)-new Date(a.utc));
+document.getElementById('results-matches').innerHTML = results.length
+  ? results.map(f=>matchCard(f)).join('')
+  : '<p style="color:var(--text-muted);font-size:.85rem;">No results in the last 2 days.</p>';
+
+// MATCH CARD — works for both group-stage and knockout-stage matches
+function matchCard(f) {
+  const hc = f.home ? gc(f.home) : null;
+  const ac = f.away ? gc(f.away) : null;
+  const homeLabel = hc ? `<span class="team-label">${hc.name}</span> <span class="team-code">${f.home}</span>` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.homeSrc||'TBD'}</span>`;
+  const awayLabel = ac ? `<span class="team-code">${f.away}</span> <span class="team-label">${ac.name}</span>` : `<span class="team-label" style="color:var(--text-muted);font-style:italic;">${f.awaySrc||'TBD'}</span>`;
+  const scorePart = f.status==='FT'
+    ? `<div class="match-score">${f.score.h}–${f.score.a}</div>`
+    : `<div class="match-score upcoming">${fmtIST(f.utc)}</div>`;
+  const badge = f.status==='FT' ? `<span class="badge badge-done">FT</span>` : `<span class="badge badge-upcoming">Up</span>`;
+  const roundIndicator = f.isKnockout ? f.roundLabel : ('Grp '+f.group);
+  const hintText = f.isKnockout ? '👆 tap for details' : '👆 tap for group table';
+  return `<div class="match-card" onclick="toggleDetail('${f.id}')">
+    <div class="match-header">
+      <span class="group-indicator">${roundIndicator}</span>${badge}
+      <span>${fmtDate(f.utc)} · ${fmtIST(f.utc)}</span>
+      <span class="click-hint">${hintText}</span>
+    </div>
+    <div class="match-teams">
+      <div class="match-team">${homeLabel}</div>
+      ${scorePart}
+      <div class="match-team right">${awayLabel}</div>
+    </div>
+    ${f.note ? `<div style="font-size:.72rem;color:var(--accent);margin-top:.2rem;">${f.note}</div>` : ''}
+    <div class="match-venue">📍 ${f.venue}</div>
+    <div class="match-detail-panel" id="dp-${f.id}">${buildDetail(f)}</div>
+  </div>`;
+}
+
+function buildDetail(f) {
+  let ev = '';
+  if (f.status==='FT' && f.events && f.events.length) {
+    ev = '<div style="margin-bottom:.6rem;"><div style="font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:.4rem;">⚽ GOAL EVENTS</div>';
+    f.events.forEach(e=>{
+      ev += `<div class="goal-event"><span class="goal-minute">${e.min}'</span><span class="team-code">${e.team}</span><span>${e.player}</span></div>`;
+    });
+    ev += '</div>';
+  } else if (f.status==='FT') {
+    ev = '<p style="font-size:.8rem;color:var(--text-muted);">No goal events recorded.</p>';
+  }
+
+  if (f.isKnockout) {
+    // Knockout matches: goal events (if any) only — no single group table applies
+    return ev || '<p style="font-size:.8rem;color:var(--text-muted);">Match not yet played.</p>';
+  }
+
+  const grp = WC2026.groups[f.group];
+  const sorted = sortTeams(grp.teams);
+  let tbl = `<div class="standings-mini"><div class="standings-mini-title">📊 Group ${f.group} Standings</div>
+    <table><thead><tr><th style="text-align:left;">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>`;
+  sorted.forEach((t,i)=>{
+    const c=gc(t.id);
+    tbl+=`<tr class="${i<2?'q-row':''}"><td>${c.name} <span class="team-code">${t.id}</span></td><td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td><td>${t.GD>=0?'+':''}${t.GD}</td><td style="font-weight:700;color:var(--gold);">${t.Pts}</td></tr>`;
+  });
+  tbl += `</tbody></table><div style="font-size:.66rem;color:var(--text-muted);margin-top:.3rem;">🟦 Top 2 qualify for Round of 32</div></div>`;
+  return ev + tbl;
+}
+
+function toggleDetail(id) {
+  const el = document.getElementById('dp-'+id);
+  if (el) el.classList.toggle('open');
+}
+
+// STAR MATCHES
+const smDiv = document.getElementById('star-matches');
+WC2026.starMatches.forEach(m=>{
+  const hc=gc(m.home), ac=gc(m.away);
+  smDiv.innerHTML += `<div class="star-match-card">
+    <div class="star-match-label">⭐ GROUP ${m.group} · MUST WATCH</div>
+    <div class="star-match-teams">${hc.name} <span class="team-code">${m.home}</span> vs <span class="team-code">${m.away}</span> ${ac.name}</div>
+    <div class="star-match-ist">${fmtDate(m.utc)} · ${fmtIST(m.utc)}</div>
+    <div class="star-match-meta">📍 ${m.venue}</div>
+    <div style="font-size:.73rem;color:var(--text-muted);margin-top:.5rem;border-top:1px solid var(--border);padding-top:.4rem;">${m.storyline}</div>
+  </div>`;
+});
+
+// TOP SCORERS LIST
+const ul = document.getElementById('top-scorers');
+WC2026.topScorers.forEach((s,i)=>{
+  const icon = i===0?'🥇':i===1?'🥈':i===2?'🥉':(i+1);
+  ul.innerHTML += `<li class="scorer-item">
+    <div class="scorer-rank${i<3?' top3':''}">${icon}</div>
+    <div class="scorer-info">
+      <div class="scorer-name">${s.name}</div>
+      <div class="scorer-team">${s.country} · ${s.note}</div>
+    </div>
+    <div class="scorer-goals">${s.goals} ⚽</div>
+  </li>`;
+});
+</script>
+</body>
+</html>

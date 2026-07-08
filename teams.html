@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teams | WC Football 2026</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.group-section { margin-bottom: 1.5rem; }
+.group-teams-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(140px,1fr)); gap: .75rem; }
+.country-detail-row { display: none; grid-column: 1 / -1; animation: slideDown .2s ease; }
+.country-detail-row.open { display: block; }
+@keyframes slideDown { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:none} }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="navbar-brand" href="index.html">🏆 WC Football 2026</a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="groups.html">📊 Groups &amp; Schedules</a></li>
+    <li><a href="teams.html" class="active">🌍 Teams</a></li>
+    <li><a href="argentina.html">Argentina</a></li>
+    <li><a href="facts.html">⭐ Facts</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>🌍 All 48 Teams</h1>
+    <p>Grouped by tournament groups A–L · Click any country card for details, facts &amp; squad</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- GROUP FILTER TABS -->
+  <div class="card" style="padding:.75rem;">
+    <div class="tabs" id="group-tabs" style="margin-bottom:0;"></div>
+  </div>
+
+  <!-- TEAMS CONTENT -->
+  <div id="teams-content"></div>
+
+</div>
+
+<footer>
+  <strong>World Cup Football 2026</strong> — Argentina Fan Portal &nbsp;|&nbsp;
+  <a href="https://www.fifa.com" target="_blank">Official FIFA Site</a>
+</footer>
+
+<script src="js/data.js?v=202607080800"></script>
+<script>
+function gc(id){ return WC2026.countries[id]||{name:id,flag:'🏳️',confederation:'',continent:'',capital:'',area:'',population:'',landmark:'',landmarkDesc:''}; }
+function sortTeams(ts){ return [...ts].sort((a,b)=>b.Pts-a.Pts||b.GD-a.GD||b.GF-a.GF); }
+
+const allGroups = Object.keys(WC2026.groups);
+
+// Build tabs: "All" + each group
+const tabsEl = document.getElementById('group-tabs');
+const allBtn = document.createElement('button');
+allBtn.className = 'tab-btn active';
+allBtn.textContent = 'All Groups';
+allBtn.onclick = ()=>showAll(allBtn);
+tabsEl.appendChild(allBtn);
+
+allGroups.forEach(g=>{
+  const btn = document.createElement('button');
+  btn.className = 'tab-btn';
+  btn.textContent = 'Group '+g;
+  btn.onclick = ()=>showGroup(g, btn);
+  tabsEl.appendChild(btn);
+});
+
+showAll(allBtn);
+
+function setActiveTab(btn) {
+  document.querySelectorAll('#group-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function showAll(btn) {
+  setActiveTab(btn);
+  let html = '';
+  allGroups.forEach(g=>{ html += buildGroupSection(g); });
+  document.getElementById('teams-content').innerHTML = html;
+}
+
+function showGroup(g, btn) {
+  setActiveTab(btn);
+  document.getElementById('teams-content').innerHTML = buildGroupSection(g);
+}
+
+function buildGroupSection(g) {
+  const grp = WC2026.groups[g];
+  const sorted = sortTeams(grp.teams);
+  let cards = '';
+  sorted.forEach(t=>{
+    const c = gc(t.id);
+    cards += `<div class="team-card" id="card-${g}-${t.id}" onclick="toggleCountry('${g}','${t.id}')">
+      <div class="team-code" style="font-weight:800;font-size:1.6rem;letter-spacing:.06em;margin-bottom:.3rem;">${t.id}</div>
+      <div class="team-name">${c.name}</div>
+      <div style="font-size:.68rem;color:var(--text-muted);margin:.15rem 0 .1rem;">FIFA Rank: <strong>${c.fifaRank||'—'}</strong></div>
+      <div class="team-pts">${t.Pts} pts · ${t.W}W ${t.D}D ${t.L}L</div>
+    </div>`;
+  });
+
+  // Detail panels (one per team, spans full row)
+  let details = '';
+  sorted.forEach(t=>{
+    const c = gc(t.id);
+    details += `<div class="country-detail-row" id="detail-${g}-${t.id}">${buildCountryDetail(t.id, g, t)}</div>`;
+  });
+
+  return `<div class="card group-section">
+    <div class="card-title">Group ${g}
+      <span style="font-size:.75rem;font-weight:400;color:var(--text-muted);margin-left:.5rem;">
+        ${sorted.map(t=>t.id).join('  ·  ')}
+      </span>
+    </div>
+    <div class="group-teams-grid" id="grid-${g}">
+      ${cards}
+      ${details}
+    </div>
+  </div>`;
+}
+
+function buildCountryDetail(id, g, standing) {
+  const c = gc(id);
+  const squad = getSquad(id);
+  const positions = ['GK','DEF','MID','FWD'];
+  let squadHtml = '';
+  if (squad.length) {
+    positions.forEach(pos=>{
+      const players = squad.filter(p=>p.pos===pos);
+      if (!players.length) return;
+      const posLabel = pos==='GK'?'Goalkeepers':pos==='DEF'?'Defenders':pos==='MID'?'Midfielders':'Forwards';
+      squadHtml += `<div class="position-group">
+        <div class="position-label">${posLabel}</div>`;
+      players.forEach(p=>{
+        squadHtml += `<div class="player-row">
+          <div class="player-num">${p.no||'-'}</div>
+          <div class="player-name-cell">${p.name}</div>
+          <div class="player-club">${p.club||''}</div>
+        </div>`;
+      });
+      squadHtml += '</div>';
+    });
+  } else {
+    squadHtml = `<p style="color:var(--text-muted);font-size:.82rem;">Full squad details being updated. Check back after daily refresh at 12:30 PM IST.</p>`;
+  }
+
+  const gdText = standing.GD >= 0 ? '+'+standing.GD : standing.GD;
+
+  return `<div class="team-detail-panel open" style="margin:0;">
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap;">
+      <!-- Country info -->
+      <div style="flex:1;min-width:220px;">
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:.75rem;">${c.name} <span style="font-size:.8rem;font-weight:800;color:var(--accent);border:1px solid var(--accent);padding:.1rem .4rem;border-radius:4px;margin-left:.3rem;">${id}</span>${c.fifaRank?` <span style="font-size:.72rem;font-weight:400;color:var(--text-muted);margin-left:.4rem;">FIFA Rank #${c.fifaRank}</span>`:''}</div>
+        <dl class="country-info-grid">
+          <dt>Continent</dt><dd>${c.continent||'—'}</dd>
+          <dt>FIFA Confederation</dt><dd>${c.confederation||'—'}</dd>
+          <dt>Capital City</dt><dd>${c.capital||'—'}</dd>
+          <dt>Area</dt><dd>${c.area||'—'}</dd>
+          <dt>Population</dt><dd>${c.population||'—'}</dd>
+          <dt>WC 2026 Group</dt><dd>Group ${g} · ${standing.Pts} pts (${standing.P} played)</dd>
+          <dt>Goal Difference</dt><dd>${gdText}</dd>
+        </dl>
+      </div>
+    </div>
+    <!-- Players -->
+    <button class="btn-players" onclick="togglePlayers('players-${g}-${id}', this)">👥 View Squad — ${c.name}</button>
+    <div class="players-section hidden" id="players-${g}-${id}">
+      ${squadHtml}
+    </div>
+  </div>`;
+}
+
+function toggleCountry(g, id) {
+  const detail = document.getElementById('detail-'+g+'-'+id);
+  const card   = document.getElementById('card-'+g+'-'+id);
+  if (!detail) return;
+  const isOpen = detail.classList.contains('open');
+  // Close all in this group first
+  document.querySelectorAll(`#grid-${g} .country-detail-row`).forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll(`#grid-${g} .team-card`).forEach(el=>el.classList.remove('expanded'));
+  if (!isOpen) {
+    detail.classList.add('open');
+    card.classList.add('expanded');
+  }
+}
+
+function togglePlayers(panelId, btn) {
+  const panel = document.getElementById(panelId);
+  if (!panel) return;
+  panel.classList.toggle('hidden');
+  btn.textContent = panel.classList.contains('hidden')
+    ? btn.textContent.replace('Hide','View')
+    : btn.textContent.replace('View','Hide');
+}
+
+function getSquad(id) {
+  // Argentina
+  if (id === 'ARG') return WC2026.argentina.squad;
+  // Other teams in squads data
+  if (WC2026.squads && WC2026.squads[id]) return WC2026.squads[id].squad;
+  // Key player stubs for remaining teams
+  const stubs = {
+    MEX:[{no:1,name:'Guillermo Ochoa',pos:'GK',club:'Salernitana'},{no:5,name:'Johan Vasquez',pos:'DEF',club:'Genoa'},{no:10,name:'Hirving Lozano',pos:'FWD',club:'PSV'},{no:9,name:'Henry Martin',pos:'FWD',club:'Club America'},{no:8,name:'Luis Romo',pos:'MID',club:'Cruz Azul'},{no:11,name:'Alexis Vega',pos:'FWD',club:'Toluca'}],
+    KOR:[{no:1,name:'Kim Seung-gyu',pos:'GK',club:'Vissel Kobe'},{no:20,name:'Son Heung-min',pos:'FWD',club:'Tottenham'},{no:11,name:'Hwang Hee-chan',pos:'FWD',club:'Wolves'},{no:4,name:'Kim Min-jae',pos:'DEF',club:'Bayern Munich'},{no:6,name:'Hwang In-beom',pos:'MID',club:'Feyenoord'}],
+    RSA:[{no:1,name:'Ronwen Williams',pos:'GK',club:'Mamelodi Sundowns'},{no:5,name:'Rushine De Reuck',pos:'DEF',club:'Mamelodi Sundowns'},{no:8,name:'Teboho Mokoena',pos:'MID',club:'Mamelodi Sundowns'},{no:10,name:'Percy Tau',pos:'FWD',club:'Al-Ahly'},{no:9,name:'Lyle Foster',pos:'FWD',club:'Burnley'}],
+    CZE:[{no:1,name:'Jiri Pavlenka',pos:'GK',club:'Werder Bremen'},{no:5,name:'Ladislav Krejci',pos:'DEF',club:'Bologna'},{no:10,name:'Tomas Soucek',pos:'MID',club:'West Ham'},{no:9,name:'Patrik Schick',pos:'FWD',club:'Bayer Leverkusen'},{no:11,name:'Adam Hlozek',pos:'FWD',club:'Leverkusen'}],
+    CAN:[{no:1,name:'Maxime Crepeau',pos:'GK',club:'LAFC'},{no:2,name:'Alistair Johnston',pos:'DEF',club:'Celtic'},{no:8,name:'Stephen Eustaquio',pos:'MID',club:'Porto'},{no:10,name:'Alphonso Davies',pos:'DEF',club:'Bayern Munich'},{no:9,name:'Jonathan David',pos:'FWD',club:'Lille'},{no:7,name:'Cyle Larin',pos:'FWD',club:'Club Brugge'}],
+    BIH:[{no:1,name:'Ibrahim Sehic',pos:'GK',club:'Konyaspor'},{no:4,name:'Ermin Bicakcic',pos:'DEF',club:'Hoffenheim'},{no:8,name:'Miralem Pjanic',pos:'MID',club:'retired'},{no:9,name:'Edin Dzeko',pos:'FWD',club:'Fenerbahce'},{no:10,name:'Anel Ahmedhodzic',pos:'DEF',club:'Sheffield Utd'}],
+    QAT:[{no:1,name:'Meshaal Barsham',pos:'GK',club:'Al-Sadd'},{no:5,name:'Bassam Al-Rawi',pos:'DEF',club:'Al-Gharafa'},{no:10,name:'Akram Afif',pos:'FWD',club:'Al-Sadd'},{no:7,name:'Almoez Ali',pos:'FWD',club:'Al-Duhail'},{no:8,name:'Hassan Al-Haydos',pos:'MID',club:'Al-Sadd'}],
+    SUI:[{no:1,name:'Yann Sommer',pos:'GK',club:'Inter Milan'},{no:5,name:'Manuel Akanji',pos:'DEF',club:'Man City'},{no:10,name:'Granit Xhaka',pos:'MID',club:'Bayer Leverkusen'},{no:9,name:'Breel Embolo',pos:'FWD',club:'Monaco'},{no:23,name:'Xherdan Shaqiri',pos:'FWD',club:'Chicago Fire'},{no:25,name:'Dan Ndoye',pos:'FWD',club:'Bologna'}],
+    SCO:[{no:1,name:'Angus Gunn',pos:'GK',club:'Norwich'},{no:5,name:'Grant Hanley',pos:'DEF',club:'Norwich'},{no:10,name:'John McGinn',pos:'MID',club:'Aston Villa'},{no:17,name:'Ryan Christie',pos:'MID',club:'Bournemouth'},{no:9,name:'Lyndon Dykes',pos:'FWD',club:'QPR'},{no:7,name:'Stuart Armstrong',pos:'MID',club:'Southampton'}],
+    MAR:[{no:1,name:'Yassine Bounou',pos:'GK',club:'Al-Hilal'},{no:3,name:'Nayef Aguerd',pos:'DEF',club:'West Ham'},{no:11,name:'Hakim Ziyech',pos:'MID',club:'Galatasaray'},{no:10,name:'Sofiane Boufal',pos:'FWD',club:'Angers'},{no:17,name:'Achraf Hakimi',pos:'DEF',club:'PSG'},{no:8,name:'Azzedine Ounahi',pos:'MID',club:'Marseille'}],
+    HAI:[{no:1,name:'Johnley Andre',pos:'GK',club:'unknown'},{no:10,name:'Duckens Nazon',pos:'FWD',club:'unknown'},{no:7,name:'Wilde-Donald Guerrier',pos:'FWD',club:'unknown'},{no:9,name:'Frantzdy Pierrot',pos:'FWD',club:'unknown'}],
+    USA:[{no:1,name:'Matt Turner',pos:'GK',club:'Nottm Forest'},{no:3,name:'Walker Zimmerman',pos:'DEF',club:'Nashville'},{no:8,name:'Tyler Adams',pos:'MID',club:'Leeds'},{no:7,name:'Christian Pulisic',pos:'MID',club:'AC Milan'},{no:9,name:'Folarin Balogun',pos:'FWD',club:'Monaco'},{no:10,name:'Gio Reyna',pos:'MID',club:'Dortmund'}],
+    PAR:[{no:1,name:'Anthony Silva',pos:'GK',club:'unknown'},{no:4,name:'Junior Alonso',pos:'DEF',club:'Atletico Mineiro'},{no:10,name:'Miguel Almiron',pos:'MID',club:'Newcastle'},{no:9,name:'Antonio Sanabria',pos:'FWD',club:'Torino'},{no:7,name:'Julio Enciso',pos:'FWD',club:'Brighton'}],
+    AUS:[{no:1,name:'Mat Ryan',pos:'GK',club:'Copenhagen'},{no:5,name:'Harry Souttar',pos:'DEF',club:'Leicester'},{no:10,name:'Aaron Mooy',pos:'MID',club:'Celtic'},{no:9,name:'Mathew Leckie',pos:'FWD',club:'Melbourne City'},{no:11,name:'Mitchell Duke',pos:'FWD',club:'FC Macarthur'},{no:7,name:'Jason Cummings',pos:'FWD',club:'unknown'}],
+    TUR:[{no:1,name:'Ugurcan Cakir',pos:'GK',club:'Trabzonspor'},{no:3,name:'Merih Demiral',pos:'DEF',club:'Al-Qadsiah'},{no:8,name:'Hakan Calhanoglu',pos:'MID',club:'Inter Milan'},{no:10,name:'Arda Guler',pos:'MID',club:'Real Madrid'},{no:17,name:'Kenan Yildiz',pos:'FWD',club:'Juventus'},{no:9,name:'Baris Alper Yilmaz',pos:'FWD',club:'Galatasaray'}],
+    ECU:[{no:1,name:'Hernán Galíndez',pos:'GK',club:'Aucas'},{no:3,name:'Piero Hincapie',pos:'DEF',club:'Bayer Leverkusen'},{no:10,name:'Romario Ibarra',pos:'FWD',club:'Pachuca'},{no:9,name:'Enner Valencia',pos:'FWD',club:'Fenerbahce'},{no:7,name:'Jhegson Mendez',pos:'MID',club:'LAFC'}],
+    CIV:[{no:1,name:'Badra Sangaré',pos:'GK',club:'unknown'},{no:4,name:'Willy Boly',pos:'DEF',club:'Nottm Forest'},{no:10,name:'Franck Kessie',pos:'MID',club:'Al-Ahli'},{no:11,name:'Wilfried Zaha',pos:'FWD',club:'Galatasaray'},{no:9,name:'Sebastien Haller',pos:'FWD',club:'Borussia Dortmund'}],
+    CUW:[{no:1,name:'Eloy Room',pos:'GK',club:'Columbus Crew'},{no:9,name:'Cuco Martina',pos:'DEF',club:'retired'},{no:10,name:'Leandro Bacuna',pos:'MID',club:'Reading'},{no:7,name:'Quiñero',pos:'FWD',club:'unknown'}],
+    NED:[{no:1,name:'Jasper Cillessen',pos:'GK',club:'NEC Nijmegen'},{no:4,name:'Virgil van Dijk',pos:'DEF',club:'Liverpool'},{no:3,name:'Nathan Ake',pos:'DEF',club:'Man City'},{no:10,name:'Memphis Depay',pos:'FWD',club:'Atletico Madrid'},{no:11,name:'Cody Gakpo',pos:'FWD',club:'Liverpool'},{no:21,name:'Frenkie de Jong',pos:'MID',club:'Barcelona'}],
+    SWE:[{no:1,name:'Robin Olsen',pos:'GK',club:'Aston Villa'},{no:5,name:'Isak Hien',pos:'DEF',club:'Atalanta'},{no:10,name:'Dejan Kulusevski',pos:'MID',club:'Tottenham'},{no:9,name:'Viktor Gyokeres',pos:'FWD',club:'Sporting CP'},{no:6,name:'Yasin Ayari',pos:'MID',club:'Brighton'}],
+    JPN:[{no:1,name:'Shuichi Gonda',pos:'GK',club:'Shimizu S-Pulse'},{no:5,name:'Makoto Hasebe',pos:'DEF',club:'Eintracht Frankfurt'},{no:10,name:'Takumi Minamino',pos:'MID',club:'Monaco'},{no:9,name:'Kaoru Mitoma',pos:'FWD',club:'Brighton'},{no:7,name:'Ritsu Doan',pos:'FWD',club:'Freiburg'},{no:8,name:'Daichi Kamada',pos:'MID',club:'Crystal Palace'}],
+    TUN:[{no:1,name:'Aymen Dahmen',pos:'GK',club:'Montpellier'},{no:4,name:'Dylan Bronn',pos:'DEF',club:'Salernitana'},{no:10,name:'Wahbi Khazri',pos:'FWD',club:'Montpellier'},{no:8,name:'Ellyes Skhiri',pos:'MID',club:'Eintracht Frankfurt'},{no:11,name:'Youssef Msakni',pos:'FWD',club:'Al-Arabi'}],
+    BEL:[{no:1,name:'Thibaut Courtois',pos:'GK',club:'Real Madrid'},{no:4,name:'Toby Alderweireld',pos:'DEF',club:'retired'},{no:10,name:'Eden Hazard',pos:'MID',club:'retired'},{no:9,name:'Romelu Lukaku',pos:'FWD',club:'Roma'},{no:7,name:'Kevin De Bruyne',pos:'MID',club:'Man City'},{no:11,name:'Jeremy Doku',pos:'FWD',club:'Man City'}],
+    IRN:[{no:1,name:'Alireza Beiranvand',pos:'GK',club:'Persepolis'},{no:5,name:'Morteza Pouraliganji',pos:'DEF',club:'Al-Sadd'},{no:10,name:'Sardar Azmoun',pos:'FWD',club:'Roma'},{no:8,name:'Saman Ghoddos',pos:'MID',club:'Brentford'},{no:9,name:'Mehdi Taremi',pos:'FWD',club:'Inter Milan'}],
+    EGY:[{no:1,name:'Mohamed El-Shenawy',pos:'GK',club:'Al-Ahly'},{no:5,name:'Ahmed Hegazy',pos:'DEF',club:'Al-Ittihad'},{no:10,name:'Mohamed Salah',pos:'FWD',club:'Liverpool'},{no:9,name:'Omar Marmoush',pos:'FWD',club:'Man City'},{no:7,name:'Trezeguet',pos:'MID',club:'Istanbul Basaksehir'}],
+    NZL:[{no:1,name:'Oli Sail',pos:'GK',club:'FC Dallas'},{no:5,name:'Tommy Smith',pos:'DEF',club:'Colorado Rapids'},{no:10,name:'Elijah Just',pos:'FWD',club:'unknown'},{no:8,name:'Clayton Lewis',pos:'MID',club:'Seattle Sounders'},{no:9,name:'Chris Wood',pos:'FWD',club:'Nottm Forest'}],
+    URU:[{no:1,name:'Fernando Muslera',pos:'GK',club:'Galatasaray'},{no:4,name:'Diego Godin',pos:'DEF',club:'retired'},{no:5,name:'Jose Maria Gimenez',pos:'DEF',club:'Atletico Madrid'},{no:10,name:'Federico Valverde',pos:'MID',club:'Real Madrid'},{no:21,name:'Darwin Nunez',pos:'FWD',club:'Liverpool'},{no:11,name:'Luis Suarez',pos:'FWD',club:'Internacional'}],
+    KSA:[{no:1,name:'Mohammed Al-Owais',pos:'GK',club:'Al-Hilal'},{no:5,name:'Ali Al-Bulaihi',pos:'DEF',club:'Al-Hilal'},{no:10,name:'Saleh Al-Shehri',pos:'FWD',club:'Al-Hilal'},{no:9,name:'Firas Al-Buraikan',pos:'FWD',club:'Al-Fateh'},{no:7,name:'Sami Al-Najei',pos:'MID',club:'Al-Qadsiah'}],
+    CPV:[{no:1,name:'Vozinha',pos:'GK',club:'unknown'},{no:5,name:'Roberto Lopes',pos:'DEF',club:'Shamrock Rovers'},{no:10,name:'Ryan Mendes',pos:'FWD',club:'unknown'},{no:9,name:'Garry Rodrigues',pos:'FWD',club:'Galatasaray'},{no:8,name:'Jamiro Monteiro',pos:'MID',club:'unknown'}],
+    SEN:[{no:1,name:'Edouard Mendy',pos:'GK',club:'Chelsea'},{no:5,name:'Kalidou Koulibaly',pos:'DEF',club:'Al-Hilal'},{no:10,name:'Sadio Mane',pos:'FWD',club:'Al-Nassr'},{no:9,name:'Boulaye Dia',pos:'FWD',club:'Lazio'},{no:8,name:'Idrissa Gueye',pos:'MID',club:'Everton'},{no:7,name:'Ibrahim Mbaye',pos:'FWD',club:'unknown'}],
+    IRQ:[{no:1,name:'Jalal Hassan',pos:'GK',club:'unknown'},{no:5,name:'Ali Adnan',pos:'DEF',club:'Udinese'},{no:10,name:'Mohanad Ali',pos:'FWD',club:'unknown'},{no:9,name:'Aymen Hussein',pos:'FWD',club:'unknown'},{no:8,name:'Bashar Resan',pos:'MID',club:'unknown'}],
+    NOR:[{no:1,name:'Orjan Nyland',pos:'GK',club:'Sevilla'},{no:4,name:'Leo Ostigard',pos:'DEF',club:'Napoli'},{no:5,name:'Stefan Strandberg',pos:'DEF',club:'Genclerbirligi'},{no:10,name:'Martin Odegaard',pos:'MID',club:'Arsenal'},{no:9,name:'Erling Haaland',pos:'FWD',club:'Man City'},{no:7,name:'Mohamed Elyounoussi',pos:'FWD',club:'Celtic'}],
+    COL:[{no:1,name:'Camilo Vargas',pos:'GK',club:'Atlanta United'},{no:3,name:'Davinson Sanchez',pos:'DEF',club:'Galatasaray'},{no:10,name:'James Rodriguez',pos:'MID',club:'Rayo Vallecano'},{no:9,name:'Falcao',pos:'FWD',club:'Millonarios'},{no:7,name:'Luis Diaz',pos:'FWD',club:'Liverpool'},{no:11,name:'Rafael Santos Borre',pos:'FWD',club:'Eintracht Frankfurt'}],
+    COD:[{no:1,name:'Joël Kiassumbua',pos:'GK',club:'unknown'},{no:5,name:'Arthur Masuaku',pos:'DEF',club:'Besiktas'},{no:10,name:'Yannick Carrasco',pos:'MID',club:'Al-Qadsiah'},{no:9,name:'Cedric Bakambu',pos:'FWD',club:'unknown'},{no:7,name:'Neeskens Kebano',pos:'FWD',club:'Nottm Forest'}],
+    UZB:[{no:1,name:'Ulugbek Nishonov',pos:'GK',club:'unknown'},{no:10,name:'Eldor Shomurodov',pos:'FWD',club:'Roma'},{no:9,name:'Dostonbek Khamdamov',pos:'FWD',club:'unknown'},{no:8,name:'Jaloliddin Masharipov',pos:'MID',club:'unknown'}],
+    GHA:[{no:1,name:'Lawrence Ati-Zigi',pos:'GK',club:'St. Gallen'},{no:3,name:'Daniel Amartey',pos:'DEF',club:'Leicester'},{no:10,name:'Thomas Partey',pos:'MID',club:'Arsenal'},{no:20,name:'Mohammed Kudus',pos:'MID',club:'West Ham'},{no:9,name:'Jordan Ayew',pos:'FWD',club:'Crystal Palace'},{no:11,name:'Osman Bukari',pos:'FWD',club:'Red Star Belgrade'}],
+    CRO:[{no:1,name:'Dominik Livakovic',pos:'GK',club:'Fenerbahce'},{no:5,name:'Josko Gvardiol',pos:'DEF',club:'Man City'},{no:10,name:'Luka Modric',pos:'MID',club:'Real Madrid'},{no:7,name:'Ivan Perisic',pos:'FWD',club:'Hajduk Split'},{no:18,name:'Ante Budimir',pos:'FWD',club:'Osasuna'},{no:8,name:'Mateo Kovacic',pos:'MID',club:'Man City'}],
+    PAN:[{no:1,name:'Orlando Mosquera',pos:'GK',club:'unknown'},{no:5,name:'Fidel Escobar',pos:'DEF',club:'NY Red Bulls'},{no:10,name:'Edgar Barcenas',pos:'MID',club:'unknown'},{no:9,name:'Roberto Nurse',pos:'FWD',club:'unknown'},{no:7,name:'Gabriel Torres',pos:'FWD',club:'unknown'}],
+    ALG:[{no:1,name:'Rais M\'Bolhi',pos:'GK',club:'unknown'},{no:3,name:'Ramy Bensebaini',pos:'DEF',club:'Borussia Dortmund'},{no:10,name:'Riyad Mahrez',pos:'FWD',club:'Al-Ahli'},{no:7,name:'Youcef Atal',pos:'DEF',club:'OGC Nice'},{no:9,name:'Baghdad Bounedjah',pos:'FWD',club:'Al-Sadd'}],
+    AUT:[{no:1,name:'Patrick Pentz',pos:'GK',club:'Bayer Leverkusen'},{no:5,name:'Kevin Danso',pos:'DEF',club:'Lens'},{no:10,name:'Marcel Sabitzer',pos:'MID',club:'Borussia Dortmund'},{no:8,name:'Christoph Baumgartner',pos:'MID',club:'RB Leipzig'},{no:9,name:'Marko Arnautovic',pos:'FWD',club:'Inter Milan'}],
+    JOR:[{no:1,name:'Yazeed Abdelhamid',pos:'GK',club:'unknown'},{no:5,name:'Mahmoud Alrwayda',pos:'DEF',club:'unknown'},{no:10,name:'Musa Al-Taamari',pos:'FWD',club:'unknown'},{no:9,name:'Yazan Al-Naimat',pos:'FWD',club:'unknown'}]
+  };
+  return stubs[id] || [];
+}
+</script>
+</body>
+</html>
