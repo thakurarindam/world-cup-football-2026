@@ -15,7 +15,7 @@ Setup:
   OR: Store key in .env file in this folder
 """
 
-import os, json, requests, subprocess, sys
+import os, re, glob, json, requests, subprocess, sys
 from datetime import datetime, timezone, timedelta
 
 # ── CONFIG ──────────────────────────────────────────────────────────────────
@@ -94,6 +94,23 @@ def update_last_updated():
     else:
         log("⚠️  Could not find lastUpdated field in data.js")
 
+# ── BUMP CACHE VERSION ───────────────────────────────────────────────────────
+def bump_cache_version():
+    """Rewrite data.js?v=<tag> in all HTML pages so browsers/CDN fetch fresh data.
+    Without this, GitHub Pages' CDN and browsers keep serving the cached old
+    data.js because its URL never changes."""
+    tag = datetime.now(IST).strftime("%Y%m%d%H%M")
+    changed = 0
+    for path in glob.glob(os.path.join(REPO_DIR, "*.html")):
+        with open(path, "r", encoding="utf-8") as f:
+            content = f.read()
+        new = re.sub(r"data\.js\?v=[A-Za-z0-9._-]+", f"data.js?v={tag}", content)
+        if new != content:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(new)
+            changed += 1
+    log(f"✅ Bumped data.js cache tag to {tag} in {changed} HTML file(s)")
+
 # ── GIT PUSH ─────────────────────────────────────────────────────────────────
 def git_push():
     """Commit and push updated files to GitHub Pages."""
@@ -115,35 +132,4 @@ def git_push():
             return
     log("🚀 Changes pushed to GitHub Pages successfully!")
 
-# ── MAIN ─────────────────────────────────────────────────────────────────────
-def main():
-    log("=" * 60)
-    log("🌍 World Cup Football 2026 — Daily Portal Refresh")
-    log("=" * 60)
-
-    today = datetime.now(IST).strftime("%Y-%m-%d")
-
-    # 1. Update timestamp
-    update_last_updated()
-
-    # 2. Try live API data (optional — requires API key)
-    standings = fetch_standings()
-    matches   = fetch_matches(today)
-    scorers   = fetch_top_scorers()
-
-    if standings:
-        log(f"📊 Got live standings for {len(standings)} groups")
-    if matches:
-        log(f"📅 Got {len(matches)} fixture records for {today}")
-    if scorers:
-        log(f"⚽ Got {len(scorers)} top scorer entries")
-
-    # 3. Git push
-    git_push()
-
-    log("=" * 60)
-    log("✅ Daily refresh complete!")
-    log("=" * 60)
-
-if __name__ == "__main__":
-    main()
+# ── MAIN ───────────────────
