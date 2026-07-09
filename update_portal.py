@@ -132,4 +132,36 @@ def git_push():
             return
     log("🚀 Changes pushed to GitHub Pages successfully!")
 
-# ── MAIN ───────────────────
+# ── MAIN ─────────────────────────────────────────────────────────────────────
+def main():
+    log("=" * 60)
+    log("🌍 World Cup Football 2026 — Daily Portal Refresh")
+    log("=" * 60)
+
+    today = datetime.now(IST).strftime("%Y-%m-%d")
+
+    # 1. Update timestamp + cache-bust tag so the live site picks up new data
+    update_last_updated()
+    bump_cache_version()
+
+    # 2. Try live API data (optional — requires API key)
+    standings = fetch_standings()
+    matches   = fetch_matches(today)
+    scorers   = fetch_top_scorers()
+
+    if standings:
+        log(f"📊 Got live standings for {len(standings)} groups")
+    if matches:
+        log(f"📅 Got {len(matches)} fixture records for {today}")
+    if scorers:
+        log(f"⚽ Got {len(scorers)} top scorer entries")
+
+    # 3. Git push
+    git_push()
+
+    log("=" * 60)
+    log("✅ Daily refresh complete!")
+    log("=" * 60)
+
+if __name__ == "__main__":
+    main()
