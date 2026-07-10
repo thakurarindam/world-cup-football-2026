@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-09, refresh — quarter-finals underway, France vs Morocco kicks off) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-10, refresh — QF1: France 2-0 Morocco; France into the semi-finals) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-09",
+  lastUpdated: "2026-07-10",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -336,10 +336,11 @@ const WC2026 = {
   // match reports (ESPN/Al Jazeera/Olympics.com) for Round of 32 goals. Updated Jul 3 after 13 of 16
   // Round of 32 complete (all 16 ties played; Colombia beat Ghana 1-0 on Jul 4 to complete the line-up).
   topScorers: [
-    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:8, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28), goal vs Cape Verde (Jul 3) + the 83rd-minute equalizer in the epic 3-2 comeback vs Egypt (Jul 7) — outright Golden Boot leader on 8, despite a first-half penalty saved by Shobeir in the same game. First player to score in 9 consecutive WC matches; 21 career WC goals extends his all-time record. Argentina face Switzerland in the quarter-final (Jul 11, Kansas City)." },
-    { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:7, assists:0, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30) + the winning penalty vs Paraguay in the Round of 16 (Jul 4, 70') — one behind Messi (8) in the Golden Boot race. His 19th career WC goal is two behind Messi's all-time record of 21. France face Morocco in the quarter-final (Jul 9, Boston)." },
+    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:8, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28), goal vs Cape Verde (Jul 3) + the 83rd-minute equalizer in the epic 3-2 comeback vs Egypt (Jul 7) — level on 8 goals with Mbappé atop the Golden Boot race, now second on the assists tie-break (1 to Mbappé's 3) after France's quarter-final. First player to score in 9 consecutive WC matches; 21 career WC goals extends his all-time record. Argentina face Switzerland in the quarter-final (Jul 11, Kansas City)." },
+    { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:8, assists:3, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30) + the winning penalty vs Paraguay in the Round of 16 (Jul 4, 70') + a curling 60th-minute opener in the 2-0 quarter-final win over Morocco (Jul 9), where he also assisted Dembélé despite missing a first-half penalty. Level with Messi on 8 goals and now leads the Golden Boot on the assists tie-break (3 to 1). His 20th career WC goal is one behind Messi's all-time record of 21. France into the semi-final vs Spain/Belgium (Jul 14, Dallas)." },
     { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:7, assists:0, note:"Brace vs Iraq (Jun 17 IST) + brace vs Senegal (Jun 23 IST) + Round of 32 winner vs Ivory Coast (Jun 30 IST) + late brace vs Brazil in the Round of 16 (Jul 5, 79' & 87') that dumped out the five-time champions — one behind Golden Boot leader Messi (8). Norway face England in their first-ever WC quarter-final (Jul 11, Miami)." },
     { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:6, assists:0, note:"Penalty + header vs Croatia (Jun 18 IST) + goal vs Panama (Jun 28 IST) + Round of 32 brace vs DR Congo (Jul 1 IST) + the 60th-minute penalty in the 3-2 Round of 16 win over Mexico at the Azteca (Jul 6 IST) — England's all-time leading World Cup scorer is two behind Golden Boot leader Messi (8). England face Norway in the quarter-final (Jul 11, Miami)." },
+    { name:"Ousmane Dembélé",  country:"FRA", flag:"🇫🇷", goals:5, assists:0, note:"Reached five tournament goals with the clinching strike in France's 2-0 quarter-final win over Morocco (Jul 9, 66'), teed up by Mbappé. France into a third straight World Cup semi-final." },
     { name:"Cristiano Ronaldo",country:"POR", flag:"🇵🇹", goals:4, assists:0, note:"Goal vs DR Congo (Jun 17) + brace vs Uzbekistan (Jun 23) + penalty equalizer vs Croatia in the Round of 32 (Jul 2). His career WC tally of 19 was overtaken by Messi's 20th on Jul 3. Portugal's 1-0 Round of 16 loss to Spain (Jul 6, Merino 91') ends Ronaldo's World Cup career at 41." },
     { name:"Jonathan David",   country:"CAN", flag:"🇨🇦", goals:4, assists:0, note:"Goal vs Bosnia (Jun 12) + hat-trick vs Qatar (Jun 18, BMO Field). Canada won their Round of 32 tie 1-0 via a Stephen Eustáquio stoppage-time goal; face Morocco in the Round of 16 (Jul 4)." },
     { name:"Kai Havertz",      country:"GER", flag:"🇩🇪", goals:4, assists:0, note:"Brace vs Curaçao (Jun 14) + goal vs Ecuador (Jun 25) + Round of 32 equalizer vs Paraguay (Jul 2) — Germany were eliminated on penalties (4-3) despite Havertz's goal." },
@@ -392,13 +393,13 @@ const WC2026 = {
       { id:"K96", matchNo:96, home:"SUI", away:"COL", utc:"2026-07-07T20:00", venue:"BC Place, Vancouver", status:"FT", score:{h:0,a:0}, note:"0-0 after extra time — Switzerland won 4-3 on penalties, Rubén Vargas converting the winning kick to send them into a quarter-final against Argentina", events:[] }
     ],
     qf: [
-      { id:"K97",  matchNo:97,  home:"FRA", away:"MAR", homeSrc:"Winner: Paraguay vs France (M89)", awaySrc:"Winner: Canada vs Morocco (M90)", utc:"2026-07-09T20:00", venue:"Gillette Stadium, Foxborough MA", status:"UP", note:"Rematch of the 2022 semi-final — France beat Paraguay 1-0, Morocco routed Canada 3-0" },
+      { id:"K97",  matchNo:97,  home:"FRA", away:"MAR", homeSrc:"Winner: Paraguay vs France (M89)", awaySrc:"Winner: Canada vs Morocco (M90)", utc:"2026-07-09T20:00", venue:"Gillette Stadium, Foxborough MA", status:"FT", score:{h:2,a:0}, note:"Rematch of the 2022 semi-final — France into a third straight last four. Mbappé missed a first-half penalty but curled home the opener (his 20th career WC goal) and set up Dembélé moments later", events:[{type:"goal",team:"FRA",player:"Kylian Mbappé",min:60},{type:"goal",team:"FRA",player:"Ousmane Dembélé",min:66}] },
       { id:"K98",  matchNo:98,  home:"ESP", away:"BEL", homeSrc:"Winner: Portugal vs Spain (M93)", awaySrc:"Winner: USA vs Belgium (M94)", utc:"2026-07-10T19:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", note:"Reigning European champions Spain (Merino 91' vs Portugal) meet Belgium, 4-1 winners over the USA" },
       { id:"K99",  matchNo:99,  home:"NOR", away:"ENG", homeSrc:"Winner: Brazil vs Norway (M91)", awaySrc:"Winner: Mexico vs England (M92)", utc:"2026-07-11T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"Haaland (7 goals) vs Kane (6 goals) — Norway's first-ever WC quarter-final after stunning Brazil; England survived the Azteca with 10 men" },
       { id:"K100", matchNo:100, home:"ARG", away:"SUI", homeSrc:"Winner: Argentina vs Egypt (M95)", awaySrc:"Winner: Switzerland vs Colombia (M96)", utc:"2026-07-12T01:00", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"Holders Argentina, after their great escape vs Egypt, meet a Switzerland side yet to concede in the knockouts (shootout winners over Colombia)" }
     ],
     sf: [
-      { id:"K101", matchNo:101, home:null, away:null, homeSrc:"Winner: Quarter-final 1 (M97)", awaySrc:"Winner: Quarter-final 2 (M98)", utc:"2026-07-14T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"" },
+      { id:"K101", matchNo:101, home:"FRA", away:null, homeSrc:"Winner: Quarter-final 1 (M97)", awaySrc:"Winner: Quarter-final 2 (M98)", utc:"2026-07-14T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"France await the winner of Spain vs Belgium (QF2)" },
       { id:"K102", matchNo:102, home:null, away:null, homeSrc:"Winner: Quarter-final 3 (M99)", awaySrc:"Winner: Quarter-final 4 (M100)", utc:"2026-07-15T19:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"" }
     ],
     thirdPlace: [
@@ -418,7 +419,7 @@ const WC2026 = {
     { home:"NOR", away:"ENG", utc:"2026-07-11T21:00", group:"QF", venue:"Hard Rock Stadium, Miami Gardens FL",
       storyline:"Quarter-final — Golden Boot heavyweights collide: Erling Haaland (7 goals, brace that knocked out Brazil) vs Harry Kane (6 goals, all-time England WC record). Norway are in their first-ever quarter-final; England survived the Azteca with 10 men." },
     { home:"FRA", away:"MAR", utc:"2026-07-09T20:00", group:"QF", venue:"Gillette Stadium, Foxborough MA",
-      storyline:"Quarter-final — a rematch of the 2022 semi-final. Mbappé (7 goals, one behind Golden Boot leader Messi; Messi's all-time career WC record now stands at 21) leads France against Morocco, who routed co-hosts Canada 3-0 behind an Ounahi brace to reach back-to-back quarter-finals." }
+      storyline:"Quarter-final (FT): France 2-0 Morocco. In a rematch of the 2022 semi-final, Mbappé curled in the opener (60', his 20th career WC goal) and set up Dembélé (66') despite missing a first-half penalty. France reach a third straight semi-final and Mbappé seizes the Golden Boot lead on the assists tie-break; Morocco's run ends in the last eight." }
   ],
 
   // ── ARGENTINA SPECIAL DATA ──────────────────────────────────────
@@ -468,7 +469,7 @@ const WC2026 = {
 
     // Player fitness tracker (key players — updated Jun 25)
     fitness: [
-      { name:"Facundo Medina",      status:"doubt", note:"Matchday reports list him as carrying a minor knock ahead of the Egypt tie, though he is still projected to start at left-back in most predicted XIs after Scaloni confirmed the Cape Verde issue was only cramp.", updated:"Jul 7" },
+      { name:"Facundo Medina",      status:"fit",   note:"Came off the bench vs Egypt after not being fit enough to start; now in line to return to the starting XI at left-back for the Switzerland quarter-final, likely in place of Tagliafico.", updated:"Jul 10" },
       { name:"Nicolás González",    status:"doubt", note:"Carrying a minor knock ahead of the Round of 16 vs Egypt (Jul 7) per matchday team-news reports — a game-time decision.", updated:"Jul 7" },
       { name:"Lionel Messi",        status:"fit",   note:"Missed a first-half penalty vs Egypt but equalized in the 83' — 8th goal of the tournament (outright Golden Boot lead), a record 9th consecutive WC match scored in, 21 career WC goals. No fitness concerns ahead of the Switzerland quarter-final (Jul 11).", updated:"Jul 8" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
@@ -485,6 +486,13 @@ const WC2026 = {
     ],
 
     news: [
+      {
+        title: "Argentina vs Switzerland QF preview: Medina in line to return, Lautaro tipped to partner Messi",
+        date: "July 10, 2026",
+        source: "Sports Mole / ESPN",
+        url: "https://www.sportsmole.co.uk/football/argentina/world-cup-2026/preview/argentina-vs-switzerland-prediction-team-news-lineups_600947.html",
+        snippet: "Argentina head into Saturday's quarter-final in Kansas City (Jul 11, 9pm ET / Jul 12 6:30 AM IST) in strong shape, with Messi, Lautaro Martínez and Julián Álvarez all available. Predicted-XI reports have Lautaro coming in for Álvarez alongside Messi, Thiago Almada returning on the left with Enzo Fernández shifting central next to Mac Allister, and Facundo Medina — fit again after coming off the bench vs Egypt — replacing Tagliafico at left-back. Switzerland, in the last eight for the first time since 1954 and yet to concede in the knockouts, carry their own doubts over Aebischer, Jaquez and Manzambi. In the other half of the draw, France beat Morocco 2-0 to reach the semi-finals."
+      },
       {
         title: "The Great Escape of Atlanta: Argentina 3-2 Egypt — from 2-0 down in the 79th minute",
         date: "July 8, 2026",
@@ -778,4 +786,4 @@ const WC2026 = {
     { icon:"🏆", title:"48-team World Cup delivers record 120 goals in group stage MD1-MD3 (first 3 groups)", category:"Records", detail:"The expanded 48-team format with 12 groups is delivering a goal feast. The first three group stages alone (Groups A-C) produced 30 goals across 12 matches — an average of 2.5 per game. The all-time World Cup group-stage goals record from 1954 (averaging 5.38 per game) is unlikely to be threatened, but fan engagement and dramatic scorelines have exceeded pre-tournament expectations." }
   ]
 };
-// EOF
+// EOF — refreshed 2026-07-10
