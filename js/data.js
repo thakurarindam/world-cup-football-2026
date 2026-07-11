@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-10, refresh — QF1: France 2-0 Morocco; France into the semi-finals) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-11, refresh — QF2: Spain 2-1 Belgium; Spain into the semi-finals vs France) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-10",
+  lastUpdated: "2026-07-11",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -394,12 +394,12 @@ const WC2026 = {
     ],
     qf: [
       { id:"K97",  matchNo:97,  home:"FRA", away:"MAR", homeSrc:"Winner: Paraguay vs France (M89)", awaySrc:"Winner: Canada vs Morocco (M90)", utc:"2026-07-09T20:00", venue:"Gillette Stadium, Foxborough MA", status:"FT", score:{h:2,a:0}, note:"Rematch of the 2022 semi-final — France into a third straight last four. Mbappé missed a first-half penalty but curled home the opener (his 20th career WC goal) and set up Dembélé moments later", events:[{type:"goal",team:"FRA",player:"Kylian Mbappé",min:60},{type:"goal",team:"FRA",player:"Ousmane Dembélé",min:66}] },
-      { id:"K98",  matchNo:98,  home:"ESP", away:"BEL", homeSrc:"Winner: Portugal vs Spain (M93)", awaySrc:"Winner: USA vs Belgium (M94)", utc:"2026-07-10T19:00", venue:"SoFi Stadium, Inglewood CA", status:"UP", note:"Reigning European champions Spain (Merino 91' vs Portugal) meet Belgium, 4-1 winners over the USA" },
+      { id:"K98",  matchNo:98,  home:"ESP", away:"BEL", homeSrc:"Winner: Portugal vs Spain (M93)", awaySrc:"Winner: USA vs Belgium (M94)", utc:"2026-07-10T19:00", venue:"SoFi Stadium, Inglewood CA", status:"FT", score:{h:2,a:1}, note:"Super-sub Mikel Merino struck again — 88', less than two minutes after coming on, turning home a Cubarsí rebound spilled by keeper Lammens. Fabián Ruiz had opened the scoring before De Ketelaere levelled with Belgium's first goal against this Spain side; La Roja march on to a semi-final against France", events:[{type:"goal",team:"ESP",player:"Fabián Ruiz",min:30},{type:"goal",team:"BEL",player:"Charles De Ketelaere",min:41},{type:"goal",team:"ESP",player:"Mikel Merino",min:88}] },
       { id:"K99",  matchNo:99,  home:"NOR", away:"ENG", homeSrc:"Winner: Brazil vs Norway (M91)", awaySrc:"Winner: Mexico vs England (M92)", utc:"2026-07-11T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"Haaland (7 goals) vs Kane (6 goals) — Norway's first-ever WC quarter-final after stunning Brazil; England survived the Azteca with 10 men" },
       { id:"K100", matchNo:100, home:"ARG", away:"SUI", homeSrc:"Winner: Argentina vs Egypt (M95)", awaySrc:"Winner: Switzerland vs Colombia (M96)", utc:"2026-07-12T01:00", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"Holders Argentina, after their great escape vs Egypt, meet a Switzerland side yet to concede in the knockouts (shootout winners over Colombia)" }
     ],
     sf: [
-      { id:"K101", matchNo:101, home:"FRA", away:null, homeSrc:"Winner: Quarter-final 1 (M97)", awaySrc:"Winner: Quarter-final 2 (M98)", utc:"2026-07-14T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"France await the winner of Spain vs Belgium (QF2)" },
+      { id:"K101", matchNo:101, home:"FRA", away:"ESP", homeSrc:"Winner: Quarter-final 1 (M97)", awaySrc:"Winner: Quarter-final 2 (M98)", utc:"2026-07-14T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"Heavyweight semi-final: France (2-0 vs Morocco) meet reigning European champions Spain (2-1 vs Belgium, Merino 88')" },
       { id:"K102", matchNo:102, home:null, away:null, homeSrc:"Winner: Quarter-final 3 (M99)", awaySrc:"Winner: Quarter-final 4 (M100)", utc:"2026-07-15T19:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"" }
     ],
     thirdPlace: [
@@ -415,7 +415,7 @@ const WC2026 = {
     { home:"ARG", away:"SUI", utc:"2026-07-12T01:00", group:"QF", venue:"Arrowhead Stadium, Kansas City MO",
       storyline:"Quarter-final — holders Argentina arrive off one of the great World Cup comebacks: 2-0 down to Egypt with 11 minutes left, they won 3-2 through Romero (79'), Messi (83' — his 8th goal, outright Golden Boot lead, record 9 straight WC games scored) and Enzo Fernández's 90+2' header. Switzerland are yet to concede in the knockouts, beating Colombia 4-3 on penalties after a 0-0 draw (Vargas with the winning kick)." },
     { home:"ESP", away:"BEL", utc:"2026-07-10T19:00", group:"QF", venue:"SoFi Stadium, Inglewood CA",
-      storyline:"Quarter-final — reigning European champions Spain, unbeaten and yet to concede from open play, meet a Belgium side that has scored 12 in its last 4 games. Super-sub Mikel Merino (91' winner vs Portugal) vs De Ketelaere-inspired Belgium, 4-1 winners over the co-hosts USA." },
+      storyline:"Quarter-final (FT): Spain 2-1 Belgium. Fabián Ruiz opened the scoring (30') and, after Charles De Ketelaere levelled (41') with the first goal Spain had conceded all tournament from open play, super-sub Mikel Merino struck the 88'-minute winner within two minutes of coming on — his second decisive late goal in a row after the Portugal winner. Spain reach the semi-finals to face France; Belgium go home." },
     { home:"NOR", away:"ENG", utc:"2026-07-11T21:00", group:"QF", venue:"Hard Rock Stadium, Miami Gardens FL",
       storyline:"Quarter-final — Golden Boot heavyweights collide: Erling Haaland (7 goals, brace that knocked out Brazil) vs Harry Kane (6 goals, all-time England WC record). Norway are in their first-ever quarter-final; England survived the Azteca with 10 men." },
     { home:"FRA", away:"MAR", utc:"2026-07-09T20:00", group:"QF", venue:"Gillette Stadium, Foxborough MA",
@@ -469,7 +469,7 @@ const WC2026 = {
 
     // Player fitness tracker (key players — updated Jun 25)
     fitness: [
-      { name:"Facundo Medina",      status:"fit",   note:"Came off the bench vs Egypt after not being fit enough to start; now in line to return to the starting XI at left-back for the Switzerland quarter-final, likely in place of Tagliafico.", updated:"Jul 10" },
+      { name:"Facundo Medina",      status:"fit",   note:"Fully fit on matchday and set to return to the starting XI at left-back for the Switzerland quarter-final (Jul 11), likely in place of Tagliafico. Argentina reported a completely healthy 26-man squad.", updated:"Jul 11" },
       { name:"Nicolás González",    status:"doubt", note:"Carrying a minor knock ahead of the Round of 16 vs Egypt (Jul 7) per matchday team-news reports — a game-time decision.", updated:"Jul 7" },
       { name:"Lionel Messi",        status:"fit",   note:"Missed a first-half penalty vs Egypt but equalized in the 83' — 8th goal of the tournament (outright Golden Boot lead), a record 9th consecutive WC match scored in, 21 career WC goals. No fitness concerns ahead of the Switzerland quarter-final (Jul 11).", updated:"Jul 8" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
@@ -486,6 +486,13 @@ const WC2026 = {
     ],
 
     news: [
+      {
+        title: "Matchday: Scaloni names fully fit 26-man squad for Switzerland quarter-final",
+        date: "July 11, 2026",
+        source: "Sports Illustrated / Washington Post",
+        url: "https://www.si.com/soccer/argentina-predicted-lineup-vs-switzerland-world-cup-quarterfinal-7-11-26",
+        snippet: "Argentina go into tonight's Kansas City quarter-final (Jul 11, 9pm ET / Jul 12 6:30 AM IST) with a completely healthy, fully fit 26-man roster — no fresh injury concerns reported. Facundo Medina is set to return at left-back in place of Tagliafico, with Messi (8 goals, Golden Boot leader) leading the line. Switzerland, unbeaten and yet to concede in the knockouts, have their own worries over Aebischer, Jaquez and Manzambi. In the other half of the draw, Spain beat Belgium 2-1 (Merino 88') on Friday to set up a semi-final against France."
+      },
       {
         title: "Argentina vs Switzerland QF preview: Medina in line to return, Lautaro tipped to partner Messi",
         date: "July 10, 2026",
@@ -786,4 +793,4 @@ const WC2026 = {
     { icon:"🏆", title:"48-team World Cup delivers record 120 goals in group stage MD1-MD3 (first 3 groups)", category:"Records", detail:"The expanded 48-team format with 12 groups is delivering a goal feast. The first three group stages alone (Groups A-C) produced 30 goals across 12 matches — an average of 2.5 per game. The all-time World Cup group-stage goals record from 1954 (averaging 5.38 per game) is unlikely to be threatened, but fan engagement and dramatic scorelines have exceeded pre-tournament expectations." }
   ]
 };
-// EOF — refreshed 2026-07-10
+// EOF — refreshed 2026-07-11
