@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-11, refresh — QF2: Spain 2-1 Belgium; Spain into the semi-finals vs France) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-12, refresh — QF3: Norway 1-2 England (AET); QF4: Argentina 3-1 Switzerland (AET); ARG into semi-final vs England, Jul 15 Atlanta) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-11",
+  lastUpdated: "2026-07-12",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -469,9 +469,11 @@ const WC2026 = {
 
     // Player fitness tracker (key players — updated Jun 25)
     fitness: [
-      { name:"Facundo Medina",      status:"fit",   note:"Fully fit on matchday and set to return to the starting XI at left-back for the Switzerland quarter-final (Jul 11), likely in place of Tagliafico. Argentina reported a completely healthy 26-man squad.", updated:"Jul 11" },
+      { name:"Julián Álvarez",      status:"fit",   note:"Match-winner in the quarter-final: curled a stunning 112th-minute goal to break Switzerland's resistance in extra time. No fitness concerns heading into the semi-final vs England (Jul 15).", updated:"Jul 12" },
+      { name:"Alexis Mac Allister", status:"fit",   note:"Opened the scoring after 10 minutes vs Switzerland and drove the midfield across 120 minutes. Fit and central to the side for the England semi-final.", updated:"Jul 12" },
+      { name:"Facundo Medina",      status:"fit",   note:"Returned at left-back for the Switzerland quarter-final and came through 120 minutes without issue. Argentina reported no fresh injuries after the win.", updated:"Jul 12" },
       { name:"Nicolás González",    status:"doubt", note:"Carrying a minor knock ahead of the Round of 16 vs Egypt (Jul 7) per matchday team-news reports — a game-time decision.", updated:"Jul 7" },
-      { name:"Lionel Messi",        status:"fit",   note:"Missed a first-half penalty vs Egypt but equalized in the 83' — 8th goal of the tournament (outright Golden Boot lead), a record 9th consecutive WC match scored in, 21 career WC goals. No fitness concerns ahead of the Switzerland quarter-final (Jul 11).", updated:"Jul 8" },
+      { name:"Lionel Messi",        status:"fit",   note:"Came through the 120-minute quarter-final win over Switzerland; still leads the Golden Boot race on 8 goals. No fitness concerns ahead of the England semi-final (Jul 15).", updated:"Jul 12" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
       { name:"Cristian Romero",     status:"fit",   note:"His 79th-minute header vs Egypt sparked the great comeback — second knockout game in a row he has been decisive from a set piece. No issues reported.", updated:"Jul 8" },
       { name:"Lautaro Martínez",    status:"fit",   note:"Started vs Austria and vs Jordan. Reportedly in better physical condition than Álvarez and favoured to start up top vs Cape Verde.", updated:"Jun 29" },
@@ -486,6 +488,21 @@ const WC2026 = {
     ],
 
     news: [
+      {
+        title: "Argentina 3-1 Switzerland (AET): Álvarez and Lautaro fire the holders into the semi-finals",
+        date: "July 12, 2026",
+        source: "ESPN / NBC Sports",
+        url: "https://www.espn.com/soccer/match/_/gameId/760513/switzerland-argentina",
+        snippet: "Argentina reached their third semi-final in four World Cups with a 3-1 extra-time win over Switzerland in Kansas City. Alexis Mac Allister struck after 10 minutes before Dan Ndoye levelled midway through the second half, but the Swiss were reduced to 10 men when Breel Embolo was sent off for a second yellow (diving). In extra time Julián Álvarez curled home a superb 112th-minute winner and Lautaro Martínez added a rebound in stoppage time. Argentina will face England — 2-1 extra-time winners over Norway — in the semi-final in Atlanta on July 15.",
+        featured: true
+      },
+      {
+        title: "Bellingham double sends England past Norway 2-1 (AET) to set up Argentina semi-final",
+        date: "July 11, 2026",
+        source: "Olympics.com / ESPN",
+        url: "https://www.espn.com/soccer/match/_/gameId/760512/england-norway",
+        snippet: "Jude Bellingham rescued England in Miami, equalizing on the stroke of half-time after Andreas Schjelderup had put Norway ahead (36'), then striking the winner in the third minute of extra time. England's 2-1 victory ends Haaland's Norway run and books a semi-final against holders Argentina in Atlanta on July 15."
+      },
       {
         title: "Matchday: Scaloni names fully fit 26-man squad for Switzerland quarter-final",
         date: "July 11, 2026",
@@ -629,19 +646,19 @@ const WC2026 = {
       },
       {
         round: "Quarter-Final",
-        status: "next",
-        match: "ARG vs SUI (Switzerland)",
+        status: "done",
+        match: "ARG 3–1 SUI (AET)",
         date: "July 11, 2026 · Arrowhead Stadium, Kansas City MO",
-        result: null,
-        note: "Switzerland beat Colombia 4-3 on penalties after a 0-0 draw in Vancouver (Vargas with the winning kick) and are yet to concede in the knockout rounds. Kickoff 8:00 PM local / Jul 12, 6:30 AM IST."
+        result: "WON (AET) — Mac Allister 10', Álvarez 112', L. Martínez 120+",
+        note: "Mac Allister struck early, Dan Ndoye levelled for Switzerland in the second half, but the Swiss were reduced to 10 men when Breel Embolo was shown a second yellow for diving. In extra time Julián Álvarez curled home a beauty (112') and Lautaro Martínez tucked away a rebound in stoppage time to send Argentina to the semi-finals. Switzerland were unbeaten in the knockouts until this defeat."
       },
       {
         round: "Semi-Final",
-        status: "upcoming",
-        match: "ARG vs NOR/ENG winner (potential)",
+        status: "next",
+        match: "ARG vs ENG (England)",
         date: "July 15, 2026 · Mercedes-Benz Stadium, Atlanta",
         result: null,
-        note: "Argentina's half of the draw has opened up dramatically: Brazil were stunned 2-1 by Haaland's Norway (Jul 5) and Portugal fell 1-0 to Spain (Jul 6). The potential semi-final opponent is now the Norway vs England quarter-final winner (Jul 11, Miami)."
+        note: "England edged Norway 2-1 after extra time in Miami (Jul 11) — Andreas Schjelderup put Norway ahead (36'), Jude Bellingham equalized on the stroke of half-time and struck the winner in the 93rd. It sets up a blockbuster Argentina vs England semi-final, a rematch loaded with history."
       },
       {
         round: "FINAL",
@@ -749,6 +766,8 @@ const WC2026 = {
 
   // ── FACTS & RECORDS ──────────────────────────────────────────────
   facts: [
+    { icon:"🇦🇷", title:"Álvarez and Lautaro strike in extra time as Argentina beat 10-man Switzerland 3-1 to reach the semi-finals", category:"Drama", detail:"Alexis Mac Allister put the holders ahead after 10 minutes at Arrowhead Stadium, Kansas City on July 11, but Dan Ndoye levelled for Switzerland midway through the second half. The tie turned when Breel Embolo was shown a second yellow card for diving, and in extra time Julián Álvarez curled a stunning 112th-minute winner into the top corner before Lautaro Martínez tucked away a rebound in stoppage time for 3-1. Argentina reach a third World Cup semi-final in four tournaments and will face England in Atlanta on July 15; Switzerland had been unbeaten and yet to concede in the knockouts before this defeat." },
+    { icon:"🦁", title:"Bellingham's extra-time winner sends England past Norway 2-1 into the semi-finals", category:"Drama", detail:"Andreas Schjelderup fired Norway ahead (36') in the quarter-final in Miami on July 11, but Jude Bellingham equalized on the stroke of half-time and struck the decisive goal in the third minute of extra time to win it 2-1. The result ends Erling Haaland's Norway campaign — their first World Cup since 1998 having reached the last eight — and sets up a heavyweight semi-final against holders Argentina in Atlanta on July 15." },
     { icon:"🐐", title:"The Great Escape of Atlanta: Argentina come from 2-0 down in the 79th to beat Egypt 3-2", category:"Drama", detail:"Egypt led the holders 2-0 through Yasser Ibrahim (15') and Mostafa Zico (67') at Mercedes-Benz Stadium on July 7, with Mostafa Shobeir saving a first-half Lionel Messi penalty. Then Cristian Romero headed Argentina back into it (79'), Messi equalized (83') — his 8th goal of the tournament for the outright Golden Boot lead, a record 9th consecutive WC match scored in and 21st career WC goal — and Enzo Fernández headed a 90+2' winner to complete one of the great World Cup comebacks. Argentina face Switzerland in the quarter-final in Kansas City on July 11." },
     { icon:"🇨🇭", title:"Switzerland edge Colombia 4-3 on penalties to set up Argentina quarter-final", category:"Drama", detail:"The Round of 16 closed with a goalless 120 minutes at BC Place, Vancouver on July 7 — Switzerland's third straight knockout clean sheet — before Rubén Vargas struck the winning kick in a 4-3 shootout to eliminate a Colombia side that had not lost all tournament. Switzerland meet holders Argentina at Arrowhead Stadium, Kansas City on July 11 for a place in the semi-finals." },
     { icon:"🇳🇴", title:"Haaland double dumps out Brazil — Norway reach their first-ever World Cup quarter-final", category:"Upset", detail:"Erling Haaland struck twice in the final 11 minutes (a 79' header and an 87' low drive into the corner) as Norway stunned five-time champions Brazil 2-1 in the Round of 16 at MetLife Stadium on July 5. Ørjan Nyland had saved a 12th-minute Bruno Guimarães penalty to keep it level; Neymar's stoppage-time penalty came too late. Haaland joins Messi and Mbappé atop the Golden Boot race on 7 goals, and Norway — at their first World Cup since 1998 — face England in a first-ever quarter-final on July 11 in Miami." },
@@ -793,4 +812,4 @@ const WC2026 = {
     { icon:"🏆", title:"48-team World Cup delivers record 120 goals in group stage MD1-MD3 (first 3 groups)", category:"Records", detail:"The expanded 48-team format with 12 groups is delivering a goal feast. The first three group stages alone (Groups A-C) produced 30 goals across 12 matches — an average of 2.5 per game. The all-time World Cup group-stage goals record from 1954 (averaging 5.38 per game) is unlikely to be threatened, but fan engagement and dramatic scorelines have exceeded pre-tournament expectations." }
   ]
 };
-// EOF — refreshed 2026-07-11
+// EOF — refreshed 2026-07-12
