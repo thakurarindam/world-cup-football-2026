@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-12, refresh — QF3: Norway 1-2 England (AET); QF4: Argentina 3-1 Switzerland (AET); ARG into semi-final vs England, Jul 15 Atlanta) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-14, refresh — semi-finals ahead: Spain v France (Jul 14, Dallas), Argentina v England (Jul 15, Atlanta). First time in history the top 4 FIFA-ranked sides all reach the last four. No new results since Jul 12.) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-12",
+  lastUpdated: "2026-07-14",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -473,7 +473,7 @@ const WC2026 = {
       { name:"Alexis Mac Allister", status:"fit",   note:"Opened the scoring after 10 minutes vs Switzerland and drove the midfield across 120 minutes. Fit and central to the side for the England semi-final.", updated:"Jul 12" },
       { name:"Facundo Medina",      status:"fit",   note:"Returned at left-back for the Switzerland quarter-final and came through 120 minutes without issue. Argentina reported no fresh injuries after the win.", updated:"Jul 12" },
       { name:"Nicolás González",    status:"doubt", note:"Carrying a minor knock ahead of the Round of 16 vs Egypt (Jul 7) per matchday team-news reports — a game-time decision.", updated:"Jul 7" },
-      { name:"Lionel Messi",        status:"fit",   note:"Came through the 120-minute quarter-final win over Switzerland; still leads the Golden Boot race on 8 goals. No fitness concerns ahead of the England semi-final (Jul 15).", updated:"Jul 12" },
+      { name:"Lionel Messi",        status:"fit",   note:"Confirmed fit for the England semi-final (Jul 15). Took an accidental knock to the face from Granit Xhaka in the quarter-final but played all 120 minutes; the cut has been treated and is not expected to be a concern. Still leads the Golden Boot race on 8 goals.", updated:"Jul 14" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
       { name:"Cristian Romero",     status:"fit",   note:"His 79th-minute header vs Egypt sparked the great comeback — second knockout game in a row he has been decisive from a set piece. No issues reported.", updated:"Jul 8" },
       { name:"Lautaro Martínez",    status:"fit",   note:"Started vs Austria and vs Jordan. Reportedly in better physical condition than Álvarez and favoured to start up top vs Cape Verde.", updated:"Jun 29" },
@@ -489,12 +489,19 @@ const WC2026 = {
 
     news: [
       {
+        title: "Semi-final set: Argentina meet England in Atlanta on July 15 — top 4 ranked nations all in the last four",
+        date: "July 14, 2026",
+        source: "NBC Sports / Al Jazeera",
+        url: "https://www.nbcsports.com/soccer/news/when-are-the-2026-fifa-world-cup-semifinals-dates-confirmed-teams",
+        snippet: "Argentina's semi-final against England kicks off Wednesday, July 15 (1 p.m. MT / 2 p.m. CT) at Mercedes-Benz Stadium, Atlanta. For the first time in World Cup history, the top four teams in the FIFA World Ranking — Argentina (1), Spain (2), France (3) and England (4) — have all reached the semi-finals. The other last-four tie, Spain vs France, is played first, on July 14 in Dallas. Messi leads the Golden Boot race on 8 goals going into the match.",
+        featured: true
+      },
+      {
         title: "Argentina 3-1 Switzerland (AET): Álvarez and Lautaro fire the holders into the semi-finals",
         date: "July 12, 2026",
         source: "ESPN / NBC Sports",
         url: "https://www.espn.com/soccer/match/_/gameId/760513/switzerland-argentina",
-        snippet: "Argentina reached their third semi-final in four World Cups with a 3-1 extra-time win over Switzerland in Kansas City. Alexis Mac Allister struck after 10 minutes before Dan Ndoye levelled midway through the second half, but the Swiss were reduced to 10 men when Breel Embolo was sent off for a second yellow (diving). In extra time Julián Álvarez curled home a superb 112th-minute winner and Lautaro Martínez added a rebound in stoppage time. Argentina will face England — 2-1 extra-time winners over Norway — in the semi-final in Atlanta on July 15.",
-        featured: true
+        snippet: "Argentina reached their third semi-final in four World Cups with a 3-1 extra-time win over Switzerland in Kansas City. Alexis Mac Allister struck after 10 minutes before Dan Ndoye levelled midway through the second half, but the Swiss were reduced to 10 men when Breel Embolo was sent off for a second yellow (diving). In extra time Julián Álvarez curled home a superb 112th-minute winner and Lautaro Martínez added a rebound in stoppage time. Argentina will face England — 2-1 extra-time winners over Norway — in the semi-final in Atlanta on July 15."
       },
       {
         title: "Bellingham double sends England past Norway 2-1 (AET) to set up Argentina semi-final",
@@ -808,8 +815,4 @@ const WC2026 = {
     { icon:"🇭🇷", title:"Luka Modrić becomes 4th player to earn 200 international appearances", category:"Records", detail:"Croatia captain Luka Modrić made his 200th international appearance during Croatia's 1-0 win over Panama on June 23, becoming only the fourth player in history to reach this milestone. He joins Cristiano Ronaldo (230 caps), Bader Al-Mutawa (202) and Lionel Messi (201). Modrić, 40, has completed at least 80% of passes in all 19 of his career World Cup starts." },
     { icon:"👴", title:"Ronaldo (41) is oldest player with multi-goal game in World Cup history", category:"Records", detail:"Cristiano Ronaldo, aged 41 years and 138 days, became the oldest player to score two or more goals in a single World Cup game when he bagged a brace against Uzbekistan on June 23. He surpassed the record set by Lionel Messi just one day earlier in the same tournament. Ronaldo is the second oldest WC scorer ever, behind only Roger Milla (42y, 39d for Cameroon in 1994)." },
     { icon:"👑", title:"Ronaldo breaks Messi's WC all-time goals record with brace vs Uzbekistan", category:"Records", detail:"Cristiano Ronaldo became the all-time top scorer in FIFA World Cup history, surpassing Lionel Messi's mark of 18 goals. Ronaldo struck twice in Portugal's 5-0 demolition of Uzbekistan at SoFi Stadium on June 23, taking his career tally to 19 World Cup goals. He is also the first player in history to score at six different World Cups (2006, 2010, 2014, 2018, 2022, 2026)." },
-    { icon:"🐐", title:"Messi reaches 18 career WC goals — briefly holds all-time record", category:"Records", detail:"Lionel Messi scored his 17th and 18th World Cup goals in Argentina's 2-0 win over Austria on June 22, briefly holding the all-time record before Cristiano Ronaldo eclipsed it the very next day with a brace against Uzbekistan. Messi's record lasted less than 24 hours — but it was the 38-year-old's most prolific World Cup tournament in goals per game." },
-    { icon:"🏆", title:"48-team World Cup delivers record 120 goals in group stage MD1-MD3 (first 3 groups)", category:"Records", detail:"The expanded 48-team format with 12 groups is delivering a goal feast. The first three group stages alone (Groups A-C) produced 30 goals across 12 matches — an average of 2.5 per game. The all-time World Cup group-stage goals record from 1954 (averaging 5.38 per game) is unlikely to be threatened, but fan engagement and dramatic scorelines have exceeded pre-tournament expectations." }
-  ]
-};
-// EOF — refreshed 2026-07-12
+    { icon:"🐐", title:"Messi reaches 18 career WC goals — briefly
