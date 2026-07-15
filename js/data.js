@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-14, refresh — semi-finals ahead: Spain v France (Jul 14, Dallas), Argentina v England (Jul 15, Atlanta). First time in history the top 4 FIFA-ranked sides all reach the last four. No new results since Jul 12.) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-15, refresh — SF1 result: Spain 2-0 France (Oyarzabal pen 22', Porro 58') — Spain reach first World Cup final since 2010. SF2: Argentina v England tonight (Jul 15, 19:00 ET, Atlanta) — winner meets Spain in the Jul 19 final.) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-14",
+  lastUpdated: "2026-07-15",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -399,19 +399,21 @@ const WC2026 = {
       { id:"K100", matchNo:100, home:"ARG", away:"SUI", homeSrc:"Winner: Argentina vs Egypt (M95)", awaySrc:"Winner: Switzerland vs Colombia (M96)", utc:"2026-07-12T01:00", venue:"Arrowhead Stadium, Kansas City MO", status:"UP", note:"Holders Argentina, after their great escape vs Egypt, meet a Switzerland side yet to concede in the knockouts (shootout winners over Colombia)" }
     ],
     sf: [
-      { id:"K101", matchNo:101, home:"FRA", away:"ESP", homeSrc:"Winner: Quarter-final 1 (M97)", awaySrc:"Winner: Quarter-final 2 (M98)", utc:"2026-07-14T19:00", venue:"AT&T Stadium, Arlington TX", status:"UP", note:"Heavyweight semi-final: France (2-0 vs Morocco) meet reigning European champions Spain (2-1 vs Belgium, Merino 88')" },
-      { id:"K102", matchNo:102, home:null, away:null, homeSrc:"Winner: Quarter-final 3 (M99)", awaySrc:"Winner: Quarter-final 4 (M100)", utc:"2026-07-15T19:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"" }
+      { id:"K101", matchNo:101, home:"FRA", away:"ESP", homeSrc:"Winner: Quarter-final 1 (M97)", awaySrc:"Winner: Quarter-final 2 (M98)", utc:"2026-07-14T19:00", venue:"AT&T Stadium, Arlington TX", status:"FT", score:{h:0,a:2}, note:"Spain shut out the tournament's most feared attack to reach their first World Cup final since 2010. Oyarzabal converted a first-half penalty (22') after Digne fouled Yamal, and Porro finished a give-and-go with Olmo (58'). Spain have conceded just one goal all tournament; Mbappé's France are out.", events:[{type:"goal",team:"ESP",player:"Mikel Oyarzabal (pen)",min:22},{type:"goal",team:"ESP",player:"Pedro Porro",min:58}] },
+      { id:"K102", matchNo:102, home:null, away:null, homeSrc:"Winner: Quarter-final 3 (M99)", awaySrc:"Winner: Quarter-final 4 (M100)", utc:"2026-07-15T19:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"Argentina (holders) v England in Atlanta tonight — the winner meets Spain in the July 19 final at MetLife" }
     ],
     thirdPlace: [
-      { id:"K103", matchNo:103, home:null, away:null, homeSrc:"Loser: Semi-final 1 (M101)", awaySrc:"Loser: Semi-final 2 (M102)", utc:"2026-07-18T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"" }
+      { id:"K103", matchNo:103, home:"FRA", away:null, homeSrc:"Loser: Semi-final 1 (M101)", awaySrc:"Loser: Semi-final 2 (M102)", utc:"2026-07-18T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"France await the losing semi-finalist from Argentina v England" }
     ],
     final: [
-      { id:"K104", matchNo:104, home:null, away:null, homeSrc:"Winner: Semi-final 1 (M101)", awaySrc:"Winner: Semi-final 2 (M102)", utc:"2026-07-19T19:00", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", note:"" }
+      { id:"K104", matchNo:104, home:"ESP", away:null, homeSrc:"Winner: Semi-final 1 (M101)", awaySrc:"Winner: Semi-final 2 (M102)", utc:"2026-07-19T19:00", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", note:"Spain reach the final and await the winner of Argentina v England (Jul 15)" }
     ]
   },
 
   // ── STAR MATCHES TO WATCH ────────────────────────────────────────
   starMatches: [
+    { home:"ESP", away:"FRA", utc:"2026-07-14T19:00", group:"SF", venue:"AT&T Stadium, Arlington TX",
+      storyline:"Semi-final 1 (FT): Spain 2-0 France. La Roja reached their first World Cup final since 2010 by smothering the tournament's most dangerous attack. Mikel Oyarzabal buried a 22nd-minute penalty won by Lamine Yamal, and Pedro Porro doubled it on 58' after a slick give-and-go with Dani Olmo. Spain have conceded only once all tournament; Mbappé and France go to the third-place play-off." },
     { home:"ARG", away:"SUI", utc:"2026-07-12T01:00", group:"QF", venue:"Arrowhead Stadium, Kansas City MO",
       storyline:"Quarter-final — holders Argentina arrive off one of the great World Cup comebacks: 2-0 down to Egypt with 11 minutes left, they won 3-2 through Romero (79'), Messi (83' — his 8th goal, outright Golden Boot lead, record 9 straight WC games scored) and Enzo Fernández's 90+2' header. Switzerland are yet to concede in the knockouts, beating Colombia 4-3 on penalties after a 0-0 draw (Vargas with the winning kick)." },
     { home:"ESP", away:"BEL", utc:"2026-07-10T19:00", group:"QF", venue:"SoFi Stadium, Inglewood CA",
@@ -489,12 +491,20 @@ const WC2026 = {
 
     news: [
       {
+        title: "Final opponent set: Spain beat France 2-0 — Argentina must get past England tonight to reach the final",
+        date: "July 15, 2026",
+        source: "ESPN / Sky Sports",
+        url: "https://www.espn.com/soccer/match/_/gameId/760514/spain-france",
+        snippet: "Spain booked the first place in the July 19 final at MetLife Stadium with a 2-0 win over France (Oyarzabal pen 22', Porro 58'), their first World Cup final since 2010. Argentina now know that beating England in Atlanta tonight (Jul 15, 19:00 ET) would set up a Spain v Argentina final. Messi leads the Golden Boot race on 8 goals going into the semi-final.",
+        featured: true
+      },
+      {
         title: "Semi-final set: Argentina meet England in Atlanta on July 15 — top 4 ranked nations all in the last four",
         date: "July 14, 2026",
         source: "NBC Sports / Al Jazeera",
         url: "https://www.nbcsports.com/soccer/news/when-are-the-2026-fifa-world-cup-semifinals-dates-confirmed-teams",
         snippet: "Argentina's semi-final against England kicks off Wednesday, July 15 (1 p.m. MT / 2 p.m. CT) at Mercedes-Benz Stadium, Atlanta. For the first time in World Cup history, the top four teams in the FIFA World Ranking — Argentina (1), Spain (2), France (3) and England (4) — have all reached the semi-finals. The other last-four tie, Spain vs France, is played first, on July 14 in Dallas. Messi leads the Golden Boot race on 8 goals going into the match.",
-        featured: true
+        featured: false
       },
       {
         title: "Argentina 3-1 Switzerland (AET): Álvarez and Lautaro fire the holders into the semi-finals",
