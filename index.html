@@ -68,7 +68,7 @@
   Last updated: <span id="last-updated"></span>
 </footer>
 
-<script src="js/data.js?v=202607091230"></script>
+<script src="js/data.js?v=202607151900"></script>
 <script>
 const IST_TZ = 'Asia/Kolkata';
 function fmtIST(utcStr) {
@@ -205,10 +205,13 @@ function toggleDetail(id) {
 // STAR MATCHES
 const smDiv = document.getElementById('star-matches');
 WC2026.starMatches.forEach(m=>{
-  const hc=gc(m.home), ac=gc(m.away);
+  const hc=gc(m.home);
+  const ac=m.away?gc(m.away):null;
+  const awayCode = m.away ? `<span class="team-code">${m.away}</span> ` : '';
+  const awayName = ac ? ac.name : `<span style="font-style:italic;color:var(--text-muted);">${m.awaySrc||'TBD'}</span>`;
   smDiv.innerHTML += `<div class="star-match-card">
-    <div class="star-match-label">⭐ GROUP ${m.group} · MUST WATCH</div>
-    <div class="star-match-teams">${hc.name} <span class="team-code">${m.home}</span> vs <span class="team-code">${m.away}</span> ${ac.name}</div>
+    <div class="star-match-label">⭐ ${m.group} · MUST WATCH</div>
+    <div class="star-match-teams">${hc.name} <span class="team-code">${m.home}</span> vs ${awayCode}${awayName}</div>
     <div class="star-match-ist">${fmtDate(m.utc)} · ${fmtIST(m.utc)}</div>
     <div class="star-match-meta">📍 ${m.venue}</div>
     <div style="font-size:.73rem;color:var(--text-muted);margin-top:.5rem;border-top:1px solid var(--border);padding-top:.4rem;">${m.storyline}</div>
@@ -222,12 +225,4 @@ WC2026.topScorers.forEach((s,i)=>{
   ul.innerHTML += `<li class="scorer-item">
     <div class="scorer-rank${i<3?' top3':''}">${icon}</div>
     <div class="scorer-info">
-      <div class="scorer-name">${s.name}</div>
-      <div class="scorer-team">${s.country} · ${s.note}</div>
-    </div>
-    <div class="scorer-goals">${s.goals} ⚽</div>
-  </li>`;
-});
-</script>
-</body>
-</html>
+      <div class="scorer-nam
