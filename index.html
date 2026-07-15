@@ -225,4 +225,12 @@ WC2026.topScorers.forEach((s,i)=>{
   ul.innerHTML += `<li class="scorer-item">
     <div class="scorer-rank${i<3?' top3':''}">${icon}</div>
     <div class="scorer-info">
-      <div class="scorer-nam
+      <div class="scorer-name">${s.name}</div>
+      <div class="scorer-team">${s.country} · ${s.note}</div>
+    </div>
+    <div class="scorer-goals">${s.goals} ⚽</div>
+  </li>`;
+});
+</script>
+</body>
+</html>
