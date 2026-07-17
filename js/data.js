@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-15, refresh — backfilled QF3 Norway 1-2 England (AET) & QF4 Argentina 3-1 Switzerland (AET); SF1 Spain 2-0 France (Oyarzabal pen 22', Porro 58') — Spain into first final since 2010. 101/104 played, 3 left: SF2 Argentina v England (Jul 15, Atlanta), 3rd place (Jul 18), Final (Jul 19). Winner of SF2 meets Spain.) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-18, refresh — SF2 Argentina 2-1 England (Atlanta): Gordon put England ahead (55'), then Messi turned provider twice — Enzo Fernández equalized (85') and Lautaro Martínez won it (90+2'). Holders Argentina reach the final and face Spain (Jul 19, MetLife). 102/104 played, 2 left: 3rd place France v England (Jul 18, 21:00 UTC — not yet played), Final Spain v Argentina (Jul 19).) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-15",
+  lastUpdated: "2026-07-18",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -336,7 +336,7 @@ const WC2026 = {
   // match reports (ESPN/Al Jazeera/Olympics.com) for Round of 32 goals. Updated Jul 3 after 13 of 16
   // Round of 32 complete (all 16 ties played; Colombia beat Ghana 1-0 on Jul 4 to complete the line-up).
   topScorers: [
-    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:8, assists:1, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28), goal vs Cape Verde (Jul 3) + the 83rd-minute equalizer in the epic 3-2 comeback vs Egypt (Jul 7) — level on 8 goals with Mbappé atop the Golden Boot race, now second on the assists tie-break (1 to Mbappé's 3) after France's quarter-final. First player to score in 9 consecutive WC matches; 21 career WC goals extends his all-time record. Argentina face Switzerland in the quarter-final (Jul 11, Kansas City)." },
+    { name:"Lionel Messi",     country:"ARG", flag:"🇦🇷", goals:8, assists:3, note:"Hat-trick vs Algeria (Jun 17), brace vs Austria (Jun 22), goal vs Jordan (Jun 28), goal vs Cape Verde (Jul 3) + the 83rd-minute equalizer in the epic 3-2 comeback vs Egypt (Jul 7). Turned provider in the semi-final, laying on both goals in Argentina's 2-1 comeback win over England (Jul 15) to move level with Mbappé on the Golden Boot metrics — 8 goals and now 3 assists apiece. First player to score in 9 consecutive WC matches; 21 career WC goals extends his all-time record. Argentina face Spain in the final (Jul 19)." },
     { name:"Kylian Mbappé",    country:"FRA", flag:"🇫🇷", goals:8, assists:3, note:"Brace vs Senegal (Jun 17) + brace vs Iraq (Jun 22) + brace vs Sweden in the Round of 32 (Jun 30) + the winning penalty vs Paraguay in the Round of 16 (Jul 4, 70') + a curling 60th-minute opener in the 2-0 quarter-final win over Morocco (Jul 9), where he also assisted Dembélé despite missing a first-half penalty. Level with Messi on 8 goals and now leads the Golden Boot on the assists tie-break (3 to 1). His 20th career WC goal is one behind Messi's all-time record of 21. France into the semi-final vs Spain/Belgium (Jul 14, Dallas)." },
     { name:"Erling Haaland",   country:"NOR", flag:"🇳🇴", goals:7, assists:0, note:"Brace vs Iraq (Jun 17 IST) + brace vs Senegal (Jun 23 IST) + Round of 32 winner vs Ivory Coast (Jun 30 IST) + late brace vs Brazil in the Round of 16 (Jul 5, 79' & 87') that dumped out the five-time champions — one behind Golden Boot leader Messi (8). Norway face England in their first-ever WC quarter-final (Jul 11, Miami)." },
     { name:"Harry Kane",       country:"ENG", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", goals:6, assists:0, note:"Penalty + header vs Croatia (Jun 18 IST) + goal vs Panama (Jun 28 IST) + Round of 32 brace vs DR Congo (Jul 1 IST) + the 60th-minute penalty in the 3-2 Round of 16 win over Mexico at the Azteca (Jul 6 IST) — England's all-time leading World Cup scorer is two behind Golden Boot leader Messi (8). England face Norway in the quarter-final (Jul 11, Miami)." },
@@ -400,29 +400,29 @@ const WC2026 = {
     ],
     sf: [
       { id:"K101", matchNo:101, home:"FRA", away:"ESP", homeSrc:"Winner: Quarter-final 1 (M97)", awaySrc:"Winner: Quarter-final 2 (M98)", utc:"2026-07-14T19:00", venue:"AT&T Stadium, Arlington TX", status:"FT", score:{h:0,a:2}, note:"Spain shut out the tournament's most feared attack to reach their first World Cup final since 2010. Oyarzabal converted a first-half penalty (22') after Digne fouled Yamal, and Porro finished a give-and-go with Olmo (58'). Spain have conceded just one goal all tournament; Mbappé's France are out.", events:[{type:"goal",team:"ESP",player:"Mikel Oyarzabal (pen)",min:22},{type:"goal",team:"ESP",player:"Pedro Porro",min:58}] },
-      { id:"K102", matchNo:102, home:"ARG", away:"ENG", homeSrc:"Winner: Quarter-final 3 (M99)", awaySrc:"Winner: Quarter-final 4 (M100)", utc:"2026-07-15T19:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"UP", note:"Argentina (holders) v England in Atlanta — the winner meets Spain in the July 19 final at MetLife" }
+      { id:"K102", matchNo:102, home:"ARG", away:"ENG", homeSrc:"Winner: Quarter-final 3 (M99)", awaySrc:"Winner: Quarter-final 4 (M100)", utc:"2026-07-15T19:00", venue:"Mercedes-Benz Stadium, Atlanta", status:"FT", score:{h:2,a:1}, note:"Holders Argentina came from behind to beat England 2-1 in Atlanta. Anthony Gordon put England ahead (55'), but Lionel Messi turned provider twice late on — Enzo Fernández levelled (85') and Lautaro Martínez struck the winner in stoppage time (90+2'). Argentina advance to face Spain in the July 19 final.", events:[{type:"goal",team:"ENG",player:"Anthony Gordon",min:55},{type:"goal",team:"ARG",player:"Enzo Fernández",min:85},{type:"goal",team:"ARG",player:"Lautaro Martínez",min:"90+2"}] }
     ],
     thirdPlace: [
-      { id:"K103", matchNo:103, home:"FRA", away:null, homeSrc:"Loser: Semi-final 1 (M101)", awaySrc:"Loser: Semi-final 2 (M102)", utc:"2026-07-18T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"France await the losing semi-finalist from Argentina v England" }
+      { id:"K103", matchNo:103, home:"FRA", away:"ENG", homeSrc:"Loser: Semi-final 1 (M101)", awaySrc:"Loser: Semi-final 2 (M102)", utc:"2026-07-18T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"UP", note:"Third-place play-off (Jul 18): France v England, the two beaten semi-finalists. Mbappé and Kane both chase Golden Boot goals." }
     ],
     final: [
-      { id:"K104", matchNo:104, home:"ESP", away:null, homeSrc:"Winner: Semi-final 1 (M101)", awaySrc:"Winner: Semi-final 2 (M102)", utc:"2026-07-19T19:00", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", note:"Spain reach the final and await the winner of Argentina v England (Jul 15)" }
+      { id:"K104", matchNo:104, home:"ESP", away:"ARG", homeSrc:"Winner: Semi-final 1 (M101)", awaySrc:"Winner: Semi-final 2 (M102)", utc:"2026-07-19T19:00", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", note:"THE FINAL (Jul 19): Spain v Argentina at MetLife. La Roja (first final since their 2010 title) meet the holders, who beat England 2-1 in the semi. Messi chases a second World Cup." }
     ]
   },
 
   // ── STAR MATCHES TO WATCH ────────────────────────────────────────
   starMatches: [
-    { home:"ARG", away:"ENG", utc:"2026-07-15T19:00", group:"SEMI-FINAL", venue:"Mercedes-Benz Stadium, Atlanta",
-      storyline:"Semi-final (Jul 15): Argentina v England — a fixture heavy with history (1986, 1998, 2002). Holders Argentina, driven by Golden Boot co-leader Messi (8 goals), reached the last four with a 3-1 extra-time win over 10-man Switzerland; England arrive off Jude Bellingham's extra-time heroics against Norway. The winner faces Spain in the July 19 final." },
-    { home:"ESP", away:null, awaySrc:"Winner: Argentina v England", utc:"2026-07-19T19:00", group:"FINAL", venue:"MetLife Stadium, East Rutherford NJ",
-      storyline:"Final (Jul 19): Spain reach their first World Cup final since lifting the trophy in 2010, having beaten France 2-0 (Oyarzabal pen 22', Porro 58'). La Roja have conceded only once all tournament and await the winner of Argentina v England." },
-    { home:"FRA", away:null, awaySrc:"Loser: Argentina v England", utc:"2026-07-18T21:00", group:"THIRD PLACE", venue:"Hard Rock Stadium, Miami Gardens FL",
-      storyline:"Third-place play-off (Jul 18): France, beaten 2-0 by Spain in the semi-final, face the losing semi-finalist from Argentina v England. Mbappé (8 goals) will look to reclaim the Golden Boot outright." }
+    { home:"ESP", away:"ARG", utc:"2026-07-19T19:00", group:"FINAL", venue:"MetLife Stadium, East Rutherford NJ",
+      storyline:"THE FINAL (Jul 19): Spain v Argentina at MetLife. Spain reached their first World Cup final since lifting the trophy in 2010 by beating France 2-0, conceding just once all tournament. Argentina, the holders, came from behind to edge England 2-1 in Atlanta (Enzo Fernández 85', Lautaro Martínez 90+2', both created by Messi). Messi hunts a second world title to crown his career." },
+    { home:"FRA", away:"ENG", utc:"2026-07-18T21:00", group:"THIRD PLACE", venue:"Hard Rock Stadium, Miami Gardens FL",
+      storyline:"Third-place play-off (Jul 18): France v England, the two beaten semi-finalists. France were beaten 2-0 by Spain; England lost 2-1 to Argentina. Mbappé and Kane will both look to add Golden Boot goals in the bronze-medal match." },
+    { home:"ARG", away:"ENG", utc:"2026-07-15T19:00", group:"SEMI-FINAL (RESULT)", venue:"Mercedes-Benz Stadium, Atlanta",
+      storyline:"Semi-final (Jul 15): Argentina 2-1 England — a fixture heavy with history (1986, 1998, 2002). Anthony Gordon put England ahead (55'), but Messi set up both goals as Enzo Fernández equalized (85') and Lautaro Martínez won it in stoppage time (90+2'). The holders march on to the final." }
   ],
 
   // ── ARGENTINA SPECIAL DATA ──────────────────────────────────────
   argentina: {
-    groupStanding: "Won Group J (9/9 pts) → beat Cape Verde 3–2 AET (R32) → beat Egypt 3–2 (R16). Face Switzerland in the quarter-final (Jul 11, Kansas City)",
+    groupStanding: "Won Group J (9/9 pts) → beat Cape Verde 3–2 AET (R32) → beat Egypt 3–2 (R16) → beat Switzerland 3–1 AET (QF) → beat England 2–1 (SF). INTO THE FINAL vs Spain (Jul 19, MetLife) — chasing a fourth World Cup title.",
     r16Result: "Argentina 3–2 Egypt (Jul 7, Atlanta — from 2-0 down: Romero 79', Messi 83', Enzo Fernández 90+2')",
     r32Result: "Argentina 3–2 Cape Verde AET (Jul 3, Miami — Messi 29', L. Martínez 92', Borges OG 111')",
     md1Result: "Argentina 3–0 Algeria (Jun 17, Messi hat-trick)",
@@ -471,7 +471,7 @@ const WC2026 = {
       { name:"Alexis Mac Allister", status:"fit",   note:"Opened the scoring after 10 minutes vs Switzerland and drove the midfield across 120 minutes. Fit and central to the side for the England semi-final.", updated:"Jul 12" },
       { name:"Facundo Medina",      status:"fit",   note:"Returned at left-back for the Switzerland quarter-final and came through 120 minutes without issue. Argentina reported no fresh injuries after the win.", updated:"Jul 12" },
       { name:"Nicolás González",    status:"doubt", note:"Carrying a minor knock ahead of the Round of 16 vs Egypt (Jul 7) per matchday team-news reports — a game-time decision.", updated:"Jul 7" },
-      { name:"Lionel Messi",        status:"fit",   note:"Confirmed fit for the England semi-final (Jul 15). Took an accidental knock to the face from Granit Xhaka in the quarter-final but played all 120 minutes; the cut has been treated and is not expected to be a concern. Still leads the Golden Boot race on 8 goals.", updated:"Jul 14" },
+      { name:"Lionel Messi",        status:"fit",   note:"Came through the England semi-final (Jul 15) unscathed and decisive — assisted both goals in the 2-1 comeback win. No fitness concerns ahead of the final vs Spain (Jul 19). Level with Mbappé on the Golden Boot (8 goals, 3 assists).", updated:"Jul 15" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
       { name:"Cristian Romero",     status:"fit",   note:"His 79th-minute header vs Egypt sparked the great comeback — second knockout game in a row he has been decisive from a set piece. No issues reported.", updated:"Jul 8" },
       { name:"Lautaro Martínez",    status:"fit",   note:"Started vs Austria and vs Jordan. Reportedly in better physical condition than Álvarez and favoured to start up top vs Cape Verde.", updated:"Jun 29" },
@@ -487,12 +487,20 @@ const WC2026 = {
 
     news: [
       {
-        title: "Final opponent set: Spain beat France 2-0 — Argentina must get past England tonight to reach the final",
+        title: "INTO THE FINAL: Argentina come from behind to beat England 2-1 — Messi sets up both as holders reach Spain showdown",
+        date: "July 15, 2026",
+        source: "NPR / ESPN / Al Jazeera",
+        url: "https://www.espn.com/soccer/match/_/gameId/760515/argentina-england",
+        snippet: "Holders Argentina reached the World Cup final with a dramatic 2-1 comeback win over England in Atlanta. Anthony Gordon put England ahead in the 55th minute, but Lionel Messi took over late — his cross was turned home by Enzo Fernández to equalize (85') before Lautaro Martínez struck the winner in stoppage time (90+2'), again from a Messi delivery. Argentina now face Spain in the July 19 final at MetLife Stadium, chasing a fourth world title.",
+        featured: true
+      },
+      {
+        title: "Final opponent set: Spain beat France 2-0 — Argentina must get past England to reach the final",
         date: "July 15, 2026",
         source: "ESPN / Sky Sports",
         url: "https://www.espn.com/soccer/match/_/gameId/760514/spain-france",
-        snippet: "Spain booked the first place in the July 19 final at MetLife Stadium with a 2-0 win over France (Oyarzabal pen 22', Porro 58'), their first World Cup final since 2010. Argentina now know that beating England in Atlanta tonight (Jul 15, 19:00 ET) would set up a Spain v Argentina final. Messi leads the Golden Boot race on 8 goals going into the semi-final.",
-        featured: true
+        snippet: "Spain booked the first place in the July 19 final at MetLife Stadium with a 2-0 win over France (Oyarzabal pen 22', Porro 58'), their first World Cup final since 2010. Argentina now know that beating England in Atlanta (Jul 15, 19:00 ET) would set up a Spain v Argentina final. Messi leads the Golden Boot race on 8 goals going into the semi-final.",
+        featured: false
       },
       {
         title: "Semi-final set: Argentina meet England in Atlanta on July 15 — top 4 ranked nations all in the last four",
@@ -667,19 +675,19 @@ const WC2026 = {
       },
       {
         round: "Semi-Final",
-        status: "next",
-        match: "ARG vs ENG (England)",
+        status: "done",
+        match: "ARG 2–1 ENG",
         date: "July 15, 2026 · Mercedes-Benz Stadium, Atlanta",
-        result: null,
-        note: "England edged Norway 2-1 after extra time in Miami (Jul 11) — Andreas Schjelderup put Norway ahead (36'), Jude Bellingham equalized on the stroke of half-time and struck the winner in the 93rd. It sets up a blockbuster Argentina vs England semi-final, a rematch loaded with history."
+        result: "WON — from 1-0 down: Enzo Fernández 85', Lautaro Martínez 90+2' (both assisted by Messi)",
+        note: "Anthony Gordon put England ahead in the 55th minute, but the holders roared back. Messi turned provider twice in the closing stages — Enzo Fernández levelled from his cross (85') and Lautaro Martínez won it in stoppage time (90+2'). Argentina reach a second successive World Cup final."
       },
       {
         round: "FINAL",
-        status: "final",
-        match: "ARG vs Winner of other Semi",
-        date: "July 19, 2026",
+        status: "next",
+        match: "ARG vs ESP (Spain)",
+        date: "July 19, 2026 · MetLife Stadium, East Rutherford NJ",
         result: null,
-        note: "MetLife Stadium, East Rutherford NJ. La Albiceleste aiming for a historic fourth World Cup title."
+        note: "Spain await after a 2-0 semi-final win over France (Oyarzabal pen, Porro), conceding just once all tournament. La Albiceleste aim for a historic fourth World Cup title and Messi a second."
       }
     ]
   },
@@ -825,4 +833,4 @@ const WC2026 = {
     { icon:"🏆", title:"48-team World Cup delivers record 120 goals in group stage MD1-MD3 (first 3 groups)", category:"Records", detail:"The expanded 48-team format with 12 groups is delivering a goal feast. The first three group stages alone (Groups A-C) produced 30 goals across 12 matches — an average of 2.5 per game. The all-time World Cup group-stage goals record from 1954 (averaging 5.38 per game) is unlikely to be threatened, but fan engagement and dramatic scorelines have exceeded pre-tournament expectations." }
   ]
 };
-// EOF — refreshed 2026-07-15
+// EOF — refreshed 2026-07-18
