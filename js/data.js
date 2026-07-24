@@ -1,11 +1,11 @@
-// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-19, refresh — 3rd place: France 4-6 England (Miami). England led 4-0 at the break (Rice 3', Konsa 18', Saka 37' & 45+1'), France stormed back through Mbappé (48', 66'), Barcola (54') and Dembélé (90+6'), before Saka's 87' penalty completed his hat-trick and Bellingham struck at 90+8'. 10 goals = most in any WC match since 1982 and most ever in a third-place game; England's best finish since 1966. Mbappé's double takes him to 10 tournament goals (Golden Boot lead) and 22 career WC goals — a new all-time record, passing Messi's 21. 103/104 played. ONLY THE FINAL REMAINS: Spain v Argentina, Jul 19 19:00 UTC at MetLife.) =====
+// ===== WORLD CUP 2026 — DATA (last updated: 2026-07-24, refresh — TOURNAMENT COMPLETE. FINAL: Spain 1-0 Argentina (AET) at MetLife (Jul 19). Ferran Torres struck the only goal in the 106th minute — Pedro Porro's cross was headed on by Nico Williams before Torres finished — after a goalless 90+ minutes in which Spain had 15 shots to Argentina's none. Emiliano Martínez made 12 saves, a record for a World Cup final; Enzo Fernández was sent off for a second yellow just before extra time. Spain's 2nd World Cup title (first since 2010); Luis de la Fuente, 65, the oldest coach to win it. AWARDS: Golden Ball — Rodri (ESP), Silver Ball — Messi, Bronze Ball — Mbappé; Golden Boot — Mbappé (10 goals); Golden Glove — Unai Simón (ESP); Young Player — Pau Cubarsí (ESP). All 104 matches played.) =====
 // All fixture times stored as UTC strings; JS appends 'Z' and converts to IST (+5:30)
 // EDT (Eastern Daylight Time) = UTC-4 during June–July 2026
 // IST = UTC+5:30 = EDT+9:30
 
 "use strict";
 const WC2026 = {
-  lastUpdated: "2026-07-19",
+  lastUpdated: "2026-07-24",
 
   // ── COUNTRY MASTER DATA (48 teams) ─────────────────────────────
   // fifaRank = FIFA World Ranking as of June 11, 2026 (source: FIFA.com via wego.com)
@@ -407,14 +407,14 @@ const WC2026 = {
       { id:"K103", matchNo:103, home:"FRA", away:"ENG", homeSrc:"Loser: Semi-final 1 (M101)", awaySrc:"Loser: Semi-final 2 (M102)", utc:"2026-07-18T21:00", venue:"Hard Rock Stadium, Miami Gardens FL", status:"FT", score:{h:4,a:6}, note:"A chaotic 10-goal classic — the highest-scoring World Cup match since 1982 and the most goals ever in a third-place game. England were 4-0 up at half-time through Declan Rice (3'), an Ezri Konsa header (18') and a Bukayo Saka double (37', 45+1'), only for France to roar back after the break via Kylian Mbappé (48', 66') and substitute Bradley Barcola (54'). Saka completed his hat-trick from the spot (87') after Djed Spence won a penalty, Ousmane Dembélé gave France late hope (90+6') and Jude Bellingham had the final word (90+8'). England take bronze — their best World Cup finish since 1966 — while Mbappé's brace makes him the World Cup's all-time leading scorer on 22 goals. Didier Deschamps' last match in charge of France.", events:[{type:"goal",team:"ENG",player:"Declan Rice",min:3},{type:"goal",team:"ENG",player:"Ezri Konsa",min:18},{type:"goal",team:"ENG",player:"Bukayo Saka",min:37},{type:"goal",team:"ENG",player:"Bukayo Saka",min:"45+1"},{type:"goal",team:"FRA",player:"Kylian Mbappé",min:48},{type:"goal",team:"FRA",player:"Bradley Barcola",min:54},{type:"goal",team:"FRA",player:"Kylian Mbappé",min:66},{type:"goal",team:"ENG",player:"Bukayo Saka (pen)",min:87},{type:"goal",team:"FRA",player:"Ousmane Dembélé",min:"90+6"},{type:"goal",team:"ENG",player:"Jude Bellingham",min:"90+8"}] }
     ],
     final: [
-      { id:"K104", matchNo:104, home:"ESP", away:"ARG", homeSrc:"Winner: Semi-final 1 (M101)", awaySrc:"Winner: Semi-final 2 (M102)", utc:"2026-07-19T19:00", venue:"MetLife Stadium, East Rutherford NJ", status:"UP", note:"THE FINAL (Jul 19): Spain v Argentina at MetLife. La Roja (first final since their 2010 title) meet the holders, who beat England 2-1 in the semi. Messi chases a second World Cup." }
+      { id:"K104", matchNo:104, home:"ESP", away:"ARG", homeSrc:"Winner: Semi-final 1 (M101)", awaySrc:"Winner: Semi-final 2 (M102)", utc:"2026-07-19T19:00", venue:"MetLife Stadium, East Rutherford NJ", status:"FT", score:{h:1,a:0}, note:"AET — Spain are World Cup champions. Ferran Torres came off the bench to win it in the 106th minute of extra time, sweeping home after Pedro Porro's cross was headed back across goal by Nico Williams, following a goalless 90+ minutes in which Spain had 15 shots to Argentina's none. Emiliano Martínez made a record 12 saves for a World Cup final; Enzo Fernández was dismissed for a second yellow just before extra time. Spain's second world title — their first since 2010 — and 65-year-old Luis de la Fuente becomes the oldest coach to win the World Cup. Rodri took the Golden Ball; Messi the Silver Ball.", events:[{type:"goal",team:"ESP",player:"Ferran Torres",min:106},{type:"redcard",team:"ARG",player:"Enzo Fernández",min:98}] }
     ]
   },
 
   // ── STAR MATCHES TO WATCH ────────────────────────────────────────
   starMatches: [
-    { home:"ESP", away:"ARG", utc:"2026-07-19T19:00", group:"FINAL", venue:"MetLife Stadium, East Rutherford NJ",
-      storyline:"THE FINAL (Jul 19): Spain v Argentina at MetLife. Spain reached their first World Cup final since lifting the trophy in 2010 by beating France 2-0, conceding just once all tournament. Argentina, the holders, came from behind to edge England 2-1 in Atlanta (Enzo Fernández 85', Lautaro Martínez 90+2', both created by Messi). Messi hunts a second world title to crown his career." },
+    { home:"ESP", away:"ARG", utc:"2026-07-19T19:00", group:"FINAL (RESULT)", venue:"MetLife Stadium, East Rutherford NJ",
+      storyline:"THE FINAL (Jul 19): Spain 1-0 Argentina (AET) — Spain are champions of the world. Substitute Ferran Torres settled a tense, goalless final in the 106th minute, finishing after Nico Williams flicked on a Pedro Porro cross. Spain dominated with 15 shots to none in normal time; Emiliano Martínez made a record 12 saves and Enzo Fernández was sent off before extra time. It is Spain's second World Cup — their first since 2010 — and denies Messi and the holders back-to-back titles. Rodri won the Golden Ball, Messi the Silver Ball, and Mbappé the Golden Boot (10 goals)." },
     { home:"FRA", away:"ENG", utc:"2026-07-18T21:00", group:"THIRD PLACE (RESULT)", venue:"Hard Rock Stadium, Miami Gardens FL",
       storyline:"Third-place play-off (Jul 18): France 4-6 England — a 10-goal epic in Miami. England raced 4-0 clear by half-time (Rice 3', Konsa 18', Saka 37' & 45+1'), France hit back through Mbappé (48', 66') and Barcola (54') to make it 4-3, then Saka's 87th-minute penalty sealed his hat-trick and Bellingham struck at 90+8' after Dembélé had pulled one back. The most goals in a World Cup match since 1982, and England's best finish since 1966. Mbappé's double took him to 22 career World Cup goals — a new all-time record." },
     { home:"ARG", away:"ENG", utc:"2026-07-15T19:00", group:"SEMI-FINAL (RESULT)", venue:"Mercedes-Benz Stadium, Atlanta",
@@ -423,7 +423,8 @@ const WC2026 = {
 
   // ── ARGENTINA SPECIAL DATA ──────────────────────────────────────
   argentina: {
-    groupStanding: "Won Group J (9/9 pts) → beat Cape Verde 3–2 AET (R32) → beat Egypt 3–2 (R16) → beat Switzerland 3–1 AET (QF) → beat England 2–1 (SF). INTO THE FINAL vs Spain (Jul 19, MetLife) — chasing a fourth World Cup title.",
+    groupStanding: "Won Group J (9/9 pts) → beat Cape Verde 3–2 AET (R32) → beat Egypt 3–2 (R16) → beat Switzerland 3–1 AET (QF) → beat England 2–1 (SF) → LOST THE FINAL 0–1 AET to Spain (Jul 19, MetLife). Runners-up. Ferran Torres' 106th-minute goal denied the holders back-to-back titles; Enzo Fernández was sent off before extra time and Emiliano Martínez made a record 12 saves. Messi took the Silver Ball.",
+    finalResult: "Spain 1–0 Argentina AET (Jul 19, MetLife — Ferran Torres 106'). Argentina finish as runners-up; Enzo Fernández sent off (98', 2nd yellow); Emiliano Martínez made a World Cup final-record 12 saves.",
     r16Result: "Argentina 3–2 Egypt (Jul 7, Atlanta — from 2-0 down: Romero 79', Messi 83', Enzo Fernández 90+2')",
     r32Result: "Argentina 3–2 Cape Verde AET (Jul 3, Miami — Messi 29', L. Martínez 92', Borges OG 111')",
     md1Result: "Argentina 3–0 Algeria (Jun 17, Messi hat-trick)",
@@ -472,7 +473,8 @@ const WC2026 = {
       { name:"Alexis Mac Allister", status:"fit",   note:"Opened the scoring after 10 minutes vs Switzerland and drove the midfield across 120 minutes. Fit and central to the side for the England semi-final.", updated:"Jul 12" },
       { name:"Facundo Medina",      status:"fit",   note:"Returned at left-back for the Switzerland quarter-final and came through 120 minutes without issue. Argentina reported no fresh injuries after the win.", updated:"Jul 12" },
       { name:"Nicolás González",    status:"doubt", note:"Carrying a minor knock ahead of the Round of 16 vs Egypt (Jul 7) per matchday team-news reports — a game-time decision.", updated:"Jul 7" },
-      { name:"Lionel Messi",        status:"fit",   note:"Came through the England semi-final (Jul 15) unscathed and decisive — assisted both goals in the 2-1 comeback win. Declared fit for the final vs Spain (Jul 19) and named in Argentina’s predicted XI alongside E. Martínez, Montiel, Romero, L. Martínez, Tagliafico, Paredes, De Paul, Enzo Fernández, Mac Allister and Álvarez. Now two behind Mbappé in the Golden Boot race (8 goals to 10, level on 4 assists) — needs a brace in the final to reclaim it.", updated:"Jul 19" },
+      { name:"Lionel Messi",        status:"fit",   note:"Played the full final plus extra time vs Spain (Jul 19) but could not find a way through La Roja's defence in a 0-1 AET defeat. Ends the tournament fit, with eight goals, and was awarded the Silver Ball behind Golden Ball winner Rodri. No injury concerns — Argentina finish as runners-up.", updated:"Jul 19" },
+      { name:"Enzo Fernández",      status:"suspended", note:"Sent off in the final for a second yellow card just before the start of extra time (98'), reducing Argentina to 10 men for the decisive period. No injury, but a costly dismissal in the 0-1 AET defeat to Spain.", updated:"Jul 19" },
       { name:"Emiliano Martínez",   status:"fit",   note:"Second consecutive clean sheet. Commanding in both group stage games.",                                       updated:"Jun 24" },
       { name:"Cristian Romero",     status:"fit",   note:"His 79th-minute header vs Egypt sparked the great comeback — second knockout game in a row he has been decisive from a set piece. No issues reported.", updated:"Jul 8" },
       { name:"Lautaro Martínez",    status:"fit",   note:"Started vs Austria and vs Jordan. Reportedly in better physical condition than Álvarez and favoured to start up top vs Cape Verde.", updated:"Jun 29" },
@@ -488,12 +490,20 @@ const WC2026 = {
 
     news: [
       {
+        title: "SO CLOSE: Spain 1-0 Argentina (AET) — Ferran Torres breaks holders' hearts in extra time as Messi's men finish runners-up",
+        date: "July 19, 2026",
+        source: "ESPN / CBS Sports / Al Jazeera",
+        url: "https://www.espn.com/soccer/report/_/gameId/760517",
+        snippet: "Argentina's bid for back-to-back World Cups fell agonizingly short as Spain won the final 1-0 after extra time at MetLife Stadium. The final was goalless through 98 minutes — with Spain taking 15 shots to Argentina's none and Emiliano Martínez making a record 12 saves for a World Cup final — before substitute Ferran Torres swept home in the 106th minute, finishing after Nico Williams headed on a Pedro Porro cross. Argentina were down to 10 men from just before extra time after Enzo Fernández was shown a second yellow. Lionel Messi, who was later awarded the Silver Ball behind Golden Ball winner Rodri, ends the tournament with eight goals as Argentina take the runners-up medal. Spain claim their second world title, first since 2010.",
+        featured: true
+      },
+      {
         title: "FINAL DAY: Argentina meet Spain at MetLife — and Messi needs a brace to snatch the Golden Boot from Mbappé",
         date: "July 19, 2026",
         source: "Sky Sports / Goal.com",
         url: "https://www.skysports.com/football/news/11095/13564837/world-cup-2026-golden-boot-race-kylian-mbappe-pulls-two-goals-clear-of-lionel-messi-ahead-of-world-cup-final",
         snippet: "The 2026 World Cup ends today with Spain v Argentina at MetLife Stadium (Jul 19, 19:00 UTC / 3pm ET / Jul 20 12:30 AM IST). Kylian Mbappé's brace in France's 6-4 third-place defeat to England took him to 10 tournament goals and the outright all-time World Cup scoring record (22), pushing him two clear of Messi in the Golden Boot race. Messi needs two goals against Spain to overhaul him — the pair are level on four assists, the tie-break. Argentina are chasing a fourth world title and back-to-back trophies; Spain, who have conceded just once all tournament, are in their first final since winning it in 2010.",
-        featured: true
+        featured: false
       },
       {
         title: "INTO THE FINAL: Argentina come from behind to beat England 2-1 — Messi sets up both as holders reach Spain showdown",
